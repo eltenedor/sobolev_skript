@@ -1,0 +1,124 @@
+\section{Introduction}
+
+In order to have classical solutions to partial differential equations (PDEs), it is often necessary that parameter functions in the PDE are regular enough or the domain, where the PDE is considered, has a regular boundary (e.g. no edge).
+However in applications or in nature, these regularity assumptions are often not satisfied.
+Hence, a fundamental concept in the theory of PDEs is the concept of weak solutions which is also the basis for important numerical methods (e.g. finite element method).
+The definition of these weak solutions is based on a concept of generalized derivatives of functions, the so called \emph{weak derivatives}. \emph{Sobolev spaces} are Banach spaces consisting of functions with weak derivatives.
+
+Important properties of these spaces will be studied in this lecture and will be a basis to study weak solutions of PDEs afterwards.
+
+Let us start by illustrating the idea behind weak solutions with an example.
+
+\begin{ex}
+  Let $\Omega = (0,1) \subseteq \R$, $f \in \CC^0(\overline \Omega)$ be given. 
+  We look for a solution $u \in \CC^2(\overline \Omega)$ to the Poisson equation in one dimension,
+  \begin{align}
+    -u^{\prime\prime} &= f(x), \quad x \in \Omega \\
+    u(x) &= 0, \quad x \in \{0,1\} \in \partial \Omega \nonumber.
+  \end{align}
+  $u$ e.g. describes the displacement of a string which is fixed at $x = 0$ and $x = 1$, where $f$ is a force acting on the string.
+  Of course the force $f$ is not necessarily continuous in $\overline\Omega$ and could have jumps.
+
+  In order to get a weaker solution concept, let $\varphi \in \CC_0^\infty(\Omega)$ (infinitely often differentiable with compact support in $\Omega$).
+  Then, integration by parts shows
+  $$
+  \int_0^1 -u^{\prime\prime}(x) \varphi(x) \d x = -u^\prime(1) \varphi(1) + u^\prime(0)\varphi(0) + \int_0^1 u^\prime(x)\varphi^\prime(x) \d x.
+  $$
+  Hence, in view of (1.1)
+  \begin{equation}
+    \int_\Omega u^\prime(x)\varphi^\prime(x) \d x = \int_\Omega f(x)\varphi(x) \d x, \quad \forall \varphi \in \CC_0^\infty(\Omega).
+  \end{equation}
+  For (1.2) to be meaningful we do not need a second derivative of $u$.
+  Moreover, $f$ only has to be integrable instead of continuous. 
+  (1.2) will even make sense, if $u^\prime$ is only a weak derivative of $u$ as we will see soon. \qed
+\end{ex}
+
+In order to motivate the definition of weak derivatives, we note the following identity.
+
+\begin{lem}
+  Let $\Omega \subseteq \R^n$ be open and $u \in \CC^1(\Omega)$. 
+  Then, for $i \in \{1,\dots,n\}$ we have
+  \begin{equation}
+    \int_\Omega \frac{\partial u}{\partial x_i} \varphi \d x = -\int_\Omega u \frac{\partial \varphi}{\partial x_i} \d x, \quad \forall \varphi \in \CC_0^\infty(\Omega).
+  \end{equation}
+\end{lem}
+\begin{proof}
+  Exercise.
+\end{proof}
+(1.3) makes sense even if $u, \frac{\partial u}{\partial x_i} \in \Ell_{\loc}^1(\Omega)$ (integrable on any bounded set $V$ with $\overline V \subset \Omega$).
+
+Hence, we define weak derivatives by:
+
+\begin{defn}
+  Let $\Omega \subseteq \R^n$ be open, $u \in \Ell_{\loc}^1(\Omega)$ and $i \in \{1,\dots,n\}$.
+  $u$ has the \emph{weak partial derivative} $\frac{\partial u}{\partial x_i}$, if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
+  \begin{equation}
+    \int_\Omega u(x) \frac{\partial u}{\partial x_i}(x) \d x = -\int_\Omega v(x) \varphi(x) \d x, \forall \varphi \in \CC_0^\infty(\Omega).    
+  \end{equation}
+  Then $\frac{\partial u}{\partial x_i} \coloneqq v$.
+\end{defn}
+
+Let us see in an example which functions have weak derivatives an how to calculate them.
+
+\begin{ex}
+  \begin{enumerate}[a)]
+    \item If $u \in \CC^1(\Omega)$, then by Lemma 1.2 (1.4) is satisfied with $v \coloneqq \frac{\partial u}{\partial x_i}$.
+      Hence, $u$ is weakly differentiable and the weak derivative $\frac{\partial u}{\partial x_i}$ coincides with the classical derivative.
+    \item Let $\Omega = (-1,1) \subset \R$, $u(x) \coloneqq |x|$ for $x \in \Omega$.
+      Then as $u \in \CC^1(\overline \Omega \setminus \{0\}) \cap \CC^0(\overline \Omega)$, we may use the fundamental theorem of calculus to obtain for $\varphi \in \CC_0^\infty(\Omega)$:
+      \begin{align*}
+        \int_\Omega u(x) \varphi^\prime(x) \d x 
+        &= \int_{-1}^0 -x \varphi^\prime(x) \d x + \int_0^1 x \varphi^\prime(x) \d x \\
+        &= \left.\int_{-1}^0 \varphi(x) \d x + (-x \varphi(x))\right|_{-1}^0 - \left.\int_0^1 \varphi(x) \d x + (x \varphi(x))\right|_0^1 \\
+        &= -\int_{-1}^0 -1 \varphi(x) \d x - \int_0^1 1 \varphi(x) \d x
+        = -\int_{-1}^1 v(x) \varphi(x)
+      \end{align*}
+      if we define $v(x) = \begin{cases} 1, \quad &x \in (0,1) \\ -1, \quad &x \in (-1,0). \end{cases}$
+
+      Then $v \in \Ell^1(\Omega)$ and since $\{0\}$ is a set of measure zero in $\R$, we could define $v(0)$ arbitrarily.
+      Hence, $u$ is weakly differentiable with derivative $u^\prime = v$.
+      $u^\prime$ coincides with the classical derivative in all $x \in \Omega$ where the latter exists.
+    \item Defining again $\Omega = (-1,1)$ and $v$ as in b), we have $v \in \Ell_{\loc}^1(\Omega)$ for all $\varphi \in \CC_0^\infty(\Omega)$ we have
+      \begin{align*}
+      \int_\Omega v(x) \varphi^\prime(x) \d x 
+      &= \int_{-1}^0 - \varphi^\prime(x) \d x + \int_0^1 \varphi^\prime(x) \d x 
+      = - \varphi(0) + \varphi(-1) + \varphi(1) - \varphi(0) = -2\varphi(0).
+      \end{align*}
+      Now if $v$ would be weakly differentiable, there would be $w \in \ell_{\loc}^1(\Omega)$ with
+      \begin{equation}
+        -2\varphi(0) = -\int_\Omega w(x) \varphi(x) \d x, \forall \varphi \in \CC_0^\infty(\Omega).
+      \end{equation}
+      Fix some $f \in \CC_0^\infty\left((-1,1)\right)$ with $f(0) = 1$ and define $\varphi_n(x) = f(nx)$ for $x \in (-1,1), n \in \N$ (where $f = 0$ on $\R \setminus(-1,1)$).
+      Then $\varphi_n \in \CC_0^\infty\left( (-1,1)\right)$ with $\varphi_n(x) = 0$ for all $x \in \R \setminus\left(\frac{1}{n}, \frac{1}{n} \right)$ with $\varphi_n(0) = 1$ and $\lim_{n \to \infty} \varphi(x) = 0$ for all $x \in \Omega \setminus \{0\}$. As $\|\varphi_n\|_{\Ell^\infty(\Omega)} \leq \|f\|_{\Ell^\infty(\Omega)} < \infty$ we conclude from the dominated convergence theorem that
+      $$
+      0 = \lim_{n \to \infty} \left( -\int_\Omega w(x) \varphi_n(x) \d x \right) \neq -2 = \lim_{n \to \infty} - 2\varphi_n(x)
+      $$
+      which contradicts (1.5).
+      Hence, $v$ is not weakly differentiable in $\Omega$ 
+  \qed
+  \end{enumerate}
+\end{ex}
+
+Hence, there are functions which are not classically differentiable everywhere and have weak derivatives, but there are also functions being not weakly differentiable (although $v \in  \CC^1(\Omega\setminus\{0\})$ in Example 1.4).
+
+If we define the \emph{Sobolev space}
+$$
+\We^{1,p}(\Omega) \coloneqq \left\{u \in \Ell^p(\Omega) \colon \frac{\partial u}{\partial x_i} \text{ exists in the weak sense, } \frac{\partial u}{\partial x_i} \in \Ell^p(\Omega), \forall i \in \{1,\dots,n\}\right\}
+$$
+for $p \in [1,\infty]$, this is a Banach space which will turn out to be particularly useful in the context of weak solutions of PDEs. 
+So we will study important properties of these spaces (and its generalisations to higher order derivatives) and finally will show how to use them for obtaining weak solutions of PDEs.
+We shortly illustrate the latter in an example.
+
+\begin{ex}
+  We continue Example 1.1 with $\Omega = (-1,1) \subset \R$ and assume that $f \in \Ell^2(\Omega)$.
+  Then in view of (1.2) we say that $u$ is a \emph{weak solution} to (1.1) if $u \in \We^{1,2}(\Omega)$,
+  $$
+  \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x), \quad \forall \varphi \in \CC_0^\infty(\Omega),
+  $$
+  where $u^\prime$ is the weak derivative of $u$, and if $u$ satisfies $u = 0$ on $\partial \Omega$ in a certain weak sense.
+  The latter will be specified in a detailed way in Chapter 7, as $u \in \We^{1,2}(\Omega)$ is not necessarily continuous.
+  In Chapter 7, we will study the generalisation of (1.1) for $\Omega \in \R^n$ being a bounded domain namely the Poisson equation
+  $$
+  -\Delta u = f \text{ in } \Omega, \quad u = 0 \text{ on } \partial \Omega.
+  $$
+\end{ex}

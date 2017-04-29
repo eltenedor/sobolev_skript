@@ -1,0 +1,139 @@
+\section{Some facts about Lebesgue spaces $\Ell^p(\Omega)$}
+
+Here we recall some facts about Lebesgue spaces which should be known from previous lectures.
+
+Throughout this lecture a set $\Omega \subset \R^n$ is called \emph{measurable} if it is measurable w.r.t. the Lebesgue measure on $\R^n$.
+Unless otherwise stated, we always assume in this chapter that $\Omega \subset \R^n$ is measurable.
+
+Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if $\{x \in \Omega \colon u(x) > \alpha\}$ is measurable for any $\alpha \in \R$.
+
+\subsection{$\Ell^p(\Omega)$: definition and basic properties}
+\begin{enumerate}[i)]
+  \item If $u,v \colon \Omega \to [-\infty,\infty]$ are measurable on $\Omega$, they are equivalent if $u = v$ a.e. in $\Omega$.
+    $[u]$ is the equivalence class of $u$.
+    We always identify a function $u$ with its equivalence class.
+  \item For $p \in [1,\infty]$ we define the Lebesgue space
+    $$
+    \Ell^p(\Omega) \coloneqq \{ u \colon \Omega \to [-\infty,\infty] \colon u \text{ measurable }, \|u\|_{\Ell^p(\Omega)} < \infty \},
+    $$
+    where
+    \begin{align*}
+      \|u\|_{\Ell^p(\Omega)} &= \left( \int_\Omega |u(x)|^p \d x \right)^{\frac{1}{p}} \text{ if } p \in [1,\infty), \\
+        \|u\|_{\Ell^\infty(\Omega)} &= \esssup_{x \in \Omega} |u(x)|.
+    \end{align*}
+    With the convention from i), $u = 0$ in $\Ell^p(\Omega)$ if $u = 0$ a.e. in $\Omega$.
+    If $[u]$ contains a continuous function, we assume that $u$ is chosen to be continuous.
+  \item $\Ell^p(\Omega)$ is a Banach space for $p \in [1,\infty]$, i.e. a complete and normed vector space.
+  \item $\Ell^p$ convergence and a.e. convergence: Let $p \in [1,\infty]$, $(u_n)_{n \in \N} \subset \Ell^p(\Omega)$ and $u \in \Ell^p(\Omega)$, such that $u_n \to u$ in $\Ell^p(\Omega)$, i.e. $\|u_n - u\|_{\Ell^p(\Omega)} \to 0$ as $n \to \infty$.
+    Then there is a subsequence $(u_{n_k})_{k \in \N}$ and a function $h \in \Ell^p(\Omega)$ such that $u_{n_k}(x) \to u(x)$ a.e. in $\Omega$ as $k \to \infty$ and $|u_{n_k}(x)| \leq h(x)$ a.e. in $\Omega$ for all $k \in \N$.
+  \item Minkowski's inequality: Let $1 \leq p \leq \infty$ and $u,v \in \Ell^p(\Omega)$.
+    Then
+    $$
+    \|u + v\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}+ \|v\|_{\Ell^p(\Omega)}.
+    $$
+  \item Hölder's inequality: Let $p,q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$ and $u \in \Ell^p(\Omega), v \in \Ell^q(\Omega)$. 
+    Then $uv \in \Ell^1(\Omega)$ and
+    $$
+    \|uv\|_{\Ell^1(\Omega)} \leq \|u\|_{\Ell^p(\Omega)} \|v\|_{\Ell^q(\Omega)}
+    $$
+  \item For $x,y \in \R^n$,
+    \begin{align*}
+      \|x\|_p &= \left( \sum_{i = 1}^n |x_i|^p  \right)^{\frac{1}{p}} \text{ if } p \in [1,\infty), \\
+        \|x\|_{\infty} &= \max_{i} |x_i|
+    \end{align*}
+    the discrete versions of v), vi) are valid:
+    \begin{align*}
+      \|x + y\|_p &\leq \|x\|_p + \|y\|_p \\
+      |x \cdot y| &\leq \|x\|_p \|y\|_q, \text{ for } p \in [1, \infty], \frac{1}{p} + \frac{1}{q} =1.
+    \end{align*}
+  \item General Hölder inequality: Let $p_k \in [1,\infty], \frac{1}{p_1} + \cdots+ \frac{1}{p_m} = 1, m \geq 3, u_k \in \Ell^{p_k}(\Omega), k = 1,\dots,m$.
+    Then
+    $$
+    \int_\Omega |u_1 \cdot \cdots \cdot u_m| \d x \leq \prod_{k = 1}^m \|u_k\|_{\Ell^{p_k}(\Omega)}.
+    $$
+\end{enumerate}
+
+\subsection{Limit theorems and Fubini}
+
+\begin{enumerate}[i)]
+  \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative and point-wise non-decreasing. Then
+    $$
+    \int_\Omega \left( \lim_{n \to \infty} u_n(x) \right) \d x = \lim_{n \to \infty} u_n(x) \d x.
+    $$
+  \item Fatou's lemma: Let $(u_n)_{n \in \N}$ be measurable in $\Omega$ and non-negative. Then
+    $$
+    \int_\Omega \left( \liminf_{n \to \infty} u_n(x) \right) \d x 
+    \leq \liminf_{n \to \infty} \int_\Omega u_n(x) \d x
+    $$
+  \item Dominated convergence (Lebesgue): Let $(u_n)_{n \in \N}$ and $u$ be measurable on $\Omega$ such that $u_n(x) \to u(x)$ as $n \to \infty$ a.e. in $\Omega$ and $|u_n(x)| \leq u(x)$ a.e. in $\Omega$ for all $n \in \N$ and some $u \in \Ell^1(\Omega)$.
+    Then $u_n \in \Ell^1(\Omega)$ for all $n \in \N$ and $\lim_{n \to \infty} \int_\Omega u_n(x) \d x = \int_\Omega u(x) \d x$.
+  \item Fubini's theorem: Let $u = u(x,y)$ be measurable on $\R^{n + m}$ such that at least on of the following integrals exists and is finite:
+    \begin{align*}
+      I_1 &= \int_{\R^{n + m}} |u(x,y)| \d x \d y \\
+      I_2 &= \int_{\R^m} \left( \int_{\R^n} |u(x,y)| \d x \right) \d y \\
+      I_2 &= \int_{\R^n} \left( \int_{\R^m} |u(x,y)| \d y \right) \d x.
+    \end{align*}
+    Then $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$ and $I_1 = I_2 = I_3$.
+\end{enumerate}
+
+\subsection{Dense subspaces and mollifier}
+
+In this subsection let $\Omega \subset \R^n$ be open.
+\begin{enumerate}[i)]
+  \item $\CC_0^\infty(\Omega)$ is dense in $\Ell^p(\Omega)$ for any $p \in [1,\infty)$, i.e. for any $u \in \Ell^p(\Omega)$ and $\varepsilon > 0$ there is $\varphi \in \CC_0^\infty(\Omega)$ such that $\|\varphi - u\|_{\Ell^p(\Omega)} < \varepsilon$.
+    \item Notation: For $\varepsilon > 0, x \in \R^n$, let 
+      \begin{align*}
+        \BB_\varepsilon(x) &\coloneqq \{ y \in R^n \colon |y - x| < \varepsilon \} \\
+        \Omega_\varepsilon &\coloneqq \{ x \in \Omega \colon \dist(x, \partial\Omega) > \varepsilon \} \\
+        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon \Ell^p(V), \forall V \subset\subset \Omega \} \quad\text{for $p \in [1,\infty]$.}
+    \end{align*}
+  \item Standard mollifier: Let
+    $$
+    \eta(x) \coloneqq \begin{cases} c \exp\left( \frac{1}{|x|^2 - 1} \right), &|x| < 1 \\ 0, &|x| \geq 1, \end{cases}
+    $$
+    where $c > 0$ is chosen such that $\int_{\R^n} \eta(x) \d x = 1$.
+    Then $\eta \in \CC_0^\infty(\R^n)$ is called \emph{standard mollifier}.
+    For $\varepsilon > 0$
+    $
+    \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right), x \in \R^n,
+    $
+    satisfies $\eta_\varepsilon \in \CC_0^\infty(\R^n)$, $\int_{\R^n} \eta_\varepsilon(x) \d x = 1$, $\supp(\eta_\varepsilon) = \overline{\BB_\varepsilon(0)}$.
+  \item For $u \in \Ell^2(\Omega)$, we extend $u$ by $u(x) \coloneqq 0$ for all $x \in \R^n \setminus \Omega$ to $u \in \Ell^1(\R^n)$ and define its \emph{mollification} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u$ for $\varepsilon > 0$, i.e.
+    \begin{align*}
+    u_\varepsilon(x) 
+    &= \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y
+    = \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y \\
+    &= \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
+  \end{align*}
+  The mollification has the following properties:
+  \begin{thm}
+    Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then
+    \begin{enumerate}[a)]
+      \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
+      \item If $\supp(u) \subset\subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$. 
+      \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
+      \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
+          Moreover $u_\varepsilon \in \CC^\infty(\Omega)$.
+        \item $u \in \Ell_{\loc}^1$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
+    \end{enumerate}
+  \end{thm}
+  \begin{proof}
+    Exercise sheet 1.
+  \end{proof}
+\end{enumerate}
+
+\subsection{Polar coordinates}
+
+Let $f \in \CC^1(\overline{\BB_r(x_0)})$ with $x_0 \in \R^n$, $r > 0$. Then by the transformation rule with $x = x_0 + sz$, $s \in (0,r)$, $z \in \partial \BB_1(0)$
+$$
+\int_{\BB_r(x_0)} f(x) \d x = \int_0^r \left( \int_{\partial \BB_s(x_0)} f \d \sigma(x) \right) \d s = \int_0^r s^{n - 1} \int_{\partial \BB_1(0)} f(x_0 + sz) \d \sigma(z) \d s
+$$
+In particular, if $x_0 = 0$, $f$ is radially symmetric and $\omega_n$ is the surface $|\partial \BB_1(0)|$ of $\partial \BB_1(0)$
+$$
+\int_{B_r(0)} f(x) \d x = \omega_n \int_0^r f(s) s^{n - 1} \d s,
+$$
+where $s = |x|$.
+
+\begin{proof}
+  Appendix in \cite{evans2010partial}.
+\end{proof}
