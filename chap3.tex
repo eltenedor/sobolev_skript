@@ -52,22 +52,22 @@ We fix $K \subset \Omega$ compact and define
 $$
 \operatorname{sign}(u(x)) \coloneqq 
 \begin{cases} 
-  1, &\text{ if } u(x) > 0 \\
-  -1, &\text{ if } u(x) <  0 \\
+  1, &\text{ if } u(x) > 0, \\
+  -1, &\text{ if } u(x) <  0, \\
   0, &\text{ if } u(x) \in \{ 0, -\infty, +\infty\} \\
 \end{cases}
 $$
 and
 $$
-f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)), &\text{ if } x \in K \\ 0,  &\text{ if } x \in \R^n \setminus K \end{cases}
+f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)), &\text{ if } x \in K, \\ 0,  &\text{ if } x \in \R^n \setminus K. \end{cases}
 $$
 As $|u| < \infty$ a.e. in $K$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem 2.1 a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
 As moreover
 $$
 |\varphi_{n_k}(x)| 
 \leq \int_\Omega \eta_{\frac{1}{n}}(x - y) |f(y)| \d y
-\leq \underbrace{\|f\|_{\Ell^\infty(\Omega)}}_{\leq 1} \underbrace{ \int_\Omega \eta_{\frac{1}{n}} (x - y) \d y}_{\leq 1}
-\leq 1, \quad \forall x \in \Omega, k \in \N
+\leq \underbrace{\vphantom{\int_\Omega}\|f\|_{\Ell^\infty(\Omega)}}_{\leq 1} \underbrace{ \int_\Omega \eta_{\frac{1}{n}} (x - y) \d y}_{\leq 1}
+\leq 1, \quad \forall x \in \Omega, k \in \N,
 $$
 the dominated convergence theorem implies
 $$

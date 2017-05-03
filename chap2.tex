@@ -85,7 +85,7 @@ In this subsection let $\Omega \subset \R^n$ be open.
       \begin{align*}
         \BB_\varepsilon(x) &\coloneqq \{ y \in R^n \colon |y - x| < \varepsilon \} \\
         \Omega_\varepsilon &\coloneqq \{ x \in \Omega \colon \dist(x, \partial\Omega) > \varepsilon \} \\
-        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon \Ell^p(V), \forall V \subset\subset \Omega \} \quad\text{for $p \in [1,\infty]$.}
+        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon \Ell^p(V), \forall V \Subset \Omega \} \quad\text{for $p \in [1,\infty]$.}
     \end{align*}
   \item Standard mollifier: Let
     $$
@@ -98,8 +98,8 @@ In this subsection let $\Omega \subset \R^n$ be open.
     \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right), x \in \R^n,
     $
     satisfies $\eta_\varepsilon \in \CC_0^\infty(\R^n)$, $\int_{\R^n} \eta_\varepsilon(x) \d x = 1$, $\supp(\eta_\varepsilon) = \overline{\BB_\varepsilon(0)}$.
-  \item For $u \in \Ell^2(\Omega)$, we extend $u$ by $u(x) \coloneqq 0$ for all $x \in \R^n \setminus \Omega$ to $u \in \Ell^1(\R^n)$ and define its \emph{mollification} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u$ for $\varepsilon > 0$, i.e.
-    \begin{align*}
+  \item For $u \in \Ell^1(\Omega)$, we extend $u$ by $u(x) \coloneqq 0$ for all $x \in \R^n \setminus \Omega$ to $u \in \Ell^1(\R^n)$ and define its \emph{mollification} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u$ for $\varepsilon > 0$, i.e.
+  \begin{align*}
     u_\varepsilon(x) 
     &= \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y
     = \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y \\
@@ -110,25 +110,128 @@ In this subsection let $\Omega \subset \R^n$ be open.
     Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then
     \begin{enumerate}[a)]
       \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
-      \item If $\supp(u) \subset\subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$. 
+      \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$, for small enough $\varepsilon$. 
       \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
       \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
           Moreover $u_\varepsilon \in \CC^\infty(\Omega)$.
-        \item $u \in \Ell_{\loc}^1$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
+        \item $u \in \Ell_{\loc}^1(\Omega)$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
     \end{enumerate}
   \end{thm}
   \begin{proof}
-    Exercise sheet 1.
+    a): Let $h > 0$, $x \in \R^n$ and fix some $i = 1,\dots,n$. Since $u \in \Ell^1(\Omega)$, by extending $u$ with $0$ we can assume $u \in \Ell^1(\R^n)$. 
+    We denote this extension again with $u$.
+    Then, we have
+    $$
+    \frac{u_\varepsilon(x + h e_i) - u_\varepsilon(x)}{h}
+    = \int_{\R^n} \frac{\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon(x - y)}{h} u(y) \d y .
+    $$
+    The integrand on the right hand side of the above inequality is pointwise convergent to $\partial_i \eta_\varepsilon$.
+    Furthermore, by the mean value theorem and the fact that $\eta_\varepsilon \in \CC_0^\infty(\R^n)$ we have
+    $$
+    \left|\frac{\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon(x - y)}{h} u(y)\right|
+  \leq \|\partial_i \eta_\varepsilon \|_\infty |u(y)|, \quad \forall y \in \R^n.
+    $$
+    But the right hand side is by assumption in $\Ell^1(\R^n)$, so Lebesgue's theorem yields
+    $$
+    \partial_i u_\varepsilon(x) = (\partial_i \eta_\varepsilon) \ast u (x),
+    $$
+    with $\partial_i \eta_\varepsilon \in \CC_0^\infty(\R^n)$.
+    This procedure can now be repeated yielding arbitrary derivatives of $u_\varepsilon$.
+
+    We now show that $u_\varepsilon(x) \to u(x)$ a.e. for $\varepsilon \downarrow 0$.
+    Since
+    \begin{align*}
+    |u_\varepsilon(x) - u(x)|
+    &\leq \left| \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y - u(x) \right| \\
+    &\overset{\mathrm{iii)}}{=} \left| \frac{1}{\varepsilon^n} \int_{\R^n} \eta\left(\frac{x - y}{\varepsilon}\right) ( u(y) - u(x) ) \d y \right| \\
+    &\leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_{\varepsilon}(x)} \|\eta\|_\infty |u(y) - u(x)| \d y,
+    \end{align*}
+    where we have used properties of the standard mollifier, the claim follows from the Lebesgue differentiation theorem.
+
+    b): If $\partial \Omega = \emptyset$, then $\Omega$ is clopen. 
+    But since $\R^n$ is connected, the only clopen sets are $\emptyset$ and $\R^n$.
+    In both cases, the claim follows by choosing $\varepsilon = 1$.
+    Hence, in the following we will assume that $\partial \Omega \neq \emptyset$.
+    Since $S: \supp(u)$ is compactly contained in $\Omega$ by assumption, the continuous function 
+    $$d(\cdot,\partial\Omega) \colon \supp(u) \to \R, x \mapsto \d(x,\partial\Omega) \inf_{z \in \partial \Omega} |z - x|$$
+    attains a minimum $\varepsilon_{\mathrm{min}}$. If we now choose $\varepsilon < \varepsilon_{\mathrm{min}}$, we deduce that
+    $$
+    \supp(u_\varepsilon) \subseteq \supp(u) + \overline{\BB_\varepsilon(0)} \subsetneq \Omega
+    $$
+    and the claim follows.
+
+    c): Note that $V \Subset \overline{V}_\gamma \Subset \Omega$ for some $\varepsilon > 0$ since $V$ is compactly contained in $\Omega$.
+    Since $u \in \CC^0(\Omega)$, this function is uniformly continuous on $\overline V_\gamma$. Hence, for all $\alpha > 0$ there exists $\beta > 0$ such that for all $x,y \in \overline V_\gamma$ with $|x - y| < \beta$
+    $$
+    |u(x) - u(y)| \leq \frac{\alpha}{C \|\eta\|_\infty},
+    $$
+    Then, with the same estimates as for a), for all $x \in V, y \in \overline{V}_\varepsilon$ and $\varepsilon \leq \gamma$ the following holds:
+    $$
+    |u_\varepsilon(x) - u(x)|
+    \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_{\varepsilon}(x)} \|\eta\|_\infty |u(y) - u(x)| \d y \leq  \alpha.
+    $$
+    Therefore, the convergence on $V$ is uniform.
+
+    d): We extend $u$ with $0$ outside of $\Omega$ and calculate
+    \begin{align*}
+      \int_\Omega |u_\varepsilon(x)|^p \d x
+      &\leq \int_\Omega \left| \int_\Omega \eta_\varepsilon(x - y) u(y) \d y \right|^p \d x\\
+      &\leq \int_\Omega \left| \int_\Omega \eta_\varepsilon(x-y)^{1 - \frac{1}{p}}\eta_\varepsilon(x - y)^{\frac{1}{p}} u(y) \d y \right|^p \d x \\
+      &\leq \int_\Omega \left(\int_\Omega \eta_\varepsilon(x - y) \d y\right)^{1 - \frac{1}{p}} \left(\int_\Omega \eta_\varepsilon(x - y)|u(y)|^p \d y \right) \d x \\
+      &\leq \int_\Omega |u(y)|^p \left(\int_\Omega \eta_\varepsilon(x - y) \d x\right) \d y,
+    \end{align*}
+    where we used the Hölder inequality.
+    The right hand side is finite since by assumption $u \in \Ell^p(\Omega)$ thus $u_\varepsilon \in \Ell^p(\Omega)$ as well and we furthermore have
+    $$
+    \|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}
+    $$
+    considering that the integral of $\eta_\varepsilon$ is $1$ by iii).
+
+    Now let $\delta > 0$ be given.
+    We know that $C_0^0(\Omega)$ is dense in $\Ell^p(\Omega)$. 
+    Thus, there exists $\tilde u \in C_0^\infty(\Omega)$ with
+    $$
+    \| \tilde u - u \|_{\Ell^p(\Omega)} < \frac{\delta}{3}.
+    $$
+    Furthermore, since $\tilde u$ has compact support, by c) we know that that $\tilde u_\varepsilon$ converges uniformly to $\tilde u$.
+  Therefore, there exists $\varepsilon' > 0$ such that for all $\varepsilon \leq \varepsilon'$ we have
+    $$
+    \|\tilde u_\varepsilon - \tilde u\|_{\Ell^p(\Omega)} \leq \|\tilde u_\varepsilon - \tilde u\|_{\Ell^\infty(\Omega)} \leq \frac{\delta}{3},
+    $$
+    where we used the fact that $\tilde u$ and $\tilde u_\varepsilon$ have compact support to estimate the $\Ell^p$-norms.
+    Finally, we have by the previous calculations that
+    $$
+    \|u_\varepsilon - \tilde u_\varepsilon\|_{\Ell^p(\Omega)}
+    = \|(u - \tilde u)_\varepsilon\|_{\Ell^p(\Omega)}
+    \leq \|u - \tilde u\|_{\Ell^p(\Omega)} \leq \frac{\delta}{3}.
+    $$
+    We can now deduce
+    $$
+    \|u_\varepsilon - u\|_{\Ell^p(\Omega)} \leq \delta
+    $$
+    by the usual argument and conclude that $u_\varepsilon \to u$ in $\Ell^p$.
+
+    e): Extending $u$ by $0$ outside of $\Omega$ we can assume $u \in \Ell^1_{\loc}(\R^n)$.
+    Let $\varepsilon > 0$, $x \in \Omega_\varepsilon$ and fix $i =1,\dots,n$. 
+    Choose $h> 0$ such that $x + he_i \in \Omega_\varepsilon$. Like in a) we calculate
+    \begin{align*}
+    \frac{u_\varepsilon(x + h e_i) - u_\varepsilon(x)}{h}
+    &= \int_{\R^n} \frac{\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon(x - y)}{h} u(y) \d y, \\
+    \intertext{where the right hand side is well defined, since the difference of two $\CC_0^\infty(\R^n)$ functions has again compact support and we furthermore deduce}
+    &= \int_{\BB_{\varepsilon + h}(x)} \frac{\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon(x - y)}{h} u(y) \d y.
+  \end{align*}
+
+    We can now argue as in a) to prove the differentiability.
   \end{proof}
 \end{enumerate}
 
 \subsection{Polar coordinates}
 
-Let $f \in \CC^1(\overline{\BB_r(x_0)})$ with $x_0 \in \R^n$, $r > 0$. Then by the transformation rule with $x = x_0 + sz$, $s \in (0,r)$, $z \in \partial \BB_1(0)$
+Let $f \in \CC^1(\overline{\BB_r(x_0)})$ with $x_0 \in \R^n$, $r > 0$. Then by the transformation rule with $x = x_0 + sz$, $s \in (0,r)$, $z \in \partial \BB_1(0)$ we have
 $$
-\int_{\BB_r(x_0)} f(x) \d x = \int_0^r \left( \int_{\partial \BB_s(x_0)} f \d \sigma(x) \right) \d s = \int_0^r s^{n - 1} \int_{\partial \BB_1(0)} f(x_0 + sz) \d \sigma(z) \d s
+\int_{\BB_r(x_0)} f(x) \d x = \int_0^r \left( \int_{\partial \BB_s(x_0)} f \d \sigma(x) \right) \d s = \int_0^r s^{n - 1} \int_{\partial \BB_1(0)} f(x_0 + sz) \d \sigma(z) \d s.
 $$
-In particular, if $x_0 = 0$, $f$ is radially symmetric and $\omega_n$ is the surface $|\partial \BB_1(0)|$ of $\partial \BB_1(0)$
+In particular, if $x_0 = 0$, $f$ is radially symmetric and $\omega_n$ is the surface $|\partial \BB_1(0)|$ of $\partial \BB_1(0)$, we get
 $$
 \int_{B_r(0)} f(x) \d x = \omega_n \int_0^r f(s) s^{n - 1} \d s,
 $$
