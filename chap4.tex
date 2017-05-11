@@ -1,1 +1,185 @@
+\chapter{Approximation by smooth functions}
+
+As it is often complicated to use the definition of weak derivatives for proving properties of Sobolev spaces, we aim to approximate functions in Sobolev spaces by smooth functions.
+
+\section{Interior approximation}
+
+We prove that mollification from 2.3 provides approximating functions in $\WW_{\loc}^{k,p}(\Omega)$.
+
+\begin{thm}
+  Let $\Omega \subseteq \R^n$ be open, $k \in \N$, $p \in [1,\infty)$, and $u \in \WW^{k,p}(\Omega)$.
+    Then the following statements hold:
+    \begin{enumerate}[a)]
+      \item $u_\varepsilon \in \CC^\infty(\Omega)$ and $\DD^\alpha(u_\varepsilon)(x) = (\DD^\alpha u)_\varepsilon(x)$, for all $ x \in \Omega_\varepsilon$ and all $\alpha \in \N_0^n$ with $|\alpha| \leq k$.
+      \item $u_\varepsilon \to u$ in $\WW_{\loc}^{k,p}(\Omega)$, as $\varepsilon \downarrow 0$.
+    \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  a) By Theorem 2.1 we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
+  $$
+  \DD^\alpha u_\varepsilon(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
+  $$
+  see proof of Theorem 2.1 a), d).
+  For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
+  \begin{align*}
+    \DD^\alpha (u_\varepsilon)(x) 
+    &= (-1)^{|\alpha|} \int_\Omega \DD_y^\alpha (\eta_\varepsilon (x - y))\, u(y) \d y
+    = (-1)^{|\alpha|} \int_\Omega \DD^\alpha \phi(y) \, u(y) \d y \\
+    &\overset{(3.3)}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
+    = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y.
+    = (\DD^\alpha u)_\varepsilon(x).
+  \end{align*}
+  Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
+
+  b) In view of a) and Theorem 2.1 d) for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon$ for $\varepsilon$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
+  Then
+  $$
+  \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0
+  $$
+  as $\varepsilon \downarrow 0$.
+\end{proof}
+
 \section{Approximation by smooth functions}
+
+In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ (and not only in $\WW^{k,p}_{\loc}(\Omega)$), we need the following lemmas to construct a partition of unity.
+
+\begin{lem}
+  Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
+  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff-function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$, for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
+\end{lem}
+
+\begin{proof}
+  We may choose $\delta > 0$ since $K$ is compact.
+  Hence, 
+  $$
+  \tilde K \coloneqq \overline{\bigcup_{x \in K} \BB_{\frac{\delta}{2}}(x)}
+  $$
+  is compact with $\dist(\partial \tilde K, \partial K) = \frac{\delta}{2} \leq \dist(\delta \tilde K, \partial \Omega)$.
+
+  As $\chi_{\tilde K} \in \Ell^1(\Omega)$ with $\supp \chi_{\tilde K} = \tilde K \Subset \Omega$, we have that $\tau \coloneqq \eta_{\frac{\delta}{4}} \ast \chi_{\tilde K}$ satisfies $\tau \in \CC_0^\infty(\Omega)$, $0, \leq \tau \leq 1$, and $\tau = 1$ in $K$ by Theorem 2.1, as
+  $$
+  \tau(x) = \int_{\BB_{\frac{\delta}{4}}}(x - y) \underbrace{\chi_{\tilde K}(y)}_{= 1} \d y = 1, \quad\text{for all }x \in K,
+  $$
+  since $\BB_{\frac{\delta}{4}}(x) \subset \tilde K$.
+  Moreover, for $|\alpha| = k$
+  $$
+  \DD^\alpha \eta_{\frac{\delta}{4}}(x) 
+  = \left( \frac{4}{\delta}\right)^n \DD^\alpha \left[ \eta \left( \frac{4 }{\delta} x \right) \right] 
+  =  \left( \frac{4}{\delta}\right)^{n+k} (\DD^\alpha \eta)\left( \frac{4}{\delta} x \right).
+  $$
+  Hence, for $x \in \Omega \setminus K$, we have 
+  $$
+    |\DD^\alpha \tau (x) | 
+    \leq \int_{\BB_{\frac{\delta}{4}}(x)}\, \left(\frac{4}{\delta}\right)^{n + k}\, \|\DD^\alpha \eta \|_{\Ell^\infty(\R^n)} \,\chi_{\tilde K}(y) \d y
+    \leq \tilde c(n,k) \, \delta^{-n - k} \, |\BB_{\frac{\delta}{4}}(x)| \leq c(n,k)\, \delta^{-n-k}.\qedhere
+ $$
+\end{proof}
+
+\begin{lem}[Partition of unity]
+  Let $K \subset \R^n$ be compact and $\{\Omega_k\}_{k = 1,\dots,N}$ be an open covering of $K$.
+  Then, there exist $\psi_k, k=1,\dots,N$, called \emph{partition of unity} such that $\psi_k \in \CC_0^\infty(\Omega_k)$, $0 \leq \psi_k \leq 1$ in $\Omega_k$, and $\sum_{k = 1}^N \psi_k(x) = 1$, for all $x \in K$.
+\end{lem}
+
+\begin{proof}
+  For any $x \in K$ there is $r = r(x) > 0$ and $1\leq k \leq N$ such that $\BB_{x, k} \coloneqq \BB_r(x) \Subset \Omega_k$.
+  Hence, $$\{B_{x,k}\}_{\substack{x \in K \cap \Omega_k, \\ k = 1,\dots,N}}$$ is an open covering of $K$ and has a finite subset still covering $K$, called $$\{B_i^k\}_{\substack{i = 1,\dots,N_k \\ k = 1,\dots,N}}.$$ Then,
+  $$
+  K_k \coloneqq \overline{\bigcup_{i = 1}^{N_k} B_i^k}
+  $$
+  satisfies $K_k \Subset \Omega_k$ and $\bigcup_{k = 1}^N K_k \supset K$.
+  Let $\tilde \psi_k$ denote the cutoff-function w.r.t $K_k, \Omega_k$.
+  Hence, $\tilde \psi_k \in \CC_0^\infty(\Omega_k)$ satisfies $0 \leq \tilde \psi_k \leq 1$ and
+  $$
+  \psi(x) \coloneqq \sum_{k = 1}^N \tilde \psi_k(x) \geq 1, \quad\text{for all } x \in K.
+  $$
+  Furthermore, we have
+  $$
+  K \Subset \Omega \coloneqq \bigcup_{k = 1}^N \supp(\tilde \psi_k)
+  $$
+  and t here is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
+  Let $\tau$ be a cutoff-function w.r.t $K, \Omega_0$ and
+  $$
+  \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)}, &\quad x \in \Omega_0, \\ 0, &\quad \text{if } x \not\in \Omega. \end{cases}
+  $$
+  Then $\psi_1,\dots,\psi_N$ have the claimed properties.
+\end{proof}
+
+Now we prove the announced resuld that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$ without assuming any smoothness of $\partial \Omega$.
+
+\begin{thm}[Meyers and Serrin]
+  Let $\Omega \subset \R^n$ be open, $k \in \N$, and $p \in [1,\infty)$.
+    Then, $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+  \item With
+    $$
+    U_i \coloneqq \{ x \in \Omega \colon \dist(x, \partial \Omega) > \frac{1}{i} \text{ and } |x| < i\}, \quad i \in \N,
+    $$
+    we have $\bigcup_{i = 1}^\infty U_i = \Omega$ and $U_i \subset U_{i + 1}$.
+    Moreover, 
+    $$V_i \coloneqq U_{i + 4} \setminus \overline{U_{i + 1}}, i \in \N\quad\text{and}\quad V_0\coloneqq U_4$$
+    are all open with $V_i \Subset \Omega$ for all $i \in \N_0$ and  $\Omega = \bigcup_{i = 0}^\infty V_i$.
+    Defining further 
+    $$
+    W_i \coloneqq \overline{U_{i + 3}} \setminus U_{i + 2}, i \in \N \quad\text{and}\quad W_0 \coloneqq \overline U_3,
+    $$
+    all $W_i \subset V_i$ are compact and we have $\Omega = \bigcup_{i = 0}^\infty W_i$.
+    Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff-function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
+    %Since for all $j \geq i + 2$
+    %$$W_i \cap V_j 
+    %= \left(\overline{U_{i + 3}} \cap \overline{U_{j + 1}}^{\mathrm c}  \right)\cap \left( U_{i + 2}^{\mathrm c} \cap  U_{j + 4}   \right) 
+    %=  \emptyset,$$ 
+    %alternativ
+    Since for all $j \geq i + 3$, $V_i \cap V_j = \emptyset$,
+    for any $x \in \Omega$ we have
+    $$
+    \sigma(x) \coloneqq \sum_{i = 0}^\infty \psi_i(x) > 0
+    $$
+    and only finitely many of the $\psi_i(x)$ are non-zero.
+    Hence, $\{\xi_i\}_{i = 0}^\infty$, defined by
+    $$\xi_i(x) \coloneqq \frac{\psi_i(x)}{\sigma(x)}, \quad x \in \Omega,$$
+      is a \emph{partition of unity subordinate to} $\{V_i\}_{i = 0}^\infty$, i.e. $\xi_i \in \CC_0^\infty(\Omega)$, $0 \leq \xi_i \leq 1$, and $\sum_{i = 0}^\infty \xi_i = 1$ in $\Omega$ and for any $K \Subset \Omega$, $\xi_i|_K \not\equiv 0$ only for finitely many $i$.
+  \item 
+    Let $u \in \WW^{k,p}(\Omega)$ be arbitrary.
+    Then, by Proposition 3.8d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
+    We fix $\delta > 0$.
+    Then, for any $i \in \N_0$ we define
+    $$
+    Z_i \coloneqq U_{i + 5} \setminus \overline{U_i} \supset V_i, i \in \N \quad\text{and}\quad Z_0 \coloneqq U_5 \supset V_0.
+    $$
+    In view of Theorem 4.1, there is $\varepsilon_i > 0$ small enough such that $u_i \coloneqq \eta_{\varepsilon_i} \ast (\xi_i u)$ satisfies $u_i \in \CC_0^\infty(Z_i)$ and
+    \begin{equation}
+      \|u_i - \xi_i u \|_{W^{k,p}(\Omega)} = \|u_i - \xi_i u\|_{W^{k,p}(Z_i)} \leq \frac{\delta}{2^{i + 1}}
+    \end{equation}
+    for $i \in \N_0$, as $u_i - \xi_i u \equiv 0$ in $\Omega \setminus Z_i$.
+    Define
+    $$
+    v(x) \coloneqq \sum_{i = 0}^\infty u_i(x), x \in \Omega.
+    $$
+    Then, for any open set $V \Subset \Omega$ only finitely many $u_i$ satisfy $u_i|_V \not\equiv 0$.
+    Since $u = \sum_{i = 0}^\infty \xi_i u$, we obtain $v \in \CC^\infty(\Omega)$ and
+    $$
+    \|v - u\|_{\WW^{k,p}(V)}
+    \leq \sum_{i = 0}^\infty \|u_i - \xi_i u\|_{\WW^{k,p}(V)}
+    \overset{(4.1)}{\leq} \delta \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
+    = \delta, \quad\text{for all } V \Subset \Omega.
+    $$
+    Since $U_i \subset U_{i + 1}$, for all $i \in \N$, $U_i \Subset \Omega$ , and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem
+    $$
+    \|v - u\|_{\WW^{k,p}(\Omega)}^p
+    = \sum_{|\alpha| \leq k} \|\DD^\alpha (v - u) \|_{\Ell^p(\Omega)}^p
+    = \lim_{i \to \infty} \sum_{|\alpha| \leq k} \|\DD^\alpha(v - u) \|_{\Ell^p(U_i)}^p
+    = \delta^p
+    $$
+    As $\delta > 0$ was arbitrary, the claim is proved. \qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{rem}
+  Historically, there were two definitions of Sobolev spaces.
+  $\WW^{k,p}(\Omega)$ was defined as in Definition 3.5 while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
+  Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
+\end{rem}

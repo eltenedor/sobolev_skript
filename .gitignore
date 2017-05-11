@@ -1,0 +1,8 @@
+*.aux
+*.swp
+sobolev.bbl
+sobolev.blg
+sobolev.log
+sobolev.out
+sobolev.pdf
+sobolev.toc

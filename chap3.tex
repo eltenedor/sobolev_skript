@@ -1,15 +1,15 @@
-\section{Weak derivatives and definitions of Sobolev spaces}
+\chapter{Weak derivatives and definitions of Sobolev spaces}
 
 We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open, we have 
 \begin{equation}
-  \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x, \quad \forall \varphi \in \CC_0^\infty(\Omega).
+  \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x, \quad \text{ for all } \varphi \in \CC_0^\infty(\Omega).
 \end{equation}
 
 More generally, for higher order derivatives we have the following result:
 \begin{lem}
   Let $\Omega \subset \R^n$ be open, $u \in \CC^k(\Omega)$ with $k \in \N$, and $\alpha \in \N_0^n$ be a multiindex with $|\alpha| = k$. Then
   \begin{equation}
-    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(s) \d x, \quad\forall \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(s) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{lem}
 
@@ -29,7 +29,7 @@ As the integrals in (3.2) are meaningful if $u, \DD^\alpha u \in \Ell^1_{\loc}(\
   Let $\Omega$ be an open set, $u \in \Ell^1_{\loc}(\Omega)$ and $\alpha \in \N_0^n$ a multiindex. 
   $u$ has the \emph{$\alpha$th weak partial derivative} $\DD^\alpha u$ if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
   \begin{equation}
-    \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x, \quad \forall \varphi \in \CC_c^\infty(\Omega).
+    \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{defn}
 
@@ -40,14 +40,14 @@ In order to show the uniqueness of the weak derivative we need the following fun
   Let $\Omega \subset \R^n$ be open and $u \in \Ell_{\loc}^1(\Omega)$.
   Then we have the equivalence
   $$
-  \int_\Omega u(x) \varphi(x) \d x = 0, \quad \forall \varphi \in \CC_0^\infty(\Omega) \iff u = 0 \text{ a.e. in } \Omega.
+  \int_\Omega u(x) \varphi(x) \d x = 0, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega) \iff u = 0 \text{ a.e. in } \Omega.
   $$
 \end{lem}
 
 \begin{proof}
   ``$\impliedby$'' is obvious.
 
-``$\implies$'': Let $u \in \Ell^1_{\loc}(\Omega)$ with $\int_\Omega u\varphi \d x = 0, \forall \varphi \in \CC_0^\infty(\Omega)$.
+  ``$\implies$'': Let $u \in \Ell^1_{\loc}(\Omega)$ with $\int_\Omega u\varphi \d x = 0, \text{ for all } \varphi \in \CC_0^\infty(\Omega)$.
 We fix $K \subset \Omega$ compact and define
 $$
 \operatorname{sign}(u(x)) \coloneqq 
@@ -67,7 +67,7 @@ $$
 |\varphi_{n_k}(x)| 
 \leq \int_\Omega \eta_{\frac{1}{n}}(x - y) |f(y)| \d y
 \leq \underbrace{\vphantom{\int_\Omega}\|f\|_{\Ell^\infty(\Omega)}}_{\leq 1} \underbrace{ \int_\Omega \eta_{\frac{1}{n}} (x - y) \d y}_{\leq 1}
-\leq 1, \quad \forall x \in \Omega, k \in \N,
+\leq 1, \quad\text{for all } x \in \Omega, k \in \N,
 $$
 the dominated convergence theorem implies
 $$
@@ -98,14 +98,14 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     \item Let $k \in \N$, $p \in [1,\infty]$ and $\Omega \subset \R^n$ be open. 
       We define the Sobolev space
       $$
-      \WW^{k,p}(\Omega) \coloneqq \left\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } D^\alpha \text{ exists with } \DD^\alpha \in \Ell^p, \forall 0 \leq |\alpha| \leq k \right\}
+      \WW^{k,p}(\Omega) \coloneqq \bigg\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } D^\alpha u \text{ exists with } \DD^\alpha u \in \Ell^p(\Omega), \text{ for all } 0 \leq |\alpha| \leq k \bigg\}
       $$
       with the norm
       $$
       \|u\|_{\WW^{k,p}(\Omega)} \coloneqq 
       \begin{cases}
-        \left( \sum_{|\alpha| \leq k} \|\DD^\alpha\|_{\Ell^p(\Omega)}^p \right)^{\frac{1}{p}} &\text{ if } p \in [1,\infty), \\
-          \sum_{|\alpha| \leq k} \|\DD^\alpha\|_{\Ell^\infty(\Omega)} &\text{ if } p = \infty.
+        \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^p(\Omega)}^p \right)^{\frac{1}{p}} &\text{ if } p \in [1,\infty), \\
+          \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^\infty(\Omega)} &\text{ if } p = \infty.
       \end{cases}
       $$
       We further define
@@ -124,7 +124,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
 
 \begin{rem}
   \begin{enumerate}[a)]
-    \item For $\alpha = (0,\dots,0)$ we set $\DD^\alpha u = \DD^0 u = 0$.
+    \item For $\alpha = (0,\dots,0)$ we set $\DD^\alpha u = \DD^0 u = u$.
       We further identify functions in $\WW^{k,p}(\Omega)$ which agree a.e.
       If for $u \in \WW^{k,p}(\Omega)$ the equivalence class $[u]$ contains a continuous representative, the latter is chosen for $u$.
     \item $u \in \WW_0^{k,p}(\Omega)$ if and only if there exists $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$.
@@ -140,8 +140,8 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
 
     Since $u \in C^\infty(\Omega \setminus \{0\})$, we have for $x \neq 0$
     \begin{align*}
-      u_{x_i}(x) &= -a|x|^{-a-1} \frac{x_i}{|x|} = -\frac{ax_i}{|x|^{a + 2}} \\
-      |\nabla u(x)| &= \frac{|a|}{|a|^{a + 1}}.
+      u_{x_i}(x) &= -a|x|^{-a-1} \frac{x_i}{|x|} = -\frac{ax_i}{|x|^{a + 2}} \quad \text{and} \\
+      |\nabla u(x)| &= \frac{a}{|x|^{a + 1}}.
     \end{align*}
     For fixed $\varphi \in \CC_0^\infty(\Omega)$ and $\varepsilon > 0$, Green's formula ($\nu$ is the outward unit normal on $\Omega \setminus \overline{\BB_\varepsilon(0)}$ ) implies
     \begin{equation}
@@ -175,10 +175,10 @@ Next, we prove some elementary properties of weak derivatives which are well kno
     \item If $V \subset \Omega$ is open, the $u \in \WW^{k,p}(V)$.
     \item If $\xi \in \CC_0^\infty(\Omega)$, then $\xi u \in \WW^{k,p}(\Omega)$ and Leibniz's formula
       $$
-      \DD^\alpha(\xi u) = \sum_{\beta \leq \alpha} {\alpha \choose \beta} \DD^\beta\xi \DD^{\alpha - \beta} u
+      \DD^\alpha(\xi u) = \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta\xi \DD^{\alpha - \beta} u
       $$
       holds with 
-      $${{\alpha} \choose {\beta}} = \frac{\alpha!}{(\alpha -\beta)! \beta!}, \quad \alpha! = \prod_{i = 1}^n \alpha_i!$$
+      $$\binom{\alpha}{\beta} = \frac{\alpha!}{(\alpha -\beta)! \beta!}, \quad \alpha! = \prod_{i = 1}^n \alpha_i!$$
       and
       $$\quad \beta \leq \alpha \iff \forall i \in \{1,\dots,n\}\colon \beta_i \leq \alpha_i.$$
   \end{enumerate}
@@ -213,12 +213,15 @@ Next, we prove some elementary properties of weak derivatives which are well kno
   \begin{align*}
     \int_\Omega \xi u \DD^\alpha \varphi
     &= \int_\Omega \xi u\DD^\beta (\DD^\gamma \varphi ) \d x \\
-    &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} {\beta \choose \sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
-    &\overset{(3.3)}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} {\beta \choose \sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
-    &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} {\beta \choose \sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
-    &= (-1)^{|\alpha|} \int_\Omega \sum_{\rho \leq \alpha} \left[ {\beta \choose \rho - \gamma} + {\beta \choose \rho}\right] \DD^\rho \xi \DD^{\alpha - \rho} u \varphi \d x
+    &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
+    &\overset{(3.3)}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
+    &\overset{\mathrm{(IA)}}{=} (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
+    &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\alpha - (\sigma + \gamma)} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
+    &= (-1)^{|\alpha|} \int_\Omega \left [\sum_{\gamma \leq \rho \leq \alpha} \binom{\beta}{\rho - \gamma} + \sum_{0 \leq \rho \leq \beta} \binom{\beta}{\rho} \right] \DD^\rho \xi \,\DD^{\alpha - \rho}u \, \varphi \d x \\
+    &= (-1)^{|\alpha|} \int_\Omega \sum_{\rho \leq \alpha} \left[ \binom{\beta}{\rho - \gamma} + \binom{\beta }{\rho}\right] \DD^\rho \xi \, \DD^{\alpha - \rho} u \, \varphi \d x
   \end{align*}
-  with the convention ${\beta \choose \tilde\beta} = 0$ if $\beta_i < \tilde \beta_i$ or $\tilde \beta_i < 0$ for some $i \in \{1,\dots,n\}$.
+  with the convention $\binom{\beta}{\tilde\beta} = 0$ if $\beta_i < \tilde \beta_i$ or $\tilde \beta_i < 0$ for some $i \in \{1,\dots,n\}$.
+  As $\binom{\beta}{\rho - \gamma} + \binom{\beta}{\rho} = \binom{\beta + \gamma}{\rho} = \binom{\alpha}{\rho}$, we deduce that the claim holds by induction.
 \end{proof}
 
 Finally, we show that $\WW^{k,p}$ is a Banach space.

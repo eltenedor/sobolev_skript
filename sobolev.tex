@@ -2,58 +2,56 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{amsmath}
-\usepackage{amsthm,amssymb}
-\usepackage{bbm}
-\usepackage{mathtools}
 \usepackage[paper=a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
-\usepackage{float}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{bbm}
 \usepackage{hyperref}
 \usepackage{enumerate}
 \usepackage{url}
-\def\UrlBreaks{\do\/\do-}
-\usepackage{tikz}
-
-\usepackage{setspace}
-
-%\everymath{\displaystyle}
 
 \parindent 0pt
 \linespread{1.2}
 
 \include{befehle}
 
-\renewcommand\thesection{\arabic{section}}
-
-
-
-\title{\huge{Sobolev Spaces} \\\small{lecture held by PD Dr. rer. nat. Christian Stinner in SS17}}
-\author{\LaTeX ed by Fabian Gabel}
-\pagenumbering{roman}
-
 \begin{document}
+\pagenumbering{roman}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \begin{center}
+    \vspace{1cm}
+    \includegraphics[width=0.5\linewidth]{TU_Darmstadt_Logo.pdf}
+    \vspace{1cm}
+    
+    \large{Fachbereich Mathematik}
+    \vspace{3.5cm}
+    
+    \huge{Sobolev Spaces}
+    
+    \vspace*{1cm}    
+    \small{lecture held by PD Dr. Christian Stinner in SS17\\}
+    \vspace*{1.0cm}
+    \small{\LaTeX ed by Fabian Gabel\\}
+    \small{Errors can be reported at: \url{gabel@mathematik.tu-darmstadt.de}}
 
-\maketitle
-\tableofcontents
-\newpage
+    \vspace*{\fill}
+    \small{Version of \today}
+  \end{center}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
 \pagenumbering{arabic}
+\tableofcontents
 
-\newpage
 \input{chap1}
-\newpage
 \input{chap2}
-\newpage
 \input{chap3}
-\newpage
 \input{chap4}
-\newpage
 \input{chap5}
-\newpage
 \input{chap6}
-\newpage
 \input{chap7}
 
-%\newpage
 \nocite{*}
 \bibliographystyle{alpha}
 \bibliography{sobolev}

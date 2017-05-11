@@ -1,5 +1,5 @@
 % Makros
-\numberwithin{equation}{section}
+\numberwithin{equation}{chapter}
 
 \newcommand{\N}{\mathbb{N}} % natuerliche Zahlen
 \newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
@@ -40,7 +40,7 @@
 %\newtheorem{ex}{Beispiel}[chapter]
 
 \theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{prop}[thm]{Proposition}
@@ -64,6 +64,7 @@
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\Spur}{Spur}
 \DeclareMathOperator{\BUC}{BUC}
+%\DeclareMathOperator{\DD}{D}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\abs}{abs}
@@ -77,17 +78,17 @@
 \let\divsymb=\div % rename builtin command \div to \divsymb
 \renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
 \renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
-\newcommand{\norm}[1]{\lVert #1 \rVert}
+%\newcommand{\norm}[1]{\lVert #1 \rVert}
 
-\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
-
-\def\Xint#1{\mathchoice
-{\XXint\displaystyle\textstyle{#1}}%
-{\XXint\textstyle\scriptstyle{#1}}%
-{\XXint\scriptstyle\scriptscriptstyle{#1}}%
-{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
-\!\int}
-\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
-\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
-\def\ddashint{\Xint=}
-\def\dashint{\Xint-}
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
+%
+%\def\Xint#1{\mathchoice
+%{\XXint\displaystyle\textstyle{#1}}%
+%{\XXint\textstyle\scriptstyle{#1}}%
+%{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+%{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+%\!\int}
+%\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+%\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+%\def\ddashint{\Xint=}
+%\def\dashint{\Xint-}
