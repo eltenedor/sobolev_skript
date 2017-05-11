@@ -24,7 +24,7 @@ Let us start by illustrating the idea behind weak solutions with an example.
   $$
   Hence, in view of (1.1)
   \begin{equation}
-    \int_\Omega u^\prime(x)\varphi^\prime(x) \d x = \int_\Omega f(x)\varphi(x) \d x, \quad \forall \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega u^\prime(x)\varphi^\prime(x) \d x = \int_\Omega f(x)\varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
   For (1.2) to be meaningful we do not need a second derivative of $u$.
   Moreover, $f$ only has to be integrable instead of continuous. 
@@ -37,7 +37,7 @@ In order to motivate the definition of weak derivatives, we note the following i
   Let $\Omega \subseteq \R^n$ be open and $u \in \CC^1(\Omega)$. 
   Then, for $i \in \{1,\dots,n\}$ we have
   \begin{equation}
-    \int_\Omega \frac{\partial u}{\partial x_i} \varphi \d x = -\int_\Omega u \frac{\partial \varphi}{\partial x_i} \d x, \quad \forall \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega \frac{\partial u}{\partial x_i} \varphi \d x = -\int_\Omega u \frac{\partial \varphi}{\partial x_i} \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{lem}
 \begin{proof}
@@ -51,7 +51,7 @@ Hence, we define weak derivatives by:
   Let $\Omega \subseteq \R^n$ be open, $u \in \Ell_{\loc}^1(\Omega)$ and $i \in \{1,\dots,n\}$.
   $u$ has the \emph{weak partial derivative} $\frac{\partial u}{\partial x_i}$, if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
   \begin{equation}
-    \int_\Omega u(x) \frac{\partial u}{\partial x_i}(x) \d x = -\int_\Omega v(x) \varphi(x) \d x, \forall \varphi \in \CC_0^\infty(\Omega).    
+    \int_\Omega u(x) \frac{\partial u}{\partial x_i}(x) \d x = -\int_\Omega v(x) \varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).    
   \end{equation}
   Then $\frac{\partial u}{\partial x_i} \coloneqq v$.
 \end{defn}
@@ -84,7 +84,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
       \end{align*}
       Now if $v$ would be weakly differentiable, there would be $w \in \ell_{\loc}^1(\Omega)$ with
       \begin{equation}
-        -2\varphi(0) = -\int_\Omega w(x) \varphi(x) \d x, \forall \varphi \in \CC_0^\infty(\Omega).
+        -2\varphi(0) = -\int_\Omega w(x) \varphi(x) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
       \end{equation}
       Fix some $f \in \CC_0^\infty\left((-1,1)\right)$ with $f(0) = 1$ and define $\varphi_n(x) = f(nx)$ for $x \in (-1,1), n \in \N$ (where $f = 0$ on $\R \setminus(-1,1)$).
       Then $\varphi_n \in \CC_0^\infty\left( (-1,1)\right)$ with $\varphi_n(x) = 0$ for all $x \in \R \setminus\left(-\frac{1}{n}, \frac{1}{n} \right)$ with $\varphi_n(0) = 1$ and $\lim_{n \to \infty} \varphi(x) = 0$ for all $x \in \Omega \setminus \{0\}$. As $\|\varphi_n\|_{\Ell^\infty(\Omega)} \leq \|f\|_{\Ell^\infty(\Omega)} < \infty$ we conclude from the dominated convergence theorem that
@@ -101,7 +101,7 @@ Hence, there are functions which are not classically differentiable everywhere a
 
 If we define the \emph{Sobolev space}
 $$
-\We^{1,p}(\Omega) \coloneqq \left\{u \in \Ell^p(\Omega) \colon \frac{\partial u}{\partial x_i} \text{ exists in the weak sense, } \frac{\partial u}{\partial x_i} \in \Ell^p(\Omega), \forall i \in \{1,\dots,n\}\right\}
+\We^{1,p}(\Omega) \coloneqq \left\{u \in \Ell^p(\Omega) \colon \frac{\partial u}{\partial x_i} \text{ exists in the weak sense, } \frac{\partial u}{\partial x_i} \in \Ell^p(\Omega), \quad \text{for all } i \in \{1,\dots,n\}\right\}
 $$
 for $p \in [1,\infty]$, this is a Banach space which will turn out to be particularly useful in the context of weak solutions of PDEs. 
 So we will study important properties of these spaces (and its generalisations to higher order derivatives) and finally will show how to use them for obtaining weak solutions of PDEs.
@@ -111,7 +111,7 @@ We shortly illustrate the latter in an example.
   We continue Example 1.1 with $\Omega = (-1,1) \subset \R$ and assume that $f \in \Ell^2(\Omega)$.
   Then in view of (1.2) we say that $u$ is a \emph{weak solution} to (1.1) if $u \in \We^{1,2}(\Omega)$,
   $$
-  \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x), \quad \forall \varphi \in \CC_0^\infty(\Omega),
+  \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x), \quad \text{for all } \varphi \in \CC_0^\infty(\Omega),
   $$
   where $u^\prime$ is the weak derivative of $u$, and if $u$ satisfies $u = 0$ on $\partial \Omega$ in a certain weak sense.
   The latter will be specified in a detailed way in Chapter 7, as $u \in \We^{1,2}(\Omega)$ is not necessarily continuous.
