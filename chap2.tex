@@ -105,6 +105,7 @@ In this section let $\Omega \subset \R^n$ be open.
     = \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y \\
     &= \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
   \end{align*}
+\end{enumerate}
   The mollification has the following properties:
   \begin{thm}
     Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then
@@ -118,8 +119,86 @@ In this section let $\Omega \subset \R^n$ be open.
     \end{enumerate}
   \end{thm}
 
-  \begin{proof}
-    TODO
+\begin{proof}
+  \begin{enumerate}[a)]
+    \item For $i \in \{1, \dots, n\}$ and $h \in \R \setminus\{0\}$ let
+    $$
+    \DD^h_i v(x) \coloneqq \frac{1}{h} ( v(x + h e_i) - v(x)), \quad x \in \R^n.
+    $$
+    As $\eta_\varepsilon \in \CC_0^\infty(\R^n)$ we have $\nabla \eta_\varepsilon \in \Ell^\infty(\R^n)^n$.
+    So $\DD_i^h  \eta_\varepsilon \in \Ell^\infty(\R^n)$ by the mean value theorem.
+    As moreover $\DD_i^h \eta_\varepsilon(z) \to \frac{\partial \eta_\varepsilon}{\partial x_i}(z)$ as $h \to 0$ for any $z \in \R^n$, the dominated convergence theorem implies
+    \begin{align*}
+      \DD_i^h (u_\varepsilon)(x)
+    &= \int_\Omega \frac{1}{h} (\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon (x - y)) u(y) \d y 
+    = \int_\Omega (\DD_i^h \eta_\varepsilon (x - y)) u(y) \d y  \\
+    &\to \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i}(x - y) u(y) \d y, \quad\text{as } \varepsilon \downarrow 0.
+    \end{align*}
+    Hence, $\frac{\partial}{\partial x_i} u_\varepsilon(x) = \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i} (x - y) u(y) \d y$.
+    By induction, $u_\varepsilon \in \CC^\infty(\R^n)$.
+    By Lebesgue's differentiation theorem (see \cite{evans2010partial}[\S E.4]), for a.e. $x \in \Omega$ we have
+    \begin{equation}
+      \lim_{r \downarrow 0} \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |u(y) - u(x)| \d y = 0.
+      \label{eq:lebdiffthm}
+    \end{equation}
+    For any such $x$ we obtain (by choosing $\varepsilon > 0$ small such that $\overline{\BB_\varepsilon(x)} \subset \Omega$)
+    \begin{align}
+      |u_\varepsilon(x) - u(x)|
+      &= | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) f(y) \d y | 
+      = | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (f(y) - f(x)) \d y | \nonumber\\
+      &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |f(y) - f(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |f(y) - f(x) | \d y \label{eq:pointwise}\\
+      & \to 0, \quad\text{as } \varepsilon \downarrow 0 \nonumber
+    \end{align}
+    due to (\ref{eq:lebdiffthm}).
+    
+    \item If $\supp(u) \Subset \Omega$, let $\delta \coloneqq \dist(\supp(u), \partial \Omega) > 0$.
+    Then, for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(y) = \emptyset$ and 
+    $$
+    u_\varepsilon(x) = \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y = 0.
+    $$
+    Hence, $\supp(u_\varepsilon) \subset \overline{\Omega_{\frac{\delta}{3}}} \Subset \Omega$.
+    By a), $u_\varepsilon \in \CC_0^\infty(\Omega)$.
+
+    \item For $u \in \CC^0(\Omega)$ and $V \Subset \Omega$, choose $W$ such that $V \Subset W \Subset \Omega$.
+    Then $u$ is uniformly continuous in $W$ and (\ref{eq:lebdiffthm}) holds uniformly for $x \in V$.
+    Hence, also (\ref{eq:pointwise}) is satisfied uniformly for $x \in V$ and $u_\varepsilon \to u$ uniformly in $V$.
+
+    \item For $x \in \Omega$, by using Hölder's inequality and $\eta_\varepsilon \geq 0$ along with $\int_{\R^n} \eta_\varepsilon(z) \d y = 1$, we get
+    \begin{align*}
+      |u_\varepsilon(x)| 
+      &= | \int_\Omega \left( \eta_\varepsilon(x - y) \right)^{1 - \frac{1}{p}} \left( \eta_\varepsilon(x - y)\right)^{\frac{1}{p}} u(y) \d y | \\
+      &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)}_{\leq 1}^{\frac{p - 1}{p}}
+      \leq \left( \int_\Omega \eta_\varepsilon (x - y) |u(y)|^p \d y \right)^{\frac{1}{p}}.
+    \end{align*}
+    Raising this to the power $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have
+    \begin{align}
+      \|u_\varepsilon\|_{\Ell^p(\Omega)}^p \|
+      &\leq \int_\Omega\int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d x \d y
+      = \int_\Omega |u(y)|^p \underbrace{\left( \int_\Omega \eta_\varepsilon(x -y) \d x \right)}_{\in [0,1]} \d y \nonumber\\
+      &\leq \int_\Omega |u(y)|^p \d y = \|u\|_{\Ell^p(\Omega)}^p.
+      \label{eq:lpinequality}
+    \end{align}
+    In particular, this implies $u_\varepsilon \in \Ell^p(\Omega)$.
+
+    Given $\mu > 0$, we may choose $\varphi \in \CC_0^\infty(\Omega)$ such that $\|u - \varphi\|_{\Ell^p(\Omega)} <  \frac{\mu}{3}$. 
+    As $\varphi$ and $\varphi_\varepsilon$ have compact support in $\Omega$ by $b)$, we deduce from c) that $\varphi_\varepsilon \to \varphi$ uniformly in $\Omega$ as $\varepsilon \downarrow 0$.
+    Hence, we may choose $\varepsilon_0 > 0$ small enough such that $\|\varphi_\varepsilon - \varphi\|_{\Ell^p(\Omega)} < \frac{\mu}{3}$, for all $\varepsilon \in (0, \varepsilon_0)$.
+    But then
+    \begin{align*}
+      \|u_\varepsilon - u\|_{\Ell^p(\Omega)}
+      & \leq \|u_\varepsilon - \varphi_\varepsilon \|_{\Ell^p(\Omega)} + \|\varphi_\varepsilon - \varphi\|_{\Ell^p(\Omega)} + \|\varphi - u \|_{\Ell^p(\Omega)} \\
+      &\leq \|\eta_\varepsilon \ast u - \eta_\varepsilon \ast \varphi \|_{\Ell^p(\Omega)} + \frac{2}{3} \mu \\
+      &= \|\eta_\varepsilon \ast (u - \varphi) \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu
+      = \|(u - \varphi)_\varepsilon \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu \\
+      &\overset{(\ref{eq:lpinequality})}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu, \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
+    \end{align*}
+    We still have $u_\varepsilon \in \CC^\infty(\Omega)$ since for $x \in \BB_\delta(x_0)$ with $\overline{\BB_{2\delta}(x_0)} \subset \Omega$ we have for $x \in K \coloneqq \overline{\BB_{2\delta}(x_0)}$ and $\varepsilon \in (0, \delta)$, $u_\varepsilon(x) = \int_K \eta_\varepsilon(x - y)u(y) \d y$.
+    A similar argument shows e).\qedhere
+  \end{enumerate}
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Eigener Lösungsvorschlag
 %    a): Let $h > 0$, $x \in \R^n$ and fix some $i = 1,\dots,n$. Since $u \in \Ell^1(\Omega)$, by extending $u$ with $0$ we can assume $u \in \Ell^1(\R^n)$. 
 %   We denote this extension again with $u$.
 %   Then, we have
@@ -222,10 +301,9 @@ In this section let $\Omega \subset \R^n$ be open.
 %   \intertext{where the right hand side is well defined, since the difference of two $\CC_0^\infty(\R^n)$ functions has again compact support and we furthermore deduce}
 %   &= \int_{\BB_{\varepsilon + h}(x)} \frac{\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon(x - y)}{h} u(y) \d y.
 % \end{align*}
-
 %   We can now argue as in a) to prove the differentiability.
- \end{proof}
-\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \section{Polar coordinates}
 
