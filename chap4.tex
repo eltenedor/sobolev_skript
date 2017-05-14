@@ -4,11 +4,12 @@ As it is often complicated to use the definition of weak derivatives for proving
 
 \section{Interior approximation}
 
-We prove that mollification from 2.3 provides approximating functions in $\WW_{\loc}^{k,p}(\Omega)$.
+We prove that mollification from \ref{sec:mollifier} provides approximating functions in $\WW_{\loc}^{k,p}(\Omega)$.
 
 \begin{thm}
+  \label{thm:interiorApproximation}
   Let $\Omega \subseteq \R^n$ be open, $k \in \N$, $p \in [1,\infty)$, and $u \in \WW^{k,p}(\Omega)$.
-    Then the following statements hold:
+    Then, the following statements hold:
     \begin{enumerate}[a)]
       \item $u_\varepsilon \in \CC^\infty(\Omega)$ and $\DD^\alpha(u_\varepsilon)(x) = (\DD^\alpha u)_\varepsilon(x)$, for all $ x \in \Omega_\varepsilon$ and all $\alpha \in \N_0^n$ with $|\alpha| \leq k$.
       \item $u_\varepsilon \to u$ in $\WW_{\loc}^{k,p}(\Omega)$, as $\varepsilon \downarrow 0$.
@@ -16,28 +17,30 @@ We prove that mollification from 2.3 provides approximating functions in $\WW_{\
 \end{thm}
 
 \begin{proof}
-  a) By Theorem 2.1 we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
+  \begin{enumerate}[a)]
+    \item By Theorem \ref{thm:mollification}, we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
   $$
-  \DD^\alpha u_\varepsilon(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
+    \DD^\alpha u_\varepsilon(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
   $$
-  see proof of Theorem 2.1 a), d).
-  For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
-  \begin{align*}
-    \DD^\alpha (u_\varepsilon)(x) 
-    &= (-1)^{|\alpha|} \int_\Omega \DD_y^\alpha (\eta_\varepsilon (x - y))\, u(y) \d y
-    = (-1)^{|\alpha|} \int_\Omega \DD^\alpha \phi(y) \, u(y) \d y \\
-    &\overset{(3.3)}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
-    = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y.
-    = (\DD^\alpha u)_\varepsilon(x).
-  \end{align*}
-  Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
+    see proof of Theorem \ref{thm:mollification} a), d).
+    For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
+    \begin{align*}
+      \DD^\alpha (u_\varepsilon)(x) 
+      &= (-1)^{|\alpha|} \int_\Omega \DD_y^\alpha (\eta_\varepsilon (x - y))\, u(y) \d y
+      = (-1)^{|\alpha|} \int_\Omega \DD^\alpha \phi(y) \, u(y) \d y \\
+      &\overset{(3.3)}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
+      = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y.
+      = (\DD^\alpha u)_\varepsilon(x).
+    \end{align*}
+    Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
 
-  b) In view of a) and Theorem 2.1 d) for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon$ for $\varepsilon$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
-  Then
-  $$
-  \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0
-  $$
-  as $\varepsilon \downarrow 0$.
+  \item In view of a) and Theorem \ref{thm:mollifier} d) for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon$ for $\varepsilon$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
+     Then
+     $$
+     \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0
+     $$
+     as $\varepsilon \downarrow 0$.
+ \end{enumerate}
 \end{proof}
 
 \section{Approximation by smooth functions}
@@ -143,13 +146,13 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$\xi_i(x) \coloneqq \frac{\psi_i(x)}{\sigma(x)}, \quad x \in \Omega,$$
       is a \emph{partition of unity subordinate to} $\{V_i\}_{i = 0}^\infty$, i.e. $\xi_i \in \CC_0^\infty(\Omega)$, $0 \leq \xi_i \leq 1$, and $\sum_{i = 0}^\infty \xi_i = 1$ in $\Omega$ and for any $K \Subset \Omega$, $\xi_i|_K \not\equiv 0$ only for finitely many $i$.
   \item Let $u \in \WW^{k,p}(\Omega)$ be arbitrary.
-    Then, by Proposition 3.8d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
+    Then, by Proposition \ref{prop:sobolevProperties} d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
     We fix $\delta > 0$.
     Then, for any $i \in \N_0$ we define
     $$
     Z_i \coloneqq U_{i + 5} \setminus \overline{U_i} \supset V_i, i \in \N \quad\text{and}\quad Z_0 \coloneqq U_5 \supset V_0.
     $$
-    In view of Theorem 4.1, there is $\varepsilon_i > 0$ small enough such that $u_i \coloneqq \eta_{\varepsilon_i} \ast (\xi_i u)$ satisfies $u_i \in \CC_0^\infty(Z_i)$ and
+    In view of Theorem \ref{thm:interiorApproximation}, there is $\varepsilon_i > 0$ small enough such that $u_i \coloneqq \eta_{\varepsilon_i} \ast (\xi_i u)$ satisfies $u_i \in \CC_0^\infty(Z_i)$ and
     \begin{equation}
       \|u_i - \xi_i u \|_{W^{k,p}(\Omega)} = \|u_i - \xi_i u\|_{W^{k,p}(Z_i)} \leq \frac{\delta}{2^{i + 1}}
     \end{equation}
@@ -179,6 +182,6 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 
 \begin{rem}
   Historically, there were two definitions of Sobolev spaces.
-  $\WW^{k,p}(\Omega)$ was defined as in Definition 3.5 while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
+  $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:weakPartialDerivative} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
   Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
 \end{rem}

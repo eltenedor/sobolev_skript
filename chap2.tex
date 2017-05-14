@@ -8,6 +8,7 @@ Unless otherwise stated, we always assume in this chapter that $\Omega \subset \
 Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if $\{x \in \Omega \colon u(x) > \alpha\}$ is measurable for any $\alpha \in \R$.
 
 \section{\texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}: definition and basic properties}
+\label{sec:lpBasics}
 \begin{enumerate}[i)]
   \item If $u,v \colon \Omega \to [-\infty,\infty]$ are measurable on $\Omega$, they are equivalent if $u = v$ a.e. in $\Omega$.
     $[u]$ is the equivalence class of $u$.
@@ -77,6 +78,7 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
 \end{enumerate}
 
 \section{Dense subspaces and mollifier}
+\label{sec:mollifier}
 
 In this section let $\Omega \subset \R^n$ be open.
 \begin{enumerate}[i)]
@@ -106,18 +108,20 @@ In this section let $\Omega \subset \R^n$ be open.
     &= \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
   \end{align*}
 \end{enumerate}
-  The mollification has the following properties:
-  \begin{thm}
-    Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then
-    \begin{enumerate}[a)]
-      \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
-      \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$, for small enough $\varepsilon$. 
-      \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
-      \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
-          Moreover $u_\varepsilon \in \CC^\infty(\Omega)$.
-        \item $u \in \Ell_{\loc}^1(\Omega)$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
-    \end{enumerate}
-  \end{thm}
+The mollification has the following properties:
+\begin{thm}
+  \label{thm:mollifier}
+  Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then
+  \begin{enumerate}[a)]
+    \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
+    \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$, for small enough $\varepsilon$. 
+    \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
+    \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
+      Moreover, $u_\varepsilon \in \CC^\infty(\Omega)$.
+      \item $u \in \Ell_{\loc}^1(\Omega)$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
+  \end{enumerate}
+  \label{thm:mollification}
+\end{thm}
 
 \begin{proof}
   \begin{enumerate}[a)]

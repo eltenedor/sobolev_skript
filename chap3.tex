@@ -2,6 +2,7 @@
 
 We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open, we have 
 \begin{equation}
+  \label{eq:partialIntegration}
   \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x, \quad \text{ for all } \varphi \in \CC_0^\infty(\Omega).
 \end{equation}
 
@@ -9,31 +10,34 @@ More generally, for higher order derivatives we have the following result:
 \begin{lem}
   Let $\Omega \subset \R^n$ be open, $u \in \CC^k(\Omega)$ with $k \in \N$, and $\alpha \in \N_0^n$ be a multiindex with $|\alpha| = k$. Then
   \begin{equation}
+    \label{eq:partialIntegrationGeneral}
     \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(s) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{lem}
 
 \begin{proof}
-  For $k = 1$, (3.2) is just (3.1) which was verified in the exercise.
+  For $k = 1$, (\ref{eq:partialIntegrationGeneral}) is just (\ref{eq:partialIntegration}) which was verified in the exercise.
   For $\alpha = (\alpha_1,\dots,\alpha_n)$ with $|\alpha| = k$ we have
   $$
   \DD^\alpha \phi(x)= \frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}} ( \dots ( \frac{\partial^{\alpha_n}}{\partial x_n^{\alpha_n}} ) \dots )(x)
   $$
-  and (3.2) follows by applying (3.1) $k$ times.
+  and (\ref{eq:partialIntegrationGeneral}) follows by applying (\ref{eq:partialIntegration}) $k$ times.
 \end{proof}
 
-In order to define the weak derivative $\DD^\alpha u$, we look for a variant of (3.2) which is satisfied if $u$ has less regularity than being in $\CC^k(\Omega)$.
-As the integrals in (3.2) are meaningful if $u, \DD^\alpha u \in \Ell^1_{\loc}(\Omega)$, we define the weak derivative $\DD^\alpha u$ of $u$ as follows (see introduction for $|\alpha| = 1$).
+In order to define the weak derivative $\DD^\alpha u$, we look for a variant of (\ref{eq:partialIntegrationGeneral}) which is satisfied if $u$ has less regularity than being in $\CC^k(\Omega)$.
+As the integrals in (\ref{eq:partialIntegrationGeneral}) are meaningful if $u, \DD^\alpha u \in \Ell^1_{\loc}(\Omega)$, we define the weak derivative $\DD^\alpha u$ of $u$ as follows (see introduction for $|\alpha| = 1$).
 
 \begin{defn}
+  \label{defn:weakPartialDerivative}
   Let $\Omega$ be an open set, $u \in \Ell^1_{\loc}(\Omega)$ and $\alpha \in \N_0^n$ a multiindex. 
   $u$ has the \emph{$\alpha$th weak partial derivative} \index{weak partial derivative} $\DD^\alpha u$ if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
   \begin{equation}
+    \label{eq:weakPartialDerivativeDef}
     \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{defn}
 
-If (3.3) is satisfied, we define $\DD^\alpha u \coloneqq v$.
+If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \coloneqq v$.
 In order to show the uniqueness of the weak derivative we need the following fundamental lemma.
 
 \begin{lem}[Fundamental lemma of calculus of variations]
@@ -61,7 +65,7 @@ and
 $$
 f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)), &\text{ if } x \in K, \\ 0,  &\text{ if } x \in \R^n \setminus K. \end{cases}
 $$
-As $|u| < \infty$ a.e. in $K$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem 2.1 a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
+As $|u| < \infty$ a.e. in $K$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem \ref{thm:mollifier} a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
 As moreover
 $$
 |\varphi_{n_k}(x)| 
@@ -129,7 +133,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
       If for $u \in \WW^{k,p}(\Omega)$ the equivalence class $[u]$ contains a continuous representative, the latter is chosen for $u$.
     \item $u \in \WW_0^{k,p}(\Omega)$ if and only if there exists $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$.
       We interpret $W_0^{k,p}(\Omega)$ as the set of $u \in W^{k,p}(\Omega)$ such that ``$\DD^\alpha u = 0$ on $\partial \Omega$ for any $|\alpha| \leq k - 1$''.
-      This interpretation will be made precise in Chapter 5.
+      This interpretation will be made precise in Chapter \ref{chap:extAndTrace}.
     \item The letter $\HH$ in $\HH^k(\Omega)$ and $\HH_0^k(\Omega)$ is used as those are Hilbert spaces as we will see soon.
   \end{enumerate}
 \end{rem}
@@ -145,6 +149,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     \end{align*}
     For fixed $\varphi \in \CC_0^\infty(\Omega)$ and $\varepsilon > 0$, Green's formula ($\nu$ is the outward unit normal on $\Omega \setminus \overline{\BB_\varepsilon(0)}$ ) implies
     \begin{equation}
+      \label{eq:greenFormulaEx}
       \int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u\varphi_{x_i} \d x
       = -\int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u_{x_i} \varphi \d x + \int_{\partial \Omega} u\varphi \nu_i \d \sigma
       + \int_{\partial \BB_\varepsilon(0)} u\varphi \nu_i \d \sigma.
@@ -156,7 +161,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
       \leq \|\varphi\|_{\Ell^\infty} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
       \leq C \varepsilon^{k - 1 - a} \to 0 \text{ as } \varepsilon \downarrow 0.
     $$
-    Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in (3.4) and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
+    Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in (\ref{eq:greenFormulaEx}) and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
     Hence, the weak derivative $u_{x_i}$ exists for $a < n - 1$.
     Hence, $u \in \WW^{1,p}(\Omega)$ if $u \in \Ell^p(\Omega)$ and $\nabla u = \frac{-a x}{|x|^{a + 2}} \in \Ell^p(\Omega)^n$, i.e. $ap < p$ and $(a + 1)p < n$.
     We conclude that
@@ -168,6 +173,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
 Next, we prove some elementary properties of weak derivatives which are well known in the case of classical derivatives.
 
 \begin{prop}
+  \label{prop:sobolevProperties}
   Let $\Omega$ be open, $k \in \N$,$p \in [1,\infty]$, $u,v \in \WW^{k,p}(\Omega)$, and $\alpha \in \N_0^n$ with $1 \leq |\alpha| \leq k$.
   \begin{enumerate}[a)]
     \item $\DD^\alpha u \in W^{k - |\alpha|,p}(\Omega)$ (with $\WW^{0,p}(\Omega) = \Ell^p(\Omega)$) and $\DD^\beta (\DD^\alpha (u)) = \DD^\alpha (\DD^\beta(u)) = \DD^{\alpha + \beta}(u)$ for all $\alpha, \beta \in \N_0^n$ with $|\alpha| + |\beta| \leq k$.
@@ -185,10 +191,11 @@ Next, we prove some elementary properties of weak derivatives which are well kno
 \end{prop}
 
 \begin{proof}
-  b) and c) easily follow from Definition 3.2.
+  b) and c) easily follow from Definition \ref{defn:weakPartialDerivative}.
 
-  a): Let $\varphi \in \CC_0^\infty(\Omega)$. 
-  Then $\DD^\beta \varphi \in \CC_0^\infty(\Omega)$ and (3.3) implies
+  \begin{enumerate}
+  \item[a)] Let $\varphi \in \CC_0^\infty(\Omega)$. 
+    Then $\DD^\beta \varphi \in \CC_0^\infty(\Omega)$ and (\ref{eq:weakPartialDerivativeDef}) implies
   \begin{align*}
     \int_\Omega \DD^\alpha u \DD^\beta \varphi \d x
     &= (-1)^{|\alpha|} \int_\Omega u \DD^{\alpha + \beta} \varphi \d x \\
@@ -196,32 +203,33 @@ Next, we prove some elementary properties of weak derivatives which are well kno
     &= (-1)^{|\beta|} \int_\Omega \DD^{\alpha + \beta} u \varphi \d x,
   \end{align*}
   as $|\alpha| + |\beta| = |\alpha + \beta|$.
-  Hence, $\DD^\beta(\DD^\alpha u) = \DD^{\alpha + \beta} u$, for $|\beta| \leq k - |\alpha|$.
+      Hence, $\DD^\beta(\DD^\alpha u) = \DD^{\alpha + \beta} u$, for $|\beta| \leq k - |\alpha|$.
 
-  d): Let $\varphi \in \CC_0^\infty(\Omega)$. 
-  In case of $|\alpha| = 1$, we have
-  $$
-  \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{(3.3)}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
-  $$
-  Hence, $\DD^\alpha(\xi u) = \xi \DD^\alpha u + u \DD^\alpha \xi \in \Ell^p(\Omega)$ and the claim is true for $|\alpha| = 1$.
+    \item[d)] Let $\varphi \in \CC_0^\infty(\Omega)$. 
+      In case of $|\alpha| = 1$, we have
+      $$
+      \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{(3.3)}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
+      $$
+      Hence, $\DD^\alpha(\xi u) = \xi \DD^\alpha u + u \DD^\alpha \xi \in \Ell^p(\Omega)$ and the claim is true for $|\alpha| = 1$.
 
-  Assume the claim is true for all $|\alpha| \leq l$ with some $l \in \{1,\dots,k-1\}$ (IA).
+      Assume the claim is true for all $|\alpha| \leq l$ with some $l \in \{1,\dots,k-1\}$ (IA).
 
-  Let $\alpha$ satisfy $|\alpha| = l+1$.
-  Then $\alpha  = \beta + \gamma$ for some $\beta, \gamma \in \N_0^k$ with $|\beta| = l$ and $|\gamma| = 1$.
-  Hence,
-  \begin{align*}
-    \int_\Omega \xi u \DD^\alpha \varphi
-    &= \int_\Omega \xi u\DD^\beta (\DD^\gamma \varphi ) \d x \\
-    &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
-    &\overset{(3.3)}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
-    &\overset{\mathrm{(IA)}}{=} (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
-    &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\alpha - (\sigma + \gamma)} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
-    &= (-1)^{|\alpha|} \int_\Omega \left [\sum_{\gamma \leq \rho \leq \alpha} \binom{\beta}{\rho - \gamma} + \sum_{0 \leq \rho \leq \beta} \binom{\beta}{\rho} \right] \DD^\rho \xi \,\DD^{\alpha - \rho}u \, \varphi \d x \\
-    &= (-1)^{|\alpha|} \int_\Omega \sum_{\rho \leq \alpha} \left[ \binom{\beta}{\rho - \gamma} + \binom{\beta }{\rho}\right] \DD^\rho \xi \, \DD^{\alpha - \rho} u \, \varphi \d x
-  \end{align*}
-  with the convention $\binom{\beta}{\tilde\beta} = 0$ if $\beta_i < \tilde \beta_i$ or $\tilde \beta_i < 0$ for some $i \in \{1,\dots,n\}$.
-  As $\binom{\beta}{\rho - \gamma} + \binom{\beta}{\rho} = \binom{\beta + \gamma}{\rho} = \binom{\alpha}{\rho}$, we deduce that the claim holds by induction.
+      Let $\alpha$ satisfy $|\alpha| = l+1$.
+      Then $\alpha  = \beta + \gamma$ for some $\beta, \gamma \in \N_0^k$ with $|\beta| = l$ and $|\gamma| = 1$.
+      Hence,
+      \begin{align*}
+        \int_\Omega \xi u \DD^\alpha \varphi
+        &= \int_\Omega \xi u\DD^\beta (\DD^\gamma \varphi ) \d x \\
+        &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
+        &\overset{(3.3)}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
+        &\overset{\mathrm{(IA)}}{=} (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
+        &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\alpha - (\sigma + \gamma)} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
+        &= (-1)^{|\alpha|} \int_\Omega \left [\sum_{\gamma \leq \rho \leq \alpha} \binom{\beta}{\rho - \gamma} + \sum_{0 \leq \rho \leq \beta} \binom{\beta}{\rho} \right] \DD^\rho \xi \,\DD^{\alpha - \rho}u \, \varphi \d x \\
+        &= (-1)^{|\alpha|} \int_\Omega \sum_{\rho \leq \alpha} \left[ \binom{\beta}{\rho - \gamma} + \binom{\beta }{\rho}\right] \DD^\rho \xi \, \DD^{\alpha - \rho} u \, \varphi \d x
+      \end{align*}
+      with the convention $\binom{\beta}{\tilde\beta} = 0$ if $\beta_i < \tilde \beta_i$ or $\tilde \beta_i < 0$ for some $i \in \{1,\dots,n\}$.
+      As $\binom{\beta}{\rho - \gamma} + \binom{\beta}{\rho} = \binom{\beta + \gamma}{\rho} = \binom{\alpha}{\rho}$, we deduce that the claim holds by induction.\qedhere
+  \end{enumerate}
 \end{proof}
 
 Finally, we show that $\WW^{k,p}$ is a Banach space.
@@ -236,8 +244,8 @@ Finally, we show that $\WW^{k,p}$ is a Banach space.
 \end{thm}
 
 \begin{proof}
-  By Proposition 3.8b), $\WW^{k,p}$ is a vector space.
-  For $p \in [1,\infty)$ and $u,v \in \WW^{k,p}(\Omega)$, Minkowski's inequality (see 2.1) on $\Ell^p(\Omega)$ and for $\|\cdot\|_p$ on $\R^m$ implies
+  By Proposition \ref{prop:sobolevProperties} b), $\WW^{k,p}$ is a vector space.
+  For $p \in [1,\infty)$ and $u,v \in \WW^{k,p}(\Omega)$, Minkowski's inequality (see \ref{sec:lpBasics}) on $\Ell^p(\Omega)$ and for $\|\cdot\|_p$ on $\R^m$ implies
     \begin{align*}
       \|u + v\|_{W^{k,p}(\Omega)}
       &= \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u + \DD^\alpha v \right)^{\frac{1}{p}} 
@@ -255,21 +263,23 @@ Finally, we show that $\WW^{k,p}$ is a Banach space.
     $
     Hence, there exists $u_\alpha \in \Ell^p(\Omega)$ with
     \begin{equation}
+      \label{eq:derivativeConv}
       \DD^\alpha u_m \to u_\alpha \text{ in } \Ell^p(\Omega), |\alpha| \leq k.
     \end{equation}
     For $\alpha = (0,\dots,0)$ we define $u_{(0,\dots,0)}  \eqqcolon u$ and have
     \begin{equation}
+      \label{eq:funcConv}
       u_m \to u \text{ in } \Ell^p(\Omega).
     \end{equation}
     To show that $u_\alpha = \DD^\alpha u$, we fix $\varphi \in \CC_0^\infty(\Omega)$ and obtain
     \begin{align*}
       \int_\Omega u \DD^\alpha \varphi \d x
-      \overset{(3.6)}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
+      \overset{(\ref{eq:funcConv})}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
       = \lim_{m \to \infty} (-1)^{|\alpha|} \int_\Omega \DD^\alpha u_m \varphi \d x 
-      \overset{(3.5)}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x.
+      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x.
     \end{align*}
     Since $\varphi, \DD^\alpha \varphi \in \Ell^q(\Omega)$ for all $|\alpha| \leq k$ and $u \in \WW^{k,p}(\Omega)$.
-    But then (3.5) and (3.6) imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.
+    But then (\ref{eq:derivativeConv}) and (\ref{eq:funcConv}) imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.
     Hence, $\WW^{k,p}(\Omega)$ is complete and a Banach space.
 
     That $(\cdot,\cdot)_{\HH^k(\Omega)}$ is a scalar product on $\HH^k(\Omega)$ easily follows from the $\Ell^2$-scalar product.
