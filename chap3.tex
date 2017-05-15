@@ -8,6 +8,7 @@ We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \
 
 More generally, for higher order derivatives we have the following result:
 \begin{lem}
+  \label{lem:partialIntegrationGeneral}
   Let $\Omega \subset \R^n$ be open, $u \in \CC^k(\Omega)$ with $k \in \N$, and $\alpha \in \N_0^n$ be a multiindex with $|\alpha| = k$. Then
   \begin{equation}
     \label{eq:partialIntegrationGeneral}
@@ -41,6 +42,7 @@ If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \co
 In order to show the uniqueness of the weak derivative we need the following fundamental lemma.
 
 \begin{lem}[Fundamental lemma of calculus of variations]
+  \label{lem:fundamental}
   Let $\Omega \subset \R^n$ be open and $u \in \Ell_{\loc}^1(\Omega)$.
   Then we have the equivalence
   $$
@@ -92,7 +94,13 @@ With this result we show the uniqueness of the weak derivative and its equality 
 \end{lem}
 
 \begin{proof}
-  Simple.
+  If $v$ and $\tilde v$ are $\alpha$th weak derivatives of $u$, by (\ref{eq:partialIntegrationGeneral})
+  $$
+  \int_\Omega (v - \tilde v) (x) \varphi(x) \d x = 0, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+  $$
+  Hence, by Lemma \ref{lem:fundamental} $v - \tilde v = 0$ a.e. in $\Omega$ and $v = \tilde v$ a.e. in $\Omega$.
+  If $u \in \CC^k(\Omega)$, then by Lemma \ref{lem:partialIntegrationGeneral}, (\ref{eq:partialIntegrationGeneral}) is satisfied with $v = \DD^\alpha u$ and hence the classical derivative $\DD^\alpha u$ is also a weak derivative.
+  Due to the uniqueness the claim follows.
 \end{proof}
 
 As the weak derivative is well-defined, we may now define Sobolev spaces consisting of functions having weak derivatives in $\Ell^p$ spaces.
@@ -102,7 +110,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     \item Let $k \in \N$, $p \in [1,\infty]$ and $\Omega \subset \R^n$ be open. 
       We define the Sobolev space
       $$
-      \WW^{k,p}(\Omega) \coloneqq \bigg\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } D^\alpha u \text{ exists with } \DD^\alpha u \in \Ell^p(\Omega), \text{ for all } 0 \leq |\alpha| \leq k \bigg\}
+      \WW^{k,p}(\Omega) \coloneqq \bigg\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } D^\alpha u \text{ ex. with } \DD^\alpha u \in \Ell^p(\Omega), \text{ for all } 0 \leq |\alpha| \leq k \bigg\}
       $$
       with the norm
       $$
