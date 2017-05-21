@@ -112,6 +112,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$ without assuming any smoothness of $\partial \Omega$.
 
 \begin{thm}[Meyers and Serrin]
+  \label{thm:meyersSerrin}
   Let $\Omega \subset \R^n$ be open, $k \in \N$, and $p \in [1,\infty)$.
     Then, $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
 \end{thm}
@@ -132,13 +133,11 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     all $W_i \subset V_i$ are compact and we have $\Omega = \bigcup_{i = 0}^\infty W_i$.
     Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff-function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
-    %Since for all $j \geq i + 2$
-    %$$W_i \cap V_j 
-    %= \left(\overline{U_{i + 3}} \cap \overline{U_{j + 1}}^{\mathrm c}  \right)\cap \left( U_{i + 2}^{\mathrm c} \cap  U_{j + 4}   \right) 
-    %=  \emptyset,$$ 
-    %alternativ
-    Since for all $j \geq i + 3$, $V_i \cap V_j = \emptyset$,
-    for any $x \in \Omega$ we have
+    Since for all $j \geq i + 2$
+    $$W_i \cap V_j 
+    = \left(\overline{U_{i + 3}} \cap \overline{U_{j + 1}}^{\mathrm c}  \right)\cap \left( U_{i + 2}^{\mathrm c} \cap  U_{j + 4}   \right) 
+    =  \emptyset,$$ 
+    and for all $j \geq i + 3$, $V_i \cap V_j = \emptyset$, for any $x \in \Omega$ we have
     $$
     \sigma(x) \coloneqq \sum_{i = 0}^\infty \psi_i(x) > 0
     $$
@@ -186,3 +185,180 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
   $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:weakPartialDerivative} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
   Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
 \end{rem}
+
+We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
+
+\begin{prop}
+  Let $\Omega$ be open $p \in [1,\infty)$ and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
+  Assume further that $f(0) = 0$ or $|\Omega| < \infty$ is satisfied.
+  Then, for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a. e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
+\end{prop}
+
+\begin{proof}
+  As $f'$ is continuous and bounded and $u$ is measurable, we have $f' \circ u\in \Ell^\infty(\Omega)$ and $(f' \circ u) \nabla u \in \Ell^p(\Omega)$.
+  In view of 
+  $$
+  |f(x)| \leq |f(0)| + M|x|, \quad\text{for all } x \in \R,
+  $$
+  the assumption $f(0)= 0$ or $|\Omega| < \infty$ implies $f(u) \in \Ell^p(\Omega)$.
+  By Theorem \ref{thm:meyersSerrin} there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$, hence $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
+  We fix $i \in \{ 1, \dots, n\}$ and $\varphi \in \CC_0^\infty(\Omega)$.
+  In view of $f(u_m) \in \CC^1(\Omega)$ we deduce from (\ref{eq:partialIntegrationGeneral})
+  \begin{equation}
+    \label{eq:partialIntChainRule}
+    \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x, \quad\text{for all } m \in \N,
+  \end{equation}
+  by the classical chain rule.
+  On the one hand, for $q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$  we have
+  \begin{align*}
+    | \int_\Omega (f(u_m) - f(u))\, \varphi_{x_i} \d x |
+    \leq M \int_{\Omega} |u_m - u|\, |\varphi_{x_i}| \d x
+    &\leq M \|u_m - u\|_{\Ell^p(\Omega)} \|\varphi_{x_i}\|_{\Ell^q(\Omega)} \\
+    &\to 0, \quad\text{as } m \to \infty,
+  \end{align*}
+  since $f$ is Lipschitz.
+  On the other hand, 
+  $$
+  |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \leq 2M |u_{x_i}| \|\varphi\|_{\Ell^\infty(\Omega)} \in \Ell^1(\supp(\varphi))
+  $$
+  as $\supp(\varphi)$ is bounded and thus
+  \begin{align*}
+    &|\int_\Omega (f'(u_m) (u_m)_{x_i} - f'(u)u_{x_i})\, \varphi \d x | \\
+    &\quad\leq \int_\Omega |f'(u_m)|\, |(u_m)_{x_i} - u_{x_i}|\,| \varphi | \d x 
+    + \int_\Omega |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \d x \\
+    &\quad\leq M \|(u_m)_{x_i} - u_{x_i}\|_{\Ell^p(\Omega)} \|\varphi\|_{\Ell^q(\Omega)}
+    + \int_{\supp(\varphi)} |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \d x .
+    \\&\quad \to 0, \quad\text{as } m \to \infty,
+  \end{align*}
+   by the dominated convergence theorem.
+
+   Hence, letting $m \to \infty$ in (\ref{eq:partialIntChainRule})  we conclude that $(f(u))_{x_i} = f'(u)u_{x_i}$ in the weak sense.
+\end{proof}
+
+Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in \WW^{1,p}(\Omega)$.
+
+\begin{cor}
+  Let $\Omega \subset \R^n$ be open, $p \in [1,\infty)$, and $u \in \WW^{1,p}(\Omega)$.
+  Define 
+  $$u_+(x) \coloneqq \max\{u(x),0\} \quad\text{and}\quad u_-(x) = \max\{-u(x),0\}.$$
+  Then, $u_+, u_-,|u| \in \WW^{1,p}(\Omega)$ with
+    $\nabla u_+(x) = \nabla u(x) \chi_{\{ u > 0\}}(x)$, $\nabla u_-(x) = \nabla u(x) \chi_{\{ u < 0\}}(x)$, and $\nabla|u|(x) = \nabla u(x) \left( \chi_{\{ u > 0\} } (x) - \chi_{\{u < 0\}} (x) \right)$.
+\end{cor}
+
+\begin{proof}
+  Exercise.
+\end{proof}
+
+\section{Approximation by \texorpdfstring{$\CC^\infty(\overline{\Omega})$}{C\textasciicircum infty(Omega) }-functions}
+
+We now ask the question whether any $u \in \WW^{k,p}(\Omega)$ can also be approximated by functions $u_m \in \CC^\infty(\overline\Omega)$ instead of $u_m \in \CC^\infty(\Omega)$.
+The following example shows that this is not true for all open $\Omega \subset \R^n$.
+
+\begin{ex}
+  Let $\Omega = \{(x,y) \in \R^2 \colon 0 < |x| < 1, 0 < y < 1\}$ and $p \in [1,\infty)$.
+  Then, $u \colon \Omega \to \R$ defined by
+  $$
+  u(x,y) \coloneqq \begin{cases} 1, \quad\text{if } x > 0,\\ 0, \quad\text{if } x < 0 \end{cases}
+  $$
+  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small, there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)}$.
+\end{ex}
+
+The problem with $\Omega$ in the example is that it lies on both sides of the segment $\Gamma = \{(0,y) \colon y \in [0,1]\}$ with $\gamma \subset \partial \Omega$.
+The following condition excludes this situation.
+Moreover, we assume from now on that $\Omega$ is a domain, i.e. open and connected.
+
+\begin{defn}
+  Let $\Omega \subset \R^n$ be a domain.
+  We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $\UU_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap \UU_x$ and any $\varepsilon \in (0,1)$.
+\end{defn}
+
+Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^m$ function.
+
+\begin{defn}
+  Let $\Omega \subset \R^n$ be a bounded domain and $m \in \N$.
+  We say that $\Omega$ \emph{is of class} $\CC^m$ or simply $\partial\Omega \subset \CC^m$ if for any $x^0 \in \partial \Omega$ there exists $r = r(x^0) > 0$ and $\gamma = \gamma_{x^0} \in \CC^m(\R^{n - 1})$ such that upon relabeling and reorienting the coordinate axes if necessary we have
+  \begin{align*}
+     \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma(x_1,\dots,x_{n - 1}) \}, \\
+     \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x_1,\dots,x_{n - 1})\}.
+  \end{align*}
+  Furthermore we say $\partial \Omega \in \CC^\infty$ if $\gamma \in \CC^\infty$ and we say $\partial \Omega$ \emph{is analytic} if $\gamma$ is analytic.
+\end{defn}
+
+\begin{rem}
+  Let $\Omega$ be a bounded domain with $\partial \Omega \in \CC^1$.
+  Then, for any $x^0\in \partial\Omega$ there is a unique outward unit vector $\nu(x^0)$, i.e. $|\nu| = 1$, $\nu(x^0) \perp y$ for all $y \in \TT(x^0)$, where $\TT(x^0)$ is the tangential space on $\partial\Omega$ in $x^0$ and $x^0 + t\nu(x^0) \not\in\overline\Omega$ for all $t \in (0,\varepsilon_0)$ for $\varepsilon_0 > 0$ small.
+
+  Indeed, as 
+  $$
+  \def\arraystretch{0.6}
+  \partial\Omega \cap \BB_r(x^0) = \Bigg\{ \left( \begin{array}{c} x_1 \\ \vdots \\ x_{n - 1} \\ \gamma(x_1,\dots,x_{n-1}) \end{array} \right) \Bigg\} \cap \BB_r(x^0)
+  $$
+  we have that
+  $$
+  \def\arraystretch{0.6}
+  \TT(x) = \Span \Bigg\{ 
+    \left(\begin{array}{c} 1 \\ 0 \\ \vdots \\ 0 \\ \gamma_{x_1}(x_1,\dots,x_{n - 1}) \end{array} \right),
+    \dots, 
+    \left(\begin{array}{c} 0 \\ 0 \\ \vdots \\ 1 \\ \gamma_{x_{n-1}}(x_1,\dots,x_{n - 1}) \end{array} \right)\Bigg\}
+  $$
+  is $(n-1)$-dimensional so that $\TT(x)^\perp$ is one-dimensional.
+  Hence, $\nu(x)$ is uniquely defined and $\nabla \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1$ and 
+  $$
+  \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} = (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT
+  $$
+  In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $\UU_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
+\end{rem}
+
+\begin{prop}
+  Let $p \in [1,\infty)$ and $u \in \Ell^p(\R^n)$. 
+    Then, the translation is continuous in $\Ell^p(\R^n)$ in the sense that we have (with $h \in \R^n$)
+    $$
+    \lim_{|h| \to 0} \| u(\cdot + h) - u(\cdot)\|_{\Ell^p(\R^n)} = 0.
+    $$
+\end{prop}
+
+\begin{proof}
+  Given $\delta > 0$, by \ref{sec:mollifier} there is $\varphi \in \CC_0^\infty(\R^n)$ such that
+  $$
+  \|u - \varphi\|_{\Ell^p(\Omega)}.
+  $$
+  But then also
+  $$
+  \|u(\cdot + h) - \varphi(\cdot + h) \|_{\Ell^p(\Omega)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \delta.
+  $$
+  Since $\varphi$ ha compact support, it is uniformly continuous on $\R^n$.
+  Hence, There is $M > 0$ such that
+  $$
+  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3|\supp(\varphi)|^{\frac{1}{p}}}, \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
+  $$
+  Hence, for $h \in \R^n$ with $|h| < M$ we have
+  \begin{align*}
+    \|u(\cdot + h) - u(\cdot)\|_{\Ell^p(\R^n)}
+    &\leq \|u(\cdot + h) - \varphi(\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\cdot + h) - \varphi(\cdot ) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
+    &\leq \frac{2}{3}\delta +  \|\varphi(\cdot + h) - \varphi(\cdot)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} \\
+    &< \delta
+  \end{align*}
+  and the claim follows.
+\end{proof}
+
+\begin{thm}
+  Let $\Omega \subset \R^n$ be a domain satisfying the segment condition, $K \in \N$, and $p \in [1,\infty)$.
+    Then, the set 
+    $
+    \{ \varphi|_\Omega \colon \varphi \in \CC_0^\infty(\R^n) \}
+    $
+    is dense in $\WW^{k,p}(\Omega)$.
+    In particular, if in addition $\Omega \neq \R^n$, then for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \N} \subset \CC^\infty(\overline \Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$.
+\end{thm}
+
+\begin{proof}
+  We fix $u \in \WW^{k,p}(\Omega)$ and $\delta > 0$.
+  \begin{enumerate}[i)]
+    \item In a first step we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
+    \item 
+  \end{enumerate}
+  
+\end{proof}<++>
+
+
+

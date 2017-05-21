@@ -1,61 +1,57 @@
 % Makros
 \numberwithin{equation}{chapter}
 
-\newcommand{\N}{\mathbb{N}} % natuerliche Zahlen
-\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
-\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
-\newcommand{\R}{\mathbb{R}} % reelle Zahlen
-\newcommand{\K}{\mathbb{K}} % Körper
-\newcommand{\co}{\mathrm{co}} % compact open
-\newcommand{\ee}{\mathrm{e}} % compact open
-\newcommand{\W}{\mathcal{W}} % Weyl-Gruppe
-\newcommand{\1}{\mathbbm{1}} % Körper
-\newcommand{\C}{\mathbb{C}} % komplexe Zahlen
+%Zahlen
+\newcommand{\N}{\mathbb{N}} 
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\Q}{\mathbb{Q}} 
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\K}{\mathbb{K}} 
+\newcommand{\C}{\mathbb{C}} 
+
+%Mengen
+\newcommand{\Pot}{\mathcal{P}}
+\newcommand{\BB}{\mathrm{B}}
+\newcommand{\UU}{\mathrm{U}}
+\newcommand{\TT}{\mathrm{T}}
+
+%Funktionenräume
 \newcommand{\CC}{\mathrm{C}} 
 \newcommand{\Ell}{\mathrm{L}} 
-\newcommand{\We}{\mathrm{W}} 
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\Sc}{\mathcal{S}}
-\newcommand{\F}{\mathcal{F}}
-\newcommand{\A}{\mathcal{A}}
 \newcommand{\Li}{\mathfrak{L}}
-\newcommand{\Pot}{\mathcal{P}}
-\newcommand{\Hi}{\mathcal{H}}
-\newcommand{\Ki}{\mathcal{H}}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\BB}{\mathrm{B}}
 \newcommand{\WW}{\mathrm{W}}
 \newcommand{\HH}{\mathrm{H}}
-\newcommand{\DD}{\mathrm{D}}
-\newcommand{\Ct}{\mathcal{C}}
-\newcommand{\T}{\mathbb{T}}
-\newcommand{\St}{\mathfrak{S}}
+
+%Sonstiges
+\newcommand{\1}{\mathbbm{1}}
+
+%Differentialoperatoren
+\let\divsymb=\div % rename builtin command \div to \divsymb
+\renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
+\renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
+\newcommand{\DD}{\ensuremath\,{\operatorname{D}}}
 
 \def\esssup{\qopname\relax m{\mathrm{ess}\,sup}}
 
 
 % Umgebungen für Definitionen, Sätze, usw.
 
-%\newtheorem{defn}{Definition}[section]
-%\newtheorem{ex}{Beispiel}[chapter]
-
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{prop}[thm]{Proposition}
-\newtheorem{ntion}{Notation}
 
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{ex}[thm]{Example}
+
+\theoremstyle{remark}
 \newtheorem{rem}[thm]{Remark}
-
-%\theoremstyle{remark}
-
-\def\Satzrefname{Satz}
+%\newtheorem{ntion}{Notation}
 
 \DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\loc}{loc}
 \DeclareMathOperator{\pv}{pv}
 \DeclareMathOperator{\konv}{konv}
@@ -64,31 +60,10 @@
 \DeclareMathOperator{\grad}{grad}
 \DeclareMathOperator{\Spur}{Spur}
 \DeclareMathOperator{\BUC}{BUC}
-%\DeclareMathOperator{\DD}{D}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\abs}{abs}
 \DeclareMathOperator{\Op}{Op}
 \DeclareMathOperator{\Aff}{Aff}
 \DeclareMathOperator{\codim}{codim}
-\DeclareMathOperator{\cstar}{C*}
-\DeclareMathOperator{\stoplim}{stop-lim}
-\DeclareMathOperator{\swoplim}{swop-lim}
 
-\let\divsymb=\div % rename builtin command \div to \divsymb
-\renewcommand{\div}[1]{\mathrm{div\,} #1} % for divergence
-\renewcommand{\d}[1]{\ensuremath\, {\operatorname{d}\!{#1}}}
-%\newcommand{\norm}[1]{\lVert #1 \rVert}
-
-%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;} 
-%
-%\def\Xint#1{\mathchoice
-%{\XXint\displaystyle\textstyle{#1}}%
-%{\XXint\textstyle\scriptstyle{#1}}%
-%{\XXint\scriptstyle\scriptscriptstyle{#1}}%
-%{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
-%\!\int}
-%\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
-%\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
-%\def\ddashint{\Xint=}
-%\def\dashint{\Xint-}
