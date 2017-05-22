@@ -48,6 +48,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
 In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ (and not only in $\WW^{k,p}_{\loc}(\Omega)$), we need the following lemmas to construct a partition of unity.
 
 \begin{lem}
+  \label{lem:cutoff}
   Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
   If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff-function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$, for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
 \end{lem}
@@ -60,9 +61,11 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   $$
   is compact with $\dist(\partial \tilde K, \partial K) = \frac{\delta}{2} \leq \dist(\delta \tilde K, \partial \Omega)$.
 
-  As $\chi_{\tilde K} \in \Ell^1(\Omega)$ with $\supp \chi_{\tilde K} = \tilde K \Subset \Omega$, we have that $\tau \coloneqq \eta_{\frac{\delta}{4}} \ast \chi_{\tilde K}$ satisfies $\tau \in \CC_0^\infty(\Omega)$, $0, \leq \tau \leq 1$, and $\tau = 1$ in $K$ by Theorem 2.1, as
+  As $\chi_{\tilde K} \in \Ell^1(\Omega)$ with $\supp \chi_{\tilde K} = \tilde K \Subset \Omega$, we have that $\tau \coloneqq \eta_{\frac{\delta}{4}} \ast \chi_{\tilde K}$ satisfies $\tau \in \CC_0^\infty(\Omega)$, $0 \leq \tau \leq 1$, and $\tau = 1$ in $K$ by Theorem \ref{thm:mollifier}, as
   $$
-  \tau(x) = \int_{\BB_{\frac{\delta}{4}}}(x - y) \underbrace{\chi_{\tilde K}(y)}_{= 1} \d y = 1, \quad\text{for all }x \in K,
+  \tau(x) 
+  = \int_{\BB_{\frac{\delta}{4}}(x)}\eta_{\frac{\delta}{4}}(x - y) \underbrace{\chi_{\tilde K}(y)}_{= 1} \d y 
+  = 1, \quad\text{for all }x \in K,
   $$
   since $\BB_{\frac{\delta}{4}}(x) \subset \tilde K$.
   Moreover, for $|\alpha| = k$
@@ -114,7 +117,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 \begin{thm}[Meyers and Serrin]
   \label{thm:meyersSerrin}
   Let $\Omega \subset \R^n$ be open, $k \in \N$, and $p \in [1,\infty)$.
-    Then, $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
+    Then, $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
 \end{thm}
 
 \begin{proof}
@@ -183,7 +186,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 \begin{rem}
   Historically, there were two definitions of Sobolev spaces.
   $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:weakPartialDerivative} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
-  Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
+  Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \supseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
 \end{rem}
 
 We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
@@ -195,15 +198,16 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
 \end{prop}
 
 \begin{proof}
-  As $f'$ is continuous and bounded and $u$ is measurable, we have $f' \circ u\in \Ell^\infty(\Omega)$ and $(f' \circ u) \nabla u \in \Ell^p(\Omega)$.
+  As $f'$ is continuous and bounded and $u$ is measurable, we have $f'(u)\in \Ell^\infty(\Omega)$ and $f'(u) \nabla u \in \Ell^p(\Omega)$.
   In view of 
   $$
   |f(x)| \leq |f(0)| + M|x|, \quad\text{for all } x \in \R,
   $$
   the assumption $f(0)= 0$ or $|\Omega| < \infty$ implies $f(u) \in \Ell^p(\Omega)$.
-  By Theorem \ref{thm:meyersSerrin} there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$, hence $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
+  By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
+  Hence, $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
   We fix $i \in \{ 1, \dots, n\}$ and $\varphi \in \CC_0^\infty(\Omega)$.
-  In view of $f(u_m) \in \CC^1(\Omega)$ we deduce from (\ref{eq:partialIntegrationGeneral})
+  In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from (\ref{eq:partialIntegrationGeneral})
   \begin{equation}
     \label{eq:partialIntChainRule}
     \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x, \quad\text{for all } m \in \N,
@@ -281,7 +285,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
      \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma(x_1,\dots,x_{n - 1}) \}, \\
      \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x_1,\dots,x_{n - 1})\}.
   \end{align*}
-  Furthermore we say $\partial \Omega \in \CC^\infty$ if $\gamma \in \CC^\infty$ and we say $\partial \Omega$ \emph{is analytic} if $\gamma$ is analytic.
+  Furthermore, we say $\partial \Omega \in \CC^\infty$ if $\gamma \in \CC^\infty$ and we say $\partial \Omega$ \emph{is analytic} if $\gamma$ is analytic.
 \end{defn}
 
 \begin{rem}
@@ -326,8 +330,8 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   $$
   \|u(\cdot + h) - \varphi(\cdot + h) \|_{\Ell^p(\Omega)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \delta.
   $$
-  Since $\varphi$ ha compact support, it is uniformly continuous on $\R^n$.
-  Hence, There is $M > 0$ such that
+  Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
+  Hence, there is $M > 0$ such that
   $$
   |\varphi(x + h) - \varphi(x) < \frac{\delta}{3|\supp(\varphi)|^{\frac{1}{p}}}, \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
   $$
@@ -355,6 +359,37 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   We fix $u \in \WW^{k,p}(\Omega)$ and $\delta > 0$.
   \begin{enumerate}[i)]
     \item In a first step we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
+      By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau = 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (chose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
+      For $\varepsilon \in (0,1)$ we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
+      Then, $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
+      \begin{equation}
+        |\DD^\alpha \tau_\varepsilon(x)| \leq M \varepsilon^{|\alpha|} \leq M, \quad\text{for all } |\alpha| \leq k.
+      \end{equation}
+      Hence, $v_\varepsilon \coloneqq \tau_\varepsilon u$ has bounded supprot and belongs to $\WW^{k,p}(\Omega)$ by Proposition \ref{prop:sobolevProperties} d).
+      It further satisfies for $|\alpha| \leq k$
+      $$
+      |\DD^\alpha v_\varepsilon(x)| 
+      = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
+      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^{\alpha - \beta} u(x), \quad\text{for all } x \in\Omega,
+      $$
+      so that for all $\tilde\Omega \subset \Omega$ open we have
+      $$
+        \|v_\varepsilon\|_{\WW^{k,p}(\tilde\Omega)}
+        \leq \sum_{|\alpha|\leq k} \|\DD^\alpha v_\varepsilon\|_{\Ell^p(\tilde\Omega)}
+        \leq M \left( \sum_{|\alpha| \leq k} \sum_{\beta\leq\alpha} \binom{\alpha}{\beta} \right) \|u\|_{\WW^{k,p}(\tilde\Omega)}
+        \leq c(k) M \|u\|_{\WW^{k,p}(\tilde\Omega)}
+      $$
+      with some constant $c(k) > 0$.
+      Hence,
+      \begin{align*}
+        \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)}
+        &= \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})}
+        \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{B_{\frac{1}{\varepsilon}}(0)}} + \|v_\varepsilon\|_{\WW^{k,p}(\overline{\Omega \setminus \BB_{\frac{1}{\varepsilon}(0)}})} \\
+        &\leq (1 + c(k)M) \|u\|_{W^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})} \\
+        &\to 0, \quad\text{ as } \varepsilon \to 0,
+      \end{align*}
+      in view of $p < \infty$.
+      Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v = v_\varepsilon$ has bounded support.
     \item 
   \end{enumerate}
   
