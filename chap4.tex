@@ -84,6 +84,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \end{proof}
 
 \begin{lem}[Partition of unity]
+  \label{lem:partitionOfUnity}
   Let $K \subset \R^n$ be compact and $\{\Omega_k\}_{k = 1,\dots,N}$ be an open covering of $K$.
   Then, there exist $\psi_k, k=1,\dots,N$, called \emph{partition of unity} such that $\psi_k \in \CC_0^\infty(\Omega_k)$, $0 \leq \psi_k \leq 1$ in $\Omega_k$, and $\sum_{k = 1}^N \psi_k(x) = 1$, for all $x \in K$.
 \end{lem}
@@ -272,8 +273,9 @@ The following condition excludes this situation.
 Moreover, we assume from now on that $\Omega$ is a domain, i.e. open and connected.
 
 \begin{defn}
+  \label{defn:segmentCond}
   Let $\Omega \subset \R^n$ be a domain.
-  We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $\UU_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap \UU_x$ and any $\varepsilon \in (0,1)$.
+  We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $U_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap U_x$ and any $\varepsilon \in (0,1)$.
 \end{defn}
 
 Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^m$ function.
@@ -310,7 +312,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   $$
   \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} = (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT
   $$
-  In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $\UU_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
+  In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
 \end{rem}
 
 \begin{prop}
@@ -360,12 +362,12 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   \begin{enumerate}[i)]
     \item In a first step we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
       By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau = 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (chose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
-      For $\varepsilon \in (0,1)$ we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
+      For $\varepsilon \in (0,1)$, we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
       Then, $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
       \begin{equation}
         |\DD^\alpha \tau_\varepsilon(x)| \leq M \varepsilon^{|\alpha|} \leq M, \quad\text{for all } |\alpha| \leq k.
       \end{equation}
-      Hence, $v_\varepsilon \coloneqq \tau_\varepsilon u$ has bounded supprot and belongs to $\WW^{k,p}(\Omega)$ by Proposition \ref{prop:sobolevProperties} d).
+      Hence, $v_\varepsilon \coloneqq \tau_\varepsilon u$ has bounded support and belongs to $\WW^{k,p}(\Omega)$ by Proposition \ref{prop:sobolevProperties} d).
       It further satisfies for $|\alpha| \leq k$
       $$
       |\DD^\alpha v_\varepsilon(x)| 
@@ -390,9 +392,25 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       \end{align*}
       in view of $p < \infty$.
       Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v = v_\varepsilon$ has bounded support.
-    \item 
+
+    \item In view of i) we may assume w.l.o.g. that $K \coloneqq \supp(u)$ is bounded and hence compact (if necessary, we replace $u$ by $v$).
+
+      For $x \in \partial\Omega$, let $U_x$ in $\R^n$ be the open neighborhood of $x$ and $0 \neq y_x \in \R^n$ like in Definition \ref{defn:segmentCond}.
+      Then
+      $$
+      F \coloneqq K \setminus ( \bigcup_{x \in \partial\Omega} U_x )
+      $$
+      is compact with $F \subset \Omega$.
+      Hence, there is $U_0$ open such that $F \Subset U_0 \Subset \Omega$.
+      As $K$ is compact, there exist finitely many of the sets $U_x$ which we call $U_1,\dots,U_N$ such that $K \subset \bigcup_{i = 0}^N U_i$.
+      Moreover, we choose $V_i \Subset U_i$ open sets $i = 0,\dots,N,$ such that $K \subset \bigcup_{i = 0}^N V_i$ and $V_i$ is still a neighborhood of $x^i$ belonging to $U_i = U_{x^i}$.
+      By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_n$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
+
+      Our aim is to find $\varphi_i \in \CC_0^\infty(\R^n)$ such that with $u_i \coloneqq \psi_i u$ we have
+      \begin{equation}
+        \|u_i - \varphi_i\|_{\WW^{k,p}(\Omega)} < \frac{\delta}{N + 1}, \quad\text{for all } i \in \{0,\dots,N\}.        
+      \end{equation}
   \end{enumerate}
-  
 \end{proof}<++>
 
 
