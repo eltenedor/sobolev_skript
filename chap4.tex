@@ -360,7 +360,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \begin{proof}
   We fix $u \in \WW^{k,p}(\Omega)$ and $\delta > 0$.
   \begin{enumerate}[i)]
-    \item In a first step we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
+    \item In a first step, we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
       By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau = 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (chose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
       For $\varepsilon \in (0,1)$, we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
       Then, $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
@@ -372,7 +372,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       $$
       |\DD^\alpha v_\varepsilon(x)| 
       = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
-      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^{\alpha - \beta} u(x), \quad\text{for all } x \in\Omega,
+      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)|, \quad\text{for all } x \in\Omega,
       $$
       so that for all $\tilde\Omega \subset \Omega$ open we have
       $$
