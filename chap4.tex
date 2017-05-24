@@ -6,8 +6,7 @@ As it is often complicated to use the definition of weak derivatives for proving
 
 We prove that mollification from \ref{sec:mollifier} provides approximating functions in $\WW_{\loc}^{k,p}(\Omega)$.
 
-\begin{thm}
-  \label{thm:interiorApproximation}
+\begin{thm}\label{thm:interiorApproximation}
   Let $\Omega \subseteq \R^n$ be open, $k \in \N$, $p \in [1,\infty)$, and $u \in \WW^{k,p}(\Omega)$.
     Then, the following statements hold:
     \begin{enumerate}[a)]
@@ -195,7 +194,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
 \begin{prop}
   Let $\Omega$ be open $p \in [1,\infty)$ and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
   Assume further that $f(0) = 0$ or $|\Omega| < \infty$ is satisfied.
-  Then, for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a. e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
+  Then, for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a.e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
 \end{prop}
 
 \begin{proof}
@@ -315,7 +314,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
 \end{rem}
 
-\begin{prop}
+\begin{prop}\label{prop:continuousTrans}
   Let $p \in [1,\infty)$ and $u \in \Ell^p(\R^n)$. 
     Then, the translation is continuous in $\Ell^p(\R^n)$ in the sense that we have (with $h \in \R^n$)
     $$
@@ -407,11 +406,50 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_n$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
 
       Our aim is to find $\varphi_i \in \CC_0^\infty(\R^n)$ such that with $u_i \coloneqq \psi_i u$ we have
-      \begin{equation}
+      \begin{equation} \label{eq:diffUPhi}
         \|u_i - \varphi_i\|_{\WW^{k,p}(\Omega)} < \frac{\delta}{N + 1}, \quad\text{for all } i \in \{0,\dots,N\}.        
       \end{equation}
+      As $\supp(u_0) \Subset V_0 \Subset \Omega$, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollification} b) there exists $\varphi_0 \in \CC_0^\infty(\R^n)$ such that (\ref{eq:diffUPhi}) holds for $i = 0$.
+      Next, we fix $i \in \{ 1, \dots, N\}$ and extend $u$ by $0$ outside $\Omega$.
+      Let $x^i \in \partial \Omega$ be the point belonging to $U_i$ ($U_i$ is a neighborhood of $x^i$) and 
+      $$
+      \Gamma \coloneqq \overline{V_i} \cap \partial\Omega.
+      $$
+      As $\psi_i = 0$ on $\partial \Omega \setminus \Gamma$, $u_i = 0$ on $\R^n \setminus \overline{\Omega}$, and $u_i \in \WW^{k,p}(\Omega)$ by Proposition \ref{prop:sobolevProperties}, we get $u_i \in \WW^{k,p}(\R^n \setminus \Gamma)$.
+      Let $y \coloneqq y_{x_i}$ from the segment condition and 
+      $$
+      \Gamma_t \coloneqq \{ x - ty \colon x \in \Gamma \},
+      $$
+      where 
+      $$
+      0 < t < \min\{1, \frac{1}{|y|} \dist(\partial V_i, \partial U_i)\}.
+      $$
+      By the choice of $t$, we have $\Gamma_t \subset U_i$ and $\Gamma_t \cap \overline{\Omega} = \emptyset$.
+      The latter follows form the segment condition: For $z = x - sy$ with $x \in \Gamma$ and $s \in (0,1)$ we have $z + sy = x \in \Gamma \subset \partial\Omega$.
+      Hence, $z \not\in\overline{\Omega}$ so that $\Gamma_t \cap \overline\Omega = \emptyset$.
+      Define 
+      $$
+      w_t(x) \coloneqq u_i(x + ty).
+      $$
+      As $u_i \in \WW^{k,p}(\R^n \setminus \Gamma)$, we have $w_t \in \WW^{k,p}(\R^n\setminus \Gamma_t)$.
+      Hence, Proposition \ref{prop:continuousTrans} yields that $\DD^\alpha w_t \to \DD^\alpha u_i$ in $\Ell^p(\Omega)$ as $t \downarrow 0$ for all $|\alpha| \leq k$ (since $\overline\Omega \subset \R^n \setminus \Gamma_t$) and we can choose $t$ small enough such that $\|w_t - u_i \|_{\WW^{k,p}(\Omega)} \leq \frac{\delta}{2 ( N + 1 )}$.
+
+      Moreover, since $u \in \Ell^p(\Omega)$ and $u = 0$ on $\R^n \setminus \Omega$, we have $u \in \Ell^p(\R^n)$, $u_i = \psi_i u \in \Ell^p(\R^n)$, and $w_t \in \Ell^p(\R^n)$.
+      Hence, by Theorem \ref{thm:interiorApproximation} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
+      As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi - w_t \|_{\WW^{k,p}(\Omega)} \lneq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
+      Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| < \frac{\delta}{N + 1}$ and (\ref{eq:diffUPhi}) holds for all $i \in \{0,\dots,N\}$.
+      As $u = \sum_{i = 1}^n u_i = \sum_{i = 1}^n \varphi_i u$, $\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} < \delta$.
+    \item Combining i) and ii), the claim is proved.  \qedhere
   \end{enumerate}
+\end{proof}
+
+As a Corollary we see that $\WW_0^{k,p}(\R^n)$ and $\WW^{k,p}(\R^n)$ coincide.
+
+\begin{cor}
+  For $k \in \N$ and $p \in [1,\infty)$, we have $\WW_0^{k,p}(\R^n) = \WW^{k,p}(\R^n)$.
+\end{cor}
+
+\begin{proof}
+  
 \end{proof}<++>
-
-
 
