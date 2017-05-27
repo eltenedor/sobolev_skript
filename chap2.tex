@@ -59,15 +59,15 @@ Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if
 \begin{enumerate}[i)]
   \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative and point-wise non-decreasing. Then,
     $$
-    \int_\Omega \left( \lim_{n \to \infty} u_n(x) \right) \d x = \lim_{n \to \infty} u_n(x) \d x.
+    \int_\Omega \left( \lim_{n \to \infty} u_n(x) \right) \d x = \lim_{n \to \infty} \int_\Omega u_n(x) \d x.
     $$
   \item Fatou's lemma: Let $(u_n)_{n \in \N}$ be measurable in $\Omega$ and non-negative. Then
     $$
     \int_\Omega \left( \liminf_{n \to \infty} u_n(x) \right) \d x 
     \leq \liminf_{n \to \infty} \int_\Omega u_n(x) \d x.
     $$
-  \item Dominated convergence (Lebesgue): Let $(u_n)_{n \in \N}$ and $u$ be measurable on $\Omega$ such that $u_n(x) \to u(x)$ as $n \to \infty$ a.e. in $\Omega$ and $|u_n(x)| \leq u(x)$ a.e. in $\Omega$ for all $n \in \N$ and some $u \in \Ell^1(\Omega)$.
-    Then, $u_n \in \Ell^1(\Omega)$ for all $n \in \N$ and $\lim_{n \to \infty} \int_\Omega u_n(x) \d x = \int_\Omega u(x) \d x$.
+  \item Dominated convergence (Lebesgue): Let $(u_n)_{n \in \N}$ and $u$ be measurable on $\Omega$ such that $u_n(x) \to u(x)$ as $n \to \infty$ a.e. in $\Omega$ and $|u_n(x)| \leq h(x)$ a.e. in $\Omega$ for all $n \in \N$ and some $h \in \Ell^1(\Omega)$.
+    Then, $u_n, u \in \Ell^1(\Omega)$ for all $n \in \N$ and $\lim_{n \to \infty} \int_\Omega u_n(x) \d x = \int_\Omega u(x) \d x$.
   \item Fubini's theorem: Let $u = u(x,y)$ be measurable on $\R^{n + m}$ such that at least on of the following integrals exists and is finite:
     \begin{align*}
       I_1 &= \int_{\R^{n + m}} |u(x,y)| \d x \d y \\
@@ -85,9 +85,9 @@ In this section let $\Omega \subset \R^n$ be open.
   \item $\CC_0^\infty(\Omega)$ is dense in $\Ell^p(\Omega)$ for any $p \in [1,\infty)$, i.e. for any $u \in \Ell^p(\Omega)$ and $\varepsilon > 0$ there is $\varphi \in \CC_0^\infty(\Omega)$ such that $\|\varphi - u\|_{\Ell^p(\Omega)} < \varepsilon$.
     \item Notation: For $\varepsilon > 0, x \in \R^n$, let 
       \begin{align*}
-        \BB_\varepsilon(x) &\coloneqq \{ y \in R^n \colon |y - x| < \varepsilon \}, \\
+        \BB_\varepsilon(x) &\coloneqq \{ y \in \R^n \colon |y - x| < \varepsilon \}, \\
         \Omega_\varepsilon &\coloneqq \{ x \in \Omega \colon \dist(x, \partial\Omega) > \varepsilon \} \quad\text{and } \\
-        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon \Ell^p(V), \text{ for all } V \Subset \Omega \} \quad\text{for $p \in [1,\infty]$.}
+        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon u \in \Ell^p(V), \text{ for all } V \Subset \Omega \}, \quad\text{for $p \in [1,\infty]$.}
     \end{align*}
   \item Standard mollifier: Let
     $$
@@ -104,7 +104,7 @@ In this section let $\Omega \subset \R^n$ be open.
   \begin{align*}
     u_\varepsilon(x) 
     &= \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y
-    = \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y \\
+    = \int_{\Omega} \eta_\varepsilon(x - y) u(y) \d y \\
     &= \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
   \end{align*}
 \end{enumerate}
@@ -156,7 +156,7 @@ The mollification has the following properties:
     due to (\ref{eq:lebdiffthm}).
     
     \item If $\supp(u) \Subset \Omega$, let $\delta \coloneqq \dist(\supp(u), \partial \Omega) > 0$.
-    Then, for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(y) = \emptyset$ and 
+    Then, for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(u) = \emptyset$ and 
     $$
     u_\varepsilon(x) = \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y = 0.
     $$
@@ -171,7 +171,7 @@ The mollification has the following properties:
     \begin{align*}
       |u_\varepsilon(x)| 
       &= | \int_\Omega \left( \eta_\varepsilon(x - y) \right)^{1 - \frac{1}{p}} \left( \eta_\varepsilon(x - y)\right)^{\frac{1}{p}} u(y) \d y | \\
-      &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)}_{\leq 1}^{\frac{p - 1}{p}}
+      &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)^{\frac{p - 1}{p}}}_{\leq 1} \left( \int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d y \right)^\frac{1}{p}
       \leq \left( \int_\Omega \eta_\varepsilon (x - y) |u(y)|^p \d y \right)^{\frac{1}{p}}.
     \end{align*}
     Raising this to the power $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have

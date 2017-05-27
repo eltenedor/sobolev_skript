@@ -12,7 +12,7 @@ More generally, for higher order derivatives we have the following result:
   Let $\Omega \subset \R^n$ be open, $u \in \CC^k(\Omega)$ with $k \in \N$, and $\alpha \in \N_0^n$ be a multiindex with $|\alpha| = k$. Then
   \begin{equation}
     \label{eq:partialIntegrationGeneral}
-    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(s) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(x) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{lem}
 
@@ -20,7 +20,7 @@ More generally, for higher order derivatives we have the following result:
   For $k = 1$, (\ref{eq:partialIntegrationGeneral}) is just (\ref{eq:partialIntegration}) which was verified in the exercise.
   For $\alpha = (\alpha_1,\dots,\alpha_n)$ with $|\alpha| = k$ we have
   $$
-  \DD^\alpha \phi(x)= \frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}} ( \dots ( \frac{\partial^{\alpha_n}}{\partial x_n^{\alpha_n}} ) \dots )(x)
+  \DD^\alpha \phi(x)= \frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}} ( \dots ( \frac{\partial^{\alpha_n}}{\partial x_n^{\alpha_n}} ) \dots )\phi(x)
   $$
   and (\ref{eq:partialIntegrationGeneral}) follows by applying (\ref{eq:partialIntegration}) $k$ times.
 \end{proof}
@@ -36,24 +36,24 @@ As the integrals in (\ref{eq:partialIntegrationGeneral}) are meaningful if $u, \
     \label{eq:weakPartialDerivativeDef}
     \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
+If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \coloneqq v$.
 \end{defn}
 
-If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \coloneqq v$.
-In order to show the uniqueness of the weak derivative we need the following fundamental lemma.
+In order to show the uniqueness of the weak derivative, we need the following fundamental lemma.
 
 \begin{lem}[Fundamental lemma of calculus of variations]
   \label{lem:fundamental}
   Let $\Omega \subset \R^n$ be open and $u \in \Ell_{\loc}^1(\Omega)$.
   Then we have the equivalence
   $$
-  \int_\Omega u(x) \varphi(x) \d x = 0, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega) \iff u = 0 \text{ a.e. in } \Omega.
+  \int_\Omega u(x) \varphi(x) \d x = 0 \quad\text{for all } \varphi \in \CC_0^\infty(\Omega) \iff u = 0 \text{ a.e. in } \Omega.
   $$
 \end{lem}
 
 \begin{proof}
   ``$\impliedby$'' is obvious.
 
-  ``$\implies$'': Let $u \in \Ell^1_{\loc}(\Omega)$ with $\int_\Omega u\varphi \d x = 0, \text{ for all } \varphi \in \CC_0^\infty(\Omega)$.
+  ``$\implies$'': Let $u \in \Ell^1_{\loc}(\Omega)$ with $\int_\Omega u\varphi \d x = 0 \text{ for all } \varphi \in \CC_0^\infty(\Omega)$.
 We fix $K \subset \Omega$ compact and define
 $$
 \operatorname{sign}(u(x)) \coloneqq 
@@ -67,13 +67,14 @@ and
 $$
 f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)), &\text{ if } x \in K, \\ 0,  &\text{ if } x \in \R^n \setminus K. \end{cases}
 $$
-As $|u| < \infty$ a.e. in $K$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem \ref{thm:mollifier} a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
+As $|u| < \infty$ a.e. in $K$ a.e., we have $u(x)f(x) = |u(x)|$ for a.e. $x \in K$.
+Since $f \in \Ell^\infty(\Omega)$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem \ref{thm:mollifier} a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
 As moreover
 $$
 |\varphi_{n_k}(x)| 
-\leq \int_\Omega \eta_{\frac{1}{n}}(x - y) |f(y)| \d y
-\leq \underbrace{\vphantom{\int_\Omega}\|f\|_{\Ell^\infty(\Omega)}}_{\leq 1} \underbrace{ \int_\Omega \eta_{\frac{1}{n}} (x - y) \d y}_{\leq 1}
-\leq 1, \quad\text{for all } x \in \Omega, k \in \N,
+\leq \int_\Omega \eta_{\frac{1}{n_k}}(x - y) |f(y)| \d y
+\leq \underbrace{\vphantom{\int_\Omega}\|f\|_{\Ell^\infty(\Omega)}}_{\leq 1} \underbrace{ \int_\Omega \eta_{\frac{1}{n_k}} (x - y) \d y}_{\leq 1}
+\leq 1 \quad\text{for all } x \in \Omega, k \in \N,
 $$
 the dominated convergence theorem implies
 $$
@@ -88,18 +89,18 @@ With this result we show the uniqueness of the weak derivative and its equality 
 
 \begin{lem}
   Let $u \in \Ell_{\loc}^1(\Omega)$ and $\alpha \in \N_0^n$, with $|\alpha| = k \in \N$. 
-  If the weak derivative $\DD^\alpha u(\Omega)$ exists it is uniquely defined up to a set of measure zero.
+  If the weak derivative $\DD^\alpha u$ exists it is uniquely defined up to a set of measure zero.
   If $u \in \CC^k(\Omega)$, then $\DD^\alpha u$ exists and is equal to the classical derivative $\DD^\alpha u$. 
   Hence, we use $\DD^\alpha$ both for weak and classical partial derivatives.
 \end{lem}
 
 \begin{proof}
-  If $v$ and $\tilde v$ are $\alpha$th weak derivatives of $u$, by (\ref{eq:partialIntegrationGeneral})
+  If $v$ and $\tilde v$ are $\alpha$th weak derivatives of $u$, by (\ref{eq:weakPartialDerivativeDef})
   $$
-  \int_\Omega (v - \tilde v) (x) \varphi(x) \d x = 0, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+  \int_\Omega (v - \tilde v) (x) \varphi(x) \d x = 0 \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   $$
   Hence, by Lemma \ref{lem:fundamental} $v - \tilde v = 0$ a.e. in $\Omega$ and $v = \tilde v$ a.e. in $\Omega$.
-  If $u \in \CC^k(\Omega)$, then by Lemma \ref{lem:partialIntegrationGeneral}, (\ref{eq:partialIntegrationGeneral}) is satisfied with $v = \DD^\alpha u$ and hence the classical derivative $\DD^\alpha u$ is also a weak derivative.
+  If $u \in \CC^k(\Omega)$, then by Lemma \ref{lem:partialIntegrationGeneral}, (\ref{eq:weakPartialDerivativeDef}) is satisfied with $v = \DD^\alpha u$ and hence the classical derivative $\DD^\alpha u$ is also a weak derivative.
   Due to the uniqueness the claim follows.
 \end{proof}
 
@@ -110,7 +111,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     \item Let $k \in \N$, $p \in [1,\infty]$ and $\Omega \subset \R^n$ be open. 
       We define the Sobolev space
       $$
-      \WW^{k,p}(\Omega) \coloneqq \bigg\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } \DD^\alpha u \text{ ex. with } \DD^\alpha u \in \Ell^p(\Omega), \text{ for all } 0 \leq |\alpha| \leq k \bigg\}
+      \WW^{k,p}(\Omega) \coloneqq \bigg\{u \in \Ell^p(\Omega) \colon \text{ weak derivative } \DD^\alpha u \text{ ex. with } \DD^\alpha u \in \Ell^p(\Omega) \text{ for all } 0 \leq |\alpha| \leq k \bigg\}
       $$
       with the norm
       $$
@@ -158,15 +159,15 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     For fixed $\varphi \in \CC_0^\infty(\Omega)$ and $\varepsilon > 0$, Green's formula ($\nu$ is the outward unit normal on $\Omega \setminus \overline{\BB_\varepsilon(0)}$ ) implies
     \begin{equation}
       \label{eq:greenFormulaEx}
-      \int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u\varphi_{x_i} \d x
-      = -\int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u_{x_i} \varphi \d x + \int_{\partial \Omega} u\varphi \nu_i \d \sigma
-      + \int_{\partial \BB_\varepsilon(0)} u\varphi \nu_i \d \sigma.
+      \int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u \, \varphi_{x_i} \d x
+      = -\int_{\Omega \setminus \overline{\BB_\varepsilon(0)}} u_{x_i} \varphi \d x + \underbrace{\int_{\partial \Omega} u \, \varphi \, \nu_i \d \sigma}_{= 0}
+      + \int_{\partial \BB_\varepsilon(0)} u \, \varphi \, \nu_i \d \sigma.
     \end{equation}
     We may pass to the limit $\varepsilon \downarrow 0$ in the first two integrals if $u \in \Ell^1(\Omega)$ and $\nabla u \in \Ell^1(\Omega)^n$, i.e. $a < n$ and $a + 1 < n$.
     As for $a < n - 1$ we further have
     $$
-    \left| \int_{\partial \BB_\varepsilon(0)} u\varphi \nu_i \d \sigma \right|
-      \leq \|\varphi\|_{\Ell^\infty} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
+    \left| \int_{\partial \BB_\varepsilon(0)} u \, \varphi \,  \nu_i \d \sigma \right|
+      \leq \|\varphi\|_{\Ell^\infty(\Omega)} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
       \leq C \varepsilon^{k - 1 - a} \to 0 \text{ as } \varepsilon \downarrow 0.
     $$
     Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in (\ref{eq:greenFormulaEx}) and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
@@ -186,7 +187,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
   \begin{enumerate}[a)]
     \item $\DD^\alpha u \in W^{k - |\alpha|,p}(\Omega)$ (with $\WW^{0,p}(\Omega) = \Ell^p(\Omega)$) and $\DD^\beta (\DD^\alpha (u)) = \DD^\alpha (\DD^\beta(u)) = \DD^{\alpha + \beta}(u)$ for all $\alpha, \beta \in \N_0^n$ with $|\alpha| + |\beta| \leq k$.
     \item For $\lambda, \mu \in \R$ we have $\lambda u + \mu v \in \WW^{k,p}(\Omega)$ and $\DD^\alpha(\lambda u + \mu v) = \lambda \DD^\alpha u + \mu \DD^\alpha v$.
-    \item If $V \subset \Omega$ is open, the $u \in \WW^{k,p}(V)$.
+    \item If $V \subset \Omega$ is open, then $u \in \WW^{k,p}(V)$.
     \item If $\xi \in \CC_0^\infty(\Omega)$, then $\xi u \in \WW^{k,p}(\Omega)$ and Leibniz's formula
       $$
       \DD^\alpha(\xi u) = \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta\xi \DD^{\alpha - \beta} u
@@ -240,7 +241,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
   \end{enumerate}
 \end{proof}
 
-Finally, we show that $\WW^{k,p}$ is a Banach space.
+Finally, we show that $\WW^{k,p}(\Omega)$ is a Banach space.
 
 \begin{thm}
   Let $\Omega \subset \R^n$ be open, $k \in \N$, $p \in [1,\infty]$.
@@ -252,12 +253,12 @@ Finally, we show that $\WW^{k,p}$ is a Banach space.
 \end{thm}
 
 \begin{proof}
-  By Proposition \ref{prop:sobolevProperties} b), $\WW^{k,p}$ is a vector space.
+  By Proposition \ref{prop:sobolevProperties} b), $\WW^{k,p}(\Omega)$ is a vector space.
   For $p \in [1,\infty)$ and $u,v \in \WW^{k,p}(\Omega)$, Minkowski's inequality (see \ref{sec:lpBasics}) on $\Ell^p(\Omega)$ and for $\|\cdot\|_p$ on $\R^m$ implies
     \begin{align*}
       \|u + v\|_{W^{k,p}(\Omega)}
-      &= \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u + \DD^\alpha v \right)^{\frac{1}{p}} 
-      \leq \left( \sum_{|\alpha|\leq k} \left( \|\DD^\alpha u\|_{\Ell^p(\Omega)} + \|\DD^\alpha v\|_{\Ell^p(\Omega)} \right)^p \right) \\
+      &= \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u + \DD^\alpha v\|^p_{\Ell^p(\Omega)} \right)^{\frac{1}{p}} 
+      \leq \left( \sum_{|\alpha|\leq k} \left( \|\DD^\alpha u\|_{\Ell^p(\Omega)} + \|\DD^\alpha v\|_{\Ell^p(\Omega)} \right)^p \right)^{\frac{1}{p}} \\
       &\leq \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^p(\Omega)}^p\right)^{\frac{1}{p}}
       + \left( \sum_{|\alpha| \leq k} \|\DD^\alpha v\|_{\Ell^p(\Omega)}^p\right)^{\frac{1}{p}}
       = \|u\|_{\WW^{k,p}(\Omega)} + \|v\|_{\WW^{k,p}(\Omega)}.
@@ -284,9 +285,9 @@ Finally, we show that $\WW^{k,p}$ is a Banach space.
       \int_\Omega u \DD^\alpha \varphi \d x
       \overset{(\ref{eq:funcConv})}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
       = \lim_{m \to \infty} (-1)^{|\alpha|} \int_\Omega \DD^\alpha u_m \varphi \d x 
-      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x.
+      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x,
     \end{align*}
-    Since $\varphi, \DD^\alpha \varphi \in \Ell^q(\Omega)$ for all $|\alpha| \leq k$ and $u \in \WW^{k,p}(\Omega)$.
+    since $\varphi, \DD^\alpha \varphi \in \Ell^q(\Omega)$ with $\frac{1}{p} + \frac{1}{q} = 1$. Hence, $\DD^\alpha u = u_\alpha \in \Ell^p(\Omega)$ for all $|\alpha| \leq k$ and $u \in \WW^{k,p}(\Omega)$.
     But then (\ref{eq:derivativeConv}) and (\ref{eq:funcConv}) imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.
     Hence, $\WW^{k,p}(\Omega)$ is complete and a Banach space.
 
