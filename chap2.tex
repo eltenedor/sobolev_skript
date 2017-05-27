@@ -5,7 +5,7 @@ Here, we recall some facts about Lebesgue spaces which should be known from prev
 Throughout this lecture, a set $\Omega \subset \R^n$ is called \emph{measurable} if it is measurable w.r.t. the Lebesgue measure on $\R^n$.
 Unless otherwise stated, we always assume in this chapter that $\Omega \subset \R^n$ is measurable.
 
-Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if $\{x \in \Omega \colon u(x) > \alpha\}$ is measurable for any $\alpha \in \R$.
+Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if $\{x \in \Omega \colon u(x) > \alpha\}$ is measurable for any $\alpha \in \R$.
 
 \section{\texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}: definition and basic properties}
 \label{sec:lpBasics}
@@ -26,16 +26,16 @@ Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if
     If $[u]$ contains a continuous function, we assume that $u$ is chosen to be continuous.
   \item $\Ell^p(\Omega)$ is a Banach space for $p \in [1,\infty]$, i.e. a complete and normed vector space.
   \item $\Ell^p$ convergence and a.e. convergence: Let $p \in [1,\infty]$, $(u_n)_{n \in \N} \subset \Ell^p(\Omega)$ and $u \in \Ell^p(\Omega)$, such that $u_n \to u$ in $\Ell^p(\Omega)$, i.e. $\|u_n - u\|_{\Ell^p(\Omega)} \to 0$ as $n \to \infty$.
-    Then, there is a subsequence $(u_{n_k})_{k \in \N}$ and a function $h \in \Ell^p(\Omega)$ such that $u_{n_k}(x) \to u(x)$ a.e. in $\Omega$ as $k \to \infty$ and $|u_{n_k}(x)| \leq h(x)$ a.e. in $\Omega$ for all $k \in \N$.
+    Then there is a subsequence $(u_{n_k})_{k \in \N}$ and a function $h \in \Ell^p(\Omega)$ such that $u_{n_k}(x) \to u(x)$ a.e. in $\Omega$ as $k \to \infty$ and $|u_{n_k}(x)| \leq h(x)$ a.e. in $\Omega$ for all $k \in \N$.
   \item Minkowski's inequality: Let $1 \leq p \leq \infty$ and $u,v \in \Ell^p(\Omega)$.
-    Then,
+    Then
     $$
     \|u + v\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}+ \|v\|_{\Ell^p(\Omega)}.
     $$
   \item Hölder's inequality: Let $p,q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$ and $u \in \Ell^p(\Omega), v \in \Ell^q(\Omega)$. 
-    Then, $uv \in \Ell^1(\Omega)$ and
+    Then $uv \in \Ell^1(\Omega)$ and
     $$
-    \|uv\|_{\Ell^1(\Omega)} \leq \|u\|_{\Ell^p(\Omega)} \|v\|_{\Ell^q(\Omega)}
+    \|uv\|_{\Ell^1(\Omega)} \leq \|u\|_{\Ell^p(\Omega)} \|v\|_{\Ell^q(\Omega)}.
     $$
   \item For $x,y \in \R^n$,
     \begin{align*}
@@ -44,11 +44,11 @@ Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if
     \end{align*}
     the discrete versions of v), vi) are valid:
     \begin{align*}
-      \|x + y\|_p &\leq \|x\|_p + \|y\|_p \\
+      \|x + y\|_p &\leq \|x\|_p + \|y\|_p, \\
       |x \cdot y| &\leq \|x\|_p \|y\|_q, \text{ for } p \in [1, \infty], \frac{1}{p} + \frac{1}{q} =1.
     \end{align*}
   \item General Hölder inequality: Let $p_k \in [1,\infty], \frac{1}{p_1} + \cdots+ \frac{1}{p_m} = 1, m \geq 3, u_k \in \Ell^{p_k}(\Omega), k = 1,\dots,m$.
-    Then,
+    Then
     $$
     \int_\Omega |u_1 \cdot \cdots \cdot u_m| \d x \leq \prod_{k = 1}^m \|u_k\|_{\Ell^{p_k}(\Omega)}.
     $$
@@ -57,7 +57,7 @@ Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if
 \section{Limit theorems and Fubini}
 
 \begin{enumerate}[i)]
-  \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative and point-wise non-decreasing. Then,
+  \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative and point-wise non-decreasing. Then
     $$
     \int_\Omega \left( \lim_{n \to \infty} u_n(x) \right) \d x = \lim_{n \to \infty} \int_\Omega u_n(x) \d x.
     $$
@@ -67,14 +67,14 @@ Then, $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if
     \leq \liminf_{n \to \infty} \int_\Omega u_n(x) \d x.
     $$
   \item Dominated convergence (Lebesgue): Let $(u_n)_{n \in \N}$ and $u$ be measurable on $\Omega$ such that $u_n(x) \to u(x)$ as $n \to \infty$ a.e. in $\Omega$ and $|u_n(x)| \leq h(x)$ a.e. in $\Omega$ for all $n \in \N$ and some $h \in \Ell^1(\Omega)$.
-    Then, $u_n, u \in \Ell^1(\Omega)$ for all $n \in \N$ and $\lim_{n \to \infty} \int_\Omega u_n(x) \d x = \int_\Omega u(x) \d x$.
-  \item Fubini's theorem: Let $u = u(x,y)$ be measurable on $\R^{n + m}$ such that at least on of the following integrals exists and is finite:
+    Then $u_n, u \in \Ell^1(\Omega)$ for all $n \in \N$ and $\lim_{n \to \infty} \int_\Omega u_n(x) \d x = \int_\Omega u(x) \d x$.
+  \item Fubini's theorem: Let $u = u(x,y)$ be measurable on $\R^{n + m}$ such that at least one of the following integrals exists and is finite:
     \begin{align*}
-      I_1 &= \int_{\R^{n + m}} |u(x,y)| \d x \d y \\
-      I_2 &= \int_{\R^m} \left( \int_{\R^n} |u(x,y)| \d x \right) \d y \\
+      I_1 &= \int_{\R^{n + m}} |u(x,y)| \d x \d y, \\
+      I_2 &= \int_{\R^m} \left( \int_{\R^n} |u(x,y)| \d x \right) \d y, \\
       I_2 &= \int_{\R^n} \left( \int_{\R^m} |u(x,y)| \d y \right) \d x.
     \end{align*}
-    Then, $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$ and $I_1 = I_2 = I_3$.
+    Then $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$ and $I_1 = I_2 = I_3$.
 \end{enumerate}
 
 \section{Dense subspaces and mollifier}
@@ -86,15 +86,15 @@ In this section let $\Omega \subset \R^n$ be open.
     \item Notation: For $\varepsilon > 0, x \in \R^n$, let 
       \begin{align*}
         \BB_\varepsilon(x) &\coloneqq \{ y \in \R^n \colon |y - x| < \varepsilon \}, \\
-        \Omega_\varepsilon &\coloneqq \{ x \in \Omega \colon \dist(x, \partial\Omega) > \varepsilon \} \quad\text{and } \\
-        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon u \in \Ell^p(V), \text{ for all } V \Subset \Omega \}, \quad\text{for $p \in [1,\infty]$.}
+        \Omega_\varepsilon &\coloneqq \{ x \in \Omega \colon \dist(x, \partial\Omega) > \varepsilon \}, \quad\text{ and } \\
+        \Ell_{\loc}^p(\Omega) &\coloneqq \{ u \colon \Omega \to [-\infty, \infty] \colon u \in \Ell^p(V) \text{ for all } V \Subset \Omega \}, \quad\text{for $p \in [1,\infty]$.}
     \end{align*}
   \item Standard mollifier: Let
     $$
     \eta(x) \coloneqq \begin{cases} c \exp\left( \frac{1}{|x|^2 - 1} \right), &|x| < 1, \\ 0, &|x| \geq 1, \end{cases}
     $$
     where $c > 0$ is chosen such that $\int_{\R^n} \eta(x) \d x = 1$.
-    Then, $\eta \in \CC_0^\infty(\R^n)$ is called \emph{standard mollifier}.
+    Then $\eta \in \CC_0^\infty(\R^n)$ is called \emph{standard mollifier}.
     For $\varepsilon > 0$,
     $
     \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right), x \in \R^n,
@@ -111,10 +111,10 @@ In this section let $\Omega \subset \R^n$ be open.
 The mollification has the following properties:
 \begin{thm}
   \label{thm:mollifier}
-  Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then, the following statements hold true:
+  Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then the following statements hold true:
   \begin{enumerate}[a)]
     \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
-    \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$, for small enough $\varepsilon$. 
+    \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$ for small enough $\varepsilon$. 
     \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
     \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
       Moreover, $u_\varepsilon \in \CC^\infty(\Omega)$.
@@ -136,7 +136,7 @@ The mollification has the following properties:
       \DD_i^h (u_\varepsilon)(x)
     &= \int_\Omega \frac{1}{h} (\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon (x - y)) u(y) \d y 
     = \int_\Omega (\DD_i^h \eta_\varepsilon (x - y)) u(y) \d y  \\
-    &\to \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i}(x - y) u(y) \d y, \quad\text{as } \varepsilon \downarrow 0.
+    &\to \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i}(x - y) u(y) \d y \quad\text{as } \varepsilon \downarrow 0.
     \end{align*}
     Hence, $\frac{\partial}{\partial x_i} u_\varepsilon(x) = \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i} (x - y) u(y) \d y$.
     By induction, $u_\varepsilon \in \CC^\infty(\R^n)$.
@@ -151,12 +151,12 @@ The mollification has the following properties:
       &= | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) f(y) \d y | 
       = | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (f(y) - f(x)) \d y | \nonumber\\
       &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |f(y) - f(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |f(y) - f(x) | \d y \label{eq:pointwise}\\
-      & \to 0, \quad\text{as } \varepsilon \downarrow 0 \nonumber
+      & \to 0 \quad\text{as } \varepsilon \downarrow 0 \nonumber
     \end{align}
     due to (\ref{eq:lebdiffthm}).
     
     \item If $\supp(u) \Subset \Omega$, let $\delta \coloneqq \dist(\supp(u), \partial \Omega) > 0$.
-    Then, for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(u) = \emptyset$ and 
+    Then for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(u) = \emptyset$ and 
     $$
     u_\varepsilon(x) = \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y = 0.
     $$
@@ -164,7 +164,7 @@ The mollification has the following properties:
     By a), $u_\varepsilon \in \CC_0^\infty(\Omega)$.
 
     \item For $u \in \CC^0(\Omega)$ and $V \Subset \Omega$, choose $W$ such that $V \Subset W \Subset \Omega$.
-    Then, $u$ is uniformly continuous in $W$ and (\ref{eq:lebdiffthm}) holds uniformly for $x \in V$.
+    Then $u$ is uniformly continuous in $W$ and (\ref{eq:lebdiffthm}) holds uniformly for $x \in V$.
     Hence, also (\ref{eq:pointwise}) is satisfied uniformly for $x \in V$ and $u_\varepsilon \to u$ uniformly in $V$.
 
     \item For $x \in \Omega$, by using Hölder's inequality and $\eta_\varepsilon \geq 0$ along with $\int_{\R^n} \eta_\varepsilon(z) \d y = 1$, we get
@@ -186,7 +186,7 @@ The mollification has the following properties:
 
     Given $\mu > 0$, we may choose $\varphi \in \CC_0^\infty(\Omega)$ such that $\|u - \varphi\|_{\Ell^p(\Omega)} <  \frac{\mu}{3}$. 
     As $\varphi$ and $\varphi_\varepsilon$ have compact support in $\Omega$ by $b)$, we deduce from c) that $\varphi_\varepsilon \to \varphi$ uniformly in $\Omega$ as $\varepsilon \downarrow 0$.
-    Hence, we may choose $\varepsilon_0 > 0$ small enough such that $\|\varphi_\varepsilon - \varphi\|_{\Ell^p(\Omega)} < \frac{\mu}{3}$, for all $\varepsilon \in (0, \varepsilon_0)$.
+    Hence, we may choose $\varepsilon_0 > 0$ small enough such that $\|\varphi_\varepsilon - \varphi\|_{\Ell^p(\Omega)} < \frac{\mu}{3}$ for all $\varepsilon \in (0, \varepsilon_0)$.
     But then,
     \begin{align*}
       \|u_\varepsilon - u\|_{\Ell^p(\Omega)}
@@ -194,7 +194,7 @@ The mollification has the following properties:
       &\leq \|\eta_\varepsilon \ast u - \eta_\varepsilon \ast \varphi \|_{\Ell^p(\Omega)} + \frac{2}{3} \mu \\
       &= \|\eta_\varepsilon \ast (u - \varphi) \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu
       = \|(u - \varphi)_\varepsilon \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu \\
-      &\overset{(\ref{eq:lpinequality})}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu, \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
+      &\overset{(\ref{eq:lpinequality})}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
     \end{align*}
     We still have $u_\varepsilon \in \CC^\infty(\Omega)$ since for $x \in \BB_\delta(x_0)$ with $\overline{\BB_{2\delta}(x_0)} \subset \Omega$ we have for $x \in K \coloneqq \overline{\BB_{2\delta}(x_0)}$ and $\varepsilon \in (0, \delta)$, $u_\varepsilon(x) = \int_K \eta_\varepsilon(x - y)u(y) \d y$.
     A similar argument shows e).\qedhere

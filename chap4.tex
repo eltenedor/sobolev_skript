@@ -8,9 +8,9 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
 
 \begin{thm}\label{thm:interiorApproximation}
   Let $\Omega \subseteq \R^n$ be open, $k \in \N$, $p \in [1,\infty)$, and $u \in \WW^{k,p}(\Omega)$.
-    Then, the following statements hold:
+    Then the following statements hold:
     \begin{enumerate}[a)]
-      \item $u_\varepsilon \in \CC^\infty(\Omega)$ and $\DD^\alpha(u_\varepsilon)(x) = (\DD^\alpha u)_\varepsilon(x)$, for all $ x \in \Omega_\varepsilon$ and all $\alpha \in \N_0^n$ with $|\alpha| \leq k$.
+      \item $u_\varepsilon \in \CC^\infty(\Omega)$ and $\DD^\alpha(u_\varepsilon)(x) = (\DD^\alpha u)_\varepsilon(x)$ for all $ x \in \Omega_\varepsilon$ and all $\alpha \in \N_0^n$ with $|\alpha| \leq k$.
       \item $u_\varepsilon \to u$ in $\WW_{\loc}^{k,p}(\Omega)$, as $\varepsilon \downarrow 0$.
     \end{enumerate}
 \end{thm}
@@ -49,7 +49,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \begin{lem}
   \label{lem:cutoff}
   Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
-  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff-function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$, for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
+  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff-function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$ for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
 \end{lem}
 
 \begin{proof}
@@ -64,7 +64,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   $$
   \tau(x) 
   = \int_{\BB_{\frac{\delta}{4}}(x)}\eta_{\frac{\delta}{4}}(x - y) \underbrace{\chi_{\tilde K}(y)}_{= 1} \d y 
-  = 1, \quad\text{for all }x \in K,
+  = 1 \quad\text{for all }x \in K
   $$
   since $\BB_{\frac{\delta}{4}}(x) \subset \tilde K$.
   Moreover, for $|\alpha| = k$
@@ -73,7 +73,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   = \left( \frac{4}{\delta}\right)^n \DD^\alpha \left[ \eta \left( \frac{4 }{\delta} x \right) \right] 
   =  \left( \frac{4}{\delta}\right)^{n+k} (\DD^\alpha \eta)\left( \frac{4}{\delta} x \right).
   $$
-  Hence, for $x \in \Omega \setminus K$, we have 
+  Hence, for $x \in \Omega \setminus K$ we have 
   $$
     |\DD^\alpha \tau (x) | 
     \leq \int_{\BB_{\frac{\delta}{4}}(x)}\, \left(\frac{4}{\delta}\right)^{n + k}\, \|\DD^\alpha \eta \|_{\Ell^\infty(\R^n)} \,\chi_{\tilde K}(y) \d y
@@ -85,12 +85,12 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \begin{lem}[Partition of unity]
   \label{lem:partitionOfUnity}
   Let $K \subset \R^n$ be compact and $\{\Omega_k\}_{k = 1,\dots,N}$ be an open covering of $K$.
-  Then, there exist $\psi_k, k=1,\dots,N$, called \emph{partition of unity} such that $\psi_k \in \CC_0^\infty(\Omega_k)$, $0 \leq \psi_k \leq 1$ in $\Omega_k$, and $\sum_{k = 1}^N \psi_k(x) = 1$, for all $x \in K$.
+  Then, there exist $\psi_k, k=1,\dots,N$, called \emph{partition of unity} such that $\psi_k \in \CC_0^\infty(\Omega_k)$, $0 \leq \psi_k \leq 1$ in $\Omega_k$, and $\sum_{k = 1}^N \psi_k(x) = 1$ for all $x \in K$.
 \end{lem}
 
 \begin{proof}
   For any $x \in K$ there is $r = r(x) > 0$ and $1\leq k \leq N$ such that $\BB_{x, k} \coloneqq \BB_r(x) \Subset \Omega_k$.
-  Hence, $$\{B_{x,k}\}_{\substack{x \in K \cap \Omega_k, \\ k = 1,\dots,N}}$$ is an open covering of $K$ and has a finite subset still covering $K$, called $$\{B_i^k\}_{\substack{i = 1,\dots,N_k \\ k = 1,\dots,N}}.$$ Then,
+  Hence, $$\{B_{x,k}\}_{\substack{x \in K \cap \Omega_k, \\ k = 1,\dots,N}}$$ is an open covering of $K$ and has a finite subset still covering $K$, called $$\{B_i^k\}_{\substack{i = 1,\dots,N_k \\ k = 1,\dots,N}}.$$ Then
   $$
   K_k \coloneqq \overline{\bigcup_{i = 1}^{N_k} B_i^k}
   $$
@@ -98,7 +98,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   Let $\tilde \psi_k$ denote the cutoff-function w.r.t $K_k, \Omega_k$.
   Hence, $\tilde \psi_k \in \CC_0^\infty(\Omega_k)$ satisfies $0 \leq \tilde \psi_k \leq 1$ and
   $$
-  \psi(x) \coloneqq \sum_{k = 1}^N \tilde \psi_k(x) \geq 1, \quad\text{for all } x \in K.
+  \psi(x) \coloneqq \sum_{k = 1}^N \tilde \psi_k(x) \geq 1 \quad\text{for all } x \in K.
   $$
   Furthermore, we have
   $$
@@ -117,7 +117,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 \begin{thm}[Meyers and Serrin]
   \label{thm:meyersSerrin}
   Let $\Omega \subset \R^n$ be open, $k \in \N$, and $p \in [1,\infty)$.
-    Then, $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
+    Then $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ is dense in $\WW^{k,p}(\Omega)$, i.e. for any $u \in \WW^{k,p}(\Omega)$ there exists $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ as $m \to \infty$.
 \end{thm}
 
 \begin{proof}
@@ -149,9 +149,9 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$\xi_i(x) \coloneqq \frac{\psi_i(x)}{\sigma(x)}, \quad x \in \Omega,$$
       is a \emph{partition of unity subordinate to} $\{V_i\}_{i = 0}^\infty$, i.e. $\xi_i \in \CC_0^\infty(\Omega)$, $0 \leq \xi_i \leq 1$, and $\sum_{i = 0}^\infty \xi_i = 1$ in $\Omega$ and for any $K \Subset \Omega$, $\xi_i|_K \not\equiv 0$ only for finitely many $i$.
   \item Let $u \in \WW^{k,p}(\Omega)$ be arbitrary.
-    Then, by Proposition \ref{prop:sobolevProperties} d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
+    Then by Proposition \ref{prop:sobolevProperties} d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
     We fix $\delta > 0$.
-    Then, for any $i \in \N_0$ we define
+    Then for any $i \in \N_0$ we define
     $$
     Z_i \coloneqq U_{i + 5} \setminus \overline{U_i} \supset V_i, i \in \N \quad\text{and}\quad Z_0 \coloneqq U_5 \supset V_0.
     $$
@@ -164,15 +164,15 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     v(x) \coloneqq \sum_{i = 0}^\infty u_i(x), x \in \Omega.
     $$
-    Then, for any open set $V \Subset \Omega$ only finitely many $u_i$ satisfy $u_i|_V \not\equiv 0$.
+    Then for any open set $V \Subset \Omega$ only finitely many $u_i$ satisfy $u_i|_V \not\equiv 0$.
     Since $u = \sum_{i = 0}^\infty \xi_i u$, we obtain $v \in \CC^\infty(\Omega)$ and
     $$
     \|v - u\|_{\WW^{k,p}(V)}
     \leq \sum_{i = 0}^\infty \|u_i - \xi_i u\|_{\WW^{k,p}(V)}
     \overset{(4.1)}{\leq} \delta \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
-    = \delta, \quad\text{for all } V \Subset \Omega.
+    = \delta \quad\text{for all } V \Subset \Omega.
     $$
-    Since $U_i \subset U_{i + 1}$, for all $i \in \N$, $U_i \Subset \Omega$ , and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem
+    Since $U_i \subset U_{i + 1}$ for all $i \in \N$, $U_i \Subset \Omega$, and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem
     $$
     \|v - u\|_{\WW^{k,p}(\Omega)}^p
     = \sum_{|\alpha| \leq k} \|\DD^\alpha (v - u) \|_{\Ell^p(\Omega)}^p
@@ -194,14 +194,14 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
 \begin{prop}
   Let $\Omega$ be open $p \in [1,\infty)$ and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
   Assume further that $f(0) = 0$ or $|\Omega| < \infty$ is satisfied.
-  Then, for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a.e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
+  Then for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a.e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
 \end{prop}
 
 \begin{proof}
   As $f'$ is continuous and bounded and $u$ is measurable, we have $f'(u)\in \Ell^\infty(\Omega)$ and $f'(u) \nabla u \in \Ell^p(\Omega)$.
   In view of 
   $$
-  |f(x)| \leq |f(0)| + M|x|, \quad\text{for all } x \in \R,
+  |f(x)| \leq |f(0)| + M|x| \quad\text{for all } x \in \R,
   $$
   the assumption $f(0)= 0$ or $|\Omega| < \infty$ implies $f(u) \in \Ell^p(\Omega)$.
   By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
@@ -210,7 +210,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
   In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from (\ref{eq:partialIntegrationGeneral})
   \begin{equation}
     \label{eq:partialIntChainRule}
-    \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x, \quad\text{for all } m \in \N,
+    \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x \quad\text{for all } m \in \N,
   \end{equation}
   by the classical chain rule.
   On the one hand, for $q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$  we have
@@ -245,7 +245,7 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
   Let $\Omega \subset \R^n$ be open, $p \in [1,\infty)$, and $u \in \WW^{1,p}(\Omega)$.
   Define 
   $$u_+(x) \coloneqq \max\{u(x),0\} \quad\text{and}\quad u_-(x) = \max\{-u(x),0\}.$$
-  Then, $u_+, u_-,|u| \in \WW^{1,p}(\Omega)$ with
+  Then $u_+, u_-,|u| \in \WW^{1,p}(\Omega)$ with
     $\nabla u_+(x) = \nabla u(x) \chi_{\{ u > 0\}}(x)$, $\nabla u_-(x) = \nabla u(x) \chi_{\{ u < 0\}}(x)$, and $\nabla|u|(x) = \nabla u(x) \left( \chi_{\{ u > 0\} } (x) - \chi_{\{u < 0\}} (x) \right)$.
 \end{cor}
 
@@ -260,7 +260,7 @@ The following example shows that this is not true for all open $\Omega \subset \
 
 \begin{ex}
   Let $\Omega = \{(x,y) \in \R^2 \colon 0 < |x| < 1, 0 < y < 1\}$ and $p \in [1,\infty)$.
-  Then, $u \colon \Omega \to \R$ defined by
+  Then $u \colon \Omega \to \R$ defined by
   $$
   u(x,y) \coloneqq \begin{cases} 1, \quad\text{if } x > 0,\\ 0, \quad\text{if } x < 0 \end{cases}
   $$
@@ -291,7 +291,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 
 \begin{rem}
   Let $\Omega$ be a bounded domain with $\partial \Omega \in \CC^1$.
-  Then, for any $x^0\in \partial\Omega$ there is a unique outward unit vector $\nu(x^0)$, i.e. $|\nu| = 1$, $\nu(x^0) \perp y$ for all $y \in \TT(x^0)$, where $\TT(x^0)$ is the tangential space on $\partial\Omega$ in $x^0$ and $x^0 + t\nu(x^0) \not\in\overline\Omega$ for all $t \in (0,\varepsilon_0)$ for $\varepsilon_0 > 0$ small.
+  Then for any $x^0\in \partial\Omega$ there is a unique outward unit vector $\nu(x^0)$, i.e. $|\nu| = 1$, $\nu(x^0) \perp y$ for all $y \in \TT(x^0)$, where $\TT(x^0)$ is the tangential space on $\partial\Omega$ in $x^0$ and $x^0 + t\nu(x^0) \not\in\overline\Omega$ for all $t \in (0,\varepsilon_0)$ for $\varepsilon_0 > 0$ small.
 
   Indeed, as 
   $$
@@ -309,14 +309,14 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   is $(n-1)$-dimensional so that $\TT(x)^\perp$ is one-dimensional.
   Hence, $\nu(x)$ is uniquely defined and $\nabla \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1$ and 
   $$
-  \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} = (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT
+  \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} = (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT.
   $$
   In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
 \end{rem}
 
 \begin{prop}\label{prop:continuousTrans}
   Let $p \in [1,\infty)$ and $u \in \Ell^p(\R^n)$. 
-    Then, the translation is continuous in $\Ell^p(\R^n)$ in the sense that we have (with $h \in \R^n$)
+    Then the translation is continuous in $\Ell^p(\R^n)$ in the sense that we have (with $h \in \R^n$)
     $$
     \lim_{|h| \to 0} \| u(\cdot + h) - u(\cdot)\|_{\Ell^p(\R^n)} = 0.
     $$
@@ -334,7 +334,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
   Hence, there is $M > 0$ such that
   $$
-  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3|\supp(\varphi)|^{\frac{1}{p}}}, \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
+  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3|\supp(\varphi)|^{\frac{1}{p}}} \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
   $$
   Hence, for $h \in \R^n$ with $|h| < M$ we have
   \begin{align*}
@@ -347,8 +347,9 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \end{proof}
 
 \begin{thm}
+  \label{thm:CinftyUpToBoundary}
   Let $\Omega \subset \R^n$ be a domain satisfying the segment condition, $K \in \N$, and $p \in [1,\infty)$.
-    Then, the set 
+    Then the set 
     $
     \{ \varphi|_\Omega \colon \varphi \in \CC_0^\infty(\R^n) \}
     $
@@ -362,16 +363,16 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
     \item In a first step, we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
       By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau = 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (chose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
       For $\varepsilon \in (0,1)$, we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
-      Then, $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
+      Then $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
       \begin{equation}
-        |\DD^\alpha \tau_\varepsilon(x)| \leq M \varepsilon^{|\alpha|} \leq M, \quad\text{for all } |\alpha| \leq k.
+        |\DD^\alpha \tau_\varepsilon(x)| \leq M \varepsilon^{|\alpha|} \leq M \quad\text{for all } |\alpha| \leq k.
       \end{equation}
       Hence, $v_\varepsilon \coloneqq \tau_\varepsilon u$ has bounded support and belongs to $\WW^{k,p}(\Omega)$ by Proposition \ref{prop:sobolevProperties} d).
       It further satisfies for $|\alpha| \leq k$
       $$
       |\DD^\alpha v_\varepsilon(x)| 
       = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
-      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)|, \quad\text{for all } x \in\Omega,
+      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)| \quad\text{for all } x \in\Omega,
       $$
       so that for all $\tilde\Omega \subset \Omega$ open we have
       $$
@@ -407,7 +408,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 
       Our aim is to find $\varphi_i \in \CC_0^\infty(\R^n)$ such that with $u_i \coloneqq \psi_i u$ we have
       \begin{equation} \label{eq:diffUPhi}
-        \|u_i - \varphi_i\|_{\WW^{k,p}(\Omega)} < \frac{\delta}{N + 1}, \quad\text{for all } i \in \{0,\dots,N\}.        
+        \|u_i - \varphi_i\|_{\WW^{k,p}(\Omega)} < \frac{\delta}{N + 1} \quad\text{for all } i \in \{0,\dots,N\}.        
       \end{equation}
       As $\supp(u_0) \Subset V_0 \Subset \Omega$, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollification} b) there exists $\varphi_0 \in \CC_0^\infty(\R^n)$ such that (\ref{eq:diffUPhi}) holds for $i = 0$.
       Next, we fix $i \in \{ 1, \dots, N\}$ and extend $u$ by $0$ outside $\Omega$.
@@ -443,13 +444,18 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   \end{enumerate}
 \end{proof}
 
-As a Corollary we see that $\WW_0^{k,p}(\R^n)$ and $\WW^{k,p}(\R^n)$ coincide.
+As a Corollary, we see that $\WW_0^{k,p}(\R^n)$ and $\WW^{k,p}(\R^n)$ coincide.
 
 \begin{cor}
   For $k \in \N$ and $p \in [1,\infty)$, we have $\WW_0^{k,p}(\R^n) = \WW^{k,p}(\R^n)$.
 \end{cor}
 
 \begin{proof}
-  
-\end{proof}<++>
+  Given $u \in \WW^{k,p}(\R^n)$ by part i) of the proof of Theorem \ref{thm:CinftyUpToBoundary}, there exists $v \in\WW^{k,p}(\R^n)$ with $K\coloneqq \supp(V)$ compact and $$\|u - v\|_{\WW^{k,p}(\R^n)} \leq \frac{\delta}{2}.$$
+  But then there is $V_0$ open such that $K \Subset V_0 \Subset \R^n$ and by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollification} b) there is $\varepsilon > 0$ small enough such that $v_\varepsilon = \eta_\varepsilon \ast v \in \CC_0^\infty(V_0)$ and 
+  $$
+  \|v - v_\varepsilon\|_{\WW^{k,p}(\R^n)} = \|v - v_\varepsilon\|_{\WW^{k,p}(V_0)} < \frac{\delta}{2}.
+  $$
+  Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\R^n)} < \delta$ and $v_\varepsilon \in \CC_0^\infty(\R^n)$.
+\end{proof}
 

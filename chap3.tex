@@ -3,7 +3,7 @@
 We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open, we have 
 \begin{equation}
   \label{eq:partialIntegration}
-  \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x, \quad \text{ for all } \varphi \in \CC_0^\infty(\Omega).
+  \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
 \end{equation}
 
 More generally, for higher order derivatives we have the following result:
@@ -12,7 +12,7 @@ More generally, for higher order derivatives we have the following result:
   Let $\Omega \subset \R^n$ be open, $u \in \CC^k(\Omega)$ with $k \in \N$, and $\alpha \in \N_0^n$ be a multiindex with $|\alpha| = k$. Then
   \begin{equation}
     \label{eq:partialIntegrationGeneral}
-    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(x) \d x, \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega u(x) \DD^\alpha \varphi(x) = (-1)^{|\alpha|} \int_\Omega \DD^\alpha u(x) \varphi(x) \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 \end{lem}
 
@@ -34,7 +34,7 @@ As the integrals in (\ref{eq:partialIntegrationGeneral}) are meaningful if $u, \
   $u$ has the \emph{$\alpha$th weak partial derivative} \index{weak partial derivative} $\DD^\alpha u$ if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
   \begin{equation}
     \label{eq:weakPartialDerivativeDef}
-    \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x, \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
+    \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
 If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \coloneqq v$.
 \end{defn}
@@ -143,7 +143,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     \item $u \in \WW_0^{k,p}(\Omega)$ if and only if there exists $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$.
       We interpret $W_0^{k,p}(\Omega)$ as the set of $u \in W^{k,p}(\Omega)$ such that ``$\DD^\alpha u = 0$ on $\partial \Omega$ for any $|\alpha| \leq k - 1$''.
       This interpretation will be made precise in Chapter \ref{chap:extAndTrace}.
-    \item The letter $\HH$ in $\HH^k(\Omega)$ and $\HH_0^k(\Omega)$ is used as those are Hilbert spaces as we will see soon.
+    \item The letter ``$\HH$'' in $\HH^k(\Omega)$ and $\HH_0^k(\Omega)$ is used as those are Hilbert spaces as we will see soon.
   \end{enumerate}
 \end{rem}
 
