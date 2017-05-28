@@ -1,6 +1,6 @@
 \chapter{Weak derivatives and definitions of Sobolev spaces}
 
-We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open, we have 
+We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open we have 
 \begin{equation}
   \label{eq:partialIntegration}
   \int_\Omega u(x) \varphi_{x_i}(x) \d x = -\int_\Omega u_{x_i}(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
@@ -168,7 +168,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     $$
     \left| \int_{\partial \BB_\varepsilon(0)} u \, \varphi \,  \nu_i \d \sigma \right|
       \leq \|\varphi\|_{\Ell^\infty(\Omega)} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
-      \leq C \varepsilon^{k - 1 - a} \to 0 \text{ as } \varepsilon \downarrow 0.
+      \leq C \varepsilon^{k - 1 - a} \to 0 \quad\text{as } \varepsilon \downarrow 0.
     $$
     Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in (\ref{eq:greenFormulaEx}) and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
     Hence, the weak derivative $u_{x_i}$ exists for $a < n - 1$.
@@ -209,7 +209,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
     \int_\Omega \DD^\alpha u \DD^\beta \varphi \d x
     &= (-1)^{|\alpha|} \int_\Omega u \DD^{\alpha + \beta} \varphi \d x \\
     &= (-1)^{|\alpha|} (-1)^{|\alpha| + |\beta|} \int_\Omega \DD^{\alpha + \beta} u \varphi \d x \\
-    &= (-1)^{|\beta|} \int_\Omega \DD^{\alpha + \beta} u \varphi \d x,
+    &= (-1)^{|\beta|} \int_\Omega \DD^{\alpha + \beta} u \varphi \d x
   \end{align*}
   as $|\alpha| + |\beta| = |\alpha + \beta|$.
       Hence, $\DD^\beta(\DD^\alpha u) = \DD^{\alpha + \beta} u$, for $|\beta| \leq k - |\alpha|$.
@@ -237,7 +237,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
         &= (-1)^{|\alpha|} \int_\Omega \sum_{\rho \leq \alpha} \left[ \binom{\beta}{\rho - \gamma} + \binom{\beta }{\rho}\right] \DD^\rho \xi \, \DD^{\alpha - \rho} u \, \varphi \d x
       \end{align*}
       with the convention $\binom{\beta}{\tilde\beta} = 0$ if $\beta_i < \tilde \beta_i$ or $\tilde \beta_i < 0$ for some $i \in \{1,\dots,n\}$.
-      As $\binom{\beta}{\rho - \gamma} + \binom{\beta}{\rho} = \binom{\beta + \gamma}{\rho} = \binom{\alpha}{\rho}$, we deduce that the claim holds by induction.\qedhere
+      As $$\binom{\beta}{\rho - \gamma} + \binom{\beta}{\rho} = \binom{\beta + \gamma}{\rho} = \binom{\alpha}{\rho},$$ we deduce that the claim holds by induction.\qedhere
   \end{enumerate}
 \end{proof}
 
@@ -248,7 +248,7 @@ Finally, we show that $\WW^{k,p}(\Omega)$ is a Banach space.
   Then $\WW^{k,p}(\Omega)$ is a Banach space.
   Moreover, $\HH^k(\Omega)$ is a Hilbert space with the scalar product
   $$
-  (u,v)_{\HH^k(\Omega)} \coloneqq \sum_{|\alpha| \leq k} \int_\Omega \DD^\alpha u \overline{\DD^\beta v} \d x
+  (u,v)_{\HH^k(\Omega)} \coloneqq \sum_{|\alpha| \leq k} \int_\Omega \DD^\alpha u \overline{\DD^\beta v} \d x.
   $$
 \end{thm}
 
@@ -285,7 +285,7 @@ Finally, we show that $\WW^{k,p}(\Omega)$ is a Banach space.
       \int_\Omega u \DD^\alpha \varphi \d x
       \overset{(\ref{eq:funcConv})}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
       = \lim_{m \to \infty} (-1)^{|\alpha|} \int_\Omega \DD^\alpha u_m \varphi \d x 
-      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x,
+      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x
     \end{align*}
     since $\varphi, \DD^\alpha \varphi \in \Ell^q(\Omega)$ with $\frac{1}{p} + \frac{1}{q} = 1$. Hence, $\DD^\alpha u = u_\alpha \in \Ell^p(\Omega)$ for all $|\alpha| \leq k$ and $u \in \WW^{k,p}(\Omega)$.
     But then (\ref{eq:derivativeConv}) and (\ref{eq:funcConv}) imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.

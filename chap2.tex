@@ -57,7 +57,7 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
 \section{Limit theorems and Fubini}
 
 \begin{enumerate}[i)]
-  \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative and point-wise non-decreasing. Then
+  \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative, and point-wise non-decreasing. Then
     $$
     \int_\Omega \left( \lim_{n \to \infty} u_n(x) \right) \d x = \lim_{n \to \infty} \int_\Omega u_n(x) \d x.
     $$
@@ -74,7 +74,7 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
       I_2 &= \int_{\R^m} \left( \int_{\R^n} |u(x,y)| \d x \right) \d y, \\
       I_2 &= \int_{\R^n} \left( \int_{\R^m} |u(x,y)| \d y \right) \d x.
     \end{align*}
-    Then $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$ and $I_1 = I_2 = I_3$.
+    Then $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$, and $I_1 = I_2 = I_3$.
 \end{enumerate}
 
 \section{Dense subspaces and mollifier}
@@ -96,9 +96,7 @@ In this section let $\Omega \subset \R^n$ be open.
     where $c > 0$ is chosen such that $\int_{\R^n} \eta(x) \d x = 1$.
     Then $\eta \in \CC_0^\infty(\R^n)$ is called \emph{standard mollifier}.
     For $\varepsilon > 0$,
-    $
-    \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right), x \in \R^n,
-    $
+    $ \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right)$, $x \in \R^n$,
     satisfies $\eta_\varepsilon \in \CC_0^\infty(\R^n)$, $\int_{\R^n} \eta_\varepsilon(x) \d x = 1$, and $\supp(\eta_\varepsilon) = \overline{\BB_\varepsilon(0)}$.
   \item For $u \in \Ell^1(\Omega)$, we extend $u$ by $u(x) \coloneqq 0$ for all $x \in \R^n \setminus \Omega$ to $u \in \Ell^1(\R^n)$ and define its \emph{mollification} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u$ for $\varepsilon > 0$, i.e.
   \begin{align*}
@@ -116,9 +114,9 @@ The mollification has the following properties:
     \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
     \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$ for small enough $\varepsilon$. 
     \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
-    \item $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
+    \item If $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
       Moreover, $u_\varepsilon \in \CC^\infty(\Omega)$.
-      \item $u \in \Ell_{\loc}^1(\Omega)$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
+      \item If $u \in \Ell_{\loc}^1(\Omega)$, then $u_\varepsilon \in \CC^\infty(\Omega_\varepsilon)$.
   \end{enumerate}
   \label{thm:mollification}
 \end{thm}
@@ -174,7 +172,7 @@ The mollification has the following properties:
       &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)^{\frac{p - 1}{p}}}_{\leq 1} \left( \int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d y \right)^\frac{1}{p}
       \leq \left( \int_\Omega \eta_\varepsilon (x - y) |u(y)|^p \d y \right)^{\frac{1}{p}}.
     \end{align*}
-    Raising this to the power $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have
+    Raising this to the power of $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have
     \begin{align}
       \|u_\varepsilon\|_{\Ell^p(\Omega)}^p \|
       &\leq \int_\Omega\int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d x \d y

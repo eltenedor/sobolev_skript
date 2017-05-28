@@ -16,6 +16,8 @@
 
 \include{befehle}
 
+\includeonly{chap1,chap2,chap3}
+
 \begin{document}
 \pagenumbering{roman}
 \hypersetup{pageanchor=false}
@@ -46,17 +48,14 @@
 \pagenumbering{arabic}
 \tableofcontents
 
-\input{chap1}
-\input{chap2}
-\input{chap3}
-%\input{chap4}
-%\input{chap5}
-%\input{chap6}
-%\input{chap7}
-
-\nocite{*}
-\bibliographystyle{alpha}
-\bibliography{sobolev}
+\include{chap1}
+\include{chap2}
+\include{chap3}
+\include{chap4}
+\include{chap5}
+\include{chap6}
+\include{chap7}
+\include{biblio}
 
 \end{document}
 
