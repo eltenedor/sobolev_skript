@@ -49,7 +49,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \begin{lem}
   \label{lem:cutoff}
   Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
-  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff-function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$ for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
+  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff\hyp{}function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$ for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
 \end{lem}
 
 \begin{proof}
@@ -95,7 +95,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   K_k \coloneqq \overline{\bigcup_{i = 1}^{N_k} B_i^k}
   $$
   satisfies $K_k \Subset \Omega_k$ and $\bigcup_{k = 1}^N K_k \supset K$.
-  Let $\tilde \psi_k$ denote the cutoff-function w.r.t $K_k, \Omega_k$.
+  Let $\tilde \psi_k$ denote the cutoff\hyp{}function w.r.t $K_k, \Omega_k$.
   Hence, $\tilde \psi_k \in \CC_0^\infty(\Omega_k)$ satisfies $0 \leq \tilde \psi_k \leq 1$ and
   $$
   \psi(x) \coloneqq \sum_{k = 1}^N \tilde \psi_k(x) \geq 1 \quad\text{for all } x \in K.
@@ -105,7 +105,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   K \Subset \Omega \coloneqq \bigcup_{k = 1}^N \supp(\tilde \psi_k)
   $$
   and t here is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
-  Let $\tau$ be a cutoff-function w.r.t $K, \Omega_0$ and
+  Let $\tau$ be a cutoff\hyp{}function w.r.t $K, \Omega_0$ and
   $$
   \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)}, &\quad x \in \Omega_0, \\ 0, &\quad \text{if } x \not\in \Omega. \end{cases}
   $$
@@ -135,7 +135,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     W_i \coloneqq \overline{U_{i + 3}} \setminus U_{i + 2}, i \in \N \quad\text{and}\quad W_0 \coloneqq \overline U_3,
     $$
     all $W_i \subset V_i$ are compact and we have $\Omega = \bigcup_{i = 0}^\infty W_i$.
-    Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff-function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
+      Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff\hyp{}function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
     Since for all $j \geq i + 2$
     $$W_i \cap V_j 
     = \left(\overline{U_{i + 3}} \cap \overline{U_{j + 1}}^{\mathrm c}  \right)\cap \left( U_{i + 2}^{\mathrm c} \cap  U_{j + 4}   \right) 

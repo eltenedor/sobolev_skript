@@ -6,10 +6,11 @@ Moreover, we will see how we can define boundary values on $\partial\Omega$ of f
 
 \section{Flattening the Boundary}
 
-We will frequently use that if $\Omega$ is a bounded domain with $\partial\Omega \in \CC^m$, we can transform $\Omega \cap \BB_r(x^0)$ for $x^0 \in \partial\Omega$ to a domain having a flat boundary, where the transformation is a $\CC^m$-diffeomorphism.
+We will frequently use that if $\Omega$ is a bounded domain with $\partial\Omega \in \CC^m$, we can transform $\Omega \cap \BB_r(x^0)$ for $x^0 \in \partial\Omega$ to a domain having a flat boundary, where the transformation is a $\CC^m$\hyp{}diffeomorphism.
 This will be done in details here.
 
 \begin{ntion}
+  \label{ntion:halfspace}
   We define 
   $$
   \R^n_+ \coloneqq \{x \in \R^n \colon x_n > 0 \}, \quad \R^n_-\coloneqq \{x \in \R^n \colon x_n < 0\},
@@ -24,12 +25,13 @@ This will be done in details here.
 \begin{defn}
   \label{defn:CmDiffeo}
   Let $\Omega$ and $U$ be domains in $\R^n$.
-  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$-diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega},\R^n)$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD g) \neq 0$ in $\overline \Omega$.
+  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$\hyp{}diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega},\R^n)$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD g) \neq 0$ in $\overline \Omega$.
 \end{defn}
 
 If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a domain with flat boundary.
 
 \begin{lem}
+  \label{lem:flattening}
   Let $m \in \N$ and $\gamma \in \C^m(\R^{n - 1})$.
   Then $\Phi \colon \R^n \to \R^n$ and $\Psi \colon \R^n \to \R^n$ defined by
   \begin{align*}
@@ -37,13 +39,13 @@ If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a doma
     \Psi(y) &= (y_1,\dots,y_{n - 1}, y_n + \gamma(y')), \quad x,y \in \R^n,
   \end{align*}
   satisfy $\Phi,\Psi \in \CC^m(\R^n,\R^n)$, $\det(\DD\Phi) = \det(\DD \Psi) =1$ on $\R^n$, and $\Phi^{-1} = \Psi$.
-  In particular, for any bounded domain $\Omega$, $\Phi|_\Omega \colon \Omega \to \Phi(\Omega)$ is a $\CC^m$-diffeomorphism.
+  In particular, for any bounded domain $\Omega$, $\Phi|_\Omega \colon \Omega \to \Phi(\Omega)$ is a $\CC^m$\hyp{}diffeomorphism.
   If $\partial \Omega \in \CC^m$ and 
   \begin{align*}
     \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma'(x')\},\\
     \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x')\}
   \end{align*}
-  for some $x^0 \in \partial \Omega$ (see Definition \ref{defn:CmBoundary}), then $\Phi\colon \BB_r(x^0) \to U \coloneqq \Phi(B_r(x^0))$ is a $\CC^m$-diffeomorphism with $\Phi(\Omega \cap \BB_r(x^0)) = U^+$ and $\Phi(\partial\Omega \cap \BB_r(x^0)) = U^0$.
+  for some $x^0 \in \partial \Omega$ (see Definition \ref{defn:CmBoundary}), then $\Phi\colon \BB_r(x^0) \to U \coloneqq \Phi(B_r(x^0))$ is a $\CC^m$\hyp{}diffeomorphism with $\Phi(\Omega \cap \BB_r(x^0)) = U^+$ and $\Phi(\partial\Omega \cap \BB_r(x^0)) = U^0$.
 \end{lem}
 
 \begin{proof}
@@ -52,10 +54,10 @@ If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a doma
 \end{proof}
 
 $\Phi$ now provides a transformation which \emph{flattens} the boundary.
-A $\CC^m$-diffeomorphism also provides a transformation between the corresponding Sobolev spaces.
+A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresponding Sobolev spaces.
 
 \begin{prop}
-  Let $g \colon U \to \Omega$ be a $\CC^m$-diffeomorphism with $m \in \N$, $p \in (1,\infty)$, and $\Omega,U \subset \R^n$ bounded domains.
+  Let $g \colon U \to \Omega$ be a $\CC^m$\hyp{}diffeomorphism with $m \in \N$, $p \in (1,\infty)$, and $\Omega,U \subset \R^n$ bounded domains.
   Then the map $T_g \colon \WW^{m,p}(\Omega) \to \WW^{m,p}(U)$, defined by
   $$
   (T_g(u))(y) \coloneqq u(g(y)), \quad y \in U, u \in \WW^{m,p}(\Omega),
@@ -71,12 +73,11 @@ A $\CC^m$-diffeomorphism also provides a transformation between the correspondin
 
 \begin{proof}
   \begin{enumerate}[(i)]
-    \item If $Tg$ is well-defined and satisfies the claimed estimate, it is immediate that $(Tg)^{-1} = T_{g^{-1}}$ and hence the estimate for $(Tg)^{-1}$ follows by replacing $g$ by $g^{-1}$.
+    \item If $T_g$ is well-defined and satisfies the claimed estimate, it is immediate that $(T_g)^{-1} = T_{g^{-1}}$ and hence the estimate for $(T_g)^{-1}$ follows by replacing $g$ by $g^{-1}$.
       Moreover, we only consider the case $m = 1$ as the general case then follows by induction.
-    \item Let $m = 1$ and $T \coloneqq Tg$.
+    \item Let $m = 1$ and $T \coloneqq T_g$.
       Assume first that $u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$.
-      Then the chain rule and the transformation rule imply with $M \coloneqq \|\det(\DD g^{-1})\|_{\CC^0(\overline{\Omega}}$
-  \end{enumerate}
+      Then the chain rule and the transformation rule imply with $M \coloneqq \|\det(\DD g^{-1})\|_{\CC^0(\overline{\Omega})}$
   \begin{equation}
     \label{eq:trafo}
     \int_U |T(u)(y)|^p \d y
@@ -99,8 +100,54 @@ A $\CC^m$-diffeomorphism also provides a transformation between the correspondin
   $$
   \|T(u)\|_{\WW^{1,p}(U)} \leq C_1 \|u\|_{\WW^{1,p}(\Omega)} \quad \text{for all } u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega).
   $$
+  For $u \in \WW^{1,p}(\Omega)$ there exists $(u_k)_{k \in \N} \subset \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$ such that $u_k \to u$ in $\WW^{1,p}(\Omega)$ and a.e. in $\Omega$.
+  As $T$ is linear, we have
+  $$
+  \| T(u_k) - T(u_j)\|_{\WW^{1,p}(U)} \leq C_1 \|u_k - u_j\|_{\WW^{1,p}(\Omega)}, \quad\text{for all } k,j \in \N.
+  $$
+  Hence, $(T(u_k))_{k \in \N}$ is a Cauchy sequence in $\WW^{1,p}(U)$ and $T(u_k) \to \WW^{1,p}(U)$ in $\WW^{1,p}(U)$.
+  As obviously $T(u_k) \to T(u)$ in $\Ell^p(U)$ by \eqref{eq:trafo} and the dominated convergence theorem, we have $v = T(u) \in \WW^{1,p}(U)$ and 
+  $$
+  \| T(u) \|_{\WW^{1,p}(U)} 
+  = \lim_{k \to \infty} \|T(u_k)\|_{\WW^{1,p}(U)}
+  \overset{ii)}\leq C_1 \lim_{k \to \infty} \|u_k\|_{\WW^{1,p}(\Omega)}
+  = C_1 \|u\|_{\WW^{1,p}(\Omega)},
+  $$
+  where $C_1$ can be chosen independent of $p$ as $M^{\frac{1}{p}} \leq 1 + M$.
+  \end{enumerate}
 \end{proof}
 
 \section{Extension Theorem}
+
+We next extend functions $u \in \WW^{k,p}(\Omega)$ to become a function in $\WW^{k,p}(\Omega)$.
+This connot be done in general by extending $u$ by $0$ to $\R^n \setminus \Omega$, as this may create bad discontinuities in some $\DD^\alpha u$ on $\partial\Omega$.
+We need now again boundary regularity of $\partial\Omega$.
+
+\begin{thm}  Let $m \in \N$, $p \in [1,\infty)$, $\Omega \subset \R^n$ be a bounded domain with $\partial \Omega \in \C^m$, and $V \subset \R^n$ be a domain with $\Omega \Subset V$.
+  Then for any $k \in \{1,\dots,m\}$ there exists a linear Operator
+  $$
+  E \colon W^{k,p}(\Omega) \to \WW^{k,p}(\R^n)
+  $$
+  such that
+  \begin{enumerate}[a)]
+    \item $E(u) = u$ a.e. in $\Omega$,
+    \item $\supp(E(u)) \Subset V$, i.e. $E(u) \in \WW_0^{k,p}(V)$,
+    \item $\|E(u)\|_{\WW^{k,p}(\R^n)} \leq C\| u\|_{\WW^{k,p}(\Omega)}$, for all $u \in \WW^{k,p}(\Omega)$,
+  \end{enumerate}
+  where $C > 0$ depends on $m$, $p$, $V$, and $\Omega$ but not on $K$ and $u$.
+  Moreover, $E$ does not depend on $k \in\{1,\dots,m\}$ and on $p \in [1,\dots,\infty)$ in the sense that if $u \in \WW^{k,p}(\Omega)$ for several $p,k$ then $E(u)$ is uniquely determined in all these spaces.
+\end{thm}
+
+\begin{proof}
+  We will use the notation from \ref{ntion:halfspace}, Lemma \ref{lem:flattening}, and Definition \ref{defn:CmBoundary}.
+  \begin{enumerate}[i)]
+    \item We first assume that for some $x^0 \in \partial \Omega$, $\BB \coloneqq \BB_r(x^0)$ satisfies $\Omega \cap \BB = \BB^+$ and $\partial\Omega \cap \BB = \BB^0$.
+      We further assume that $u \in \CC^m(\BB^+ \cup \BB^0)$ with $\supp(u) \subset \widetilde \BB^+ \coloneqq \overline{(\BB_s(x^0))^+}$ for some $s \in (0,r)$.
+      As hence $u - 0$ in a neighborhood of $\partial\BB \cap \overline{\R^n_+}$, we can extend $u$ by $0$ in $\overline{\R^n_+} \setminus \BB^+$ and have $u \in \CC^m(\overline{\R^n_+}$ with $\supp(u) \subset \widetilde \BB^+$.
+      Then we extend $u$ from $\overline{\R^n_+}$ to $'R^n$ by a \emph{higher-order reflection}.
+  \end{enumerate}
+\end{proof}
+
+
 
 \section{Trace Operator}
