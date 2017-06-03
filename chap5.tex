@@ -1,8 +1,8 @@
 \chapter{Extension and traces}
 \label{chap:extAndTrace}
 
-Here, we will study how we can extend functions in $\WW^{k,p}(\Omega)$ to $\WW^{k,P}(\R^n)$.
-Moreover, we will se how we can define boundary values on $\partial\Omega$ of functions in $\WW^{k,p}(\Omega)$.
+Here, we will study how we can extend functions in $\WW^{k,p}(\Omega)$ to $\WW^{k,p}(\R^n)$.
+Moreover, we will see how we can define boundary values on $\partial\Omega$ of functions in $\WW^{k,p}(\Omega)$.
 
 \section{Flattening the boundary}
 
@@ -12,11 +12,11 @@ This will be done in details here.
 \begin{ntion}
   We define 
   $$
-  \R^n_+ \coloneqq \{x \in \R^n \colon x_n > 0 \}, \quad \R^n_-\coloneqq \{x \in \R^n \colon x_n < 0\}
+  \R^n_+ \coloneqq \{x \in \R^n \colon x_n > 0 \}, \quad \R^n_-\coloneqq \{x \in \R^n \colon x_n < 0\},
   $$
   and for $U \subset \R^n$
   $$
-  U^+ \coloneqq U \cap \R^n_+, \quad U^- \coloneqq U \cap \R^n_-, \quad U^0 \coloneqq \{x \in U \colon x_n = 0\}
+  U^+ \coloneqq U \cap \R^n_+, \quad U^- \coloneqq U \cap \R^n_-, \quad U^0 \coloneqq \{x \in U \colon x_n = 0\}.
   $$
   Moreover, we write $x = (x', x_n)$ for $x \in \R^n$ with $x = (x_1,\dots,x_n)$ and $x' =(x_1, \dots, x_{n - 1}) \subset \R^{n - 1}$.
 \end{ntion}
@@ -24,26 +24,26 @@ This will be done in details here.
 \begin{defn}
   \label{defn:CmDiffeo}
   Let $\Omega$ and $U$ be domains in $\R^n$.
-  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$-diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega,\R^n}$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD_g) \neq 0$ in $\overline \Omega$.
+  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$-diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega},\R^n)$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD g) \neq 0$ in $\overline \Omega$.
 \end{defn}
 
 If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a domain with flat boundary.
 
 \begin{lem}
   Let $m \in \N$ and $\gamma \in \C^m(\R^{n - 1})$.
-  Then $\Phi \colon \R^n \to \R^n$ and $\psi \colon \R^n \to \R^n$ defined by
+  Then $\Phi \colon \R^n \to \R^n$ and $\Psi \colon \R^n \to \R^n$ defined by
   \begin{align*}
     \Phi(x) &= (x_1,\dots,x_{n - 1}, x_n - \gamma(x')),\\
     \Psi(y) &= (y_1,\dots,y_{n - 1}, y_n + \gamma(y')), \quad x,y \in \R^n,
   \end{align*}
-  satisfy $\Phi,\Psi \in \CC^m(\R^n,\R^n)$, $\det(\DD\Phi) = \det(\DD \Psi) =1$ on $\R^n$, and $\phi^{-1} = \Psi$.
+  satisfy $\Phi,\Psi \in \CC^m(\R^n,\R^n)$, $\det(\DD\Phi) = \det(\DD \Psi) =1$ on $\R^n$, and $\Phi^{-1} = \Psi$.
   In particular, for any bounded domain $\Omega$, $\Phi|_\Omega \colon \Omega \to \Phi(\Omega)$ is a $\CC^m$-diffeomorphism.
   If $\partial \Omega \in \CC^m$ and 
   \begin{align*}
     \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma'(x')\},\\
     \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x')\}
   \end{align*}
-  for some $x^0 \in \partial \Omega$ (see Definition \ref{defn:CmBoundary}), then $\Phi\colon \BB_r(x^0) \to U \coloneqq \phi(B_r(x^0))$ is a $\CC^m$-diffeomorphism with $\Phi(\Omega \cap \BB_r(x^0)) = U^+$ and $\Phi(\partial\Omega \cap \BB_r(x^0)) = U^0$.
+  for some $x^0 \in \partial \Omega$ (see Definition \ref{defn:CmBoundary}), then $\Phi\colon \BB_r(x^0) \to U \coloneqq \Phi(B_r(x^0))$ is a $\CC^m$-diffeomorphism with $\Phi(\Omega \cap \BB_r(x^0)) = U^+$ and $\Phi(\partial\Omega \cap \BB_r(x^0)) = U^0$.
 \end{lem}
 
 \begin{proof}
@@ -58,13 +58,14 @@ A $\CC^m$-diffeomorphism also provides a transformation between the correspondin
   Let $g \colon U \to \Omega$ be a $\CC^m$-diffeomorphism with $m \in \N$, $p \in (1,\infty)$, and $\Omega,U \subset \R^n$ bounded domains.
   Then the map $T_g \colon \WW^{m,p}(\Omega) \to \WW^{m,p}(U)$, defined by
   $$
-  (Tg(u))(y) \coloneqq u(g(y)), \quad y \in U, u \in \WW^{m,p}(\Omega),
+  (T_g(u))(y) \coloneqq u(g(y)), \quad y \in U, u \in \WW^{m,p}(\Omega),
   $$
   is bijective and there exist $C_1, C_2 > 0$ such that
   $$
-  \|Tg(u)\|_{\WW^{m,p}(U)} \leq C_1 \|u\|_{\WW^{m,p}(\Omega)}
+  \|T_g(u)\|_{\WW^{m,p}(U)} \leq C_1 \|u\|_{\WW^{m,p}(\Omega)}
   \quad 
-  \|(Tg)^{-1}(v)\|_{\WW^{m,p}(\Omega)} \leq C_2 \|v\|_{\WW^{m,p}(U)}
+  \|(T_g)^{-1}(v)\|_{\WW^{m,p}(\Omega)} \leq C_2 \|v\|_{\WW^{m,p}(U)}
   $$
-  for all $u \in \WW^{m,p}(\Omega$, $v \in \WW^{m,p}$, where $(Tg)^{-1} = T_{g^{-1}}$.
+  for all $u \in \WW^{m,p}(\Omega$, $v \in \WW^{m,p}$, where $(T_g)^{-1} = T_{g^{-1}}$.
 \end{prop}
+
