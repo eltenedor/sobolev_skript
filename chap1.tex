@@ -23,14 +23,14 @@ Let us start by illustrating the idea behind weak solutions with an example.
   $$
   \int_0^1 -u^{\prime\prime}(x) \varphi(x) \d x = -u^\prime(1) \varphi(1) + u^\prime(0)\varphi(0) + \int_0^1 u^\prime(x)\varphi^\prime(x) \d x.
   $$
-  Hence, in view of (\ref{eq:1dPoisson})
+  Hence, in view of \eqref{eq:1dPoisson}
   \begin{equation}
     \label{eq:weak1dPoisson}
     \int_\Omega u^\prime(x)\varphi^\prime(x) \d x = \int_\Omega f(x)\varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
-  For (\ref{eq:weak1dPoisson}) to be meaningful we do not need a second derivative of $u$.
+  For \eqref{eq:weak1dPoisson} to be meaningful we do not need a second derivative of $u$.
   Moreover, $f$ only has to be integrable instead of continuous. 
-  (\ref{eq:weak1dPoisson}) will even make sense if $u^\prime$ is only a weak derivative of $u$ as we will see soon. \qed
+  \eqref{eq:weak1dPoisson} will even make sense if $u^\prime$ is only a weak derivative of $u$ as we will see soon. \qed
 \end{ex}
 
 In order to motivate the definition of weak derivatives, we note the following identity.
@@ -61,7 +61,7 @@ In order to motivate the definition of weak derivatives, we note the following i
   where $\nu$ is the outward unit normal on $\partial B$.
   Hence, the product rule implies (1.3).
 \end{proof}
-(\ref{eq:partialIntegrationC1}) makes sense even if $u, \frac{\partial u}{\partial x_i} \in \Ell_{\loc}^1(\Omega)$ (integrable on any bounded set $V$ with $\overline V \subset \Omega$).
+\eqref{eq:partialIntegrationC1} makes sense even if $u, \frac{\partial u}{\partial x_i} \in \Ell_{\loc}^1(\Omega)$ (integrable on any bounded set $V$ with $\overline V \subset \Omega$).
 
 Hence, we define weak derivatives by:
 
@@ -80,7 +80,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
 \begin{ex} 
 \label{ex:weakDerivative}
   \begin{enumerate}[a)]
-    \item If $u \in \CC^1(\Omega)$, then by Lemma \ref{lem:partialIntegrationC1} (\ref{eq:weakDerivativeDef}) is satisfied with $v \coloneqq \frac{\partial u}{\partial x_i}$.
+    \item If $u \in \CC^1(\Omega)$, then by Lemma \ref{lem:partialIntegrationC1} \eqref{eq:weakDerivativeDef} is satisfied with $v \coloneqq \frac{\partial u}{\partial x_i}$.
       Hence, $u$ is weakly differentiable and the weak derivative $\frac{\partial u}{\partial x_i}$ coincides with the classical derivative.
     \item Let $\Omega = (-1,1) \subset \R$, $u(x) \coloneqq |x|$ for $x \in \Omega$.
       Then as $u \in \CC^1(\overline \Omega \setminus \{0\}) \cap \CC^0(\overline \Omega)$, we may use the fundamental theorem of calculus to obtain for $\varphi \in \CC_0^\infty(\Omega)$:
@@ -112,7 +112,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
       $$
       0 = \lim_{n \to \infty} \left( -\int_\Omega w(x) \varphi_n(x) \d x \right) \neq -2 = \lim_{n \to \infty} - 2\varphi_n(x)
       $$
-      which contradicts (\ref{eq:weakDerivativeHeaviside}).
+      which contradicts \eqref{eq:weakDerivativeHeaviside}.
       Hence, $v$ is not weakly differentiable in $\Omega$.
   \qed
   \end{enumerate}
@@ -130,13 +130,13 @@ We shortly illustrate the latter in an example.
 
 \begin{ex}
   We continue Example \ref{ex:1dPoisson} with $\Omega = (0,1) \subset \R$ and assume that $f \in \Ell^2(\Omega)$.
-  Then in view of (\ref{eq:weak1dPoisson}) we say that $u$ is a \emph{weak solution} to (1.1) if $u \in \WW^{1,2}(\Omega)$,
+  Then in view of \eqref{eq:weak1dPoisson} we say that $u$ is a \emph{weak solution} to (1.1) if $u \in \WW^{1,2}(\Omega)$,
   $$
   \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x) \quad \text{for all } \varphi \in \CC_0^\infty(\Omega),
   $$
   where $u^\prime$ is the weak derivative of $u$, and if $u$ satisfies $u = 0$ on $\partial \Omega$ in a certain weak sense.
   The latter will be specified in a detailed way in Chapter \ref{chap:appsToPDEs}, as $u \in \WW^{1,2}(\Omega)$ is not necessarily continuous.
-  In Chapter \ref{chap:appsToPDEs}, we will study the generalisation of (\ref{eq:1dPoisson}) for $\Omega \subset \R^n$ being a bounded domain namely the Poisson equation
+  In Chapter \ref{chap:appsToPDEs}, we will study the generalisation of \eqref{eq:1dPoisson} for $\Omega \subset \R^n$ being a bounded domain namely the Poisson equation
   $$
   -\Delta u = f \text{ in } \Omega, \quad u = 0 \text{ on } \partial \Omega.
   $$

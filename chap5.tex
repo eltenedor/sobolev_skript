@@ -1,10 +1,10 @@
-\chapter{Extension and traces}
+\chapter{Extension and Traces}
 \label{chap:extAndTrace}
 
 Here, we will study how we can extend functions in $\WW^{k,p}(\Omega)$ to $\WW^{k,P}(\R^n)$.
-Moreover, we will se how we can define boundary values on $\partial\Omega$ of functions in $\WW^{k,p}(\Omega)$.
+Moreover, we will see how we can define boundary values on $\partial\Omega$ of functions in $\WW^{k,p}(\Omega)$.
 
-\section{Flattening the boundary}
+\section{Flattening the Boundary}
 
 We will frequently use that if $\Omega$ is a bounded domain with $\partial\Omega \in \CC^m$, we can transform $\Omega \cap \BB_r(x^0)$ for $x^0 \in \partial\Omega$ to a domain having a flat boundary, where the transformation is a $\CC^m$-diffeomorphism.
 This will be done in details here.
@@ -16,7 +16,7 @@ This will be done in details here.
   $$
   and for $U \subset \R^n$
   $$
-  U^+ \coloneqq U \cap \R^n_+, \quad U^- \coloneqq U \cap \R^n_-, \quad U^0 \coloneqq \{x \in U \colon x_n = 0\}
+  U^+ \coloneqq U \cap \R^n_+, \quad U^- \coloneqq U \cap \R^n_-, \quad U^0 \coloneqq \{x \in U \colon x_n = 0\}.
   $$
   Moreover, we write $x = (x', x_n)$ for $x \in \R^n$ with $x = (x_1,\dots,x_n)$ and $x' =(x_1, \dots, x_{n - 1}) \subset \R^{n - 1}$.
 \end{ntion}
@@ -24,7 +24,7 @@ This will be done in details here.
 \begin{defn}
   \label{defn:CmDiffeo}
   Let $\Omega$ and $U$ be domains in $\R^n$.
-  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$-diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega,\R^n}$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD_g) \neq 0$ in $\overline \Omega$.
+  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$-diffeomorphism} if and only if $g$ is bijective, $g \in \CC^m(\overline{\Omega,\R^n}$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD_g) \neq 0$ in $\overline \Omega$.
 \end{defn}
 
 If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a domain with flat boundary.
@@ -48,7 +48,7 @@ If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a doma
 
 \begin{proof}
   It is straightforward to see that $\Phi$ and $\Psi$ are $\CC^m$-functions with $\Psi = \Phi^{-1}$ and $\det(\DD\Phi) = \det(\DD\Psi) = 1$.
-  The further claims are immediate consequences of Definition \ref{defn:CmDiffeo}
+  The further claims are immediate consequences of Definition \ref{defn:CmDiffeo}.
 \end{proof}
 
 $\Phi$ now provides a transformation which \emph{flattens} the boundary.
@@ -63,8 +63,44 @@ A $\CC^m$-diffeomorphism also provides a transformation between the correspondin
   is bijective and there exist $C_1, C_2 > 0$ such that
   $$
   \|Tg(u)\|_{\WW^{m,p}(U)} \leq C_1 \|u\|_{\WW^{m,p}(\Omega)}
-  \quad 
+  \quad\text{and}\quad
   \|(Tg)^{-1}(v)\|_{\WW^{m,p}(\Omega)} \leq C_2 \|v\|_{\WW^{m,p}(U)}
   $$
   for all $u \in \WW^{m,p}(\Omega$, $v \in \WW^{m,p}$, where $(Tg)^{-1} = T_{g^{-1}}$.
 \end{prop}
+
+\begin{proof}
+  \begin{enumerate}[(i)]
+    \item If $Tg$ is well-defined and satisfies the claimed estimate, it is immediate that $(Tg)^{-1} = T_{g^{-1}}$ and hence the estimate for $(Tg)^{-1}$ follows by replacing $g$ by $g^{-1}$.
+      Moreover, we only consider the case $m = 1$ as the general case then follows by induction.
+    \item Let $m = 1$ and $T \coloneqq Tg$.
+      Assume first that $u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$.
+      Then the chain rule and the transformation rule imply with $M \coloneqq \|\det(\DD g^{-1})\|_{\CC^0(\overline{\Omega}}$
+  \end{enumerate}
+  \begin{equation}
+    \label{eq:trafo}
+    \int_U |T(u)(y)|^p \d y
+     = \int_\Omega |u(x)|^p |\det(\DD g^{-1})(x)| \d x
+    \leq M \int_\Omega |u(x)|^p \d x,
+  \end{equation}
+  $$
+  \partial_{y_i} (T(u))(y)
+  = \sum_{j = 1}^n u_{x_j}(x) \, (g_j)_{y_i}(y)
+  = \sum_{j = 1}^n T(u_{x_j})(y) \, (g_j)_{y_i}(y), \quad y \in U,
+  $$
+  where $x = g(y)$ ($x \in \Omega, y \in U$), and
+  \begin{align*}
+    \left( \int_U (\partial_{y_i}(T(u))(y)|^p \d y\right)^{\frac{1}{p}}
+    & \leq \|g\|_{\CC^1(\overline U)} \sum_{j = 1}^n \left( \int_U |T(u_{x_j})(y)|^p \d y \right)^{\frac{1}{p}} \\
+    & \overset{\eqref{eq:trafo}}{\leq} \|g\|_{\CC^1(\overline U)} \, M^{\frac{1}{p}} \, \sum_{j = 1}^n \|u_{x_j} \|_{\Ell^p(\Omega)}.
+  \end{align*}
+  Hence, $\|T(u)\|_{\WW^{1,p}(U)} \leq M^{\frac{1}{p}} (1 + n\|g\|_{\CC^1(\overline U)}) \, \|u\|_{\WW^{1,p}}$ by combining the previous estimate with \eqref{eq:trafo} and Minkowski's inequality.
+\item By (ii) we have
+  $$
+  \|T(u)\|_{\WW^{1,p}(U)} \leq C_1 \|u\|_{\WW^{1,p}(\Omega)} \quad \text{for all } u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega).
+  $$
+\end{proof}
+
+\section{Extension Theorem}
+
+\section{Trace Operator}
