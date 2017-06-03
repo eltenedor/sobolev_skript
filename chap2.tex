@@ -1,4 +1,4 @@
-\chapter{Some facts about Lebesgue spaces \texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}}
+\chapter{Some Facts about Lebesgue Spaces \texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}}
 
 Here, we recall some facts about Lebesgue spaces which should be known from previous lectures.
 
@@ -7,7 +7,7 @@ Unless otherwise stated, we always assume in this chapter that $\Omega \subset \
 
 Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if $\{x \in \Omega \colon u(x) > \alpha\}$ is measurable for any $\alpha \in \R$.
 
-\section{\texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}: definition and basic properties}
+\section{\texorpdfstring{$\Ell^p(\Omega)$}{L\textasciicircum p(Omega)}: Definition and Basic Properties}
 \label{sec:lpBasics}
 \begin{enumerate}[i)]
   \item If $u,v \colon \Omega \to [-\infty,\infty]$ are measurable on $\Omega$, they are equivalent if $u = v$ a.e. in $\Omega$.
@@ -54,7 +54,7 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
     $$
 \end{enumerate}
 
-\section{Limit theorems and Fubini}
+\section{Limit Theorems and Fubini}
 
 \begin{enumerate}[i)]
   \item Monotone convergence (Beppo-Levi): Let $(u_n)_{n \in \N}$ be measurable in $\Omega$, non-negative, and point-wise non-decreasing. Then
@@ -77,7 +77,7 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
     Then $u(\cdot,y) \in \Ell^1(\R^n)$ for a.e. $y \in \R^m$, $\int_{\R^m} u(\cdot,y) \d y \in \Ell^1(\R^n)$, $u(x,\cdot) \in \Ell^1(\R^m)$ for a.e. $x \in \R^n$, $\int_{\R^n} u(x, \cdot) \d x \in \Ell^1(\R^m)$, and $I_1 = I_2 = I_3$.
 \end{enumerate}
 
-\section{Dense subspaces and mollifier}
+\section{Dense Subspaces and Mollifier}
 \label{sec:mollifier}
 
 In this section let $\Omega \subset \R^n$ be open.
@@ -151,7 +151,7 @@ The mollification has the following properties:
       &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |f(y) - f(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |f(y) - f(x) | \d y \label{eq:pointwise}\\
       & \to 0 \quad\text{as } \varepsilon \downarrow 0 \nonumber
     \end{align}
-    due to (\ref{eq:lebdiffthm}).
+    due to \eqref{eq:lebdiffthm}.
     
     \item If $\supp(u) \Subset \Omega$, let $\delta \coloneqq \dist(\supp(u), \partial \Omega) > 0$.
     Then for any $x \in \Omega \setminus \Omega_{\frac{\delta}{2}}$ and $\varepsilon \leq \frac{\delta}{2}$ we have $\BB_\varepsilon(x) \cap \supp(u) = \emptyset$ and 
@@ -162,8 +162,8 @@ The mollification has the following properties:
     By a), $u_\varepsilon \in \CC_0^\infty(\Omega)$.
 
     \item For $u \in \CC^0(\Omega)$ and $V \Subset \Omega$, choose $W$ such that $V \Subset W \Subset \Omega$.
-    Then $u$ is uniformly continuous in $W$ and (\ref{eq:lebdiffthm}) holds uniformly for $x \in V$.
-    Hence, also (\ref{eq:pointwise}) is satisfied uniformly for $x \in V$ and $u_\varepsilon \to u$ uniformly in $V$.
+    Then $u$ is uniformly continuous in $W$ and \eqref{eq:lebdiffthm} holds uniformly for $x \in V$.
+    Hence, also \eqref{eq:pointwise} is satisfied uniformly for $x \in V$ and $u_\varepsilon \to u$ uniformly in $V$.
 
     \item For $x \in \Omega$, by using Hölder's inequality and $\eta_\varepsilon \geq 0$ along with $\int_{\R^n} \eta_\varepsilon(z) \d y = 1$, we get
     \begin{align*}
@@ -192,7 +192,7 @@ The mollification has the following properties:
       &\leq \|\eta_\varepsilon \ast u - \eta_\varepsilon \ast \varphi \|_{\Ell^p(\Omega)} + \frac{2}{3} \mu \\
       &= \|\eta_\varepsilon \ast (u - \varphi) \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu
       = \|(u - \varphi)_\varepsilon \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu \\
-      &\overset{(\ref{eq:lpinequality})}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
+      &\overset{\eqref{eq:lpinequality}}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
     \end{align*}
     We still have $u_\varepsilon \in \CC^\infty(\Omega)$ since for $x \in \BB_\delta(x_0)$ with $\overline{\BB_{2\delta}(x_0)} \subset \Omega$ we have for $x \in K \coloneqq \overline{\BB_{2\delta}(x_0)}$ and $\varepsilon \in (0, \delta)$, $u_\varepsilon(x) = \int_K \eta_\varepsilon(x - y)u(y) \d y$.
     A similar argument shows e).\qedhere
@@ -307,7 +307,7 @@ The mollification has the following properties:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Polar coordinates}
+\section{Polar Coordinates}
 
 Let $f \in \CC^1(\overline{\BB_r(x_0)})$ with $x_0 \in \R^n$, $r > 0$. Then by the transformation rule with $x = x_0 + sz$, $s \in (0,r)$, $z \in \partial \BB_1(0)$ we have
 $$

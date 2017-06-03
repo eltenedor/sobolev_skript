@@ -1,8 +1,8 @@
-\chapter{Approximation by smooth functions}
+\chapter{Approximation by Smooth Functions}
 
 As it is often complicated to use the definition of weak derivatives for proving properties of Sobolev spaces, we aim to approximate functions in Sobolev spaces by smooth functions.
 
-\section{Interior approximation}
+\section{Interior Approximation}
 
 We prove that mollification from \ref{sec:mollifier} provides approximating functions in $\WW_{\loc}^{k,p}(\Omega)$.
 
@@ -42,7 +42,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
  \end{enumerate}
 \end{proof}
 
-\section{Approximation by smooth functions}
+\section{Approximation by Smooth Functions}
 
 In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ such that $u_m \to u$ in $\WW^{k,p}(\Omega)$ (and not only in $\WW^{k,p}_{\loc}(\Omega)$), we need the following lemmas to construct a partition of unity.
 
@@ -207,7 +207,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
   By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
   Hence, $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
   We fix $i \in \{ 1, \dots, n\}$ and $\varphi \in \CC_0^\infty(\Omega)$.
-  In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from (\ref{eq:partialIntegrationGeneral})
+  In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from \eqref{eq:partialIntegrationGeneral}
   \begin{equation}
     \label{eq:partialIntChainRule}
     \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x \quad\text{for all } m \in \N,
@@ -236,7 +236,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
   \end{align*}
    by the dominated convergence theorem.
 
-   Hence, letting $m \to \infty$ in (\ref{eq:partialIntChainRule})  we conclude that $(f(u))_{x_i} = f'(u)u_{x_i}$ in the weak sense.
+   Hence, letting $m \to \infty$ in \eqref{eq:partialIntChainRule}  we conclude that $(f(u))_{x_i} = f'(u)u_{x_i}$ in the weak sense.
 \end{proof}
 
 Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in \WW^{1,p}(\Omega)$.
@@ -253,7 +253,7 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
   Exercise.
 \end{proof}
 
-\section{Approximation by \texorpdfstring{$\CC^\infty(\overline{\Omega})$}{C\textasciicircum infty(Omega) }-functions}
+\section{Approximation by \texorpdfstring{$\CC^\infty(\overline{\Omega})$}{C\textasciicircum infty(Omega) }-Functions}
 
 We now ask the question whether any $u \in \WW^{k,p}(\Omega)$ can also be approximated by functions $u_m \in \CC^\infty(\overline\Omega)$ instead of $u_m \in \CC^\infty(\Omega)$.
 The following example shows that this is not true for all open $\Omega \subset \R^n$.
@@ -411,7 +411,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       \begin{equation} \label{eq:diffUPhi}
         \|u_i - \varphi_i\|_{\WW^{k,p}(\Omega)} < \frac{\delta}{N + 1} \quad\text{for all } i \in \{0,\dots,N\}.        
       \end{equation}
-      As $\supp(u_0) \Subset V_0 \Subset \Omega$, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollification} b) there exists $\varphi_0 \in \CC_0^\infty(\R^n)$ such that (\ref{eq:diffUPhi}) holds for $i = 0$.
+      As $\supp(u_0) \Subset V_0 \Subset \Omega$, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollification} b) there exists $\varphi_0 \in \CC_0^\infty(\R^n)$ such that \eqref{eq:diffUPhi} holds for $i = 0$.
       Next, we fix $i \in \{ 1, \dots, N\}$ and extend $u$ by $0$ outside $\Omega$.
       Let $x^i \in \partial \Omega$ be the point belonging to $U_i$ ($U_i$ is a neighborhood of $x^i$) and 
       $$
@@ -439,7 +439,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       Moreover, since $u \in \Ell^p(\Omega)$ and $u = 0$ on $\R^n \setminus \Omega$, we have $u \in \Ell^p(\R^n)$, $u_i = \psi_i u \in \Ell^p(\R^n)$, and $w_t \in \Ell^p(\R^n)$.
       Hence, by Theorem \ref{thm:interiorApproximation} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
       As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi - w_t \|_{\WW^{k,p}(\Omega)} \lneq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
-      Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| < \frac{\delta}{N + 1}$ and (\ref{eq:diffUPhi}) holds for all $i \in \{0,\dots,N\}$.
+      Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| < \frac{\delta}{N + 1}$ and \eqref{eq:diffUPhi} holds for all $i \in \{0,\dots,N\}$.
       As $u = \sum_{i = 1}^n u_i = \sum_{i = 1}^n \varphi_i u$, $\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} < \delta$.
     \item Combining i) and ii), the claim is proved.  \qedhere
   \end{enumerate}

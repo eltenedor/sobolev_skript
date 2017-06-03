@@ -1,4 +1,4 @@
-\chapter{Weak derivatives and definitions of Sobolev spaces}
+\chapter{Weak Derivatives and Definitions of Sobolev Spaces}
 
 We already saw in the introduction that for $u \in \CC^1(\Omega)$ with $\Omega \subset \R^n$ open we have 
 \begin{equation}
@@ -17,16 +17,16 @@ More generally, for higher order derivatives we have the following result:
 \end{lem}
 
 \begin{proof}
-  For $k = 1$, (\ref{eq:partialIntegrationGeneral}) is just (\ref{eq:partialIntegration}) which was verified in the exercise.
+  For $k = 1$, \eqref{eq:partialIntegrationGeneral} is just \eqref{eq:partialIntegration} which was verified in the exercise.
   For $\alpha = (\alpha_1,\dots,\alpha_n)$ with $|\alpha| = k$ we have
   $$
   \DD^\alpha \phi(x)= \frac{\partial^{\alpha_1}}{\partial x_1^{\alpha_1}} ( \dots ( \frac{\partial^{\alpha_n}}{\partial x_n^{\alpha_n}} ) \dots )\phi(x)
   $$
-  and (\ref{eq:partialIntegrationGeneral}) follows by applying (\ref{eq:partialIntegration}) $k$ times.
+  and \eqref{eq:partialIntegrationGeneral} follows by applying \eqref{eq:partialIntegration} $k$ times.
 \end{proof}
 
-In order to define the weak derivative $\DD^\alpha u$, we look for a variant of (\ref{eq:partialIntegrationGeneral}) which is satisfied if $u$ has less regularity than being in $\CC^k(\Omega)$.
-As the integrals in (\ref{eq:partialIntegrationGeneral}) are meaningful if $u, \DD^\alpha u \in \Ell^1_{\loc}(\Omega)$, we define the weak derivative $\DD^\alpha u$ of $u$ as follows (see introduction for $|\alpha| = 1$).
+In order to define the weak derivative $\DD^\alpha u$, we look for a variant of \eqref{eq:partialIntegrationGeneral} which is satisfied if $u$ has less regularity than being in $\CC^k(\Omega)$.
+As the integrals in \eqref{eq:partialIntegrationGeneral} are meaningful if $u, \DD^\alpha u \in \Ell^1_{\loc}(\Omega)$, we define the weak derivative $\DD^\alpha u$ of $u$ as follows (see introduction for $|\alpha| = 1$).
 
 \begin{defn}
   \label{defn:weakPartialDerivative}
@@ -36,7 +36,7 @@ As the integrals in (\ref{eq:partialIntegrationGeneral}) are meaningful if $u, \
     \label{eq:weakPartialDerivativeDef}
     \int_\Omega u(x) \DD^\alpha \varphi(x) \d x = (-1)^{|\alpha|} \int_\Omega v(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{equation}
-If (\ref{eq:weakPartialDerivativeDef}) is satisfied, we define $\DD^\alpha u \coloneqq v$.
+If \eqref{eq:weakPartialDerivativeDef} is satisfied, we define $\DD^\alpha u \coloneqq v$.
 \end{defn}
 
 In order to show the uniqueness of the weak derivative, we need the following fundamental lemma.
@@ -95,12 +95,12 @@ With this result we show the uniqueness of the weak derivative and its equality 
 \end{lem}
 
 \begin{proof}
-  If $v$ and $\tilde v$ are $\alpha$th weak derivatives of $u$, by (\ref{eq:weakPartialDerivativeDef})
+  If $v$ and $\tilde v$ are $\alpha$th weak derivatives of $u$, by \eqref{eq:weakPartialDerivativeDef}
   $$
   \int_\Omega (v - \tilde v) (x) \varphi(x) \d x = 0 \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   $$
   Hence, by Lemma \ref{lem:fundamental} $v - \tilde v = 0$ a.e. in $\Omega$ and $v = \tilde v$ a.e. in $\Omega$.
-  If $u \in \CC^k(\Omega)$, then by Lemma \ref{lem:partialIntegrationGeneral}, (\ref{eq:weakPartialDerivativeDef}) is satisfied with $v = \DD^\alpha u$ and hence the classical derivative $\DD^\alpha u$ is also a weak derivative.
+  If $u \in \CC^k(\Omega)$, then by Lemma \ref{lem:partialIntegrationGeneral}, \eqref{eq:weakPartialDerivativeDef} is satisfied with $v = \DD^\alpha u$ and hence the classical derivative $\DD^\alpha u$ is also a weak derivative.
   Due to the uniqueness the claim follows.
 \end{proof}
 
@@ -170,7 +170,7 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
       \leq \|\varphi\|_{\Ell^\infty(\Omega)} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
       \leq C \varepsilon^{k - 1 - a} \to 0 \quad\text{as } \varepsilon \downarrow 0.
     $$
-    Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in (\ref{eq:greenFormulaEx}) and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
+    Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in \eqref{eq:greenFormulaEx} and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
     Hence, the weak derivative $u_{x_i}$ exists for $a < n - 1$.
     Hence, $u \in \WW^{1,p}(\Omega)$ if $u \in \Ell^p(\Omega)$ and $\nabla u = \frac{-a x}{|x|^{a + 2}} \in \Ell^p(\Omega)^n$, i.e. $ap < p$ and $(a + 1)p < n$.
     We conclude that
@@ -204,7 +204,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
 
   \begin{enumerate}
   \item[a)] Let $\varphi \in \CC_0^\infty(\Omega)$. 
-    Then $\DD^\beta \varphi \in \CC_0^\infty(\Omega)$ and (\ref{eq:weakPartialDerivativeDef}) implies
+    Then $\DD^\beta \varphi \in \CC_0^\infty(\Omega)$ and \eqref{eq:weakPartialDerivativeDef} implies
   \begin{align*}
     \int_\Omega \DD^\alpha u \DD^\beta \varphi \d x
     &= (-1)^{|\alpha|} \int_\Omega u \DD^{\alpha + \beta} \varphi \d x \\
@@ -283,12 +283,12 @@ Finally, we show that $\WW^{k,p}(\Omega)$ is a Banach space.
     To show that $u_\alpha = \DD^\alpha u$, we fix $\varphi \in \CC_0^\infty(\Omega)$ and obtain
     \begin{align*}
       \int_\Omega u \DD^\alpha \varphi \d x
-      \overset{(\ref{eq:funcConv})}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
+      \overset{\eqref{eq:funcConv}}{=} \lim_{m \to \infty} \int_\Omega u_m \DD^\alpha \varphi \d x 
       = \lim_{m \to \infty} (-1)^{|\alpha|} \int_\Omega \DD^\alpha u_m \varphi \d x 
-      \overset{(\ref{eq:derivativeConv})}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x
+      \overset{\eqref{eq:derivativeConv}}{=} (-1)^{|\alpha|} \int_\Omega u_\alpha \varphi \d x
     \end{align*}
     since $\varphi, \DD^\alpha \varphi \in \Ell^q(\Omega)$ with $\frac{1}{p} + \frac{1}{q} = 1$. Hence, $\DD^\alpha u = u_\alpha \in \Ell^p(\Omega)$ for all $|\alpha| \leq k$ and $u \in \WW^{k,p}(\Omega)$.
-    But then (\ref{eq:derivativeConv}) and (\ref{eq:funcConv}) imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.
+    But then \eqref{eq:derivativeConv} and \eqref{eq:funcConv} imply $u_m \to u$ in $\WW^{k,p}(\Omega)$.
     Hence, $\WW^{k,p}(\Omega)$ is complete and a Banach space.
 
     That $(\cdot,\cdot)_{\HH^k(\Omega)}$ is a scalar product on $\HH^k(\Omega)$ easily follows from the $\Ell^2$-scalar product.
