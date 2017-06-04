@@ -19,13 +19,13 @@ This will be done in details here.
   $$
   U^+ \coloneqq U \cap \R^n_+, \quad U^- \coloneqq U \cap \R^n_-, \quad U^0 \coloneqq \{x \in U \colon x_n = 0\}.
   $$
-  Moreover, we write $x = (x', x_n)$ for $x \in \R^n$ with $x = (x_1,\dots,x_n)$ and $x' =(x_1, \dots, x_{n - 1}) \subset \R^{n - 1}$.
+  Moreover, we write $x = (x', x_n)$ for $x \in \R^n$ with $x = (x_1,\dots,x_n)$ and $x' =(x_1, \dots, x_{n - 1}) \in \R^{n - 1}$.
 \end{ntion}
 
 \begin{defn}
   \label{defn:CmDiffeo}
   Let $\Omega$ and $U$ be domains in $\R^n$.
-  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$\hyp{}diffeomorphism} iff $g$ is bijective, $g \in \CC^m(\overline{\Omega},\R^n)$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD g) \neq 0$ in $\overline \Omega$.
+  A map $g \colon \Omega \to U$ is called \emph{$\CC^m$\hyp{}diffeomorphism} if and only if $g$ is bijective, $g \in \CC^m(\overline{\Omega},\R^n)$, $g^{-1} \in \C^m(\overline U, \R^n)$ and $\det(\DD g) \neq 0$ in $\overline \Omega$.
 \end{defn}
 
 If $\partial \Omega \in \CC^m$, then we can locally transform $\Omega$ to a domain with flat boundary.
@@ -66,14 +66,14 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
   is bijective and there exist $C_1, C_2 > 0$ such that
   $$
   \|T_g(u)\|_{\WW^{m,p}(U)} \leq C_1 \|u\|_{\WW^{m,p}(\Omega)}
-  \quad 
+  \quad\text{and}\quad
   \|(T_g)^{-1}(v)\|_{\WW^{m,p}(\Omega)} \leq C_2 \|v\|_{\WW^{m,p}(U)}
   $$
-  for all $u \in \WW^{m,p}(\Omega$, $v \in \WW^{m,p}$, where $(T_g)^{-1} = T_{g^{-1}}$.
+  for all $u \in \WW^{m,p}(\Omega)$, $v \in \WW^{m,p}(U)$, where $(T_g)^{-1} = T_{g^{-1}}$.
 \end{prop}
 
 \begin{proof}
-  \begin{enumerate}[(i)]
+  \begin{enumerate}[i)]
     \item If $T_g$ is well-defined and satisfies the claimed estimate, it is immediate that $(T_g)^{-1} = T_{g^{-1}}$ and hence the estimate for $(T_g)^{-1}$ follows by replacing $g$ by $g^{-1}$.
       Moreover, we only consider the case $m = 1$ as the general case then follows by induction.
     \item Let $m = 1$ and $T \coloneqq T_g$.
@@ -82,7 +82,7 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
   \begin{equation}
     \label{eq:trafo}
     \int_U |T(u)(y)|^p \d y
-     = \int_\Omega |u(x)|^p |\det(\DD g^{-1})(x)| \d x
+     = \int_\Omega |u(x)|^p \, |\det(\DD g^{-1})(x)| \d x
     \leq M \int_\Omega |u(x)|^p \d x,
   \end{equation}
   $$
@@ -92,12 +92,12 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
   $$
   where $x = g(y)$ ($x \in \Omega, y \in U$), and
   \begin{align*}
-    \left( \int_U (\partial_{y_i}(T(u))(y)|^p \d y\right)^{\frac{1}{p}}
+    \left( \int_U |(\partial_{y_i}(T(u))(y)|^p \d y\right)^{\frac{1}{p}}
     & \leq \|g\|_{\CC^1(\overline U)} \sum_{j = 1}^n \left( \int_U |T(u_{x_j})(y)|^p \d y \right)^{\frac{1}{p}} \\
     & \overset{\eqref{eq:trafo}}{\leq} \|g\|_{\CC^1(\overline U)} \, M^{\frac{1}{p}} \, \sum_{j = 1}^n \|u_{x_j} \|_{\Ell^p(\Omega)}.
   \end{align*}
   Hence, $\|T(u)\|_{\WW^{1,p}(U)} \leq M^{\frac{1}{p}} (1 + n\|g\|_{\CC^1(\overline U)}) \, \|u\|_{\WW^{1,p}}$ by combining the previous estimate with \eqref{eq:trafo} and Minkowski's inequality.
-\item By (ii) we have
+\item By ii) we have
   $$
   \|T(u)\|_{\WW^{1,p}(U)} \leq C_1 \|u\|_{\WW^{1,p}(\Omega)} \quad \text{for all } u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega).
   $$
@@ -121,7 +121,7 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
 \section{Extension Theorem}
 
 We next extend functions $u \in \WW^{k,p}(\Omega)$ to become a function in $\WW^{k,p}(\Omega)$.
-This connot be done in general by extending $u$ by $0$ to $\R^n \setminus \Omega$, as this may create bad discontinuities in some $\DD^\alpha u$ on $\partial\Omega$.
+This cannot be done in general by extending $u$ by $0$ to $\R^n \setminus \Omega$, as this may create bad discontinuities in some $\DD^\alpha u$ on $\partial\Omega$.
 We need now again boundary regularity of $\partial\Omega$.
 
 \begin{thm}  Let $m \in \N$, $p \in [1,\infty)$, $\Omega \subset \R^n$ be a bounded domain with $\partial \Omega \in \C^m$, and $V \subset \R^n$ be a domain with $\Omega \Subset V$.
@@ -180,7 +180,7 @@ We need now again boundary regularity of $\partial\Omega$.
         = \lim_{t \downarrow 0} \DD^\alpha(\tilde E(u))(x', t)
       \end{align*}
       since $u \in \CC^m(\overline{\R^n_+})$ by assumption.
-      Moreover
+      Moreover,
       $$\DD^\alpha(\tilde E(u)) \|_{\Ell^p(\R^n)}
       \leq \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n} |\lambda_j| j^{\frac{1}{p}} \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)} 
       \overset{p \geq 1}{\leq} \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n + 1} |\lambda_j| \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)}
@@ -200,7 +200,7 @@ We need now again boundary regularity of $\partial\Omega$.
       \end{align*}
       with $\gamma_i \in \CC^m(\R^{n - 1})$.
       Choose $U_0 \Subset \Omega$ such that $\overline\Omega \subset \bigcup_{i = 0}^N U_i$.
-      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(\Tau^{-1}(U_i))$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 1}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
+      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(\Tau_i^{-1}(U_i))$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 1}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
       Define further $\Phi_i,\Psi_i$ by Lemma \ref{lem:flattening} according to $\gamma = \gamma_i, i = 1,\dots,N,$ and set $W_i \coloneqq \Phi_i(U_i)$.
 
       We fix $i \in \{1,\dots,N\}$ and $u \in \CC^m(\overline\Omega)$.
@@ -276,7 +276,7 @@ We need now again boundary regularity of $\partial\Omega$.
 \section{Trace Operator}
 
 A function $u \in \WW^{1,p}(\Omega) \cap \CC^0(\overline\Omega)$ clearly has boundary values on $\partial\Omega$ in the usual sense.
-But a gemeral function $u \in \WW^{1,p}(\Omega)$ is not continuous and only defined a.e. in $\Omega$. 
+But a general function $u \in \WW^{1,p}(\Omega)$ is not continuous and only defined a.e. in $\Omega$. 
 Since $\partial\Omega$ has $n$-dimensional Lebesgue measure $0$, we need a trace operator involving the space $\Ell^p(\partial\Omega)$ for assigning boundary values to $u$.
 
 \begin{defn}
