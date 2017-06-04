@@ -49,7 +49,11 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \begin{lem}
   \label{lem:cutoff}
   Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
-  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff\hyp{}function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and $|\DD^\alpha \tau | \leq c \delta^{-k}$ in $\Omega \setminus K$ for all $k \in \N$ and all $|\alpha| = k$, where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
+  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff\hyp{}function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$ and 
+  $$
+|\DD^\alpha \tau(x) | \leq c \delta^{-k} \quad\text{for all } x \in \Omega \setminus K, k \in \N , |\alpha| = k,
+  $$ 
+  where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
 \end{lem}
 
 \begin{proof}
