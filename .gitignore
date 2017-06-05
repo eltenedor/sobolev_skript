@@ -1,6 +1,5 @@
 *.aux
 *.swp
-sobolev.bbl
 sobolev.blg
 sobolev.log
 sobolev.out

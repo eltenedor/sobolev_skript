@@ -1,0 +1,39 @@
+\begin{thebibliography}{Dob10}
+
+\bibitem[AF03]{adams2003sobolev}
+Robert~A. Adams and John J.~F. Fournier.
+\newblock {\em Sobolev spaces}, volume 140 of {\em Pure and applied
+  mathematics}.
+\newblock Academic press, New York, 2. edition, 2003.
+
+\bibitem[Alt12]{alt2012lineare}
+Hans~Wilhelm Alt.
+\newblock {\em Lineare Funktionalanalysis : eine anwendungsorientierte
+  Einf\"uhrung}.
+\newblock Springer-Verlag, Berlin, 6. edition, 2012.
+
+\bibitem[Bre11]{brezis2011functional}
+Haim Brezis.
+\newblock {\em Functional analysis, Sobolev spaces and partial differential
+  equations}.
+\newblock Universitext. Springer-Verlag, New York, 1. edition, 2011.
+
+\bibitem[Dob10]{dobrowolski2010angewandte}
+Manfred Dobrowolski.
+\newblock {\em Angewandte Funktionalanalysis : Funktionalanalysis,
+  Sobolev-R\"aume und elliptische Differentialgleichungen}.
+\newblock Springer-Verlag, Berlin, 2. edition, 2010.
+
+\bibitem[Eva10]{evans2010partial}
+Lawrence~C. Evans.
+\newblock {\em Partial differential equations}, volume~19 of {\em Graduate
+  studies in mathematics}.
+\newblock American Mathematical Society, Providence, 2. edition, 2010.
+
+\bibitem[MS64]{meyers1964}
+Norman~G. Meyers and James Serrin.
+\newblock {H} = {W}.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  51(1):1055--1056, 1964.
+
+\end{thebibliography}

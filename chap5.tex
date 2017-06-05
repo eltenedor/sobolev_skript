@@ -111,7 +111,7 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
   $$
   \| T(u) \|_{\WW^{1,p}(U)} 
   = \lim_{k \to \infty} \|T(u_k)\|_{\WW^{1,p}(U)}
-  \overset{ii)}\leq C_1 \lim_{k \to \infty} \|u_k\|_{\WW^{1,p}(\Omega)}
+      \overset{\text{ii)}}\leq C_1 \lim_{k \to \infty} \|u_k\|_{\WW^{1,p}(\Omega)}
   = C_1 \|u\|_{\WW^{1,p}(\Omega)},
   $$
   where $C_1$ can be chosen independent of $p$ as $M^{\frac{1}{p}} \leq 1 + M$.
@@ -181,10 +181,11 @@ We need now again boundary regularity of $\partial\Omega$.
       \end{align*}
       since $u \in \CC^m(\overline{\R^n_+})$ by assumption.
       Moreover,
-      $$\DD^\alpha(\tilde E(u)) \|_{\Ell^p(\R^n)}
-      \leq \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n} |\lambda_j| j^{\frac{1}{p}} \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)} 
-      \overset{p \geq 1}{\leq} \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n + 1} |\lambda_j| \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)}
-      $$
+      \begin{align*}
+        \|\DD^\alpha(\tilde E(u)) \|_{\Ell^p(\R^n)}
+       &\leq \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n} |\lambda_j|\, j^{\frac{1}{p}} \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)}  \\
+       &\overset{p \geq 1}{\leq} \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n + 1} |\lambda_j| \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)},
+      \end{align*}
       where we have used the transformation rule with $z = (x', -jx_n)$ and $\supp(u) \subset \widetilde \BB_+ \subset \overline{\BB^+}$.
       Hence, $\tilde E(u) \in\CC^m(\R^n)$ with
       \begin{equation}
@@ -269,7 +270,7 @@ We need now again boundary regularity of $\partial\Omega$.
         \|E(u)\|_{\WW^{k,p}(\R^n)} \leq C_7 \|u\|_{\WW^{k,p}(\Omega)}
         $$
         by \eqref{eq:continuousExtension} like in the end of the proof of Proposition \ref{prop:sobolevTransform}. 
-        Since \eqref{eq:continuousExtension} implies that $E(u) = v$ does not depend on the choice of the approximating sequence $(u_j)_{j \in \N}$ (as $E$ is linear), we thereby have defined $E \colon \WW^{k,p}(\Omega) \to \WW^{k,p}(\R^n)$ having all claimed properties.
+        Since \eqref{eq:continuousExtension} implies that $E(u) = v$ does not depend on the choice of the approximating sequence $(u_j)_{j \in \N}$ (as $E$ is linear), we thereby have defined $E \colon \WW^{k,p}(\Omega) \to \WW^{k,p}(\R^n)$ having all claimed properties. \qedhere
   \end{enumerate}
 \end{proof}
 
