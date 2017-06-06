@@ -58,14 +58,14 @@ We fix $K \subset \Omega$ compact and define
 $$
 \operatorname{sign}(u(x)) \coloneqq 
 \begin{cases} 
-  1, &\text{ if } u(x) > 0, \\
-  -1, &\text{ if } u(x) <  0, \\
-  0, &\text{ if } u(x) \in \{ 0, -\infty, +\infty\} \\
+  1 &\quad\text{if } u(x) > 0, \\
+  -1 &\quad\text{if } u(x) <  0, \\
+  0 &\quad\text{if } u(x) \in \{ 0, -\infty, +\infty\} \\
 \end{cases}
 $$
 and
 $$
-f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)), &\text{ if } x \in K, \\ 0,  &\text{ if } x \in \R^n \setminus K. \end{cases}
+f(x) \coloneqq \begin{cases} \operatorname{sign}(u(x)) &\quad\text{if } x \in K, \\ 0  &\quad\text{if } x \in \R^n \setminus K. \end{cases}
 $$
 As $|u| < \infty$ a.e. in $K$ a.e., we have $u(x)f(x) = |u(x)|$ for a.e. $x \in K$.
 Since $f \in \Ell^\infty(\Omega)$ with $\supp(f) \subset K \Subset \Omega$, we define $\varphi_n \coloneqq f_{\frac{1}{n}} = \eta_{\frac{1}{n}} \ast f$ and deduce from Theorem \ref{thm:mollifier} a), b) that $\varphi_n \in \CC_0^\infty(\Omega)$ and $\varphi_{n_k}(x) \to f(x)$ a.e. in $\Omega$ as $k \to \infty$ for some subsequence.
@@ -117,8 +117,8 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
       $$
       \|u\|_{\WW^{k,p}(\Omega)} \coloneqq 
       \begin{cases}
-        \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^p(\Omega)}^p \right)^{\frac{1}{p}} &\text{ if } p \in [1,\infty), \\
-          \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^\infty(\Omega)} &\text{ if } p = \infty.
+        \left( \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^p(\Omega)}^p \right)^{\frac{1}{p}} &\quad\text{if } p \in [1,\infty), \\
+          \sum_{|\alpha| \leq k} \|\DD^\alpha u\|_{\Ell^\infty(\Omega)} &\quad\text{if } p = \infty.
       \end{cases}
       $$
       We further define
