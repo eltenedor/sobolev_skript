@@ -127,7 +127,7 @@ The mollification has the following properties:
     $$
     \DD^h_i v(x) \coloneqq \frac{1}{h} ( v(x + h e_i) - v(x)), \quad x \in \R^n.
     $$
-    As $\eta_\varepsilon \in \CC_0^\infty(\R^n)$ we have $\nabla \eta_\varepsilon \in \Ell^\infty(\R^n)^n$.
+    As $\eta_\varepsilon \in \CC_0^\infty(\R^n)$, we have $\nabla \eta_\varepsilon \in \Ell^\infty(\R^n)^n$.
     So $\DD_i^h  \eta_\varepsilon \in \Ell^\infty(\R^n)$ by the mean value theorem.
     As moreover $\DD_i^h \eta_\varepsilon(z) \to \frac{\partial \eta_\varepsilon}{\partial x_i}(z)$ as $h \to 0$ for any $z \in \R^n$, the dominated convergence theorem implies
     \begin{align*}
@@ -146,8 +146,8 @@ The mollification has the following properties:
     For any such $x$ we obtain (by choosing $\varepsilon > 0$ small such that $\overline{\BB_\varepsilon(x)} \subset \Omega$)
     \begin{align}
       |u_\varepsilon(x) - u(x)|
-      &= | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) f(y) \d y | 
-      = | \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (f(y) - f(x)) \d y | \nonumber\\
+      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) f(y) \d y \Big| 
+      = \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (f(y) - f(x)) \d y \Big| \nonumber\\
       &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |f(y) - f(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |f(y) - f(x) | \d y \label{eq:pointwise}\\
       & \to 0 \quad\text{as } \varepsilon \downarrow 0 \nonumber
     \end{align}
@@ -168,7 +168,7 @@ The mollification has the following properties:
     \item For $x \in \Omega$, by using Hölder's inequality and $\eta_\varepsilon \geq 0$ along with $\int_{\R^n} \eta_\varepsilon(z) \d y = 1$, we get
     \begin{align*}
       |u_\varepsilon(x)| 
-      &= | \int_\Omega \left( \eta_\varepsilon(x - y) \right)^{1 - \frac{1}{p}} \left( \eta_\varepsilon(x - y)\right)^{\frac{1}{p}} u(y) \d y | \\
+      &= \Big| \int_\Omega \left( \eta_\varepsilon(x - y) \right)^{1 - \frac{1}{p}} \left( \eta_\varepsilon(x - y)\right)^{\frac{1}{p}} u(y) \d y \Big| \\
       &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)^{\frac{p - 1}{p}}}_{\leq 1} \left( \int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d y \right)^\frac{1}{p}
       \leq \left( \int_\Omega \eta_\varepsilon (x - y) |u(y)|^p \d y \right)^{\frac{1}{p}}.
     \end{align*}

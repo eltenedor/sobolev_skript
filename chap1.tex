@@ -91,7 +91,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
         &= -\int_{-1}^0 -1 \varphi(x) \d x - \int_0^1 1 \varphi(x) \d x
         = -\int_{-1}^1 v(x) \varphi(x)
       \end{align*}
-      if we define $v(x) = \begin{cases} 1, \quad &x \in (0,1), \\ -1, \quad &x \in (-1,0). \end{cases}$
+      if we define $v(x) = \begin{cases} 1, &\quad x \in (0,1), \\ -1, &\quad x \in (-1,0). \end{cases}$
 
       Then $v \in \Ell^1(\Omega)$ and since $\{0\}$ is a set of measure zero in $\R$, we could define $v(0)$ arbitrarily.
       Hence, $u$ is weakly differentiable with derivative $u^\prime = v$.
@@ -108,7 +108,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
         -2\varphi(0) = -\int_\Omega w(x) \varphi(x) \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
       \end{equation}
       Fix some $f \in \CC_0^\infty\left((-1,1)\right)$ with $f(0) = 1$ and define $\varphi_n(x) = f(nx)$ for $x \in (-1,1), n \in \N$ (where $f = 0$ on $\R \setminus(-1,1)$).
-      Then $\varphi_n \in \CC_0^\infty\left( (-1,1)\right)$ with $\varphi_n(x) = 0$ for all $x \in \R \setminus\left(-\frac{1}{n}, \frac{1}{n} \right)$ with $\varphi_n(0) = 1$ and $\lim_{n \to \infty} \varphi_n(x) = 0$ for all $x \in \Omega \setminus \{0\}$. As $\|\varphi_n\|_{\Ell^\infty(\Omega)} \leq \|f\|_{\Ell^\infty(\Omega)} < \infty$ we conclude from the dominated convergence theorem that
+      Then $\varphi_n \in \CC_0^\infty\left( (-1,1)\right)$ with $\varphi_n(x) = 0$ for all $x \in \R \setminus\left(-\frac{1}{n}, \frac{1}{n} \right)$ with $\varphi_n(0) = 1$ and $\lim_{n \to \infty} \varphi_n(x) = 0$ for all $x \in \Omega \setminus \{0\}$. As $\|\varphi_n\|_{\Ell^\infty(\Omega)} \leq \|f\|_{\Ell^\infty(\Omega)} < \infty$, we conclude from the dominated convergence theorem that
       $$
       0 = \lim_{n \to \infty} \left( -\int_\Omega w(x) \varphi_n(x) \d x \right) \neq -2 = \lim_{n \to \infty} - 2\varphi_n(x)
       $$
@@ -135,7 +135,7 @@ We shortly illustrate the latter in an example.
   \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x) \quad \text{for all } \varphi \in \CC_0^\infty(\Omega),
   $$
   where $u^\prime$ is the weak derivative of $u$, and if $u$ satisfies $u = 0$ on $\partial \Omega$ in a certain weak sense.
-  The latter will be specified in a detailed way in Chapter \ref{chap:appsToPDEs}, as $u \in \WW^{1,2}(\Omega)$ is not necessarily continuous.
+  The latter will be specified in a detailed way in Chapter \ref{chap:appsToPDEs} as $u \in \WW^{1,2}(\Omega)$ is not necessarily continuous.
   In Chapter \ref{chap:appsToPDEs}, we will study the generalisation of \eqref{eq:1dPoisson} for $\Omega \subset \R^n$ being a bounded domain namely the Poisson equation
   $$
   -\Delta u = f \text{ in } \Omega, \quad u = 0 \text{ on } \partial \Omega.

@@ -164,9 +164,9 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
       + \int_{\partial \BB_\varepsilon(0)} u \, \varphi \, \nu_i \d \sigma.
     \end{equation}
     We may pass to the limit $\varepsilon \downarrow 0$ in the first two integrals if $u \in \Ell^1(\Omega)$ and $\nabla u \in \Ell^1(\Omega)^n$, i.e. $a < n$ and $a + 1 < n$.
-    As for $a < n - 1$ we further have
+    As for $a < n - 1$, we further have
     $$
-    \left| \int_{\partial \BB_\varepsilon(0)} u \, \varphi \,  \nu_i \d \sigma \right|
+    \Big| \int_{\partial \BB_\varepsilon(0)} u \, \varphi \,  \nu_i \d \sigma \Big|
       \leq \|\varphi\|_{\Ell^\infty(\Omega)} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
       \leq C \varepsilon^{k - 1 - a} \to 0 \quad\text{as } \varepsilon \downarrow 0.
     $$
@@ -217,7 +217,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
     \item[d)] Let $\varphi \in \CC_0^\infty(\Omega)$. 
       In case of $|\alpha| = 1$, we have
       $$
-      \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{(3.3)}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
+      \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{\eqref{eq:weakPartialDerivative}}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
       $$
       Hence, $\DD^\alpha(\xi u) = \xi \DD^\alpha u + u \DD^\alpha \xi \in \Ell^p(\Omega)$ and the claim is true for $|\alpha| = 1$.
 
@@ -230,7 +230,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
         \int_\Omega \xi u \DD^\alpha \varphi
         &= \int_\Omega \xi u\DD^\beta (\DD^\gamma \varphi ) \d x \\
         &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
-        &\overset{(3.3)}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
+        &\overset{\eqref{eq:weakPartialDerivative}}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
         &\overset{\mathrm{(IA)}}{=} (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
         &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\alpha - (\sigma + \gamma)} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
         &= (-1)^{|\alpha|} \int_\Omega \left [\sum_{\gamma \leq \rho \leq \alpha} \binom{\beta}{\rho - \gamma} + \sum_{0 \leq \rho \leq \beta} \binom{\beta}{\rho} \right] \DD^\rho \xi \,\DD^{\alpha - \rho}u \, \varphi \d x \\

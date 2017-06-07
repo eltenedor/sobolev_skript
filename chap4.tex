@@ -11,7 +11,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
     Then the following statements hold:
     \begin{enumerate}[a)]
       \item $u_\varepsilon \in \CC^\infty(\Omega)$ and $\DD^\alpha(u_\varepsilon)(x) = (\DD^\alpha u)_\varepsilon(x)$ for all $ x \in \Omega_\varepsilon$ and all $\alpha \in \N_0^n$ with $|\alpha| \leq k$.
-      \item $u_\varepsilon \to u$ in $\WW_{\loc}^{k,p}(\Omega)$, as $\varepsilon \downarrow 0$.
+      \item $u_\varepsilon \to u$ in $\WW_{\loc}^{k,p}(\Omega)$ as $\varepsilon \downarrow 0$.
     \end{enumerate}
 \end{thm}
 
@@ -27,7 +27,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
       \DD^\alpha (u_\varepsilon)(x) 
       &= (-1)^{|\alpha|} \int_\Omega \DD_y^\alpha (\eta_\varepsilon (x - y))\, u(y) \d y
       = (-1)^{|\alpha|} \int_\Omega \DD^\alpha \phi(y) \, u(y) \d y \\
-      &\overset{(3.3)}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
+      &\overset{\eqref{eq:weakPartialDerivativeDef}}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
       = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y.
       = (\DD^\alpha u)_\varepsilon(x).
     \end{align*}
@@ -151,7 +151,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     and only finitely many of the $\psi_i(x)$ are non-zero.
     Hence, $\{\xi_i\}_{i = 0}^\infty$, defined by
     $$\xi_i(x) \coloneqq \frac{\psi_i(x)}{\sigma(x)}, \quad x \in \Omega,$$
-      is a \emph{partition of unity subordinate to} $\{V_i\}_{i = 0}^\infty$, i.e. $\xi_i \in \CC_0^\infty(\Omega)$, $0 \leq \xi_i \leq 1$, and $\sum_{i = 0}^\infty \xi_i = 1$ in $\Omega$ and for any $K \Subset \Omega$, $\xi_i|_K \not\equiv 0$ only for finitely many $i$.
+      is a \emph{partition of unity subordinate to} $\{V_i\}_{i = 0}^\infty$, i.e. $\xi_i \in \CC_0^\infty(V_i)$, $0 \leq \xi_i \leq 1$, and $\sum_{i = 0}^\infty \xi_i = 1$ in $\Omega$ and for any $K \Subset \Omega$, $\xi_i|_K \not\equiv 0$ only for finitely many $i$.
   \item Let $u \in \WW^{k,p}(\Omega)$ be arbitrary.
     Then by Proposition \ref{prop:sobolevProperties} d) and i) we have $\xi_i u \in \WW^{k,p}(\Omega)$ and $\supp(\xi_i u) \subset V_i$ for all $i \in \N_0$.
     We fix $\delta > 0$.
@@ -163,10 +163,10 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     \begin{equation}
       \|u_i - \xi_i u \|_{W^{k,p}(\Omega)} = \|u_i - \xi_i u\|_{W^{k,p}(Z_i)} \leq \frac{\delta}{2^{i + 1}}
     \end{equation}
-    for $i \in \N_0$, as $u_i - \xi_i u \equiv 0$ in $\Omega \setminus Z_i$.
+    for $i \in \N_0$ as $u_i - \xi_i u \equiv 0$ in $\Omega \setminus Z_i$.
     Define
     $$
-    v(x) \coloneqq \sum_{i = 0}^\infty u_i(x), x \in \Omega.
+    v(x) \coloneqq \sum_{i = 0}^\infty u_i(x), \quad x \in \Omega.
     $$
     Then for any open set $V \Subset \Omega$ only finitely many $u_i$ satisfy $u_i|_V \not\equiv 0$.
     Since $u = \sum_{i = 0}^\infty \xi_i u$, we obtain $v \in \CC^\infty(\Omega)$ and
@@ -208,35 +208,35 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
   |f(x)| \leq |f(0)| + M|x| \quad\text{for all } x \in \R,
   $$
   the assumption $f(0)= 0$ or $|\Omega| < \infty$ implies $f(u) \in \Ell^p(\Omega)$.
-  By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
+  By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
   Hence, $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
   We fix $i \in \{ 1, \dots, n\}$ and $\varphi \in \CC_0^\infty(\Omega)$.
   In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from \eqref{eq:partialIntegrationGeneral}
   \begin{equation}
     \label{eq:partialIntChainRule}
-    \int_\Omega f(u_m) \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \varphi \d x \quad\text{for all } m \in \N,
+    \int_\Omega f(u_m) \, \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \,  \varphi \d x \quad\text{for all } m \in \N,
   \end{equation}
   by the classical chain rule.
   On the one hand, for $q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$  we have
   \begin{align*}
-    | \int_\Omega (f(u_m) - f(u))\, \varphi_{x_i} \d x |
-    \leq M \int_{\Omega} |u_m - u|\, |\varphi_{x_i}| \d x
-    &\leq M \|u_m - u\|_{\Ell^p(\Omega)} \|\varphi_{x_i}\|_{\Ell^q(\Omega)} \\
-    &\to 0, \quad\text{as } m \to \infty,
+    \Big| \int_\Omega (f(u_m) - f(u))\, \varphi_{x_i} \d x \Big|
+    &\leq M \int_{\Omega} |u_m - u|\, |\varphi_{x_i}| \d x \\
+    &\leq M\, \|u_m - u\|_{\Ell^p(\Omega)} \|\varphi_{x_i}\|_{\Ell^q(\Omega)} 
+    \to 0 \quad\text{as } m \to \infty
   \end{align*}
   since $f$ is Lipschitz.
   On the other hand, 
   $$
-  |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \leq 2M |u_{x_i}| \|\varphi\|_{\Ell^\infty(\Omega)} \in \Ell^1(\supp(\varphi))
+  |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \leq 2M\, |u_{x_i}| \|\varphi\|_{\Ell^\infty(\Omega)} \in \Ell^1(\supp(\varphi))
   $$
   as $\supp(\varphi)$ is bounded and thus
   \begin{align*}
-    &|\int_\Omega (f'(u_m) (u_m)_{x_i} - f'(u)u_{x_i})\, \varphi \d x | \\
+    &\Big |\int_\Omega (f'(u_m) (u_m)_{x_i} - f'(u)u_{x_i})\, \varphi \d x \Big| \\
     &\quad\leq \int_\Omega |f'(u_m)|\, |(u_m)_{x_i} - u_{x_i}|\,| \varphi | \d x 
     + \int_\Omega |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \d x \\
-    &\quad\leq M \|(u_m)_{x_i} - u_{x_i}\|_{\Ell^p(\Omega)} \|\varphi\|_{\Ell^q(\Omega)}
+    &\quad\leq M\, \|(u_m)_{x_i} - u_{x_i}\|_{\Ell^p(\Omega)} \|\varphi\|_{\Ell^q(\Omega)}
     + \int_{\supp(\varphi)} |f'(u_m) - f'(u)|\, |u_{x_i}|\, |\varphi| \d x .
-    \\&\quad \to 0, \quad\text{as } m \to \infty,
+    \\&\quad \to 0 \quad\text{as } m \to \infty
   \end{align*}
    by the dominated convergence theorem.
 
@@ -268,7 +268,7 @@ The following example shows that this is not true for all open $\Omega \subset \
   $$
   u(x,y) \coloneqq \begin{cases} 1 \quad\text{if } x > 0,\\ 0 \quad\text{if } x < 0 \end{cases}
   $$
-  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small, there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)}$.
+  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
 \end{ex}
 
 The problem with $\Omega$ in the example is that it lies on both sides of the segment $\Gamma = \{(0,y) \colon y \in [0,1]\}$ with $\gamma \subset \partial \Omega$.
@@ -286,7 +286,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \begin{defn}
   \label{defn:CmBoundary}
   Let $\Omega \subset \R^n$ be a bounded domain and $m \in \N$.
-  We say that $\Omega$ \emph{is of class} $\CC^m$ or simply $\partial\Omega \subset \CC^m$ if for any $x^0 \in \partial \Omega$ there exists $r = r(x^0) > 0$ and $\gamma = \gamma_{x^0} \in \CC^m(\R^{n - 1})$ such that upon relabeling and reorienting the coordinate axes if necessary we have
+  We say that $\Omega$ \emph{is of class} $\CC^m$ or simply $\partial\Omega \in \CC^m$ if for any $x^0 \in \partial \Omega$ there exists $r = r(x^0) > 0$ and $\gamma = \gamma_{x^0} \in \CC^m(\R^{n - 1})$ such that upon relabeling and reorienting the coordinate axes if necessary we have
   \begin{align*}
      \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma(x_1,\dots,x_{n - 1}) \}, \\
      \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x_1,\dots,x_{n - 1})\}.
@@ -301,7 +301,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   Indeed, as 
   $$
   \def\arraystretch{0.6}
-  \partial\Omega \cap \BB_r(x^0) = \Bigg\{ \left( \begin{array}{c} x_1 \\ \vdots \\ x_{n - 1} \\ \gamma(x_1,\dots,x_{n-1}) \end{array} \right) \Bigg\} \cap \BB_r(x^0)
+  \partial\Omega \cap \BB_r(x^0) = \Bigg\{ x \in \BB_r(x^0) \colon x = \left( \begin{array}{c} x_1 \\ \vdots \\ x_{n - 1} \\ \gamma(x_1,\dots,x_{n-1}) \end{array} \right) \Bigg\} 
   $$
   we have that
   $$
@@ -312,9 +312,9 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
     \left(\begin{array}{c} 0 \\ 0 \\ \vdots \\ 1 \\ \gamma_{x_{n-1}}(x_1,\dots,x_{n - 1}) \end{array} \right)\Bigg\}
   $$
   is $(n-1)$-dimensional so that $\TT(x)^\perp$ is one-dimensional.
-  Hence, $\nu(x)$ is uniquely defined and $\nabla \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1$ and 
+  Hence, $\nu(x)$ is uniquely defined and $\nabla \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1(\R^{n - 1})$ and 
   $$
-  \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} = (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT.
+  \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} \, (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT.
   $$
   In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
 \end{rem}
@@ -323,7 +323,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   Let $p \in [1,\infty)$ and $u \in \Ell^p(\R^n)$. 
     Then the translation is continuous in $\Ell^p(\R^n)$ in the sense that we have (with $h \in \R^n$)
     $$
-    \lim_{|h| \to 0} \| u(\cdot + h) - u(\cdot)\|_{\Ell^p(\R^n)} = 0.
+    \lim_{|h| \to 0} \| u(\,\cdot + h) - u(\,\cdot\,)\|_{\Ell^p(\R^n)} = 0.
     $$
 \end{prop}
 
@@ -334,7 +334,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   $$
   But then also
   $$
-  \|u(\cdot + h) - \varphi(\cdot + h) \|_{\Ell^p(\Omega)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \delta.
+  \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\Omega)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \delta.
   $$
   Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
   Hence, there is $M > 0$ such that
@@ -343,9 +343,9 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   $$
   Hence, for $h \in \R^n$ with $|h| < M$ we have
   \begin{align*}
-    \|u(\cdot + h) - u(\cdot)\|_{\Ell^p(\R^n)}
-    &\leq \|u(\cdot + h) - \varphi(\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\cdot + h) - \varphi(\cdot ) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
-    &\leq \frac{2}{3}\delta +  \|\varphi(\cdot + h) - \varphi(\cdot)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} \\
+    \|u(\,\cdot + h) - u(\,\cdot\,)\|_{\Ell^p(\R^n)}
+    &\leq \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
+    &\leq \frac{2}{3}\delta +  \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} \\
     &< \delta
   \end{align*}
   and the claim follows.
@@ -393,7 +393,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
         &= \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})}
         \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{B_{\frac{1}{\varepsilon}}(0)}} + \|v_\varepsilon\|_{\WW^{k,p}(\overline{\Omega \setminus \BB_{\frac{1}{\varepsilon}(0)}})} \\
         &\leq (1 + c(k)M) \|u\|_{W^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})} \\
-        &\to 0, \quad\text{ as } \varepsilon \to 0,
+        &\to 0 \quad\text{ as } \varepsilon \to 0
       \end{align*}
       in view of $p < \infty$.
       Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v = v_\varepsilon$ has bounded support.
