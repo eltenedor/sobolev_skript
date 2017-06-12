@@ -217,7 +217,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
     \item[d)] Let $\varphi \in \CC_0^\infty(\Omega)$. 
       In case of $|\alpha| = 1$, we have
       $$
-      \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{\eqref{eq:weakPartialDerivative}}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
+      \int_\Omega \xi u \DD^\alpha \varphi \d x = \int_\Omega \left( u \DD^\alpha(\xi \varphi) - u(\DD^\alpha \xi) \varphi \right) \d x \overset{\eqref{eq:weakPartialDerivativeDef}}{=} -\int_\Omega \left( \xi \DD^\alpha u + u \DD^\alpha \xi \right) \varphi \d x.
       $$
       Hence, $\DD^\alpha(\xi u) = \xi \DD^\alpha u + u \DD^\alpha \xi \in \Ell^p(\Omega)$ and the claim is true for $|\alpha| = 1$.
 
@@ -230,7 +230,7 @@ Next, we prove some elementary properties of weak derivatives which are well kno
         \int_\Omega \xi u \DD^\alpha \varphi
         &= \int_\Omega \xi u\DD^\beta (\DD^\gamma \varphi ) \d x \\
         &\overset{\mathrm{(IA)}}{=} (-1)^{|\beta|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\sigma \xi\, \DD^{\beta - \sigma} u\, \DD^\gamma \varphi \d x \\
-        &\overset{\eqref{eq:weakPartialDerivative}}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
+        &\overset{\eqref{eq:weakPartialDerivativeDef}}{=} (-1)^{|\beta|+|\gamma|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \DD^\gamma \left( \DD^\sigma \xi \, \DD^{\beta - \sigma} u \right) \varphi \d x \\
         &\overset{\mathrm{(IA)}}{=} (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\beta - \sigma} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
         &= (-1)^{|\alpha|} \int_\Omega \sum_{\sigma \leq \beta} \binom{\beta}{\sigma} \left[ \DD^{\sigma + \gamma} \xi\, \DD^{\alpha - (\sigma + \gamma)} u + \DD^\sigma \xi \,\DD^{\alpha - \sigma} u \right] \varphi \d x\\
         &= (-1)^{|\alpha|} \int_\Omega \left [\sum_{\gamma \leq \rho \leq \alpha} \binom{\beta}{\rho - \gamma} + \sum_{0 \leq \rho \leq \beta} \binom{\beta}{\rho} \right] \DD^\rho \xi \,\DD^{\alpha - \rho}u \, \varphi \d x \\

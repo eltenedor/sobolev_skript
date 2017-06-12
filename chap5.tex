@@ -324,13 +324,14 @@ Since $\partial\Omega$ has $n$-dimensional Lebesgue measure $0$, we need a trace
 Then we have the following theorem:
 
 \begin{thm}[Trace theorem]
+  \label{thm:trace}
   Let $\Omega$ be a bounded domain with $\partial\Omega \in \CC^1$ and $p \in [1,\infty)$.
     Then there exists a bounded linear operator $\Tr \colon \WW^{1,p}(\Omega) \to \Ell^p(\partial\Omega)$ such that
     \begin{enumerate}[a)]
       \item $\Tr(u) = u|_{\partial\Omega}$ if $u \in \WW^{1,p}(\Omega) \cap \CC^0(\overline\Omega)$,
       \item $\|\Tr(u)\|_{\Ell^p(\partial\Omega)} \leq C \, \|u\|_{\WW^{1,p}(\Omega)}$ for any $u \in \WW^{1,p}(\Omega)$, where $C > 0$ only depends on $p$ and $\Omega$.
     \end{enumerate}
-    $\Tr(u)$ is called the \emph{trace of $u$ on $\partial\Omega$}
+    $\Tr(u)$ is called the \emph{trace of $u$ on $\partial\Omega$}.
 \end{thm}
 
 \begin{proof}
@@ -374,9 +375,9 @@ Then we have the following theorem:
       &\overset{\eqref{eq:C1Bounded}}{\leq} C_4 \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} 
       \overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \|u\|^p_{\WW^{1,p}(\Omega)}.
     \end{align*}
-    Hence
+    Hence,
     $$
-    \|u\|_{\Ell^p(\partial\Omega)} \leq \sum_{i = 1}^N \|u_i\|_{\Ell^p} \leq N C_5^{\frac{1}{p}} \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega)
+    \|u\|_{\Ell^p(\partial\Omega)} \leq \sum_{i = 1}^N \|u_i\|_{\Ell^p} \leq N C_5^{\frac{1}{p}} \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
     $$
     with $C_5$ depending on $p$ and $\Omega$.
 
@@ -385,8 +386,102 @@ Then we have the following theorem:
     \| \Tr(u)\|_{\Ell^p(\partial\Omega)} \leq C_6 \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega)
     $$
     by ii).
-    If $u \in \WW^{1,p}(\Omega)$ is arbitrary, as $\Tr$ is linear in $u$, we can show like in part iii) of Theorem \ref{thm:extension} that there exist $(u_l)_{l \in \N} \Subset \CC^{1}(\overline\Omega)$ such that $u_l \to u$ in $\WW^{1,p}(\Omega)$ and $\Tr(u_l) \to v$ in $\Ell^p(\partial\Omega)$.
-    Hence, defining $\Tr(u) \coloneqq v, Tr \colon \WW^{1,p}(\Omega) \to \Ell^p(\partial\Omega)$ is well defined and satisfies b) with $C = C_6$.
+    If $u \in \WW^{1,p}(\Omega)$ is arbitrary, as $\Tr$ is linear in $u$, we can show like in part iii) of the proof of Theorem \ref{thm:extension} that there exist $(u_l)_{l \in \N} \subset \CC^{1}(\overline\Omega)$ such that $u_l \to u$ in $\WW^{1,p}(\Omega)$ and $\Tr(u_l) \to v$ in $\Ell^p(\partial\Omega)$ for some $v \in \Ell^p(\partial\Omega)$.
+    Hence, defining $\Tr(u) \coloneqq v$ the operator $\Tr \colon \WW^{1,p}(\Omega) \to \Ell^p(\partial\Omega)$ is well defined and satisfies b) with $C = C_6$.
 
+  \item If $u \in \WW^{1,p}(\Omega) \cap \CC^0(\overline\Omega)$ and $(\tilde u_l)_{l \in \N}$ in $\CC^1(\overline\Omega)$ such that $\tilde u_l \to u$ in $\WW^{1,p}(\Omega)$, we remark that we can choose $(\tilde u_l)_{l \in \N}$ in the proof of Theorem \ref{thm:CinftyUpToBoundary} such that $\tilde u_l$ converges to $u$ in $\CC^0(\overline\Omega)$.
+    ($u_i$ is uniformly continuous (compact support), $w_t \to u_i$ in $\CC^0(\overline\Omega)$ as $t \downarrow 0$ since $w_t$ is a translation; $\varphi_i = \eta_\varepsilon \ast w_t \to w_t$ in $\CC^0(\overline\Omega)$ as $\varepsilon \downarrow 0$  by Theorem \ref{thm:mollifier} (as $\overline\Omega \Subset \R^n \setminus \Gamma_t$)).
+    Hence, $\Tr (u) = \lim_{l \to \infty} \Tr (\tilde u_l) = \lim_{l \to \infty} \tilde u_l|_{\partial\Omega} = u|_{\partial \Omega}$. \qedhere
 \end{enumerate}
-\end{proof}<++>
+\end{proof}
+
+Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero functions.
+
+\begin{thm}
+  Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^k$ and assume that $k \in \N$, $p \in [ 1, \infty)$, and $u \in \WW^{k,p}(\Omega)$.
+    Then
+    $
+    u \in \WW_0^{k,p}(\Omega)$ if and only if $\Tr(\DD^\alpha u) = 0$ for all  $\alpha \in \N_0^n$ with $|\alpha| \leq k - 1$.
+    In particular, $\WW_0^{1,p}(\Omega) = \{ u \in \WW^{1,p}(\Omega) \colon \Tr(u) = 0 \}$.
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+    \item ``$\Rightarrow$'' for $k = 1$:
+      Let $u \in \WW_0^{1,p}(\Omega)$.
+      Then there are $(u_m)_{m \in \N} \in \CC_0^\infty(\Omega)$ with $u_m \to u$ in $\WW^{1,p}(\Omega)$.
+      As $\Tr(u_m) = u_m|_{\partial\Omega} = 0$ and Theorem \ref{thm:trace} shows
+      \begin{align*}
+        \| \Tr(u) \|_{\Ell^p(\partial\Omega)}
+        &= \|\Tr(u) - \Tr(u_m)\|_{\Ell^p(\partial\Omega)}
+        = \| \Tr(u - u_m) \|_{\Ell^p(\partial\Omega)} \\
+        &\leq C \|u - u_m\|_{\WW^{1,p}(\Omega)} \to 0 \quad \text{as } m \to \infty
+      \end{align*}
+      we have $\Tr(u) = 0$ in $\Ell^p(\Omega)$.
+
+    \item ``$\Leftarrow$'' for $k = 1$:
+    Assume that $u \in \WW^{1,p}(\Omega)$ with $\Tr(u) = 0$.
+    Then by Theorems \ref{thm:CinftyUpToBoundary} and \ref{thm:trace} there exists $(u_m)_{m \in \N} \subset \CC^1(\overline\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$ and $\Tr(u_m) \to \Tr(u) = 0$ in $\Ell^p(\partial\Omega)$.
+    By definition \ref{defn:boundarySpace} this means $\Tr(\varphi_i u_m) \to \Tr(\varphi_i u) = 0$ in $\Ell^p(\partial\Omega \cap U_i)$ for $i = 1,\dots,N$.
+    Hence, fixing $i \in \{1, \dots, N\}$ and $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} (with $\gamma = \gamma_i$) we have $v_m \coloneqq T_{\Psi_i}(\varphi_i u_m) \in \CC^1(\BB^+ \cup \BB^0)$ and $v \coloneqq T_{\Psi_i}(\varphi_i u) \in \WW^{1,p}(\BB^+)$ with $\Tr(v_m) \to \Tr(v) = 0$ in $\Ell^p(\BB^0)$ for some ball $\BB = \BB_s(x^i) \subset \R^n$ (see part ii) of the proof of Theorem \ref{thm:trace}), where $v_m$, $v$ have compact supports, $K_m$, $K$ in $\BB \cap \overline{\BB^+}$.
+
+    If we find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$, by proposition \ref{prop:sobolevTransform} there is $f_i \coloneqq T_{\Psi_i}(w_m) \in \CC^1(\Omega)$ with $\supp(f_i) \subset \Omega \cap U_i$ such that 
+    $\|f_i - \varphi_i u\|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
+    Then $\tilde u \coloneqq u - \sum_{i = 1}^N \varphi_i u$ has compact support in $\Omega$ so that by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $f_0 \in \CC_0^\infty(\Omega)$ such that 
+    $\| \tilde u - f_0 \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
+
+    Then $\| u - \sum_{i = 0}^N f_i \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2}$ and $f \coloneqq \sum_{i = 0}^N f_i \in \CC^1(\Omega)$ with compact support in $\Omega$.
+    Hence, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $g \in \CC_0^\infty(\Omega)$ such that $\|g - f\|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2}$ and $\|u - g\|_{\WW^{1,p}(\Omega)} \leq \delta$.
+    Hence, $u \in \WW_0^{1,p}(\Omega)$ as $\delta > 0$ is abritrary.
+
+  \item It remains to find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$.
+    We have
+    \begin{equation}
+      \label{eq:traceAndSobolevConv}
+      \Tr(v_m) \to \Tr(v) = 0 \text{ in } \Ell^p(\BB^0) 
+      \quad\text{and}\quad
+      v_m \to v \text{ in } \WW^{1,p}(\BB^+)
+    \end{equation}
+    by ii) and Proposition \ref{prop:sobolevTransform} and \ref{prop:sobolevProperties}.
+    As $v_m \in \CC^1(\BB^+ \cup \BB^0)$ we have for $x \in \BB^+ \cup \BB^0$ with $\BB' = \{x' \colon (x', x_n) \in \BB\}$ and $\frac{1}{q} + \frac{1}{p} = 1$.
+    $$
+    |v_m(x', x_n)|
+    \leq |v_m(x',0)| + \int_0^{x_n} |(v_m)_{x_n} (x', t)| \d t
+    $$
+    and
+    \begin{align*}
+      &\int_{\BB'} |v_m(x', x_n)|^p \d x' \\
+      &\quad\overset{\text{Hölder}}{\leq} 2^p \left( \int_{\BB'} |v_m(x',0)|^p \d x' + \int_{\BB'} \left[ \Big(\int_0^{x_n} 1^q \d t\Big)^{\frac{1}{q}} \Big( \int_0^{x_n} |\nabla v_m(x',t)|^p \d t \Big)^{\frac{1}{p}} \right]^p \d x' \right) \\
+      &\quad\overset{\text{Fubini}}{\leq} 2^p \Big( \|v_m\|_{\Ell^p(\BB^0)}^p + x_n^{p - 1} \int_0^{x_n} \int_{\BB'} | \nabla v_m(x',t)|^p \d x' \d t \Big)
+    \end{align*}
+    since $\frac{p}{q} = p - 1$.
+
+    Hence, by \eqref{eq:traceAndSobolevConv} and the dominated convergence theorem, we obtain as $m \to \infty$ (for a subsequence)
+    \begin{equation}
+      \label{eq:vEstimateByGradient}
+      \int_{\BB'} |v(x',x_n)|^p \d x'
+      \leq 2^p x_n^{p - 1} \int_0^{x_n} \int_{\BB'} |\nabla v(x',t)|^p \d x' \d t \quad\text{for a.e. } x_n > 0
+    \end{equation}
+    since we may extend $v, v_m$ by $0$ to $\overline{\R^n_+}$ without loosing regularity.
+
+    Let $\xi \in \C^\infty([0,\infty))$ such that $\xi \equiv 1$ on $[0,1]$ and $\xi \equiv 0$ on $[2,\infty)$ and define $\xi_m (x) \coloneqq \xi(mx_n), x \in \overline{\BB^+}, m \in \N$, and $\tilde w_m(x) \coloneqq v(x)(1 - \xi_m(x))$.
+      As $(\tilde w_m)_{x_n} = v_{x_n}(1 - \xi_m) - m v \xi'(m x_n)$ and $(\tilde w_m)_{x_i} = v_{x_i}(1 - \xi_m)$ for $i = 1,\dots,n-1$, we have as $x_m =0$ for $x_n \geq \frac{2}{m}$
+      \begin{align*}
+      \int_{\BB^+} |\nabla \tilde w_m - \nabla v|^p \d x
+      &\leq C_p \int_{\BB^+} (\xi_m)^p |\nabla v|^p \d x + C_p m^p \|\xi'\|_{\Ell^\infty([0,\infty))}^p \int_0^{\frac{2}{m}} \int_{\BB'} |v|^p \d x \d t \\
+        &\eqqcolon A_m + B_m.
+      \end{align*}
+      As $\xi_m \neq 0$ only for $0 \leq x_n < \frac{2}{m}$, the cominated convergence theorem shows $A_m \to 0$ as $m \to \infty$.
+      Using \eqref{eq:vEstimateByGradient}, we obtain
+      \begin{align*}
+      B_m 
+      &\leq C_p m^p \big( \int_0^{\frac{2}{m}} t^{p - 1} \d x \big) \big( \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p(x',t) d x' \d t \big) \\
+      &\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d t \to 0 \quad\text{as } m \to \infty
+      \end{align*}
+      by the dominated convergence theorem.
+      Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.
+      As $\tilde w_m = 0$ for $x_m \in [0,\frac{1}{m})$ and $\supp \tilde w_m \subset \supp v$, we have $\supp \tilde w_m \Subset \BB^+$.
+        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $W_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \Downarrow 0$ chosen appropriately (by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier}).
+        Hence, ii) shows $u \in \WW_0^{1,p}(\Omega)$.
+  \end{enumerate}
+\end{proof}
