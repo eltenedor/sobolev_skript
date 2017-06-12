@@ -337,7 +337,7 @@ Then we have the following theorem:
 \begin{proof}
   \begin{enumerate}[i)]
     \item Assume like in the proof of Theorem \ref{thm:extension} that there is $x^0 \in \partial \Omega$ and $\BB \coloneqq \BB_r(x^0) \subset \R^n$ such that $\Omega \cap \BB = \BB^+$ and $\partial\Omega \cap \BB = \BB^0$.
-  Let $\hat \BB \Subset \BB$ and $\xi \in \CC_0^\infty(\BB)$ such that $\xi > 0 \in \hat\BB$ and $0 \leq \xi \leq 1$ (see Lemma \ref{lem:cutoff}).
+  Let $\hat \BB \Subset \BB$ and $\xi \in \CC_0^\infty(\BB)$ such that $\xi > 0$ in $\hat\BB$ and $0 \leq \xi \leq 1$ (see Lemma \ref{lem:cutoff}).
   Furthermore, assume $p \in (1,\infty)$.
   Then setting
   $$
@@ -347,14 +347,14 @@ Then we have the following theorem:
   \begin{align*}
     \int_{\partial\Omega \cap \BB} |\xi u|^p \d \sigma 
     &= \int_{\BB'} |\xi u|^p(x', 0) \d x' \nonumber\\
-    &= \int_{\BB'} \Bigg( \Big[ - \int_0^{\tilde x} \partial x_n (|\xi u|^p)(x',s) \d s \Big] + \underbrace{|\xi u|^p (x', \tilde x)}_{= 0} \d x' \Bigg),\nonumber\\
-    \intertext{where $(x',\tilde x) \in \partial \BB \cap \BB^+$,}
-    &= -\int_{\BB^+} \Big( |u|^p p \xi^{p - 1} \xi_{x_n} + \xi^p p |u|^{p - 1} u_{x_n} \Big)(x) \d x \nonumber\\ 
-    &\leq C_1 \int_{\BB^+} (|u|^p + |u|^{p-1}||u_{x_n}| ) \d x \\
+    &= \int_{\BB'} \Bigg( \Big[ - \int_0^{\tilde x} \partial_{x_n} (|\xi u|^p)(x',s) \d s \Big] + \underbrace{|\xi u|^p (x', \tilde x)}_{= 0} \d x' \Bigg),\nonumber\\
+    \intertext{where $(x',\tilde x) \in \partial \BB \cap (\overline{\BB^+} \setminus \BB^0)$,}
+    &= -\int_{\BB^+} \Big( |u|^p \, p \, \xi^{p - 1} \, \xi_{x_n} + \xi^p \, p \, |u|^{p - 1} \, u_{x_n} \Big)(x) \d x \nonumber\\ 
+    &\leq C_1 \int_{\BB^+} (|u|^p + |u|^{p-1} \, |u_{x_n}| ) \d x \\
     &\leq C_2 \int_{\BB^+} (|u|^p + |u_{x_n}|^p ) \d x \\
-    &\leq C_2 \| u\|_{\WW^{1,p}(\BB^+)}^p,
+    &\leq C_2 \, \| u\|_{\WW^{1,p}(\BB^+)}^p,
   \end{align*}
-    where $C_2 > 0 $ depends on $p$ and $\xi$ and we used Young's inequality
+      where $C_2 > 0 $ depends on $p$ and $\xi$ and we used \emph{Young's inequality}
     $$
     |a b | \leq \frac{1}{p} |a|^p + \frac{1}{q} |b|^q \quad\text{for } a,b \in \R, p,q \in [1,\infty], \frac{1}{p} + \frac{1}{q} = 1,
     $$
@@ -363,7 +363,7 @@ Then we have the following theorem:
     \begin{equation}
       \label{eq:C1Bounded}
       \int_{\partial\Omega \cap \BB} |\xi u|^p \d \sigma 
-      \leq C_2 \| u\|_{\WW^{1,p}(\BB^+)} \quad\text{for all } u \in \CC^1(\overline\Omega)^p.
+      \leq C_2 \, \| u\|_{\WW^{1,p}(\BB^+)}^p \quad\text{for all } u \in \CC^1(\overline\Omega)^p.
     \end{equation}
 
   \item In the general case of Definition \ref{defn:boundarySpace}, let $B^i = B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
@@ -371,26 +371,26 @@ Then we have the following theorem:
     \begin{align*}
       \int_{\partial\Omega} | u_i |^p \d \sigma
       &= \int_{U_i'} |\varphi_i u|^p (x', \gamma_i(x')) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x' 
-      \leq C_3 \int_{(B_i')} | T_{\Psi_i}(\varphi_i u) |^p (x', 0) \d x' \\
-      &\overset{\eqref{eq:C1Bounded}}{\leq} C_4 \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} 
-      \overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \|u\|^p_{\WW^{1,p}(\Omega)}.
+      \leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i u) |^p (x', 0) \d x' \\
+      &\overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} 
+      \overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)}.
     \end{align*}
     Hence,
     $$
-    \|u\|_{\Ell^p(\partial\Omega)} \leq \sum_{i = 1}^N \|u_i\|_{\Ell^p} \leq N C_5^{\frac{1}{p}} \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
+      \|u\|_{\Ell^p(\partial\Omega)} \leq \sum_{i = 1}^N \|u_i\|_{\Ell^p(\partial\Omega)} \leq N \cdot C_5^{\frac{1}{p}} \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
     $$
     with $C_5$ depending on $p$ and $\Omega$.
 
   \item By defining $\Tr(u) \coloneqq u|_{\partial\Omega}$ for $u \in \CC^1(\overline\Omega)$, we have
     $$
-    \| \Tr(u)\|_{\Ell^p(\partial\Omega)} \leq C_6 \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega)
+    \| \Tr(u)\|_{\Ell^p(\partial\Omega)} \leq C_6 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega)
     $$
     by ii).
     If $u \in \WW^{1,p}(\Omega)$ is arbitrary, as $\Tr$ is linear in $u$, we can show like in part iii) of the proof of Theorem \ref{thm:extension} that there exist $(u_l)_{l \in \N} \subset \CC^{1}(\overline\Omega)$ such that $u_l \to u$ in $\WW^{1,p}(\Omega)$ and $\Tr(u_l) \to v$ in $\Ell^p(\partial\Omega)$ for some $v \in \Ell^p(\partial\Omega)$.
     Hence, defining $\Tr(u) \coloneqq v$ the operator $\Tr \colon \WW^{1,p}(\Omega) \to \Ell^p(\partial\Omega)$ is well defined and satisfies b) with $C = C_6$.
 
   \item If $u \in \WW^{1,p}(\Omega) \cap \CC^0(\overline\Omega)$ and $(\tilde u_l)_{l \in \N}$ in $\CC^1(\overline\Omega)$ such that $\tilde u_l \to u$ in $\WW^{1,p}(\Omega)$, we remark that we can choose $(\tilde u_l)_{l \in \N}$ in the proof of Theorem \ref{thm:CinftyUpToBoundary} such that $\tilde u_l$ converges to $u$ in $\CC^0(\overline\Omega)$.
-    ($u_i$ is uniformly continuous (compact support), $w_t \to u_i$ in $\CC^0(\overline\Omega)$ as $t \downarrow 0$ since $w_t$ is a translation; $\varphi_i = \eta_\varepsilon \ast w_t \to w_t$ in $\CC^0(\overline\Omega)$ as $\varepsilon \downarrow 0$  by Theorem \ref{thm:mollifier} (as $\overline\Omega \Subset \R^n \setminus \Gamma_t$)).
+    ($u_i$ is uniformly continuous (compact support), $w_t \to u_i$ in $\CC^0(\overline\Omega)$ as $t \downarrow 0$ since $w_t$ is a translation and $\varphi_i = \eta_\varepsilon \ast w_t \to w_t$ in $\CC^0(\overline\Omega)$ as $\varepsilon \downarrow 0$  by Theorem \ref{thm:mollifier} (as $\overline\Omega \Subset \R^n \setminus \Gamma_t$)).
     Hence, $\Tr (u) = \lim_{l \to \infty} \Tr (\tilde u_l) = \lim_{l \to \infty} \tilde u_l|_{\partial\Omega} = u|_{\partial \Omega}$. \qedhere
 \end{enumerate}
 \end{proof}
@@ -481,7 +481,7 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       by the dominated convergence theorem.
       Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.
       As $\tilde w_m = 0$ for $x_m \in [0,\frac{1}{m})$ and $\supp \tilde w_m \subset \supp v$, we have $\supp \tilde w_m \Subset \BB^+$.
-        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $W_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \Downarrow 0$ chosen appropriately (by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier}).
+        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $W_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \downarrow 0$ chosen appropriately (by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier}).
         Hence, ii) shows $u \in \WW_0^{1,p}(\Omega)$.
   \end{enumerate}
 \end{proof}
