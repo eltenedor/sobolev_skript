@@ -444,7 +444,9 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       Hence, by Theorem \ref{thm:interiorApproximation} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
       As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi - w_t \|_{\WW^{k,p}(\Omega)} \lneq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
       Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| < \frac{\delta}{N + 1}$ and \eqref{eq:diffUPhi} holds for all $i \in \{0,\dots,N\}$.
-      As $u = \sum_{i = 1}^n u_i = \sum_{i = 1}^n \varphi_i u$, $\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} < \delta$.
+      As $u = \sum_{i = 1}^n u_i$, the function
+      $$\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$$
+      satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} < \delta$.
     \item Combining i) and ii), the claim is proved.  \qedhere
   \end{enumerate}
 \end{proof}
