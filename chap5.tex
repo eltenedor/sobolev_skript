@@ -363,8 +363,9 @@ Then we have the following theorem:
     \begin{equation}
       \label{eq:C1Bounded}
       \int_{\partial\Omega \cap \BB} |\xi u|^p \d \sigma 
-      \leq C_2 \| u\|_{\WW^{1,p}(\BB^+)} \quad\text{for all } u \in \CC^1(\overline\Omega)^p.
+      \leq C_2 \| u\|_{\WW^{1,p}(\BB^+)}^p \quad\text{for all } u \in \CC^1(\overline\Omega), p \in (1,\infty).
     \end{equation}
+    A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
   \item In the general case of Definition \ref{defn:boundarySpace}, let $B^i = B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_\Psi(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
