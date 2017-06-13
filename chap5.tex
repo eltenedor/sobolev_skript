@@ -478,9 +478,10 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       Using \eqref{eq:vEstimateByGradient}, we obtain
       \begin{align*}
       B_m 
-      &\leq C \cdot m^p \Big( \int_0^{\frac{2}{m}} t^{p - 1} \d t \Big) \Big( \int_0^{\red{x_m}} \int_{\BB'} |\nabla v|^p(x',t) d x' \d t \Big) \\
-      %&\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d t \to 0 \quad\text{as } m \to \infty
-      &\leq \tilde C \red{\int_0^{\frac{2}{m}} t^{p - 1} \d t = \hat C \frac{1}{m^p}} \to 0 \quad\text{as } m \to \infty
+      &\leq C \cdot m^p  \int_0^{\frac{2}{m}}\Big[ t^{p - 1} \int_0^{t} \int_{\BB'} |\nabla v|^p(x',s) d x' \d s \Big] \d t \\
+      &\leq C \cdot m^p \Big( \int_0^{\frac{2}{m}} t^{p - 1} \d t \Big) \Big( \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p(x',s) \d x' \d s \Big) \\
+      &\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d s \to 0 \quad\text{as } m \to \infty \\
+      %&\leq \tilde C \red{\int_0^{\frac{2}{m}} t^{p - 1} \d t = \hat C \frac{1}{m^p}} \to 0 \quad\text{as } m \to \infty
       \end{align*}
       by the dominated convergence theorem.
       Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.
