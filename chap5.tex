@@ -129,7 +129,7 @@ We need now again boundary regularity of $\partial\Omega$.
   Let $m \in \N$, $p \in [1,\infty)$, $\Omega \subset \R^n$ be a bounded domain with $\partial \Omega \in \C^m$, and $V \subset \R^n$ be a domain with $\Omega \Subset V$.
   Then for any $k \in \{1,\dots,m\}$ there exists a linear Operator
   $$
-  E \colon W^{k,p}(\Omega) \to \WW^{k,p}(\R^n)
+  E \colon \WW^{k,p}(\Omega) \to \WW^{k,p}(\R^n)
   $$
   such that
   \begin{enumerate}[a)]
@@ -146,7 +146,7 @@ We need now again boundary regularity of $\partial\Omega$.
   \begin{enumerate}[i)]
     \item We first assume that for some $x^0 \in \partial \Omega$, $\BB \coloneqq \BB_r(x^0)$ satisfies $\Omega \cap \BB = \BB^+$ and $\partial\Omega \cap \BB = \BB^0$.
       We further assume that $u \in \CC^m(\BB^+ \cup \BB^0)$ with $\supp(u) \subset \widetilde \BB^+ \coloneqq \overline{(\BB_s(x^0))^+}$ for some $s \in (0,r)$.
-      As hence $u - 0$ in a neighborhood of $\partial\BB \cap \overline{\R^n_+}$, we can extend $u$ by $0$ in $\overline{\R^n_+} \setminus \BB^+$ and have $u \in \CC^m(\overline{\R^n_+})$ with $\supp(u) \subset \widetilde \BB^+$.
+      As hence $u = 0$ in a neighborhood of $\partial\BB \cap \overline{\R^n_+}$, we can extend $u$ by $0$ in $\overline{\R^n_+} \setminus \BB^+$ and have $u \in \CC^m(\overline{\R^n_+})$ with $\supp(u) \subset \widetilde \BB^+$.
       Then we extend $u$ from $\overline{\R^n_+}$ to $\R^n$ by a \emph{higher-order reflection}.
       The $(m + 1)\times(m+1)$ system of linear equations
       \begin{equation}
@@ -478,10 +478,9 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       Using \eqref{eq:vEstimateByGradient}, we obtain
       \begin{align*}
       B_m 
-      &\leq C \cdot m^p  \int_0^{\frac{2}{m}}\Big[ t^{p - 1} \int_0^{t} \int_{\BB'} |\nabla v|^p(x',s) d x' \d s \Big] \d t \\
+      &\leq C \cdot m^p  \int_0^{\frac{2}{m}}\Big[ t^{p - 1} \int_0^{t} \int_{\BB'} |\nabla v|^p(x',s) \d x' \d s \Big] \d t \\
       &\leq C \cdot m^p \Big( \int_0^{\frac{2}{m}} t^{p - 1} \d t \Big) \Big( \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p(x',s) \d x' \d s \Big) \\
-      &\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d s \to 0 \quad\text{as } m \to \infty \\
-      %&\leq \tilde C \red{\int_0^{\frac{2}{m}} t^{p - 1} \d t = \hat C \frac{1}{m^p}} \to 0 \quad\text{as } m \to \infty
+      &\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d s \to 0 \quad\text{as } m \to \infty 
       \end{align*}
       by the dominated convergence theorem.
       Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.

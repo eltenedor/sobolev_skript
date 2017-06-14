@@ -35,10 +35,9 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
 
   \item In view of a) and Theorem \ref{thm:mollifier} d), for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon$ for $\varepsilon$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
      Then
-     $$
-     \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0
-     $$
-     as $\varepsilon \downarrow 0$.
+     \begin{align*}
+     \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0 \quad\text{as } \varepsilon \downarrow 0. &\qedhere
+   \end{align*}
  \end{enumerate}
 \end{proof}
 
@@ -108,7 +107,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   $$
   K \Subset \Omega \coloneqq \bigcup_{k = 1}^N \supp(\tilde \psi_k)
   $$
-  and t here is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
+  and there is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
   Let $\tau$ be a cutoff\hyp{}function w.r.t $K, \Omega_0$ and
   $$
   \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)} &\quad\text{if } x \in \Omega_0, \\ 0 &\quad \text{if } x \not\in \Omega_0. \end{cases}
@@ -365,10 +364,10 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \begin{proof}
   We fix $u \in \WW^{k,p}(\Omega)$ and $\delta > 0$.
   \begin{enumerate}[i)]
-    \item In a first step, we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{W^{k,p}(\Omega)} < \delta$.
-      By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau = 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (choose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
+    \item In a first step, we show that in case $\Omega$ is unbounded there exists $v \in \WW^{k,p}(\Omega)$ with $\supp(v)$ bounded and $\|u - v\|_{\WW^{k,p}(\Omega)} < \delta$.
+      By Lemma \ref{lem:cutoff}, there exists $\tau \in \CC_0^\infty(\BB_2(0))$ such that $0 \leq \tau \leq 1$, $\tau \equiv 1$ in $\overline{\BB_1(0)}$ and there is some $M = M(k) > 0$ such that $|\DD^\alpha \tau(x)| \leq M$ for all $x \in \R^n$ and all $|\alpha| \leq k$ (choose $K = \overline{\BB_1(0)}, \Omega= \BB_2(0), \delta = 1$ in Lemma \ref{lem:cutoff}).
       For $\varepsilon \in (0,1)$, we define $\tau_\varepsilon \coloneqq \tau(\varepsilon x), x \in \R^n$.
-      Then $\tau_\varepsilon \equiv 1$ in $\overline{B_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
+      Then $\tau_\varepsilon \equiv 1$ in $\overline{\BB_{\frac{1}{\varepsilon}}(0)}$, $\tau_\varepsilon \in \CC_0^\infty(\BB_{\frac{2}{\varepsilon}}(0))$, and
       \begin{equation}
         |\DD^\alpha \tau_\varepsilon(x)| \leq M \varepsilon^{|\alpha|} \leq M \quad\text{for all } |\alpha| \leq k.
       \end{equation}
@@ -377,7 +376,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       $$
       |\DD^\alpha v_\varepsilon(x)| 
       = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
-      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)| \quad\text{for all } x \in\Omega,
+      \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)| \quad\text{for all } x \in\Omega
       $$
       so that for all $\tilde\Omega \subset \Omega$ open we have
       $$
@@ -390,10 +389,10 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       Hence,
       \begin{align*}
         \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)}
-        &= \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})}
-        \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{B_{\frac{1}{\varepsilon}}(0)}} + \|v_\varepsilon\|_{\WW^{k,p}(\overline{\Omega \setminus \BB_{\frac{1}{\varepsilon}(0)}})} \\
-        &\leq (1 + c(k)M) \|u\|_{W^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}(0)}})} \\
-        &\to 0 \quad\text{ as } \varepsilon \to 0
+        &= \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})}
+        \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{B_{\frac{1}{\varepsilon}}(0)})} + \|v_\varepsilon\|_{\WW^{k,p}(\overline{\Omega \setminus \BB_{\frac{1}{\varepsilon}}(0)})} \\
+        &\leq (1 + c(k)M) \|u\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})} \\
+        &\to 0 \quad\text{as } \varepsilon \to 0
       \end{align*}
       in view of $p < \infty$.
       Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v = v_\varepsilon$ has bounded support.
@@ -409,7 +408,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       Hence, there is $U_0$ open such that $F \Subset U_0 \Subset \Omega$.
       As $K$ is compact, there exist finitely many of the sets $U_x$ which we call $U_1,\dots,U_N$ such that $K \subset \bigcup_{i = 0}^N U_i$.
       Moreover, we choose $V_i \Subset U_i$ open sets $i = 0,\dots,N,$ such that $K \subset \bigcup_{i = 0}^N V_i$ and $V_i$ is still a neighborhood of $x^i$ belonging to $U_i = U_{x^i}$.
-      By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_n$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
+      By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_n$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N,$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
 
       Our aim is to find $\varphi_i \in \CC_0^\infty(\R^n)$ such that with $u_i \coloneqq \psi_i u$ we have
       \begin{equation} \label{eq:diffUPhi}
@@ -431,7 +430,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       0 < t < \min\{1, \frac{1}{|y|} \dist(\partial V_i, \partial U_i)\}.
       $$
       By the choice of $t$, we have $\Gamma_t \subset U_i$ and $\Gamma_t \cap \overline{\Omega} = \emptyset$.
-      The latter follows form the segment condition: For $z = x - sy$ with $x \in \Gamma$ and $s \in (0,1)$ we have $z + sy = x \in \Gamma \subset \partial\Omega$.
+      The latter follows from the segment condition: For $z = x - sy$ with $x \in \Gamma$ and $s \in (0,1)$ we have $z + sy = x \in \Gamma \subset \partial\Omega$.
       Hence, $z \not\in\overline{\Omega}$ so that $\Gamma_t \cap \overline\Omega = \emptyset$.
       Define 
       $$
@@ -442,11 +441,11 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 
       Moreover, since $u \in \Ell^p(\Omega)$ and $u = 0$ on $\R^n \setminus \Omega$, we have $u \in \Ell^p(\R^n)$, $u_i = \psi_i u \in \Ell^p(\R^n)$, and $w_t \in \Ell^p(\R^n)$.
       Hence, by Theorem \ref{thm:interiorApproximation} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
-      As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi - w_t \|_{\WW^{k,p}(\Omega)} \lneq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
-      Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| < \frac{\delta}{N + 1}$ and \eqref{eq:diffUPhi} holds for all $i \in \{0,\dots,N\}$.
+      As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi_i - w_t \|_{\WW^{k,p}(\Omega)} \neq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
+      Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| \leq \frac{\delta}{N + 1}$ and \eqref{eq:diffUPhi} holds for all $i \in \{0,\dots,N\}$.
       As $u = \sum_{i = 1}^n u_i$, the function
       $$\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$$
-      satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} < \delta$.
+      satisfies $\| u - \varphi \|_{\WW^{k,p}(\Omega)} \leq \delta$.
     \item Combining i) and ii), the claim is proved.  \qedhere
   \end{enumerate}
 \end{proof}
