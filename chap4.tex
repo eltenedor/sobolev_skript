@@ -19,7 +19,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
   \begin{enumerate}[a)]
     \item By Theorem \ref{thm:mollification}, we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
   $$
-    \DD^\alpha u_\varepsilon(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
+    \DD^\alpha (u_\varepsilon)(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
   $$
     see proof of Theorem \ref{thm:mollification} a), d).
     For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
@@ -28,7 +28,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
       &= (-1)^{|\alpha|} \int_\Omega \DD_y^\alpha (\eta_\varepsilon (x - y))\, u(y) \d y
       = (-1)^{|\alpha|} \int_\Omega \DD^\alpha \phi(y) \, u(y) \d y \\
       &\overset{\eqref{eq:weakPartialDerivativeDef}}{=} (-1)^{|\alpha| + |\alpha|} \int_\Omega \phi(y) \, \DD^\alpha u(y) \d y
-      = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y.
+      = \int_\Omega \eta_\varepsilon(x - y)\, \DD^\alpha u(y) \d y
       = (\DD^\alpha u)_\varepsilon(x).
     \end{align*}
     Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
@@ -52,7 +52,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   $$
 |\DD^\alpha \tau(x) | \leq c \delta^{-k} \quad\text{for all } x \in \Omega \setminus K, k \in \N , |\alpha| = k,
   $$ 
-  where $c > 0$ depends on $k$ and $n$ and not on $\Omega$ or $K$.
+  where $c > 0$ depends on $k$ and $n$ but not on $\Omega$ or $K$.
 \end{lem}
 
 \begin{proof}
@@ -188,16 +188,16 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 
 \begin{rem}
   Historically, there were two definitions of Sobolev spaces.
-  $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:weakPartialDerivative} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{W^{k,p}(\Omega)}$.
+  $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:sobolevSpace} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{\WW^{k,p}(\Omega)}$.
   Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \supseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
 \end{rem}
 
 We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
 
 \begin{prop}
-  Let $\Omega$ be open $p \in [1,\infty)$ and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
+  Let $\Omega$ be open, $p \in [1,\infty)$, and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
   Assume further that $f(0) = 0$ or $|\Omega| < \infty$ is satisfied.
-  Then for any $u \in \WW^{1,p}(\Omega)$ and $u_m \to u$ a.e. in $\Omega$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
+  Then for any $u \in \WW^{1,p}(\Omega)$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
 \end{prop}
 
 \begin{proof}
@@ -208,7 +208,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
   $$
   the assumption $f(0)= 0$ or $|\Omega| < \infty$ implies $f(u) \in \Ell^p(\Omega)$.
   By Theorem \ref{thm:meyersSerrin}, there exists $(u_m)_{m \in \N} \subset \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$. 
-  Hence, $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$.
+  Hence, $u_m \to u$ and $(u_m)_{x_i} \to u_{x_i}$ in $\Ell^p(\Omega)$ for all $i \in \{1,\dots,n\}$ and $u_m \to u$ a.e. in $\Omega$.
   We fix $i \in \{ 1, \dots, n\}$ and $\varphi \in \CC_0^\infty(\Omega)$.
   In view of $f(u_m) \in \CC^1(\Omega)$, we deduce from \eqref{eq:partialIntegrationGeneral}
   \begin{equation}
@@ -216,7 +216,7 @@ We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
     \int_\Omega f(u_m) \, \varphi_{x_i} \d x = -\int_\Omega f'(u_m) (u_m)_{x_i} \,  \varphi \d x \quad\text{for all } m \in \N,
   \end{equation}
   by the classical chain rule.
-  On the one hand, for $q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$  we have
+  On the one hand, for $q \in [1,\infty]$ with $\frac{1}{p} + \frac{1}{q} = 1$  we have by Hölder's inequality
   \begin{align*}
     \Big| \int_\Omega (f(u_m) - f(u))\, \varphi_{x_i} \d x \Big|
     &\leq M \int_{\Omega} |u_m - u|\, |\varphi_{x_i}| \d x \\
@@ -249,7 +249,7 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
   Define 
   $$u_+(x) \coloneqq \max\{u(x),0\} \quad\text{and}\quad u_-(x) = \max\{-u(x),0\}.$$
   Then $u_+, u_-,|u| \in \WW^{1,p}(\Omega)$ with
-    $\nabla u_+(x) = \nabla u(x) \chi_{\{ u > 0\}}(x)$, $\nabla u_-(x) = \nabla u(x) \chi_{\{ u < 0\}}(x)$, and $\nabla|u|(x) = \nabla u(x) \left( \chi_{\{ u > 0\} } (x) - \chi_{\{u < 0\}} (x) \right)$.
+    $\nabla u_+(x) = \nabla u(x) \chi_{\{ u > 0\}}(x)$, $\nabla u_-(x) = -\nabla u(x) \chi_{\{ u < 0\}}(x)$, and $\nabla|u|(x) = \nabla u(x) \left( \chi_{\{ u > 0\} } (x) - \chi_{\{u < 0\}} (x) \right)$.
 \end{cor}
 
 \begin{proof}
@@ -267,7 +267,7 @@ The following example shows that this is not true for all open $\Omega \subset \
   $$
   u(x,y) \coloneqq \begin{cases} 1 \quad\text{if } x > 0,\\ 0 \quad\text{if } x < 0 \end{cases}
   $$
-  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
+  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$. (Exercise)
 \end{ex}
 
 The problem with $\Omega$ in the example is that it lies on both sides of the segment $\Gamma = \{(0,y) \colon y \in [0,1]\}$ with $\gamma \subset \partial \Omega$.
@@ -277,7 +277,7 @@ Moreover, we assume from now on that $\Omega$ is a domain, i.e. open and connect
 \begin{defn}
   \label{defn:segmentCond}
   Let $\Omega \subset \R^n$ be a domain.
-  We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $U_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap U_x$ and any $\varepsilon \in (0,1)$.
+  We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $U_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap U_x$ and any $t \in (0,1)$.
 \end{defn}
 
 Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^m$ function.
@@ -285,7 +285,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \begin{defn}
   \label{defn:CmBoundary}
   Let $\Omega \subset \R^n$ be a bounded domain and $m \in \N$.
-  We say that $\Omega$ \emph{is of class} $\CC^m$ or simply $\partial\Omega \in \CC^m$ if for any $x^0 \in \partial \Omega$ there exists $r = r(x^0) > 0$ and $\gamma = \gamma_{x^0} \in \CC^m(\R^{n - 1})$ such that upon relabeling and reorienting the coordinate axes if necessary we have
+  We say that $\Omega$ \emph{is of class} $\CC^m$ or simply $\partial\Omega \in \CC^m$ if for any $x^0 \in \partial \Omega$ there exist $r = r(x^0) > 0$ and $\gamma = \gamma_{x^0} \in \CC^m(\R^{n - 1})$ such that, upon relabelling and reorienting the coordinate axes if necessary, we have
   \begin{align*}
      \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n > \gamma(x_1,\dots,x_{n - 1}) \}, \\
      \partial \Omega \cap \BB_r(x^0) &= \{ x \in \BB_r(x^0) \colon x_n = \gamma(x_1,\dots,x_{n - 1})\}.
@@ -311,12 +311,15 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
     \left(\begin{array}{c} 0 \\ 0 \\ \vdots \\ 1 \\ \gamma_{x_{n-1}}(x_1,\dots,x_{n - 1}) \end{array} \right)\Bigg\}
   $$
   is $(n-1)$-dimensional so that $\TT(x)^\perp$ is one-dimensional.
-  Hence, $\nu(x)$ is uniquely defined and $\nabla \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1(\R^{n - 1})$ and 
+  Hence, $\nu(x)$ is uniquely defined and $\nu \colon \partial\Omega \to \R^n$ is continuous as $\gamma \in \CC^1(\R^{n - 1})$ and 
   $$
   \nu(x) = \frac{1}{\sqrt{1 + |\nabla \gamma|^2}} \, (\gamma_{x_1},\dots,\gamma_{x_{n - 1}}, -1)^\TT.
   $$
-  In particular, $\Omega$ satisfies the segment condition with $y_x = -\nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ small enough (as $\nu$ is continuous). \hfill$\square$
+  In particular, $\Omega$ satisfies the segment condition with $y_x = -\alpha \nu(x)$ and $U_x = \BB_\rho(x)$ with some $\rho \in (0,r)$ and $\alpha > 0$ small enough (as $\nu$ is continuous). \hfill$\square$
 \end{rem}
+
+Next we prove that in fact $\CC^\infty(\overline \Omega)$ is dense in $\WW^{k,p}(\Omega)$ if $\Omega$ satisfies the segment condition. 
+As a final prepariation we need the continuity of the translation in $\Ell^p(\R^n)$.
 
 \begin{prop}\label{prop:continuousTrans}
   Let $p \in [1,\infty)$ and $u \in \Ell^p(\R^n)$. 
@@ -329,11 +332,11 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 \begin{proof}
   Given $\delta > 0$, by \ref{sec:mollifier} there is $\varphi \in \CC_0^\infty(\R^n)$ such that
   $$
-  \|u - \varphi\|_{\Ell^p(\Omega)}.
+  \|u - \varphi\|_{\Ell^p(\R^n)} < \frac{\delta}{3}.
   $$
   But then also
   $$
-  \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\Omega)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \delta.
+  \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\R^n)} = \|u - \varphi\|_{\Ell^p(\R^n)} < \frac{\delta}{3}.
   $$
   Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
   Hence, there is $M > 0$ such that
@@ -350,9 +353,11 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
   and the claim follows.
 \end{proof}
 
+\setcounter{equation}{3} %(Corrollary 4.7 is an exercise)
+
 \begin{thm}
   \label{thm:CinftyUpToBoundary}
-  Let $\Omega \subset \R^n$ be a domain satisfying the segment condition, $K \in \N$, and $p \in [1,\infty)$.
+  Let $\Omega \subset \R^n$ be a domain satisfying the segment condition, $k \in \N$, and $p \in [1,\infty)$.
     Then the set 
     $
     \{ \varphi|_\Omega \colon \varphi \in \CC_0^\infty(\R^n) \}
@@ -399,7 +404,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 
     \item In view of i) we may assume w.l.o.g. that $K \coloneqq \supp(u)$ is bounded and hence compact (if necessary, we replace $u$ by $v$).
 
-      For $x \in \partial\Omega$, let $U_x$ in $\R^n$ be the open neighborhood of $x$ and $0 \neq y_x \in \R^n$ like in Definition \ref{defn:segmentCond}.
+      For $x \in \partial\Omega$, let $U_x \subset \R^n$ be the open neighborhood of $x$ and $0 \neq y_x \in \R^n$ like in Definition \ref{defn:segmentCond}.
       Then
       $$
       F \coloneqq K \setminus ( \bigcup_{x \in \partial\Omega} U_x )
@@ -407,8 +412,8 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       is compact with $F \subset \Omega$.
       Hence, there is $U_0$ open such that $F \Subset U_0 \Subset \Omega$.
       As $K$ is compact, there exist finitely many of the sets $U_x$ which we call $U_1,\dots,U_N$ such that $K \subset \bigcup_{i = 0}^N U_i$.
-      Moreover, we choose $V_i \Subset U_i$ open sets $i = 0,\dots,N,$ such that $K \subset \bigcup_{i = 0}^N V_i$ and $V_i$ is still a neighborhood of $x^i$ belonging to $U_i = U_{x^i}$.
-      By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_n$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N,$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
+      Moreover, we choose $V_i \Subset U_i$ open sets, $i = 0,\dots,N$, such that $K \subset \bigcup_{i = 0}^N V_i$ and $V_i$ is still a neighborhood of $x^i$ belonging to $U_i = U_{x^i}$.
+      By Lemma \ref{lem:partitionOfUnity} there is a partition of unity $\psi_0,\dots,\psi_N$ such that $\psi_i \in \CC_0^\infty(V_i)$, $0\leq \psi_i \leq 1$ for $i = 0,\dots,N,$ and $\sum_{i = 0}^N \psi_i(x) = 1$ for all $x \in K$.
 
       Our aim is to find $\varphi_i \in \CC_0^\infty(\R^n)$ such that with $u_i \coloneqq \psi_i u$ we have
       \begin{equation} \label{eq:diffUPhi}
@@ -434,14 +439,15 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
       Hence, $z \not\in\overline{\Omega}$ so that $\Gamma_t \cap \overline\Omega = \emptyset$.
       Define 
       $$
-      w_t(x) \coloneqq u_i(x + ty).
+      w_t(x) \coloneqq u_i(x + ty) \quad\text{for all } x \in \R^n.
       $$
       As $u_i \in \WW^{k,p}(\R^n \setminus \Gamma)$, we have $w_t \in \WW^{k,p}(\R^n\setminus \Gamma_t)$.
       Hence, Proposition \ref{prop:continuousTrans} yields that $\DD^\alpha w_t \to \DD^\alpha u_i$ in $\Ell^p(\Omega)$ as $t \downarrow 0$ for all $|\alpha| \leq k$ (since $\overline\Omega \subset \R^n \setminus \Gamma_t$) and we can choose $t$ small enough such that $\|w_t - u_i \|_{\WW^{k,p}(\Omega)} \leq \frac{\delta}{2 ( N + 1 )}$.
 
       Moreover, since $u \in \Ell^p(\Omega)$ and $u = 0$ on $\R^n \setminus \Omega$, we have $u \in \Ell^p(\R^n)$, $u_i = \psi_i u \in \Ell^p(\R^n)$, and $w_t \in \Ell^p(\R^n)$.
-      Hence, by Theorem \ref{thm:interiorApproximation} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
-      As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi_i - w_t \|_{\WW^{k,p}(\Omega)} \neq \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
+      Since $\supp(u_i) \subset \overline \Omega \cap V_i$, $w_t$ has compact support in $\R^n$.
+      Hence, by Theorem \ref{thm:mollifier} $\varphi_i \coloneqq \eta_\varepsilon \ast w_t$ belongs to $\CC_0^\infty(\R^n)$ for $\varepsilon > 0$.
+      As $\dist(\Gamma_t , \overline\Omega) > 0$, we may choose $\varepsilon > 0$ small enough such that $\|\varphi_i - w_t \|_{\WW^{k,p}(\Omega)} < \frac{\delta}{2(N+1)}$ (as $\Omega \cap \supp(w_t) \Subset \R^n \setminus \Gamma_t$ and $w_t \in \WW^{k,p}(\R^n \setminus \Gamma_t)$ we may apply Theorem \ref{thm:interiorApproximation}).
       Altogether, $\varphi_i \in \CC_0^\infty(\R^n)$ satisfies $\|u_i - \varphi_i\| \leq \frac{\delta}{N + 1}$ and \eqref{eq:diffUPhi} holds for all $i \in \{0,\dots,N\}$.
       As $u = \sum_{i = 1}^n u_i$, the function
       $$\varphi \coloneqq \sum_{i = 0}^N \varphi_i \in \CC_0^\infty(\R^n)$$

@@ -1,2 +1,83 @@
 \chapter{Embeddings and Sobolev Inequalities}
 
+We ask the question if $u \in \WW^{k,p}(\Omega)$ automatically belongs to some other function spaces.
+The answer is \emph{yes}, but we will see that to which spaces $u$ belongs depends on $p$, e.g. for $k = 1$ and $p < n$, $p = n$ or $p > n$.
+
+More precisely we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space $Y$ in the following sense.
+
+\begin{defn}
+  Let $X, Y$ be Banach spaces with $X \subset Y$.
+  \begin{enumerate}[a)]
+    \item We say that $X$ is \emph{continuously embedded into $Y$} if there is $C > 0$ such that
+      $$
+      \|u\|_Y \leq C \, \|u\|_X \quad\text{for all } u \in X.
+      $$
+    \item We say that $X$ is \emph{compactly embedded into $Y$} if it is continuously embedded into $Y$ and any bounded sequence in $X$ is \emph{precompact in $Y$}, i.e. for any $(u_m)_{m \in \N} \subset X$ with $\|u_m\|_X \leq M$ for all $m \in \N$, there is a subsequence $(u_{m_j})_{j \in \N}$ and $u \in Y$ such that $\|u_{m_j} - u\|_Y \to 0$ as $j \to \infty$.
+  \end{enumerate}
+\end{defn}
+
+The main tool for studying such embeddings will be Sobolev-type inequalities.
+
+\section{Embeddings into \texorpdfstring{$\Ell^q(\Omega)$}{L\textasciicircum q(Omega)} Spaces}
+
+Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ there exists a constant $C > 0$ such that
+\begin{equation}
+  \label{eq:sobolevTypeIneq}
+  \|u\|_{\Ell^q(\R^n)} \leq C \, \|\nabla u\|_{\Ell^p(\R^n)} \quad\text{for all } u \in \CC_0^\infty(\R^n). 
+\end{equation}
+
+\begin{motiv}
+  We first demonstrate that if \eqref{eq:sobolevTypeIneq} holds then $q$ has to have a specific form:
+  To this end, let $u \in \CC_0^\infty(\Omega)$ with $u \not\equiv 0$ and for $\lambda > 0$
+  $$
+  u_\lambda(x) \coloneqq u(\lambda x) \quad\text{for all } x \in \R^n
+  $$
+  Then the transformation rule implies
+  \begin{align*}
+    \int_{\R^n} |u_\lambda(x)|^q \d x &= \int_{\R^n} |u(\lambda x)|^q \d x = \int_{\R^n} |u(y)|^q \d y \\
+    \int_{\R^n} |\nabla u_\lambda(x) |^p \d x &= \lambda^p \int_{\R^n} |(\nabla u)(\lambda x)|^p \d x = \frac{\lambda^p}{\lambda^n} \int_{\R^n} |\nabla u(y)|^p \d y
+  \end{align*}
+  If \eqref{eq:sobolevTypeIneq} holds for any $\lambda > 0$, then 
+  $$
+  \lambda^{\frac{n}{q}} \| u\|_{\Ell^q(\R^n)}
+  = \| u_\lambda\|_{\Ell^q(\R^n)}
+  \leq C \, \|\nabla u_\lambda\|_{\Ell^p(\R^n)}
+  = C \, \lambda^{1 - \frac{n}{p}} \| \nabla u \|_{\Ell^p(\R^n)}
+  $$
+  and therefore
+  \begin{equation}
+    \label{eq:sobolevConjMotiv}
+    \|u \|_{\Ell^q(\R^n)} \leq C \, \lambda^{1 - \frac{n}{p} + \frac{n}{q}} \|\nabla u\|_{\Ell^p(\R^n)}.
+  \end{equation}
+  But if $1 - \frac{n}{p} + \frac{n}{q} \neq 0$, then sending $\lambda$ to either $0$ or $\infty$ in \eqref{eq:sobolevConjMotiv} yields $u \equiv 1$, a contradiction.
+
+  Hence, if \eqref{eq:sobolevTypeIneq} is satisfied, then necessarily we must have $\frac{1}{q} = \frac{1}{p} - \frac{1}{n}$ and $q = \frac{n p }{n - p}$.
+  This motivates the following definition.
+\end{motiv}
+
+\begin{defn}
+  If $p \in [1,n)$, then $p^* \coloneqq \frac{np}{n - p}$ is the \emph{Sobolev conjugate} of $p$.
+  In particular, $\frac{1}{p^*} = \frac{1}{p} - \frac{1}{n}$.
+\end{defn}
+
+We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
+
+\begin{thm}[Gagliardo-Nirenberg-Sobolev inequality]
+  \label{thm:gagliardoNirenberg}
+  Assume that $p \in [1,n)$.
+  Then there exists $C > 0$, depending only on $p$ and $n$, such that
+  \begin{equation}
+    \label{eq:gagliardoNirenbergSobolevIneq}
+    \| u\|_{\Ell^{p^*}(\R^n)} \leq C \, \|\nabla u\|_{\Ell^p(\R^n)}, \quad\text{for all } u \in \CC_0^1(\R^n).
+  \end{equation}
+  Moreover, we have $\WW^{1,p}(\R^n) \subset \Ell^{p^*}(\R^n)$ and \eqref{eq:gagliardoNirenbergSobolevIneq} holds for all $u \in \WW^{1,p}(\R^n)$
+\end{thm}
+
+\begin{rem}
+  We need that $u$ in \eqref{eq:gagliardoNirenbergSobolevIneq} has compact support, as $u \equiv 1$ shows, but $C$ does not depend on the size of the support.
+\end{rem}
+
+\begin{proof}{Proof of Theorem \ref{thm:gagliardoNirenberg}}
+  
+\end{proof}<++>
+
