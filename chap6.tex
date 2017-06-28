@@ -77,7 +77,30 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
   We need that $u$ in \eqref{eq:gagliardoNirenbergSobolevIneq} has compact support, as $u \equiv 1$ shows, but $C$ does not depend on the size of the support.
 \end{rem}
 
-\begin{proof}{Proof of Theorem \ref{thm:gagliardoNirenberg}}
-  
+\begin{proof}[Proof of Theorem \ref{thm:gagliardoNirenberg}]
+  \begin{enumerate}[i)]
+    \item Let $u \in \CC_0^1(\R^n)$ and $p = 1$, whence $p^* = \frac{n}{n - 1}$.
+      Since $\supp(u)$ is compact, we have for all $x \in \R^n$ and $i \in \{1,\dots,n\}$
+      \begin{align*}
+        u(x) &= \int_{-\infty}^{x_i} u_{x_i}(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots, x_n) \d y_i \\
+        \intertext{and}
+        |u(x)| &\leq \int_{-\infty}^\infty |\nabla u(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots,x_n) \d y_i. \\
+        \intertext{Hence,}
+        |u(x)|^{\frac{n}{n - 1}} &\leq \prod_{i = 1}^n \left( \int_{-\infty}^\infty |\nabla u(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots, x_n) | \d y_i \right)^{\frac{1}{n - 1}}.
+      \end{align*}
+      Integrating this with respect to $x_1$ and using the general Hölder inequality (\ref{sec:lpBasics} viii) with $p_k = n - 1, k = 1,\dots,n - 1$)
+      \begin{align*}
+        \int_{-\infty}^\infty |u|^{\frac{n}{n - 1}}(x) \d x_1
+        &\leq \int_{-\infty}^\infty \prod_{i = 1}^n \left( \int_{-\infty}^\infty |\nabla u| \d y_i \right)^{\frac{1}{n - 1}} \d x_1 \\
+        &= \left( \int_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \, \int_{-\infty}^\infty \prod_{i = 2}^n \left( \int_{-\infty}^\infty |\nabla u| \d y_i \right)^{\frac{1}{n - 1}} \d x_1 \\
+        &\leq \left( \int_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{n}{n - 1}} \, \prod_{i = 2}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d y_i \d x_1 \right)^{\frac{1}{n - 1}}.
+      \end{align*}
+      Integrating with respect to $x_2$ and using again the general Hölder inequality, we get
+      \begin{align*}
+        &\int_{-\infty}^\infty \int_{-\infty}^\infty |u(x)|^{\frac{n}{n - 1}} \d x_1 \d x_2 \\
+        &\leq \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \cdot  \left[ \int\limits_{-\infty}^\infty \left( \int\limits_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty  |\nabla u| \d x_1 \d y_i \right)^{\frac{1}{n - 1}} \d x_2 \right] \\
+        &\leq \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}}
+      \end{align*}
+  \end{enumerate}
 \end{proof}<++>
 
