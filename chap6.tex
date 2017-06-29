@@ -97,10 +97,53 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
       \end{align*}
       Integrating with respect to $x_2$ and using again the general Hölder inequality, we get
       \begin{align*}
-        &\int_{-\infty}^\infty \int_{-\infty}^\infty |u(x)|^{\frac{n}{n - 1}} \d x_1 \d x_2 \\
-        &\leq \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \cdot  \left[ \int\limits_{-\infty}^\infty \left( \int\limits_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty  |\nabla u| \d x_1 \d y_i \right)^{\frac{1}{n - 1}} \d x_2 \right] \\
-        &\leq \left( \int\limits_{-\infty}^\infty \int\limits_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}}
+        \int_{-\infty}^\infty &\int_{-\infty}^\infty |u(x)|^{\frac{n}{n - 1}} \d x_1 \d x_2 \\
+        &\leq \left( \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \\
+        &\quad\quad \cdot \left[ \int_{-\infty}^\infty \left( \int_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty  |\nabla u| \d x_1 \d y_i \right)^{\frac{1}{n - 1}} \d x_2 \right] \\
+        &\leq \left( \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \\
+        &\quad\quad \cdot \left( \int_{-\infty}^\infty \int_{-\infty}^\infty | \nabla u| \d y_1 \d x_2 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d x_1 \d x_2 \d y_i  \right)^{\frac{1}{n - 1}}
       \end{align*}
-  \end{enumerate}
-\end{proof}<++>
+      Continuing like this and integrating with respect to $x_3,\dots,x_n$ we finally have
+      \begin{align}
+        \label{eq:gagliardoNirenbergStep1}
+        \int_{\R^n} |u(x)|^{\frac{n}{n - 1}} \d x
+        &\leq \prod_{i = 1}^n \left( \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty |\nabla u| \d x_1 \dots \d y_i  \dots \d x_n \right)^{\frac{1}{n - 1}} \\
+        &= \left( \int_{\R^n} |\nabla u(x)| \d x \right)^{\frac{n}{n - 1}}\nonumber
+      \end{align}
+      which establishes \eqref{eq:gagliardoNirenbergSobolevIneq} for $p = 1$ with $C = 1$.
 
+    \item Let $p \in (1,n)$ and $u \in \CC_0^1(\R^n)$.
+      For $\gamma > 1$, $v \coloneqq |u|^\gamma \in \CC_0^1(\R^n)$ and by \eqref{eq:gagliardoNirenbergStep1} applied to $v$ we have by the Hölder inequality
+      \begin{align}
+        \label{eq:gagliardoNierenberg2}
+        \left(\int_{\R^n} |u|^{\frac{\gamma n}{n - 1}} \right)^{\frac{n - 1}{n}}
+        &\leq \int_{\R^n} \Big| \nabla (|u|^\gamma) \Big| \d x 
+        = \int_{\R^n} \gamma | u|^{\gamma - 1} | \nabla u| \d x \\ 
+        &\leq \gamma \left(\int_{R^n} |u|^{(\gamma - 1) \frac{p}{p - 1}} \d x \right)^{\frac{p - 1}{p}} \left( \int_{\R^n} | \nabla u|^p \d x \right)^{\frac{1}{p}}. \nonumber
+      \end{align}
+      Choosing $\gamma \coloneqq \frac{p (n - 1)}{n - p} > 1$, we have $\frac{\gamma n}{n - 1} = (\gamma - 1)\frac{p}{p - 1}$ and hence
+      $$
+      \frac{\gamma n}{n - 1} = \frac{(np - p) + (p - n)}{n - p} \cdot \frac{p }{p - 1} = \frac{n p }{n - p} = p^*.
+      $$
+      Thus, in view of $\frac{n - 1}{n} - \frac{p - 1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}$, \eqref{eq:gagliardoNierenberg2} becomes \eqref{eq:gagliardoNirenbergSobolevIneq} for $C = \gamma$.
+
+    \item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide} for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \C_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$.
+      Hence, $\nabla u_m \to \nabla u$ in $\Ell^p(\R^n)$ and, as \eqref{eq:gagliardoNirenbergSobolevIneq} holds for any $u_m$, in the limit $l \to \infty$ we conclude by Fatou's lemma that $u$ satisfies \eqref{eq:gagliardoNirenbergSobolevIneq} since $u_{m_l} \to u$ a.e. in $\R^n$.
+      Als \eqref{eq:gagliardoNirenbergSobolevIneq} therefore holds for all $u \in \WW^{1,p}(\R^n)$, $\WW^{1,p}(\R^n)$ is continuously embedded into $\Ell^{p^*}(\R^n)$. \qedhere
+  \end{enumerate}
+\end{proof}
+
+Using the previous result, we get a corresponding result on bounded domains.
+
+\begin{thm}[Embeddings for $\WW^{1,p}(\Omega), p < n$]
+  Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$ and $p \in [1,n)$.
+    Then $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q$ for all $q \in [1,p^*]$.
+    More precisely, for any $q \in [1,p^*]$ there is $C > 0$ depending on $p,q,n$ and $\Omega$ such that
+    \begin{equation}
+      \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega).
+    \end{equation}
+\end{thm}<++>
+
+\section{Embeddings into Hölder Spaces}
+
+\section{General Embeddings and Sobolev Inequalities}
