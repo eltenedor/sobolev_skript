@@ -142,7 +142,37 @@ Using the previous result, we get a corresponding result on bounded domains.
     \begin{equation}
       \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega).
     \end{equation}
-\end{thm}<++>
+\end{thm}
+
+\begin{proof}
+  Since $\partial \Omega \in \CC^1$, by Theorem \ref{thm:extension} there exists $v \coloneqq E(u) \in \WW^{1,p}(\R^n)$ such that $v = u$ a.e. in $\Omega$ and $\|v\|_{\WW^{1,p}(\R^n)} \leq C_1 \, \|u\|_{\WW^{1,p}(\Omega)}$ with $C_1 > 0$ depinding only on $p$ and $\Omega$.
+  Then by \ref{thm:gagliardoNirenberg} we have $v \in \Ell^{p^*}(\R^n)$ and
+  $$
+  \| u\|_{\Ell^{p^*}(\Omega)} = \|v\|_{\Ell^{p^*}(\Omega)} \leq \|v\|_{\Ell^{p^*}(\R^n)} \leq C_2 \, \|\nabla v\|_{\Ell^p(\R^n)} \leq C_1 C_2 \, \|u\|_{\WW^{1,p}(\Omega)}
+  $$
+  where $C_2$ is the constant from \eqref{eq:gagliardoNirenbergSobolevIneq} (depending on $p$ and $n$).
+  This shows the claim for $q = p^*$.
+
+  As $\Omega$ is bounded, Hölder's inequality implies that $u \in \Ell^q(\Omega)$ for $q \in [1,p^*)$ with
+  \begin{align}
+    \label{eq:embeddingpltn}
+    \|u\|_{\Ell^q(\Omega)}
+    & \leq \left[ \left( \int_\Omega 1^{\frac{p^*}{p^* - q}} \d x \right)^{\frac{p^* - q}{p^*}} \cdot \left( \int_\Omega u^{q  \frac{p^*}{q}} \right)^{\frac{q}{p^*}} \right]^{\frac{1}{q}} \\
+    &= |\Omega|^{\frac{p^* - q}{p^* q}} \|u\|_{\Ell^{p^*}(\Omega)}
+    \leq |\Omega|^{\frac{p^* - q}{p^* q}} C_1 C_2 \, \|u\|_{\WW^{1,p}(\Omega)} \nonumber. \qedhere
+  \end{align}
+\end{proof}
+
+For $\WW_0^{1,p}(\Omega)$, we get these embeddings without assumptions on $\partial\Omega$.
+
+\begin{thm}
+  Let $\Omega \subset \R^n$ be a bounded domain and $p \in [1,n)$.
+  Then for any $q \in [1,p^*]$ there exists $C > 0$ depending only on $p,q,n$ and $\Omega$ such that 
+  \begin{equation}
+    \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\Ell^p(\Omega)} \quad\text{for all } u \in \WW_0^{1,p}(\Omega).
+  \end{equation}
+  In particular, $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$.
+\end{thm}
 
 \section{Embeddings into Hölder Spaces}
 
