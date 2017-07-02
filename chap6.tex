@@ -27,19 +27,21 @@ Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ th
 \end{equation}
 
 \begin{motiv}
-  We first demonstrate that if \eqref{eq:sobolevTypeIneq} holds then $q$ has to have a specific form:
+  We first demonstrate that if \eqref{eq:sobolevTypeIneq} holds, then $q$ has to have a specific form:
   To this end, let $u \in \CC_0^\infty(\Omega)$ with $u \not\equiv 0$ and for $\lambda > 0$
   $$
   u_\lambda(x) \coloneqq u(\lambda x) \quad\text{for all } x \in \R^n.
   $$
   Then the transformation rule implies
   \begin{align*}
-    \int_{\R^n} |u_\lambda(x)|^q \d x &= \int_{\R^n} |u(\lambda x)|^q \d x = \int_{\R^n} |u(y)|^q \d y, \\
+    \int_{\R^n} |u_\lambda(x)|^q \d x 
+    &= \int_{\R^n} |u(\lambda x)|^q \d x
+    = \frac{1}{\lambda^n} \int_{\R^n} |u(y)|^q \d y, \\
     \int_{\R^n} |\nabla u_\lambda(x) |^p \d x &= \lambda^p \int_{\R^n} |(\nabla u)(\lambda x)|^p \d x = \frac{\lambda^p}{\lambda^n} \int_{\R^n} |\nabla u(y)|^p \d y.
   \end{align*}
   If \eqref{eq:sobolevTypeIneq} holds for any $\lambda > 0$, then 
   $$
-  \lambda^{\frac{n}{q}} \| u\|_{\Ell^q(\R^n)}
+  \lambda^{-\frac{n}{q}} \| u\|_{\Ell^q(\R^n)}
   = \| u_\lambda\|_{\Ell^q(\R^n)}
   \leq C \, \|\nabla u_\lambda\|_{\Ell^p(\R^n)}
   = C \, \lambda^{1 - \frac{n}{p}} \| \nabla u \|_{\Ell^p(\R^n)}
@@ -466,7 +468,7 @@ Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{
 \end{thm}
 
 \begin{rem}
-      In view of Theorem \ref{thm:sumEmbeddingHoelder} b), for any bounded domain $\Omega \subset \R^n$ with $\partial\Omega \in \CC^1$ we may define the trace $\Tr \colon \WW^{1,\infty}(\Omega) \to \CC^0(\partial\Omega), \Tr(u) \coloneqq u^*|_{\partial\Omega}$ which particulary shows that any $u \in \WW_0^{1,\infty}(\Omega)$ satisfies $\Tr(u) = 0$.
+      In view of Theorem \ref{thm:sumEmbeddingHoelder} b), for any bounded domain $\Omega \subset \R^n$ with $\partial\Omega \in \CC^1$ we may define the trace $\Tr \colon \WW^{1,\infty}(\Omega) \to \CC^0(\partial\Omega), \Tr(u) \coloneqq u^*|_{\partial\Omega}$ which particularly shows that any $u \in \WW_0^{1,\infty}(\Omega)$ satisfies $\Tr(u) = 0$.
       However, $u(x) \coloneqq 1 - |x| \in \WW^{1,\infty}(\BB_1(0))$ with $u = 0$ on $\partial\BB_1(0)$. (Hence, $\Tr(u) = 0$, but $u \not\in \WW_0^{1,\infty}(\BB_1(0))$, as $\|\nabla u - \nabla \varphi\|_{\Ell^\infty(\BB_1(0))} \geq 0$ for all $\varphi \in \CC_0^\infty(\BB_1(0))$.)
 \end{rem}
 
@@ -506,7 +508,7 @@ Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{
     \leq \| \nabla u\|_{\Ell^\infty(\Omega)} \underbrace{\int_{\R^n} \eta_\varepsilon(z - \tilde y) \d{\tilde y}}_{=1}
     = \|\nabla u\|_{\Ell^\infty(\Omega)}.
     $$
-    Hence, the mean value theorem implies for $\Omega$ convex, as we may choose $V$ to be convec,
+    Hence, the mean value theorem implies for $\Omega$ convex, as we may choose $V$ to be convex,
     $$
     |u^*(x) - u^*(y)|
     = \lim_{\varepsilon \downarrow 0} |u_\varepsilon(x) - u_\varepsilon(y)|
