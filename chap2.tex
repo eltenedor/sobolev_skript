@@ -231,17 +231,17 @@ The mollification has the following properties:
 %   \end{align*}
 %   where we have used properties of the standard mollifier, the claim follows from the Lebesgue differentiation theorem.
 
-    b): If $\partial \Omega = \emptyset$, then $\Omega$ is clopen. 
-    But since $\R^n$ is connected, the only clopen sets are $\emptyset$ and $\R^n$.
-    In both cases, the claim follows by choosing $\varepsilon = 1$.
-    Hence, in the following we will assume that $\partial \Omega \neq \emptyset$.
-    Since $S: \supp(u)$ is compactly contained in $\Omega$ by assumption, the continuous function 
-    $$d(\cdot,\partial\Omega) \colon \supp(u) \to \R, x \mapsto \d(x,\partial\Omega) \inf_{z \in \partial \Omega} |z - x|$$
-    attains a minimum $\varepsilon_{\mathrm{min}}$. If we now choose $\varepsilon < \varepsilon_{\mathrm{min}}$, we deduce that
-    $$
-    \supp(u_\varepsilon) \subseteq \supp(u) + \overline{\BB_\varepsilon(0)} \subsetneq \Omega
-    $$
-    and the claim follows.
+%    b): If $\partial \Omega = \emptyset$, then $\Omega$ is clopen. 
+%    But since $\R^n$ is connected, the only clopen sets are $\emptyset$ and $\R^n$.
+%    In both cases, the claim follows by choosing $\varepsilon = 1$.
+%    Hence, in the following we will assume that $\partial \Omega \neq \emptyset$.
+%    Since $S: \supp(u)$ is compactly contained in $\Omega$ by assumption, the continuous function 
+%    $$d(\cdot,\partial\Omega) \colon \supp(u) \to \R, x \mapsto \d(x,\partial\Omega) \inf_{z \in \partial \Omega} |z - x|$$
+%    attains a minimum $\varepsilon_{\mathrm{min}}$. If we now choose $\varepsilon < \varepsilon_{\mathrm{min}}$, we deduce that
+%    $$
+%    \supp(u_\varepsilon) \subseteq \supp(u) + \overline{\BB_\varepsilon(0)} \subsetneq \Omega
+%    $$
+%    and the claim follows.
 
 %   c): Note that $V \Subset \overline{V}_\gamma \Subset \Omega$ for some $\varepsilon > 0$ since $V$ is compactly contained in $\Omega$.
 %   Since $u \in \CC^0(\Omega)$, this function is uniformly continuous on $\overline V_\gamma$. Hence, for all $\alpha > 0$ there exists $\beta > 0$ such that for all $x,y \in \overline V_\gamma$ with $|x - y| < \beta$
@@ -308,6 +308,7 @@ The mollification has the following properties:
 
 
 \section{Polar Coordinates}
+\label{sec:polar}
 
 Let $f \in \CC^1(\overline{\BB_r(x_0)})$ with $x_0 \in \R^n$, $r > 0$. Then by the transformation rule with $x = x_0 + sz$, $s \in (0,r)$, $z \in \partial \BB_1(0)$ we have
 $$
