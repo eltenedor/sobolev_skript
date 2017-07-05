@@ -19,6 +19,7 @@ More precisely we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space $
 The main tool for studying such embeddings will be Sobolev-type inequalities.
 
 \section{Embeddings into \texorpdfstring{$\Ell^q(\Omega)$}{L\textasciicircum q(Omega)} Spaces}
+\label{sec:lpEmbedding}
 
 Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ there exists a constant $C > 0$ such that
 \begin{equation}
@@ -138,6 +139,7 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
 Using the previous result, we get a corresponding result on bounded domains.
 
 \begin{thm}[Embeddings for $\WW^{1,p}(\Omega), p < n$]
+  \label{thm:embeddingpltn}
   Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$ and $p \in [1,n)$.
     Then $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q$ for all $q \in [1,p^*]$.
     More precisely, for any $q \in [1,p^*]$ there is $C > 0$ depending on $p,q,n$ and $\Omega$ such that
@@ -270,6 +272,7 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
 \end{rem}
 
 \section{Embeddings into Hölder Spaces}
+\label{sec:hoelderEmbedding}
 
 \setcounter{equation}{11}
 
@@ -589,6 +592,74 @@ Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{
 
 \section{General Embeddings and Sobolev Inequalities}
 
-%      If $p_j < n$ (i.e. $\frac{n}{p} > j + 1$) we have $p_i < n$ for all $i \in \{ 0, \dots, j\}$ and the previous argument yields the continuous embeddings of $\WW^{k - (i - 1), p_{i - 1}}(\Omega)$ into $\WW^{k-i,p_i}(\Omega)$ for all $i \in \{1,\dots,j+1\}$ and $\tilde C_i > 0$ depending on $h$, $i$, $p$, $n$, $\Omega$ such that
+Using the estimates from Section \ref{sec:lpEmbedding} and Section \ref{sec:hoelderEmbedding}, we get more complicated estimates and embeddings for $\WW^{k,p}(\Omega)$ with $k \in \N$.
+We set
+$$
+\WW^{0,q} \coloneqq \Ell^q(\Omega)
+$$
+and let
+$$
+[x] \coloneqq \max \{ z \in \Z \colon z \leq x\}
+$$
+for $x \in \R$ denote the \emph{floor function}.
+
+\begin{thm}[Embeddings for $\WW^{k,p}(\Omega)$]
+  Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$, $p,q \in [1,\infty]$, and $k \in \N, l \in \N_0$ with $k \geq l$.
+  \begin{enumerate}[a)]
+    \item If $k - \frac{n}{p} < l$ and $k - \frac{n}{p} \geq l - \frac{n}{q}$, then $\WW^{k,p}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and there is $C > 0$ depending only on $p$, $q$, $k$, $l$, $n$, and $\Omega$ such that
+      $$
+      \|u\|_{\WW^{l,q}(\Omega)} \leq C \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
+      $$
+
+    \item If $k - \frac{n}{p} = l$ and $q \in [1,\infty)$ (i.e. $k - \frac{n}{p} > l - \frac{n}{q}$), then $\WW^{k,p}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and there is $C > 0$ depending on $p$, $q$, $k$, $l$, $n$, and $\Omega$ such that
+      $$
+      \|u\|_{\WW^{l,q}(\Omega)} \leq C \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
+      $$
+
+    \item If $l < k - \frac{n}{p} \leq l + 1$ (i.e. $l = k - \Big[\frac{n}{p}\Big] - 1$) and, setting $\frac{n}{p} = 1$ if $p = \infty$,
+      $$
+      \gamma = \begin{cases} \Big[ \frac{n}{p} \Big] + 1 - \frac{n}{p}, \quad\text{if } \frac{n}{p} \not \in \N, \\ \text{arbitrary in }(0,1), \text{ if } \frac{n}{p} \in \N, \end{cases}
+      $$
+      then $\WW^{k,p}(\Omega)$ is continuously embedded into $\CC^{l,\gamma}(\overline\Omega)$ and there is $C > 0$ depending on $p$, $\gamma$, $k$, $l$, $n$, and $\Omega$ such that
+      $$
+      \| u\|_{\CC^{l,\gamma}(\overline\Omega)} \leq C \, \|u\|_{\WW^{k,p}(\Omega)}.
+      $$
+      This embedding is to be understood up to the choice of a continuous version.
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+    \item If $u \in \WW^{m,r}(\Omega)$ with some $m \in \N$ and $r \in [1,n)$, then $\DD^\alpha u \in \WW^{1,r}(\Omega)$ for all $|\alpha| \leq m - 1$ by Proposition \ref{prop:sobolevProperties} and by Theorem \ref{thm:embeddingpltn} $\DD^\alpha u \in \Ell^q(\Omega)$ for all $q \in [1,r^*]$ and hence $u \in \WW^{m - 1,q}(\Omega)$ with
+    $$
+    \|u\|_{\WW^{m - 1,q}(\Omega)}
+    \leq C_1 \, \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\Ell^q(\Omega)}
+    \leq C_2 \, \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\WW^{1,r}}
+    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}
+    $$
+    with $C_3$ depending on $n$, $r$, $q$, $m$, and $\Omega$.
+    Hence, defining $p_0 \coloneqq p$ and $p_j \coloneqq p_{j - 1}^*$ for $j = 1,\dots,k - l$, we see that $\frac{1}{p_j} = \frac{1}{p_{j - 1}} - \frac{1}{n}$ and therefore $\frac{1}{p_j} = \frac{1}{p} - \frac{j}{n}$, $p_j = \frac{np}{n- jp}$ with $p_j > p_{j - 1}$.
+    If $p_j < n$ (i.e. $\frac{n}{p} > j + 1$) we have $p_i < n$ for all $i \in \{ 0, \dots, j\}$ and the previous argument yields the continuous embeddings of $\WW^{k - (i - 1), p_{i - 1}}(\Omega)$ into $\WW^{k-i,p_i}(\Omega)$ for all $i \in \{1,\dots,j+1\}$ and $\tilde C_i > 0$ depending on $h$, $i$, $p$, $n$, $\Omega$ such that
+    $$
+    \| u\|_{\WW^{k - i,p_i}(\Omega)}
+    \leq \tilde C_i \, \|u\|_{\WW^{k-(i-1),p_{i - 1}}(\Omega)} \quad\text{for all } u \in \WW^{k - ( i - 1),p_{i - 1}}(\Omega).
+    $$
+    Hence, by combining these estimates for $i = 1,\dots,j+1$ we have
+    \begin{equation}
+      \label{eq:sobolevIterationInequality}
+      \|u\|_{\WW^{k - (j + 1),p_{j + 1}}(\Omega)}
+      \leq \tilde C_1 \cdot \tilde C_2 \cdot \dots \cdot \tilde C_{j + 1} \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega)
+  \end{equation}
+  if $\frac{n}{p} > j + 1$.
+
+\item \emph{Proof of a)}:
+  As $k - \frac{n}{p} < l$ implies $\frac{n}{p} > k - l$, we apply \eqref{eq:sobolevIterationInequality} with $j \coloneqq k - l - 1$ and obtain 
+  $$
+  \|u\|_{\WW^{l,p_{n - l}}(\Omega)} \leq C_4 \, \|u\|_{\WW^{k,p}(\Omega)}.
+  $$
+  As $\frac{1}{p_{n - l}} = \frac{1}{p} - \frac{k - l}{n}$ implies $k - \frac{n}{p} = l - \frac{n}{p_{k - l}}$ and hence $q \leq p_{n - l}$, Hölders inequality and the boundedness of $\Omega$ imply that $\WW^{l,p_{k - l}}(\Omega)$ is proved ($\|u\|_{\WW^{l,q}(\Omega)} \leq C_5\, \|u\|_{\WW^{l,p_{k - l}}(\Omega)}$
+  \end{enumerate}
+\end{proof}
+
 
 
