@@ -504,7 +504,7 @@ Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{
       We fix $x,y \in \Omega$ with $x \neq y$.
       As $\partial\Omega \in \CC^1$ there is a domain $V \Subset \Omega$ with $\partial V \in \CC^1$ and $x,y \in V$.
     By Theorem \ref{thm:interiorApproximation} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u \in \CC^\infty(\Omega)$ converge to $u^*$ in $\WW^{1,\tilde p}(V)$, hence by ii) $u_\varepsilon \to u^*$ in $\CC^{0,\tilde\gamma}(\overline V)$ so that $u_\varepsilon \to u^*$ uniformly on $\overline V$ as $\varepsilon \downarrow 0$.
-    Furthermore, for $\varepsilon > 0$ small enough such that $V \subset \Omega_\varepsilon$,m we have by Theorem \ref{thm:interiorApproximation}
+    Furthermore, for $\varepsilon > 0$ small enough such that $V \subset \Omega_\varepsilon$, we have by Theorem \ref{thm:interiorApproximation}
     $$
     |\nabla u_\varepsilon(z)|
     = \Big|\int_\Omega \eta_\varepsilon (z - \tilde y) \nabla u(\tilde y) \d{\tilde y} \Big|
@@ -616,7 +616,7 @@ for $x \in \R$ denote the \emph{floor function}.
       \|u\|_{\WW^{l,q}(\Omega)} \leq C \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
       $$
 
-    \item If $l < k - \frac{n}{p} \leq l + 1$ (i.e. $l = k - \Big[\frac{n}{p}\Big] - 1$) and, setting $\frac{n}{p} = 1$ if $p = \infty$,
+    \item If $l < k - \frac{n}{p} \leq l + 1$ (i.e. $l = k - \Big[\frac{n}{p}\Big] - 1$) and, setting $\frac{n}{p} = 0$ if $p = \infty$,
       $$
       \gamma = \begin{cases} \Big[ \frac{n}{p} \Big] + 1 - \frac{n}{p}, \quad\text{if } \frac{n}{p} \not \in \N, \\ \text{arbitrary in }(0,1), \text{ if } \frac{n}{p} \in \N, \end{cases}
       $$
@@ -630,16 +630,20 @@ for $x \in \R$ denote the \emph{floor function}.
 
 \begin{proof}
   \begin{enumerate}[i)]
-    \item If $u \in \WW^{m,r}(\Omega)$ with some $m \in \N$ and $r \in [1,n)$, then $\DD^\alpha u \in \WW^{1,r}(\Omega)$ for all $|\alpha| \leq m - 1$ by Proposition \ref{prop:sobolevProperties} and by Theorem \ref{thm:embeddingpltn} $\DD^\alpha u \in \Ell^q(\Omega)$ for all $q \in [1,r^*]$ and hence $u \in \WW^{m - 1,q}(\Omega)$ with
+    \item If $u \in \WW^{m,r}(\Omega)$ with some $m \in \N$ and $r \in [1,n)$, then $\DD^\alpha u \in \WW^{1,r}(\Omega)$ for all $|\alpha| \leq m - 1$ by Proposition \ref{prop:sobolevProperties} and, by Theorem \ref{thm:embeddingpltn}, $\DD^\alpha u \in \Ell^q(\Omega)$ for all $q \in [1,r^*]$ and hence $u \in \WW^{m - 1,q}(\Omega)$ with
     $$
     \|u\|_{\WW^{m - 1,q}(\Omega)}
-    \leq C_1 \, \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\Ell^q(\Omega)}
-    \leq C_2 \, \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\WW^{1,r}}
-    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}
+    \leq C_1 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\Ell^q(\Omega)}
+    \leq C_2 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\WW^{1,r}(\Omega)}
+    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)},
     $$
-    with $C_3$ depending on $n$, $r$, $q$, $m$, and $\Omega$.
-    Hence, defining $p_0 \coloneqq p$ and $p_j \coloneqq p_{j - 1}^*$ for $j = 1,\dots,k - l$, we see that $\frac{1}{p_j} = \frac{1}{p_{j - 1}} - \frac{1}{n}$ and therefore $\frac{1}{p_j} = \frac{1}{p} - \frac{j}{n}$, $p_j = \frac{np}{n- jp}$ with $p_j > p_{j - 1}$.
-    If $p_j < n$ (i.e. $\frac{n}{p} > j + 1$) we have $p_i < n$ for all $i \in \{ 0, \dots, j\}$ and the previous argument yields the continuous embeddings of $\WW^{k - (i - 1), p_{i - 1}}(\Omega)$ into $\WW^{k-i,p_i}(\Omega)$ for all $i \in \{1,\dots,j+1\}$ and $\tilde C_i > 0$ depending on $h$, $i$, $p$, $n$, $\Omega$ such that
+    where $C_3 > 0$ depends only on $n$, $r$, $q$, $m$, and $\Omega$.
+    Hence, defining 
+    $p_0 \coloneqq p$ and $p_j \coloneqq p_{j - 1}^*$ for all $j = 1,\dots,k - l,$ we see that $\frac{1}{p_j} = \frac{1}{p_{j - 1}} - \frac{1}{n}$ and therefore $\frac{1}{p_j} = \frac{1}{p} - \frac{j}{n}$ i.e.
+    $$
+    p_j = \frac{np}{n- p\cdot j} \quad\text{with}\quad p_j > p_{j - 1}.
+    $$
+    If $p_j < n$ (i.e. $\frac{n}{p} > j + 1$) we have $p_i < n$ for all $i \in \{ 0, \dots, j\}$ and the previous argument yields the continuous embeddings of $\WW^{k - (i - 1), p_{i - 1}}(\Omega)$ into $\WW^{k-i,p_i}(\Omega)$ for all $i \in \{1,\dots,j+1\}$ and $\tilde C_i > 0$ depending on $k$, $i$, $p$, $n$, $\Omega$ such that
     $$
     \| u\|_{\WW^{k - i,p_i}(\Omega)}
     \leq \tilde C_i \, \|u\|_{\WW^{k-(i-1),p_{i - 1}}(\Omega)} \quad\text{for all } u \in \WW^{k - ( i - 1),p_{i - 1}}(\Omega).
@@ -655,11 +659,197 @@ for $x \in \R$ denote the \emph{floor function}.
 \item \emph{Proof of a)}:
   As $k - \frac{n}{p} < l$ implies $\frac{n}{p} > k - l$, we apply \eqref{eq:sobolevIterationInequality} with $j \coloneqq k - l - 1$ and obtain 
   $$
-  \|u\|_{\WW^{l,p_{n - l}}(\Omega)} \leq C_4 \, \|u\|_{\WW^{k,p}(\Omega)}.
+  \|u\|_{\WW^{l,p_{k - l}}(\Omega)} \leq C_4 \, \|u\|_{\WW^{k,p}(\Omega)}.
   $$
-  As $\frac{1}{p_{n - l}} = \frac{1}{p} - \frac{k - l}{n}$ implies $k - \frac{n}{p} = l - \frac{n}{p_{k - l}}$ and hence $q \leq p_{n - l}$, Hölders inequality and the boundedness of $\Omega$ imply that $\WW^{l,p_{k - l}}(\Omega)$ is proved ($\|u\|_{\WW^{l,q}(\Omega)} \leq C_5\, \|u\|_{\WW^{l,p_{k - l}}(\Omega)}$
+  As $\frac{1}{p_{n - l}} = \frac{1}{p} - \frac{k - l}{n}$ implies $k - \frac{n}{p} = l - \frac{n}{p_{k - l}}$ and hence $q \leq p_{k - l}$, Hölders inequality and the boundedness of $\Omega$ imply that $\WW^{l,p_{k - l}}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and a) is proved ($\|u\|_{\WW^{l,q}(\Omega)} \leq C_5\, \|u\|_{\WW^{l,p_{k - l}}(\Omega)})$.
+
+\item \emph{Proof of b)}:
+  $k - \frac{n}{p} = l$ implies $\frac{n}{p} > k - l - 1$ and $p_{k - l - 1} = n$ so that \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ yields
+  $$
+  \|u\|_{\WW^{l + 1, n}(\Omega)} \leq C_6 \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega) \text{ and } k \geq l + 2.
+  $$
+  Since $k = l+1$ implies $p = n$, the above inequality is trivial for $k = l + 1$.
+  But then, similar to the first part of i), we deduce from Proposition \ref{prop:embeddingspeqn} that $\WW^{l+1,n}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ for all $q \in [1,\infty)$, which implies b).
+    
+  \item \emph{Proof of c)}: For $\frac{n}{p} \not\in\N_0$ we have $k - \frac{n}{p} < l + 1$ and \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ implies
+    $$
+  \|u\|_{\WW^{l+1,p_{k - l - 1}}(\Omega)} \leq C_7 \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
+    $$
+    Since we have 
+    $$
+    p_{k - l - 1} = \frac{np}{n - p(k - l - 1)} = \frac{np}{p\Big( \frac{n}{p} - k + l + 1 \Big)} > n,
+    $$ 
+    due to $k - \frac{n}{p} > l$, and 
+    $$
+    1 - \frac{n}{p_{k - l - 1}} 
+    = 1 - \Big(\frac{n}{p} - (k - l - 1)\Big)
+    = 1 - \frac{n}{p} + \left[ \frac{n}{p} \right]
+    = \gamma,
+    $$
+    we conclude from Theorem \ref{thm:sumEmbeddingHoelder} (like in the first part of i)) that $\WW^{l+1,p_{k - l - 1}}(\Omega)$ is continuously embedded into $\CC^{l,\gamma}(\overline\Omega)$.
+
+    For $\frac{n}{p} \in \N$ we have $k - \frac{n}{p} = l + 1$ and $l \leq k - 2$ so that b) implies for any $q \in [1,\infty)$
+      $$
+      \|u\|_{\WW^{l+1,q}(\Omega)} \leq C_8 \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
+      $$
+      But then for any $q \in (n,\infty)$, $\WW^{l+1,q}(\Omega)$ is continuously embedded into $\CC^{l,\gamma}(\Omega)$ with $\gamma = 1 - \frac{n}{q}$.
+      As $q \in (n,\infty)$ is arbitrary we get the claimed embedding for any $\gamma \in (0,1)$.
+
+      Finally, if $\frac{n}{p} = 0$, i.e. $p = \infty$, we have $l = k - 1$ and $\gamma = \left[ \frac{n}{p} \right] + 1 - \frac{n}{p} = 1 - \frac{n}{p} = 1$.
+      Hence Theorem \ref{thm:sumEmbeddingHoelder} implies the continuous embedding of $\WW^{k,\infty}(\Omega)$ into $\CC^{k-1,1}(\overline\Omega) = \CC^{l,\gamma}(\overline\Omega)$ together with the claimed estimate.
+      Altogether, c) is proved. \qedhere
   \end{enumerate}
 \end{proof}
 
+\section{Compact Embeddings}
 
+Finally, we will study which compact embeddings we can deduce from the embeddings of Section \ref{sec:lpEmbedding} and Section \ref{sec:hoelderEmbedding}.
+Therefore we first need criteria for precompactness of subsets of function spaces.
+
+\begin{defn}
+  Let $X$ be a Banach space.
+  A set $\FF \subset X$ is \emph{precompact}, if any sequence $(f_m)_{m \in \N} \subset \FF$ has a subsequence which is convergent in $X$.
+\end{defn}
+
+For $X = \CC^0(\overline\Omega)$ we recall the Theorem of Arzel\`a-Ascoli.
+
+\begin{thm}[Arzel\`a-Ascoli]
+  \label{thm:arzelaAscoli}
+  Let $K \subset \R^n$ be compact.
+  A set $\FF \subset \CC^0(K)$ is precompact if and only if
+  \begin{enumerate}[i)]
+    \item $\sup_{f \in \FF} \| f\|_{\CC^0(K)} < \infty$ and
+    \item $\FF$ is \emph{equicontinuous}, i.e. for all $\varepsilon > 0$ there exists $\delta > 0$ such that $|f(x) - f(y)| < \varepsilon$ for all $f \in \FF$ and for all $x,y \in K$ with $|x - y| < \delta$.
+  \end{enumerate}
+\end{thm}
+
+Next we prove a compactness criterion in $\Ell^p(\Omega)$.
+
+\begin{thm}[Kolmogoroff-Riesz-Fr\'echet]
+\label{thm:KolmogoroffRieszFrechet}
+  Let $\Omega \subset \R^n$ be bounded and measurable and $p \in [1,\infty)$.
+  $\FF \subset \Ell^p(\Omega)$ is precompact if and only if
+  \begin{enumerate}[i)]
+    \item $\sup_{f \in \FF} \|f\|_{\Ell^p(\Omega)} < \infty$ and
+    \item $\lim_{|h| \to 0} \Big( \sup_{f \in \FF} \| \tau_h \tilde f - \tilde f \|_{\Ell^p(\Omega)}\Big) = 0,$ where $\tilde f|_\Omega = f$, $\tilde f = 0$ on  $\R^n \setminus \Omega$, and $(\tau_h \tilde f)(x) \coloneqq \tilde f (x + h)$ for all $f \in \Ell^p(\Omega), x,h \in \R^n$.
+  \end{enumerate}
+\end{thm}
+
+\begin{rem}
+  If $\Omega$ is unbounded, $\FF \subset \Ell^p(\Omega)$ is precompact if and only if i), ii), and
+  \begin{enumerate}
+    \item[\textit{iii)}] $
+  \lim_{r \to \infty} \Big( \sup_{f \in \FF} \|\tilde f\|_{\Ell^p(\R^n \setminus \BB_R(0))} \Big) = 0$ hold.
+  \end{enumerate}
+\end{rem}
+
+\begin{proof}[Proof of Theorem \ref{thm:KolmogoroffRieszFrechet}]
+  \begin{enumerate}[I)]
+    \item Assume that $\FF \subset \Ell^p(\Omega)$ is precompact.
+      If i) would be violated, there was a sequence $(f_m)_{m \in\N} \subset \FF$ such that $\|f_m\|_{\Ell^p(\Omega)} \to \infty$ as $m \to \infty$. This sequence cannot have a convergent subsequence. 
+
+      %If ii) is violated, there are $(f_m)_{m \in \N} \subset \FF$ and $(h_m)_{m \in \N} \subset \R^n$ with $|h_m| \to 0$ and $\varepsilon_0 > 0$ such that
+      %$$
+      %\|\tau_{h_m} \tilde f_m - \tilde f_m \|_{\Ell^p(\Omega)} \geq \varepsilon_0 \quad\text{for all } m \in \N.
+      %$$
+      If ii) is violated there exist $(h_m)_{m \in \N}$ with $\lim_{m \to \infty} |h_m| = 0$ and $\varepsilon_0  > 0$ such that 
+      $$
+      \limsup_{m \to \infty} \Big( \sup_{f \in \FF} \| \tau_{h_m} \tilde f - \tilde f \|_{\Ell^p(\Omega)}\Big) > \varepsilon_0.
+      $$
+      Hence, up to the choice of a subsequence, 
+      $
+      \sup_{f \in \FF} \| \tau_{h_{m}} \tilde f - \tilde f \|_{\Ell^p(\Omega)} > \varepsilon_0 \text{ for all } m \in \N
+      $
+      which yields a sequence $(f_m)_{m \in \N}$ in $\FF$ with
+      $$
+      \|\tau_{h_{m}} \tilde f_m - \tilde f_m \|_{\Ell^p(\Omega)} > \varepsilon_0 \quad\text{for all } m \in \N.
+      $$
+      As $\FF$ is precompact, there are $f \in \Ell^p(\Omega)$ and $(f_{m_k})_{k \in \N}$ such that $f_{m_k} \to f$ in $\Ell^p(\Omega)$.
+
+      Hence,
+      \begin{align*}
+        &\liminf_{k \to \infty} \| \tau_{h_{m_k}} \tilde f - \tilde f \|_{\Ell^p(\Omega)} \\
+        &\quad 
+        \geq \liminf_{k \to \infty} \Big[\, \|\tau_{h_{m_k}} \tilde f_{m_k} - \tilde f_{m_k}\|_{\Ell^p(\Omega)} - \|\tau_{h_{m_k}} \tilde f - \tau_{h_{m_k}} \tilde f_{m_k} \|_{\Ell^p(\Omega)} - \|\tilde f_{m_k} - \tilde f \|_{\Ell^p(\Omega)} \Big] \\
+        &\quad
+        \geq \varepsilon_0 - 0 - 0 = \varepsilon_0 > 0
+      \end{align*}
+      a contradiction to Proposition \ref{prop:continuousTrans} as $h_{m_k} \to 0$.
+
+      Hence, i) and ii) have to hold.
+
+    \item 
+      Assume that i) and ii) hold.
+    for $f \in \FF$ and $\varepsilon > 0$ we define $f_\varepsilon \coloneqq \eta_\varepsilon \ast f \in \CC^\infty(\R^n)$ and let $q \in (1,\infty]$ such that $\frac{1}{p} + \frac{1}{q} = 1$.
+    \begin{enumerate}[a)]
+      \item We claim that for all $\delta > 0$ there exists $\varepsilon_\delta > 0$ such that
+        \begin{equation}
+          \label{eq:lpepsilondelta}
+          \|f_\varepsilon - f\|_{\Ell^p(\Omega)} \leq \delta \quad\text{for all } f \in \FF \text{ and for all } \varepsilon \in (0,\varepsilon_\delta).
+        \end{equation}
+        By Hölder's inequality and $\int_{\R^n} \eta_\varepsilon \d x = 1$, we have for $x \in \Omega$
+        \begin{align*}
+          |f_\varepsilon(x) - f(x) | 
+          &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon(x - y) (\tilde f (y) - \tilde f(x)) \d y \Big| \\
+          &= \Big| \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) (\tilde f (x - z) - \tilde f(x)) \d z \Big| \\
+          &\leq  \Big( \underbrace{\int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \d z}_{ = 1} \Big)^{\frac{1}{q}} \Big( \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \, |\tau_{-z} \tilde f(x) - \tilde f(x)|^p \d z \Big)^{\frac{1}{p}}
+        \end{align*}
+        so that
+        \begin{align*}
+          \|f_\varepsilon - f\|_{\Ell^p(\Omega)}^p
+          &\leq \int_\Omega \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) | \tau_{-z} \tilde f(x) - \tilde f(x)|^p \d z \d x \\
+          &= \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \Big(\int_\Omega |\tau_{-z} \tilde f(x) - \tilde f (x) |^p \Big) \d z \\
+          &\leq \sup_{|z| \leq \varepsilon_\delta} \| \tau_{-z} \tilde f - \tilde f \|_{\Ell^p(\Omega)}^p \underbrace{\int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \d z}_{= 1} 
+          \leq \delta^p
+        \end{align*}
+        by ii) for $\varepsilon_\delta$ small enough.
+        Hence \eqref{eq:lpepsilondelta} is shown.
+
+      \item By Hölder's inequality and Theorem \ref{thm:mollifier} (see proof of a)) we have for fixed $\varepsilon > 0$.
+         \begin{align*}
+           \| f_\varepsilon\|_{\Ell^\infty(\Omega)}
+           &\leq \|\eta_\varepsilon \|_{\Ell^q(\R^n)} \|f\|_{\Ell^p(\Omega)}
+           \leq M \, \|\eta_\varepsilon \|_{\Ell^q(\R^n)} \quad\text{and} \\
+           \|\nabla f_\varepsilon \|_{\Ell^\infty(\R^n)}
+           &= \| \nabla \eta_\varepsilon \ast f \|_{\Ell^\infty(\R^n)}
+           \leq \| \nabla \eta_\varepsilon \|_{\Ell^q(\R^n)} \|f\|_{\Ell^p(\Omega)}
+           \leq M \|\nabla \eta_\varepsilon \|_{\Ell^q(\R^n)} 
+         \end{align*}
+         for all $f \in \FF$, where $M \coloneqq \sup_{f \in \FF} \| f\|_{\Ell^p(\Omega)} < \infty$.
+         Hence, the set $$\FF_\varepsilon \coloneqq \{ f_\varepsilon \colon f \in \FF \}$$ is uniformly bounded in $\CC^0(\overline\Omega)$ and equicontinuous (since it is uniformly Lipschitz continuous) and hence precompact in $\CC^0$ by the Arzel\`a-Ascoli Theorem \ref{thm:arzelaAscoli}.
+        Hence, for any sequence $(g_m)_{m \in \N} \subset \FF_\varepsilon$ there exists $g \in \CC^0(\overline\Omega)$ and a subsequence such that $g_{m_k} \to g$ in $\CC^0(\overline\Omega)$.
+        As $\Omega$ is bounded, this implies $g_{m_k} \to g$ in $\Ell^p(\Omega)$ as $k \to \infty$.
+        Hence, $\FF_\varepsilon$ is precompact in $\Ell^p(\Omega)$ for fixed $\varepsilon > 0$.
+      \item 
+        We show that $\FF$ is precompact in $\Ell^p(\Omega)$.
+        Let $(f_m)_{m \in \N} \subset \FF$ be arbitrary.
+        Defining $\big(f_m^{(0)}\big)_{m \in \N} \coloneqq (f_m)_{m \in \N}$, we claim that for any $k \in \N$ there is a subsequence $\big(f_m^{(k)}\big)$ of $\big(f_m^{(k - 1)}\big)_{m \in \N}$ such that
+        \begin{equation}
+          \label{eq:lpcauchy}
+          \|f_m^{(k)} - f_j^{(k - 1)} \|_{\Ell^p(\Omega)} \leq \frac{1}{k} \quad\text{for all } m,j \geq N_k.
+        \end{equation}
+        with some $N_k \geq k$.
+        Given $(g_m)_{m \in \N} \coloneqq \big( f_m^{(k- 1)}\big)_{m \in \N}$, by \eqref{eq:lpepsilondelta} there is $\varepsilon_k > 0$ such that
+        \begin{equation}
+          \label{eq:cauchyMollifier}
+          \|(g_m)_{\varepsilon_k} - g_m\|_{\Ell^p(\Omega)} \leq \frac{1}{3k}.
+        \end{equation}
+        As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b) there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have
+        \begin{equation}
+          \label{eq:}
+          \| \big( g_{m_j} )_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} \leq \frac{1}{3k} \quad\text{for all } i,j \geq N_k.
+        \end{equation}
+        Then
+        \begin{align*}
+          &\|g_{m_j} - g_{m_i}\|_{\Ell^p(\Omega)} \\
+          &\quad \leq \
+          \|g_{m_j} - (g_{m_j})_{\varepsilon_k} \|_{\Ell^p(\Omega)}
+          + \|(g_{m_j})_{\varepsilon_k} - (g_{m_i})_{\varepsilon_k} \|_{\Ell^p(\Omega)}
+          + \|(g_{m_i})_{\varepsilon_k} - g_{m_k} \|_{\Ell^p(\Omega)} \\
+          &\quad\overset{\eqref{eq:cauchyMollifier}}\leq \frac{1}{k} \quad\text{for all } i,j \geq N_k
+        \end{align*}
+
+    \end{enumerate}
+  \end{enumerate}
+\end{proof}
 
