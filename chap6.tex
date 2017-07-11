@@ -879,17 +879,17 @@ Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
       with $C_1 > 0$ independent of $u$ (see Theorem \ref{thm:extension} and Corollary \ref{cor:W0andWcoincide}), we have
       \begin{equation}
         \label{eq:translationEstimate}
-        \|\tau_h \tilde u - \tilde u\|_{\Ell^p(\Omega)} \leq |h| C_1 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega), h \in \R^n.
+        \|\tau_h \tilde u - \tilde u\|_{\Ell^p(\Omega)} \leq |h| \, C_1 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega), h \in \R^n.
       \end{equation}
       Now let $(u_m)_{m \in \N} \subset \WW^{1,p}(\Omega)$ be bounded in $\WW^{1,p}(\Omega)$ and $\FF \coloneqq \{ u_m \colon m \in \N\}$.
       Then by \eqref{eq:embeddingpltn} $\FF$ is bounded in $\Ell^q(\Omega)$, i.e. i) in Thorem \ref{thm:KolmogoroffRieszFrechet} holds (for $q$), where $q \in [1,p^*)$.
         Hence, $M \coloneqq \sup_{m \in \N} \|u_m\|_{\WW^{1,p}(\Omega)}$ is finite and, as $q \in [1,p^*)$, there is $\theta \in (0,1]$ such that $\frac{1}{q} = \frac{\theta}{1} + \frac{1 - \theta}{p^*}$.
-        Then, using Hölder's inequality, we obtain
+        Then, we obtain
         \begin{align*}
         \|\tau_h \tilde u_m - \tilde u_m \|_{\Ell^q(\Omega)}
         &= \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |^{q\theta}\cdot |\tau_h \tilde u_m - \tilde u_m |^{q(1 - \theta)} \Big)^{\frac{1}{q}} \\
         &\leq \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |\d x \Big)^\theta \cdot \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |^{p^*} \Big)^{\frac{(1 - \theta)}{p^*}}
-        \intertext{which holds since $1 = \frac{1}{\frac{1}{q\theta}} + \frac{1}{\frac{p^*}{q(1 - \theta)}}$ and furthermore by the Hölder inequality}
+        \intertext{which holds since $1 = \frac{1}{\frac{1}{q\theta}} + \frac{1}{\frac{p^*}{q(1 - \theta)}}$ and furthermore by Hölder's inequality}
         &\leq \Big( |\Omega|^{\frac{1}{p'}} \|\tau_h \tilde u_m - \tilde u_m \|_{\Ell^p(\Omega)} \Big)^\theta \cdot \Big( 2\, \|u_m \|_{\Ell^{p^*}(\Omega)} \Big)^{1 - \theta} \\
         &\hspace{-1.5em}\overset{\eqref{eq:embeddingpltn},\eqref{eq:translationEstimate}} \leq |\Omega|^{\frac{\theta}{p'}} |h|^\theta \, C_1^\theta \, \|u_m\|_{\WW^{1,p}(\Omega)}^\theta \; 2^{1 - \theta} \Big( C_2 \|u_m\|_{\WW^{1,p}(\Omega)} \Big)^{1 - \theta} \\
         &\leq |h|^\theta \, M \, C_1^\theta \, |\Omega|^{\frac{\theta}{p'}} \, (2C_1)^{1 - \theta} \quad\text{for all } m \in \N.
@@ -898,7 +898,7 @@ Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
         Hence, $\FF$ is precompact in $\Ell^q(\Omega)$ so that the embedding of $\WW^{1,p}(\Omega)$ into $\Ell^q(\Omega)$ is compact by Definition \ref{defn:embedding} and Theorem \ref{thm:embeddingpltn}.
 
       \item For $q \in [1,\infty)$ there is $\tilde p \in [1,n)$ such that $\tilde p^* > q$.
-          As $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ by Proposition \ref{prop:embeddingspeqn} and any bounded sequence $(u_m)_{m \in \N}$ is also bounded in $\WW^{1,\tilde p}(\Omega)$ by Hölder's inequality, a) for $\tilde p$ shows that $(u_m)_{m \in \N}$ has a convergent subsequence in $\Ell^q(\Omega)$.
+          As $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ by Proposition \ref{prop:embeddingspeqn} and any bounded sequence $(u_m)_{m \in \N} \subset \WW^{1,p}(\Omega)$ is also bounded in $\WW^{1,\tilde p}(\Omega)$ by Hölder's inequality, a) for $\tilde p$ shows that $(u_m)_{m \in \N}$ has a convergent subsequence in $\Ell^q(\Omega)$.
           This proves b).
 
       \item The continuous embedding of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overline\Omega)$ with some $\gamma \in (0,1]$ by Theorem \ref{thm:sumEmbeddingHoelder} implies that any bounded sequence in $\WW{1,q}(\Omega)$ is equicontinuous and bounded in $\CC^0(\overline\Omega)$.
