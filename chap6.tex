@@ -6,6 +6,7 @@ The answer is \emph{yes}, but we will see that to which spaces $u$ belongs depen
 More precisely we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space $Y$ in the following sense.
 
 \begin{defn}
+  \label{defn:embedding}
   Let $X, Y$ be Banach spaces with $X \subset Y$.
   \begin{enumerate}[a)]
     \item We say that $X$ is \emph{continuously embedded into $Y$} if there is $C > 0$ such that
@@ -144,6 +145,7 @@ Using the previous result, we get a corresponding result on bounded domains.
     Then $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q$ for all $q \in [1,p^*]$.
     More precisely, for any $q \in [1,p^*]$ there is $C > 0$ depending on $p,q,n$ and $\Omega$ such that
     \begin{equation}
+      \label{eq:embeddingpltn}
       \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega).
     \end{equation}
 \end{thm}
@@ -241,23 +243,15 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
   Let $\Omega \subset \R^n$ be a bounded domain and $q \in [1,\infty)$.
     \begin{enumerate}[a)]
       \item If $\partial\Omega \in \CC^1$, then $\WW^{1,n}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ and 
-        $$
-        \|u\|_{\Ell^q(\Omega)} \leq C \, \|u\|_{\WW^{1,n}(\Omega)} \quad\text{for all } u \in \WW^{1,n}(\Omega)
-        $$
-
-      \item $\WW_0^{1,n}(\Omega)$ is continuously embedded to $\Ell^q(\Omega)$ and, with $C$ depending on $q$, $n$, $\Omega$, we have
-        $$
-        \| u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\Ell^n(\Omega)} \quad\text{for all } \WW_0^{1,n}(\Omega).
-        $$
-
-      \item If $n = 1$ and $\Omega = (a,b) \subset \R$ with $-\infty < a < b < + \infty$, then $\WW^{1,1}((a,b)) \subset \Ell^\infty((a,b))$ and there is $C$ depending on $b - a$ such that
-        $$
-        \|u\|_{\Ell^\infty((a,b))} \leq C \, \|u\|_{\WW^{1,1}((a,b))} \quad\text{for all } \WW^{1,1}((a,b))
-        $$
-        and
-        $$
-        \|u\|_{\Ell^\infty((a,b))} \leq \|u'\|_{\Ell^1((a,b))} \quad\text{for all } \WW_0^{1,1}((a,b)).
-        $$
+        \begin{align*}
+        \|u\|_{\Ell^q(\Omega)} &\leq C \, \|u\|_{\WW^{1,n}(\Omega)} \quad\text{for all } u \in \WW^{1,n}(\Omega)
+      \intertext{\item $\WW_0^{1,n}(\Omega)$ is continuously embedded to $\Ell^q(\Omega)$ and, with $C$ depending on $q$, $n$, $\Omega$, we have}
+        \| u\|_{\Ell^q(\Omega)} &\leq C \, \|\nabla u\|_{\Ell^n(\Omega)} \quad\text{for all } \WW_0^{1,n}(\Omega).
+    \intertext{\item If $n = 1$ and $\Omega = (a,b) \subset \R$ with $-\infty < a < b < + \infty$, then $\WW^{1,1}((a,b)) \subset \Ell^\infty((a,b))$ and there is $C$ depending on $b - a$ such that}
+        \|u\|_{\Ell^\infty((a,b))} &\leq C \, \|u\|_{\WW^{1,1}((a,b))} \quad\text{for all } \WW^{1,1}((a,b))
+        \intertext{and}
+        \|u\|_{\Ell^\infty((a,b))} &\leq \|u'\|_{\Ell^1((a,b))} \quad\text{for all } \WW_0^{1,1}((a,b)).
+      \end{align*}
     \end{enumerate}
 \end{prop}
 
@@ -451,21 +445,15 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
 Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{p} \in (0,1]$.
 \begin{enumerate}[a)]
   \item $\WW^{1,p}(\R^n)$ is continuously embedded into $\CC^{0,\gamma}(\R^n)$ in the sense that for any $u \in \WW^{1,p}(\R^n)$ there is a version $u^* \in \CC^{0,\gamma}(\R^n)$ and
-    $$
-    \|u^*\|_{\CC^{0,\gamma}(\R^n)} \leq C \, \|u\|_{\WW^{1,p}(\R^n)},
-    $$
-    where $C > 0$ only depends on $p$ and $u$.
-
-  \item If $\partial\Omega \in \CC^1$, then $\WW^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW^{1,p}(\Omega)$, there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and 
-    $$
-    \|u^*\|_{\CC^{0,\gamma}(\overline\Omega)} \leq C \, \|u\|_{\WW^{1,p}(\Omega)},
-    $$
-    where $C > 0$ depends on $p$, $n$, and $\Omega$.
-
-  \item $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW_0^{1,p}(\Omega)$ there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and
-    $$
-    \| u^* \|_{\CC^{0,\gamma}(\overline\Omega)} \leq C \, \|\nabla u\|_{\Ell^p(\Omega)},
-    $$
+    \begin{align*}
+    \|u^*\|_{\CC^{0,\gamma}(\R^n)} &\leq C \, \|u\|_{\WW^{1,p}(\R^n)},
+    \intertext{ where $C > 0$ only depends on $p$ and $u$.
+    \item If $\partial\Omega \in \CC^1$, then $\WW^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW^{1,p}(\Omega)$, there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and }
+    \|u^*\|_{\CC^{0,\gamma}(\overline\Omega)} &\leq C \, \|u\|_{\WW^{1,p}(\Omega)},
+    \intertext{where $C > 0$ depends on $p$, $n$, and $\Omega$.
+    \item $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW_0^{1,p}(\Omega)$ there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and}
+    \| u^* \|_{\CC^{0,\gamma}(\overline\Omega)} &\leq C \, \|\nabla u\|_{\Ell^p(\Omega)},
+  \end{align*}
     where $C > 0$ depends on $p$, $n$, and $\Omega$.
 \end{enumerate}
 \end{thm}
@@ -816,14 +804,14 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
            \leq M \|\nabla \eta_\varepsilon \|_{\Ell^q(\R^n)} 
          \end{align*}
          for all $f \in \FF$, where $M \coloneqq \sup_{f \in \FF} \| f\|_{\Ell^p(\Omega)} < \infty$.
-         Hence, the set $$\FF_\varepsilon \coloneqq \{ f_\varepsilon \colon f \in \FF \}$$ is uniformly bounded in $\CC^0(\overline\Omega)$ and equicontinuous (since it is uniformly Lipschitz continuous) and hence precompact in $\CC^0$ by the Arzel\`a-Ascoli Theorem \ref{thm:arzelaAscoli}.
+         Hence, the set $$\FF_\varepsilon \coloneqq \{ f_\varepsilon \colon f \in \FF \}$$ is uniformly bounded in $\CC^0(\overline\Omega)$ and equicontinuous (since it is uniformly Lipschitz continuous) and hence precompact in $\CC^0(\overline\Omega)$ by the Arzel\`a-Ascoli Theorem \ref{thm:arzelaAscoli}.
         Hence, for any sequence $(g_m)_{m \in \N} \subset \FF_\varepsilon$ there exists $g \in \CC^0(\overline\Omega)$ and a subsequence such that $g_{m_k} \to g$ in $\CC^0(\overline\Omega)$.
         As $\Omega$ is bounded, this implies $g_{m_k} \to g$ in $\Ell^p(\Omega)$ as $k \to \infty$.
         Hence, $\FF_\varepsilon$ is precompact in $\Ell^p(\Omega)$ for fixed $\varepsilon > 0$.
       \item 
         We show that $\FF$ is precompact in $\Ell^p(\Omega)$.
         Let $(f_m)_{m \in \N} \subset \FF$ be arbitrary.
-        Defining $\big(f_m^{(0)}\big)_{m \in \N} \coloneqq (f_m)_{m \in \N}$, we claim that for any $k \in \N$ there is a subsequence $\big(f_m^{(k)}\big)$ of $\big(f_m^{(k - 1)}\big)_{m \in \N}$ such that
+        Defining $\big(f_m^{(0)}\big)_{m \in \N} \coloneqq (f_m)_{m \in \N}$, we claim that for any $k \in \N$ there is a subsequence $\big(f_m^{(k)}\big)$ of the subsequence $\big(f_m^{(k - 1)}\big)_{m \in \N}$ such that
         \begin{equation}
           \label{eq:lpcauchy}
           \|f_m^{(k)} - f_j^{(k - 1)} \|_{\Ell^p(\Omega)} \leq \frac{1}{k} \quad\text{for all } m,j \geq N_k.
@@ -836,7 +824,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
         \end{equation}
         As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b) there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have
         \begin{equation}
-          \label{eq:}
+          \label{eq:cauchyEpsilon}
           \| \big( g_{m_j} )_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} \leq \frac{1}{3k} \quad\text{for all } i,j \geq N_k.
         \end{equation}
         Then
@@ -846,10 +834,84 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
           \|g_{m_j} - (g_{m_j})_{\varepsilon_k} \|_{\Ell^p(\Omega)}
           + \|(g_{m_j})_{\varepsilon_k} - (g_{m_i})_{\varepsilon_k} \|_{\Ell^p(\Omega)}
           + \|(g_{m_i})_{\varepsilon_k} - g_{m_k} \|_{\Ell^p(\Omega)} \\
-          &\quad\overset{\eqref{eq:cauchyMollifier}}\leq \frac{1}{k} \quad\text{for all } i,j \geq N_k
+          &\hspace{-1.7em}\quad\overset{\eqref{eq:cauchyMollifier},\eqref{eq:cauchyEpsilon}}\leq \; \frac{1}{k} \quad\text{for all } i,j \geq N_k.
         \end{align*}
+        Hence, $\Big( f_j^{(k)} \Big) \coloneqq (g_{m_j})_{j \in \N}$ satisfies \eqref{eq:lpcauchy}.
+        Then a diagonal argument shows that the subsequence $\Big(f_{N_k})^{(k)} \Big)_{k \in \N}$ of $(f_m)_{m \in \N}$ is a Cauchy sequence in $\Ell^p(\Omega)$.
 
+        Hence, $\FF$ is precompact in $\Ell^p(\Omega)$. \qedhere
     \end{enumerate}
   \end{enumerate}
 \end{proof}
 
+Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
+
+\begin{thm}[Rellich-Kondrachov]
+  \label{thm:RellichKondrachov}
+  Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$ and $p \in [1,\infty]$.
+  Then $\WW^{1,p}(\Omega)$ is compactly embedded into
+  \begin{enumerate}[a)]
+    \item $\Ell^q(\Omega)$ for any $q \in [1,p^*)$ if $p \in [1,n)$.
+    \item $\Ell^q(\Omega)$ for any $q \in [1,\infty)$ if $p = n$.
+    \item $\CC^0(\overline\Omega)$ if $p \in (n,\infty]$ up to the choice of a continuous version.
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[a)]
+    \item Let $\varphi \in \CC_0^\infty(\R^n)$ and $h \in \R^n$.
+      Then
+      $$
+      |\tau_h \varphi(x) - \varphi(x)|
+      = \Big|\int_0^1 \frac{\d\ }{\d t} \varphi(x + th) \d t \Big|
+      \leq \int_0^1 |\nabla\varphi(x + th)| \, |h| \d t \quad\text{for all } x \in \R^n.
+      $$
+      Hence, with $\frac{1}{p'} + \frac{1}{p} = 1$ we have
+      $$
+      \|\tau_h \varphi - \varphi \|_{\Ell^p(\Omega)}^p 
+      \overset{\text{Hölder}}{\leq} |h|^p \cdot \int_\Omega \Big[ \Big( \int_0^1 1 \d t \Big)^{\frac{1}{p'}} \Big( \int_0^1 |\nabla\varphi(x + th)|^p \d t \Big)^{\frac{1}{p}} \Big] \d x
+      \overset{\text{Fubini}}{\leq} |h|^p \|\nabla\varphi\|_{\Ell^p(\R^n)}^p.
+      $$
+      As for any $u \in \WW^{1,p}(\Omega)$ there is $(\varphi_n)_{n \in \N} \subset \CC_0^\infty(\R^n)$ with $\varphi_n \to u$ in $\WW^{1,p}(\Omega)$ and
+      $$
+      \|\varphi_n\|_{\WW^{1,p}(\R^n)} \leq C_1 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } n \in \N
+      $$
+      with $C_1 > 0$ independent of $u$ (see Theorem \ref{thm:extension} and Corollary \ref{cor:W0andWcoincide}), we have
+      \begin{equation}
+        \label{eq:translationEstimate}
+        \|\tau_h \tilde u - \tilde u\|_{\Ell^p(\Omega)} \leq |h| C_1 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega), h \in \R^n.
+      \end{equation}
+      Now let $(u_m)_{m \in \N} \subset \WW^{1,p}(\Omega)$ be bounded in $\WW^{1,p}(\Omega)$ and $\FF \coloneqq \{ u_m \colon m \in \N\}$.
+      Then by \eqref{eq:embeddingpltn} $\FF$ is bounded in $\Ell^q(\Omega)$, i.e. i) in Thorem \ref{thm:KolmogoroffRieszFrechet} holds (for $q$), where $q \in [1,p^*)$.
+        Hence, $M \coloneqq \sup_{m \in \N} \|u_m\|_{\WW^{1,p}(\Omega)}$ is finite and, as $q \in [1,p^*)$, there is $\theta \in (0,1]$ such that $\frac{1}{q} = \frac{\theta}{1} + \frac{1 - \theta}{p^*}$.
+        Then, using Hölder's inequality, we obtain
+        \begin{align*}
+        \|\tau_h \tilde u_m - \tilde u_m \|_{\Ell^q(\Omega)}
+        &= \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |^{q\theta}\cdot |\tau_h \tilde u_m - \tilde u_m |^{q(1 - \theta)} \Big)^{\frac{1}{q}} \\
+        &\leq \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |\d x \Big)^\theta \cdot \Big( \int_\Omega |\tau_h \tilde u_m - \tilde u_m |^{p^*} \Big)^{\frac{(1 - \theta)}{p^*}}
+        \intertext{which holds since $1 = \frac{1}{\frac{1}{q\theta}} + \frac{1}{\frac{p^*}{q(1 - \theta)}}$ and furthermore by the Hölder inequality}
+        &\leq \Big( |\Omega|^{\frac{1}{p'}} \|\tau_h \tilde u_m - \tilde u_m \|_{\Ell^p(\Omega)} \Big)^\theta \cdot \Big( 2\, \|u_m \|_{\Ell^{p^*}(\Omega)} \Big)^{1 - \theta} \\
+        &\hspace{-1.5em}\overset{\eqref{eq:embeddingpltn},\eqref{eq:translationEstimate}} \leq |\Omega|^{\frac{\theta}{p'}} |h|^\theta \, C_1^\theta \, \|u_m\|_{\WW^{1,p}(\Omega)}^\theta \; 2^{1 - \theta} \Big( C_2 \|u_m\|_{\WW^{1,p}(\Omega)} \Big)^{1 - \theta} \\
+        &\leq |h|^\theta \, M \, C_1^\theta \, |\Omega|^{\frac{\theta}{p'}} \, (2C_1)^{1 - \theta} \quad\text{for all } m \in \N.
+        \end{align*}
+        As $\theta > 0$, ii) in Theorem \ref{thm:KolmogoroffRieszFrechet} is satisfied for $\FF$.
+        Hence, $\FF$ is precompact in $\Ell^q(\Omega)$ so that the embedding of $\WW^{1,p}(\Omega)$ into $\Ell^q(\Omega)$ is compact by Definition \ref{defn:embedding} and Theorem \ref{thm:embeddingpltn}.
+
+      \item For $q \in [1,\infty)$ there is $\tilde p \in [1,n)$ such that $\tilde p^* > q$.
+          As $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ by Proposition \ref{prop:embeddingspeqn} and any bounded sequence $(u_m)_{m \in \N}$ is also bounded in $\WW^{1,\tilde p}(\Omega)$ by Hölder's inequality, a) for $\tilde p$ shows that $(u_m)_{m \in \N}$ has a convergent subsequence in $\Ell^q(\Omega)$.
+          This proves b).
+
+      \item The continuous embedding of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overline\Omega)$ with some $\gamma \in (0,1]$ by Theorem \ref{thm:sumEmbeddingHoelder} implies that any bounded sequence in $\WW{1,q}(\Omega)$ is equicontinuous and bounded in $\CC^0(\overline\Omega)$.
+        Hence, by Arzel\`a-Ascoli it has a convergent subsequence in $\CC^0(\overline\Omega)$.
+        This proves part c). \qedhere
+  \end{enumerate}
+\end{proof}
+
+\begin{rem}
+  \begin{enumerate}[a)]
+    \item In particular, $\WW^{1,p}(\Omega)$ is compactly embedded into $\Ell^p(\Omega)$ for all $p \in [1,\infty]$ if $\Omega$ is a bounded domain with $\partial\Omega \in \CC^1$.
+      This is in general not true for $\Omega$ unbounded (see \cite{adams2003sobolev}).
+    \item All embeddings in Theorem \ref{thm:RellichKondrachov} are also valid for $\WW_0^{1,p}(\Omega)$ for any bounded domain $\Omega \subset \R^n$.
+    \item The embedding of $\WW^{1,p}(\Omega)$ into $\Ell^{p^*}(\Omega)$ for $p \in [1,n)$ is \emph{not} compact.
+  \end{enumerate}
+\end{rem}

@@ -305,15 +305,13 @@ Since $\partial\Omega$ has $n$-dimensional Lebesgue measure $0$, we need a trace
   is measurable in $U_i' \subset \R^{n - 1}$.
 
   Defining
-  $$
+  \begin{align*}
   \int_{\partial\Omega} v_i \d \sigma
-  \coloneqq \int_{\partial\Omega \cap U_i} v_i \d \sigma
+  &\coloneqq \int_{\partial\Omega \cap U_i} v_i \d \sigma
   \coloneqq \int_{U_i'} v_i \sqrt{1 + |\nabla\gamma_i|^2} \d x'
-  $$
-  and
-  $$
-  \int_{\partial \Omega} v \d \sigma \coloneqq \sum_{i = 1}^N \int_{\partial \Omega} v_i \d \sigma,
-  $$
+  \intertext{and}
+  \int_{\partial \Omega} v \d \sigma &\coloneqq \sum_{i = 1}^N \int_{\partial \Omega} v_i \d \sigma,
+\end{align*}
   then $\Ell^p(\partial\Omega)$ is the space of functions $v \colon \partial\Omega \to \R$ being measurable on $\partial\Omega$ such that the norm
   $$
   \| v\|_{\Ell^p(\partial \Omega)} \coloneqq \left( \int_{\partial\Omega} |v|^p \d \sigma \right)^{\frac{1}{p}}
