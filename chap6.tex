@@ -740,7 +740,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
       %$$
       %\|\tau_{h_m} \tilde f_m - \tilde f_m \|_{\Ell^p(\Omega)} \geq \varepsilon_0 \quad\text{for all } m \in \N.
       %$$
-      If ii) is violated there exist $(h_m)_{m \in \N}$ with $\lim_{m \to \infty} |h_m| = 0$ and $\varepsilon_0  > 0$ such that 
+      If ii) is violated, there exist $(h_m)_{m \in \N}$ with $\lim_{m \to \infty} |h_m| = 0$ and $\varepsilon_0  > 0$ such that 
       $$
       \limsup_{m \to \infty} \Big( \sup_{f \in \FF} \| \tau_{h_m} \tilde f - \tilde f \|_{\Ell^p(\Omega)}\Big) > \varepsilon_0.
       $$
@@ -752,7 +752,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
       $$
       \|\tau_{h_{m}} \tilde f_m - \tilde f_m \|_{\Ell^p(\Omega)} > \varepsilon_0 \quad\text{for all } m \in \N.
       $$
-      As $\FF$ is precompact, there are $f \in \Ell^p(\Omega)$ and $(f_{m_k})_{k \in \N}$ such that $f_{m_k} \to f$ in $\Ell^p(\Omega)$.
+      As $\FF$ is precompact, there are $f \in \Ell^p(\Omega)$ and $(f_{m_k})_{k \in \N}$ such that $f_{m_k} \to f$ in $\Ell^p(\Omega)$ as $k \to \infty$.
 
       Hence,
       \begin{align*}
@@ -760,18 +760,19 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
         &\quad 
         \geq \liminf_{k \to \infty} \Big[\, \|\tau_{h_{m_k}} \tilde f_{m_k} - \tilde f_{m_k}\|_{\Ell^p(\Omega)} - \|\tau_{h_{m_k}} \tilde f - \tau_{h_{m_k}} \tilde f_{m_k} \|_{\Ell^p(\Omega)} - \|\tilde f_{m_k} - \tilde f \|_{\Ell^p(\Omega)} \Big] \\
         &\quad
-        \geq \varepsilon_0 - 0 - 0 = \varepsilon_0 > 0
+        \geq \varepsilon_0 - 0 - 0 = \varepsilon_0 > 0,
       \end{align*}
       a contradiction to Proposition \ref{prop:continuousTrans} as $h_{m_k} \to 0$.
 
       Hence, i) and ii) have to hold.
 
     \item 
+
       Assume that i) and ii) hold.
-    for $f \in \FF$ and $\varepsilon > 0$ we define $f_\varepsilon \coloneqq \eta_\varepsilon \ast f \in \CC^\infty(\R^n)$ and let $q \in (1,\infty]$ such that $\frac{1}{p} + \frac{1}{q} = 1$.
-    \begin{enumerate}[a)]
-      \item We claim that for all $\delta > 0$ there exists $\varepsilon_\delta > 0$ such that
-        \begin{equation}
+      For $f \in \FF$ and $\varepsilon > 0$ we define $f_\varepsilon \coloneqq \eta_\varepsilon \ast f \in \CC^\infty(\R^n)$ and let $q \in (1,\infty]$ such that $\frac{1}{p} + \frac{1}{q} = 1$.
+      \begin{enumerate}[a)]
+        \item We claim that for all $\delta > 0$ there exists $\varepsilon_\delta > 0$ such that
+          \begin{equation}
           \label{eq:lpepsilondelta}
           \|f_\varepsilon - f\|_{\Ell^p(\Omega)} \leq \delta \quad\text{for all } f \in \FF \text{ and for all } \varepsilon \in (0,\varepsilon_\delta).
         \end{equation}
@@ -786,14 +787,14 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
         \begin{align*}
           \|f_\varepsilon - f\|_{\Ell^p(\Omega)}^p
           &\leq \int_\Omega \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) | \tau_{-z} \tilde f(x) - \tilde f(x)|^p \d z \d x \\
-          &= \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \Big(\int_\Omega |\tau_{-z} \tilde f(x) - \tilde f (x) |^p \Big) \d z \\
+          &= \int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \Big(\int_\Omega |\tau_{-z} \tilde f(x) - \tilde f (x) |^p \d x \Big) \d z \\
           &\leq \sup_{|z| \leq \varepsilon_\delta} \| \tau_{-z} \tilde f - \tilde f \|_{\Ell^p(\Omega)}^p \underbrace{\int_{\BB_\varepsilon(0)} \eta_\varepsilon(z) \d z}_{= 1} 
           \leq \delta^p
         \end{align*}
         by ii) for $\varepsilon_\delta$ small enough.
-        Hence \eqref{eq:lpepsilondelta} is shown.
+        Hence, \eqref{eq:lpepsilondelta} is shown.
 
-      \item By Hölder's inequality and Theorem \ref{thm:mollifier} (see proof of a)) we have for fixed $\varepsilon > 0$.
+      \item By Hölder's inequality and Theorem \ref{thm:mollifier} (see proof of a)), we have for fixed $\varepsilon > 0$
          \begin{align*}
            \| f_\varepsilon\|_{\Ell^\infty(\Omega)}
            &\leq \|\eta_\varepsilon \|_{\Ell^q(\R^n)} \|f\|_{\Ell^p(\Omega)}
@@ -811,7 +812,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
       \item 
         We show that $\FF$ is precompact in $\Ell^p(\Omega)$.
         Let $(f_m)_{m \in \N} \subset \FF$ be arbitrary.
-        Defining $\big(f_m^{(0)}\big)_{m \in \N} \coloneqq (f_m)_{m \in \N}$, we claim that for any $k \in \N$ there is a subsequence $\big(f_m^{(k)}\big)$ of the subsequence $\big(f_m^{(k - 1)}\big)_{m \in \N}$ such that
+        Defining $$\Big(f_m^{(0)}\Big)_{m \in \N} \coloneqq (f_m)_{m \in \N},$$ we claim that for any $k \in \N$ there is a subsequence $\Big(f_m^{(k)}\Big)$ of $\Big(f_m^{(k - 1)}\Big)$ such that
         \begin{equation}
           \label{eq:lpcauchy}
           \|f_m^{(k)} - f_j^{(k - 1)} \|_{\Ell^p(\Omega)} \leq \frac{1}{k} \quad\text{for all } m,j \geq N_k.
@@ -822,10 +823,10 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
           \label{eq:cauchyMollifier}
           \|(g_m)_{\varepsilon_k} - g_m\|_{\Ell^p(\Omega)} \leq \frac{1}{3k}.
         \end{equation}
-        As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b) there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have
+        As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b), there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have
         \begin{equation}
           \label{eq:cauchyEpsilon}
-          \| \big( g_{m_j} )_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} \leq \frac{1}{3k} \quad\text{for all } i,j \geq N_k.
+          \| \big( g_{m_j} \big)_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} \leq \frac{1}{3k} \quad\text{for all } i,j \geq N_k.
         \end{equation}
         Then
         \begin{align*}
