@@ -1,3 +1,175 @@
 \chapter{Applications to PDEs}
 \label{chap:appsToPDEs}
 
+As a prototype of so called \emph{elliptic PDEs}, we will study the \emph{Poisson equation with Dirichlet boundary conditions}, i.e.
+\begin{equation}
+  \label{eq:poissonDirichlet}
+  \begin{cases}
+    -\Delta u(x) &= f(x), \quad x \in \Omega \\
+    u(x) &= 0, \quad x \in \partial\Omega
+  \end{cases}
+\end{equation}
+where $\Omega \subset \R^n$ is a bounded domain, $f \colon \Omega \to \R$ is given, and $u \colon \overline \Omega \to \R$ is the unknown.
+The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_ik}(x)$.
+
+\begin{defn}
+  A \emph{classical solution} to \eqref{eq:poissonDirichlet} is a function $u \in \CC^2(\Omega) \cap \CC^0(\overline\Omega)$ satisfying \eqref{eq:poissonDirichlet} pointwise (in the usual sense).
+  In particular, this requires $f \in \CC^0(\Omega)$.
+\end{defn}
+
+  The Poisson equation appears in different contexts in natural and engineering sciences.
+  For instance, $u$ is the displacement of a membrane localized in $\Omega \subset \R^2$, where $f$ describes a force and $u = 0$ on $\partial\Omega$ that the membrane is fixed on $\partial\Omega$.
+  $u$ can also describe the temperature distribution in a solid $\Omega$ (stationary in time), where $f$ is a source of energy and the temperature on the boundary on $\partial\Omega$ is given.
+  If $u$ is the concentration of a chemical substance, $f$ describes the production of the chemical and there is no chemical on $\partial\Omega$.
+  In the latter two cases $\Delta u$ describes the diffusion or heat conduction with the flux $-\nabla u$.
+
+  Often we do not have classical solutions to \eqref{eq:poissonDirichlet} or we cannot show easily the existence of a classical solution.
+  Therefore, different concepts of generalized solutions are used and we will focus here on weak solutions.
+
+\section{The Concept of Weak Solutions}
+
+Let $u$ be a classical solution to \eqref{eq:poissonDirichlet}.
+Then integrating by parts, we obtain
+\begin{equation}
+  \label{eq:weakPoissonDirichlet}
+  \int_\Omega \nabla u(x) \cdot \nabla \varphi(x) \d x = \int_\Omega f(x) \varphi(x) \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+\end{equation}
+For this identity we only need $u \in \CC^1(\Omega)$ or even $u \in \HH^1(\Omega)$ is sufficient.
+Recall that $\HH^k(\Omega) = \WW^{k,2}(\Omega)$ and $\HH_0^k(\Omega) = \WW_0^{k,2}(\Omega)$.
+In particular, if $u \in \HH_0^1(\Omega)$ and $\partial\Omega \in \CC^1$, $u$ satisfies $\Tr(u) = 0$ by Theorem \ref{thm:trace} so that the boundary condition $u = 0$ holds in a weak sense.
+
+Another concept of generalized solutions for \eqref{eq:poissonDirichlet} is the so called strong solution which has the weak derivatives of second order so that $-\Delta u(x) = f(x)$ a.e. in $\Omega$.
+
+\begin{defn}
+  \begin{enumerate}[a)]
+    \item A \emph{weak solution} to \eqref{eq:poissonDirichlet} is  a function in $\HH_0^1(\Omega)$ satisfying 
+      \begin{equation}
+        \label{eq:weakSolution}
+        \int_\Omega \nabla u \cdot \nabla v \d x = \int_\Omega f v \d x \quad\text{for all } v \in \HH_0^1(\Omega).
+      \end{equation}
+    \item A \emph{strong solution} to \eqref{eq:weakPoissonDirichlet} is a function $u \in \HH_{\loc}^2(\Omega) \cap \HH_0^1(\Omega)$ satisfying $-\Delta u = f$ a.e. in $\Omega$.
+  \end{enumerate}
+\end{defn}
+
+Note that \eqref{eq:weakPoissonDirichlet} and \eqref{eq:weakSolution} are equivalent as $\CC_0^\infty(\Omega)$ is dense in $\HH_0^1(\Omega)$.
+If $u$ is a classical solution to \eqref{eq:poissonDirichlet} as it satisfies \eqref{eq:weakPoissonDirichlet},
+$u$ is also a strong solution.
+
+If $u \in \HH_0^1(\Omega)$ is a weak solution to \eqref{eq:poissonDirichlet} satisfying $u \in \HH_{\loc}^2(\Omega)$, then by \eqref{eq:weakSolution} and the definition of weak derivatives we have
+\begin{align*}
+\int_\Omega f \varphi \d x
+&= \int_\Omega \nabla u \cdot \nabla \varphi \d x
+= \sum_{i = 1}^n \int_\Omega u_{x_i} \varphi_{x_i} \d x \\
+&= -\sum_{i = 1}^n \int_\Omega u_{x_i x_i} \varphi\d x 
+= \int_\Omega (-\Delta u) \varphi \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
+\end{align*}
+
+Hence, by Lemma \ref{lem:fundamental}, $-\Delta u = f$ a.e. in $\Omega$ and $u$ is a strong solution. If $u$ satisfies in addition $u \in \CC^2(\Omega) \cap \CC^0(\overline\Omega)$ and $f \in \CC^0(\Omega)$, then $-\Delta u = f$ a.e. in $\Omega$ holds in a classical sense. 
+By continuity and since $u \in \HH_0^1(\Omega) \cap \CC^0(\overline\Omega)$ implies $0 = \Tr(u) = u|_{\partial\Omega}$, we deduce that $u$ is a classical solution to \eqref{eq:poissonDirichlet}.
+
+We will therefore first show the existence of a unique weak solution to \eqref{eq:poissonDirichlet} and then try to show that $u$ has more regularity to deduce that it is a strong or even classical solution.
+
+For a general boundary condition $u = g$ on $\partial\Omega$ for the Poisson equation $-\Delta u = f$ in $\Omega$, one requires that $g \in \Ell^2(\partial\Omega)$ is such that $g = \Tr(w)$ for some $w \in \HH^1(\Omega)$.
+Then $u \in \HH^1(\Omega)$ is called a weak solution of this problem, if $\tilde u \coloneqq u - w \in \HH_0^1(\Omega)$ and 
+$$
+\int_\Omega \nabla \tilde u \cdot \nabla v \d x
+= \int_\Omega (f v - \nabla w \cdot \nabla w) \d x \quad\text{for all } v \in \HH_0^1(\Omega).
+$$
+
+\section{Existence and Uniqueness of Weak Solutions}
+
+In order to prove the existence of weak solutions to \eqref{eq:poissonDirichlet}, we need to introduce the concept of a bounded linear operator on the dual space.
+For more details we refer to the function al analysis course or e.g. \cite[Sections 2.3, 2.4]{dobrowolski2010angewandte}.
+
+\begin{defn}
+  Let $X$ and $Y$ be real Banach spaces and $H$ be a real Hilbert space.
+  \begin{enumerate}[a)]
+    \item A mapping $A \colon X \to Y$ is called \emph{bounded linear operator} if $A(\lambda u + \mu v) = \lambda A(u) + \mu A(v)$ for all $u,v \in X$, $\lambda, \mu \in \R$ and there is $C> 0$ such that $\|A(u)\|_Y \leq C \, \|u\|_X$ for all $u \in X$.
+      Then, $\|A\| \coloneqq \sup\{\|A(u)\|_Y \colon \|u\|_X \leq 1 \} < \infty$.
+    \item A bounded linear operator $u^* \colon X \to \R$ is called \emph{bounded linear functional} with $\|u^*\|_{X^*} \coloneqq \sup\{u^*(u) \colon \|u\|_X \leq 1\}$.
+      Then
+      $$
+      X^* \coloneqq \{ u^* \colon X \to \R \colon u^* \text{ linear, } \|u^*\|_{X^*} < \infty\}
+      $$
+      is the \emph{dual space of} $X$.
+      $X^*$ is a Banach space with norm $\|\,\cdot\,\|_{X^*}$ and we denote by $\langle u^*, u\rangle_X \coloneqq u^*(u) \in \R$ for all $u \in X, u^* \in X^*$ the \emph{pairing of $X^*$ and $X$}.
+    \item If $H$ is a Hilbert space, then $H^*$ is a Hilbert space.
+      For $k \in \N$ and $\Omega \subset \R^n open$, we denote the dual space of $\HH_0^k(\Omega)$ by $\HH^{-k}(\Omega) \coloneq (\HH_0^k(\Omega))^*$.
+  \end{enumerate}
+\end{defn}
+
+The elements of $H^*$ have a very specific form.
+
+\begin{thm}[Riesz representation theorem]
+  \label{thm:RieszFrechet}
+  Let $H$ be a Hilbert space with scalar product $(\,\cdot\, , \,\cdot\,)$.
+  Then for each $u^* \in H^*$ there exists a unique $u \in H$ such that
+  $$
+  \langle u^*, v \rangle_H = (\,\cdot\, , \,\cdot\,) \quad\text{for all } v \in H.
+  $$
+  The mapping $u^* \to u$ is a linear isomorphism of $H^*$ onto $H$.
+\end{thm}
+
+\begin{proof}
+  See \cite[Satz 2.25]{dobrowolski2010angewandte}.
+\end{proof}
+
+The theorem of Lax-Milgram provides the basis for the existence of weak solutions.
+Int the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \int_\Omega \nabla u \cdot \nabla v \d x$ is bilinear.
+
+\begin{thm}[Lax-Milgram]
+  Let $H$ be a Hilbert space with inner product $(\,\cdot\, , \,\cdot\,)$.
+  Assume that $B \colon H \times H \to \R$ is a bilinear mapping such that there exist $\alpha, \beta > 0$ with 
+  \begin{align}
+    \label{eq:contBil}
+    |B[u,v]| &\leq \alpha \|u\|_H \|v\|_H \quad\text{for all } u, v \in H \\
+    \label{eq:coercive}
+    \beta \|u\|_H^2 &\leq B[u,u] \;\quad\quad\quad\text{for all } u \in H.
+  \end{align}
+  Moreover, let $F^* \in H^*$.
+  Then there exists a unique $u \in H$ such that
+  \begin{equation}
+    \label{eq:functionalSolution}
+    B[u,v] = \langle F^*, v \rangle_H \quad \text{for all } v \in H.
+  \end{equation}
+\end{thm}
+
+\begin{proof}
+  We will only prove the case of $B$ being symmetric.
+  For the general case we refer to \cite[Theorem 1 in Section 6.2.1]{evans2010partial}.
+  Assume that $B[u,v] = B[v,u]$ for all $u,v \in H$.
+  Then we claim that
+  $$
+  (\!(\!( u, v )\!)\!) \coloneqq B[u,v] \quad\text{for all } u,v \in H.
+  $$
+  defines a scalar product on H.
+  Indeed $(\!(\!(\,\cdot\, , \,\cdot\, )\!)\!)$ is bilinear and symmetric and by \eqref{eq:coercive} $(\!(\!(u,u )\!)\!) \geq 0$ for all $u \in H$ and $(\!(\!( u,u )\!)\!) = 0$ if and only if $u = 0$.
+  If we define the associated norm via $\vertiii u \coloneqq \Big( B[u,v] \Big)^{\frac{1}{2}}$, \eqref{eq:contBil} and \eqref{eq:coercive} imply
+  $$
+  \sqrt{\beta} \, \|u\|_H \leq \vertiii u \leq \sqrt{\alpha} \, \|u\|_H \quad\text{for all } u \in H.
+  $$
+  Hence, $\vertiii{ \,\cdot\,}$ and $\|\,\cdot\,\|_H$ are equivalent norms on $H$ so that it is equivalent to use either $(\!(\!( \,\cdot\, , \,\cdot\, )\!)\!)$ or $(\,\cdot\, , \,\cdot\,)$ on $H$ as a scalar product. In particular, $H$ becomes again a Hilbert space with respect to the new scalar product $(\!(\!( \,\cdot\, , \,\cdot\, )\!)\!)$.
+
+  Then applying Theorem \ref{thm:RieszFrechet} (with $(\!(\!( \,\cdot\, , \,\cdot\, )\!)\!)$), we obtain $u \in H$ such that
+  $$
+  \langle F^* , v \rangle_H = (\!(\!( u , v )\!)\!).
+  $$
+  Hence, $u$ satisfies \eqref{eq:functionalSolution}.
+
+  $u$ is unique, because if $u_1, u_2 \in H$ satisfy \eqref{eq:functionalSolution}, then
+  $$
+  B[u_1 - u_2, v] = B[u_1, v] - B[u_2, v] = 0 \quad\text{for all } v \in H.
+  $$
+  But then by \eqref{eq:coercive} we have
+  $$
+  \beta \, \|u_1 - u_2\|_H^2 \leq B[u_1 - u_2, u_1 - u_2] = 0
+  $$
+  so that $u_1 = u_2$.
+\end{proof}
+
+Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDirichlet}.
+
+\begin{thm}
+  Let $\Omega$ be a bounded domain and $f \in \Ell^2(\Omega)$.
+  Then there exists a unique weak solution $u \in \HH_0^1(\Omega)$ to \eqref{eq:poissonDirichlet}.
+\end{thm}
