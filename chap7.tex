@@ -118,6 +118,7 @@ The theorem of Lax-Milgram provides the basis for the existence of weak solution
 Int the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \int_\Omega \nabla u \cdot \nabla v \d x$ is bilinear.
 
 \begin{thm}[Lax-Milgram]
+  \label{thm:Lax-Milgram}
   Let $H$ be a Hilbert space with inner product $(\,\cdot\, , \,\cdot\,)$.
   Assume that $B \colon H \times H \to \R$ is a bilinear mapping such that there exist $\alpha, \beta > 0$ with 
   \begin{align}
@@ -173,3 +174,19 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
   Let $\Omega$ be a bounded domain and $f \in \Ell^2(\Omega)$.
   Then there exists a unique weak solution $u \in \HH_0^1(\Omega)$ to \eqref{eq:poissonDirichlet}.
 \end{thm}
+
+\begin{proof}
+  We apply the Lax-Milgram Theorem \ref{thm:Lax-Milgram} to $H \coloneqq \HH_0^1(\Omega)$, $B[u,v] \coloneqq \int_\Omega \nabla u \cdot \nabla v \d x$ for $u,v \in \HH_0^1(\Omega)$ and $F^* \colon \HH_0^1(\Omega) \to \R$, $\langle F^*, v \rangle_{\HH_0^1(\Omega)} \coloneqq \int_\Omega f v \d x$.
+  \begin{enumerate}[i)]
+    \item Obviously, $B$ is bilinear and symmetric with $B \colon H \times H \to \R$.
+      Moreover, by Hölder's inequality and the Poincar\'e inequality \eqref{eq:poincare} (with constant $C_p > 0$) we have
+      \begin{align*}
+        |B[u,v]| 
+        &\leq \|\nabla u\|_{\Ell^2(\Omega)} \|\nabla v\|_{\Ell^2(\Omega)}
+        \leq \|u\|_{\HH^1(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } u, v \in \HH_0^1(\Omega) \\
+        \|u\|_{\HH^1(\Omega)} &= \|u\|_{\Ell^2(\Omega)}^2 + \|\nabla u\|_{\Ell^2(\Omega)}^2 \\
+        &\leq (C_p^2 + 1) \|\nabla u\|_{\Ell^2(\Omega)}^2  
+        = (C_p^2 + 1) B[u,u] \quad\text{for all } u \in \HH_0^1(\Omega),
+      \end{align*}
+  \end{enumerate}
+\end{proof}
