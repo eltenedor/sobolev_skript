@@ -19,7 +19,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
   \begin{enumerate}[a)]
     \item By Theorem \ref{thm:mollification}, we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
   $$
-    \DD^\alpha (u_\varepsilon)(x) = \int_\Omega \DD_x^\alpha \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \Omega,
+  \DD^\alpha (u_\varepsilon)(x) = \int_\Omega (\DD^\alpha \eta_\varepsilon)(x - y) u(y) \d y, \quad x \in \Omega,
   $$
     see proof of Theorem \ref{thm:mollification} a), d).
     For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
@@ -33,7 +33,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
     \end{align*}
     Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
 
-  \item In view of a) and Theorem \ref{thm:mollifier} d), for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon$ for $\varepsilon$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
+  \item In view of a) and Theorem \ref{thm:mollifier} d), for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon \subseteq \Omega_{\varepsilon_0}$ for $\varepsilon_0$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
      Then
      \begin{align*}
      \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0 \quad\text{as } \varepsilon \downarrow 0. &\qedhere

@@ -169,11 +169,11 @@ As the weak derivative is well-defined, we may now define Sobolev spaces consist
     $$
     \Big| \int_{\partial \BB_\varepsilon(0)} u \, \varphi \,  \nu_i \d \sigma \Big|
       \leq \|\varphi\|_{\Ell^\infty(\Omega)} \int_{\partial \BB_\varepsilon(0)} \varepsilon^{-a} \d \sigma
-      \leq C \varepsilon^{k - 1 - a} \to 0 \quad\text{as } \varepsilon \downarrow 0.
+      \leq C \varepsilon^{n - 1 - a} \to 0 \quad\text{as } \varepsilon \downarrow 0.
     $$
     Hence, for $a < n - 1$ we may pass to the limit $\varepsilon \downarrow 0$ in \eqref{eq:greenFormulaEx} and obtain $\int_\Omega u\varphi_{x_i} \d x = - \int_\Omega u_{x_i} \varphi \d x$.
     Hence, the weak derivative $u_{x_i}$ exists for $a < n - 1$.
-    Hence, $u \in \WW^{1,p}(\Omega)$ if $u \in \Ell^p(\Omega)$ and $\nabla u = \frac{-a x}{|x|^{a + 2}} \in \Ell^p(\Omega)^n$, i.e. $ap < p$ and $(a + 1)p < n$.
+    Hence, $u \in \WW^{1,p}(\Omega)$ if $u \in \Ell^p(\Omega)$ and $\nabla u = \frac{-a x}{|x|^{a + 2}} \in \Ell^p(\Omega)^n$, i.e. $ap < n$ and $(a + 1)p < n$.
     We conclude that
     $$
     u \in \WW^{1,p}(\Omega) \iff a < \frac{n - p}{p} \text{ (and $p < n$)}.
@@ -265,8 +265,9 @@ Finally, we show that $\WW^{k,p}(\Omega)$ is a Banach space.
       = \|u\|_{\WW^{k,p}(\Omega)} + \|v\|_{\WW^{k,p}(\Omega)}.
     \end{align*}
     All other properties of the norm are easily verified for $\|\cdot\|_{\WW^{k,p}(\Omega)}$.
+    A similar calculation gives the claim for $p = \infty$.
 
-    Let $(u_m)_{m \in \N}$ be a Cauchy sequence in $\WW^{k,p}(\Omega)$.
+    Now let $p \in [1,\infty]$ and  $(u_m)_{m \in \N}$ be a Cauchy sequence in $\WW^{k,p}(\Omega)$.
     Then for all $|\alpha|\leq k$, $(\DD^\alpha u_m)_{m \in \N}$ is a Cauchy sequence in $\Ell^p(\Omega)$ as 
     $
     \|\DD^\alpha u_m - \DD^\alpha u_l \|_{\Ell^p(\Omega)} \leq \|u_m - u_l \|_{\WW^{k,p}(\Omega)}.
