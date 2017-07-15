@@ -183,10 +183,20 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
       \begin{align*}
         |B[u,v]| 
         &\leq \|\nabla u\|_{\Ell^2(\Omega)} \|\nabla v\|_{\Ell^2(\Omega)}
-        \leq \|u\|_{\HH^1(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } u, v \in \HH_0^1(\Omega) \\
+        \leq \|u\|_{\HH^1(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } u, v \in \HH_0^1(\Omega) \text{ and } \\
         \|u\|_{\HH^1(\Omega)} &= \|u\|_{\Ell^2(\Omega)}^2 + \|\nabla u\|_{\Ell^2(\Omega)}^2 \\
         &\leq (C_p^2 + 1) \|\nabla u\|_{\Ell^2(\Omega)}^2  
-        = (C_p^2 + 1) B[u,u] \quad\text{for all } u \in \HH_0^1(\Omega),
+        = (C_p^2 + 1) B[u,u] \quad\text{for all } u \in \HH_0^1(\Omega)
       \end{align*}
+      so that \eqref{eq:contBil} and \eqref{eq:coercive} hold with $\alpha = 1$ and $\beta = \frac{1}{C_p^2 + 1}$.
+
+    \item Obviously, $\langle F^*, v \rangle_{\HH_0^1(\Omega)} = \int_\Omega f v \d x$ is linear in $v$ and by Hölder
+      $$
+      |\langle F^*, v \rangle|_{\HH_0^1(\Omega)}
+      \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\Ell^1(\Omega)}
+      \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } v \in \HH_0^1(\Omega).
+      $$
+      Hence, $F^* \in \HH^*$ with $\|F^*\|_{\HH^*} \leq \| f \|_{\Ell^2(\Omega)}$.
+      In view of i) and ii) the claim follows from the Lax-Milgram theorem. \qedhere
   \end{enumerate}
 \end{proof}
