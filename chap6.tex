@@ -3,7 +3,7 @@
 We ask the question if $u \in \WW^{k,p}(\Omega)$ automatically belongs to some other function spaces.
 The answer is \emph{yes}, but we will see that to which spaces $u$ belongs depends on $p$, e.g. for $k = 1$ and $p < n$, $p = n$ or $p > n$.
 
-More precisely we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space $Y$ in the following sense.
+More precisely, we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space $Y$ in the following sense.
 
 \begin{defn}
   \label{defn:embedding}
@@ -30,7 +30,7 @@ Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ th
 
 \begin{motiv}
   We first demonstrate that if \eqref{eq:sobolevTypeIneq} holds, then $q$ has to have a specific form:
-  To this end, let $u \in \CC_0^\infty(\Omega)$ with $u \not\equiv 0$ and for $\lambda > 0$
+  To this end, let $u \in \CC_0^\infty(\Omega)$ with $u \neq 0$ and for $\lambda > 0$
   $$
   u_\lambda(x) \coloneqq u(\lambda x) \quad\text{for all } x \in \R^n.
   $$
@@ -42,17 +42,16 @@ Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ th
     \int_{\R^n} |\nabla u_\lambda(x) |^p \d x &= \lambda^p \int_{\R^n} |(\nabla u)(\lambda x)|^p \d x = \frac{\lambda^p}{\lambda^n} \int_{\R^n} |\nabla u(y)|^p \d y.
   \end{align*}
   If \eqref{eq:sobolevTypeIneq} holds for any $\lambda > 0$, then 
-  $$
+  \begin{align}
   \lambda^{-\frac{n}{q}} \| u\|_{\Ell^q(\R^n)}
   = \| u_\lambda\|_{\Ell^q(\R^n)}
-  \leq C \, \|\nabla u_\lambda\|_{\Ell^p(\R^n)}
-  = C \, \lambda^{1 - \frac{n}{p}} \| \nabla u \|_{\Ell^p(\R^n)}
-  $$
-  and therefore
-  \begin{equation}
+    &\leq C \, \|\nabla u_\lambda\|_{\Ell^p(\R^n)}
+  = C \, \lambda^{1 - \frac{n}{p}} \| \nabla u \|_{\Ell^p(\R^n)} \nonumber\\
+  \intertext{and therefore}
     \label{eq:sobolevConjMotiv}
-    \|u \|_{\Ell^q(\R^n)} \leq C \, \lambda^{1 - \frac{n}{p} + \frac{n}{q}} \|\nabla u\|_{\Ell^p(\R^n)}.
-  \end{equation}
+    \|u \|_{\Ell^q(\R^n)} 
+    &\leq C \, \lambda^{1 - \frac{n}{p} + \frac{n}{q}} \|\nabla u\|_{\Ell^p(\R^n)}.
+\end{align}
   But if $1 - \frac{n}{p} + \frac{n}{q} \neq 0$, then sending $\lambda$ to either $0$ or $\infty$ in \eqref{eq:sobolevConjMotiv} yields $u \equiv 0$, a contradiction.
 
   Hence, if \eqref{eq:sobolevTypeIneq} is satisfied, then necessarily we must have $\frac{1}{q} = \frac{1}{p} - \frac{1}{n}$ and $q = \frac{n p }{n - p}$.
@@ -88,7 +87,7 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
       \begin{align*}
         u(x) &= \int_{-\infty}^{x_i} u_{x_i}(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots, x_n) \d y_i \\
         \intertext{and}
-        |u(x)| &\leq \int_{-\infty}^\infty |\nabla u(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots,x_n) \d y_i. \\
+        |u(x)| &\leq \int_{-\infty}^\infty |\nabla u(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots,x_n)| \d y_i. \\
         \intertext{Hence,}
         |u(x)|^{\frac{n}{n - 1}} &\leq \prod_{i = 1}^n \left( \int_{-\infty}^\infty |\nabla u(x_1,\dots,x_{i - 1}, y_i, x_{i + 1}, \dots, x_n) | \d y_i \right)^{\frac{1}{n - 1}}.
       \end{align*}
@@ -103,11 +102,11 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
       \begin{align*}
         \int_{-\infty}^\infty &\int_{-\infty}^\infty |u(x)|^{\frac{n}{n - 1}} \d x_1 \d x_2 \\
         &\leq \left( \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \\
-        &\quad\quad \cdot \left[ \int_{-\infty}^\infty \left( \int_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty  |\nabla u| \d x_1 \d y_i \right)^{\frac{1}{n - 1}} \d x_2 \right] \\
+        &\quad\quad \cdot \int_{-\infty}^\infty  \left[ \left( \int_{-\infty}^\infty |\nabla u| \d y_1 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty  |\nabla u| \d x_1 \d y_i \right)^{\frac{1}{n - 1}} \right] \d x_2 \\
         &\leq \left( \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d y_2 \d x_1 \right)^{\frac{1}{n - 1}} \\
-        &\quad\quad \cdot \left( \int_{-\infty}^\infty \int_{-\infty}^\infty | \nabla u| \d y_1 \d x_2 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d x_1 \d x_2 \d y_i  \right)^{\frac{1}{n - 1}}
+        &\quad\quad \cdot \left( \int_{-\infty}^\infty \int_{-\infty}^\infty | \nabla u| \d y_1 \d x_2 \right)^{\frac{1}{n - 1}} \prod_{i = 3}^n \left( \int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty |\nabla u| \d x_1 \d x_2 \d y_i  \right)^{\frac{1}{n - 1}}.
       \end{align*}
-      Continuing like this and integrating with respect to $x_3,\dots,x_n$ we finally have
+      Continuing like this and integrating with respect to $x_3,\dots,x_n$, we finally have
       \begin{align}
         \label{eq:gagliardoNirenbergStep1}
         \int_{\R^n} |u(x)|^{\frac{n}{n - 1}} \d x
@@ -131,7 +130,7 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
       $$
       Thus, in view of $\frac{n - 1}{n} - \frac{p - 1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}$, \eqref{eq:gagliardoNierenberg2} becomes \eqref{eq:gagliardoNirenbergSobolevIneq} for $C = \gamma$.
 
-    \item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide} for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \C_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$.
+    \item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide} for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$.
       Hence, $\nabla u_m \to \nabla u$ in $\Ell^p(\R^n)$ and, as \eqref{eq:gagliardoNirenbergSobolevIneq} holds for any $u_m$, in the limit $l \to \infty$ we conclude by Fatou's lemma that $u$ satisfies \eqref{eq:gagliardoNirenbergSobolevIneq} since $u_{m_l} \to u$ a.e. in $\R^n$.
       As \eqref{eq:gagliardoNirenbergSobolevIneq} therefore holds for all $u \in \WW^{1,p}(\R^n)$, $\WW^{1,p}(\R^n)$ is continuously embedded into $\Ell^{p^*}(\R^n)$. \qedhere
   \end{enumerate}
@@ -262,7 +261,7 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
 \begin{rem}
   If $n = 1$ and $\Omega = (a,b)$ is bounded, in face $\WW^{1,1}((a,b))$ and $\WW_0^{1,1}((a,b))$ are both continuously embedded to $\CC^0([a,b])$.
   This can be proved with Proposition \ref{prop:embeddingspeqn} c) (with the choice of a continuous representative of $u \in \WW^{1,1}((a,b))$ ).
-  For $n \geq 2$, $\WW^{1,n}(\BB_1(0)) \not\subset \Ell^\infty(\BB_1(0))$, as e.g. $u(x) = \ln(\ln(1 + \frac{1}{|x|}))$ satisfies $u \in \WW^{1,n}(\BB_1(0))$ and $u \not\in \Ell^\infty(\BB_1(0))$ (see Exercise).
+  For $n \geq 2$, $\WW^{1,n}(\BB_1(0)) \not\subset \Ell^\infty(\BB_1(0))$, as e.g. $u(x) = \ln(\ln(1 + \frac{1}{|x|}))$ satisfies $u \in \WW^{1,n}(\BB_1(0))$ and $u \notin \Ell^\infty(\BB_1(0))$ (see Exercise).
 \end{rem}
 
 \section{Embeddings into Hölder Spaces}
@@ -460,7 +459,7 @@ Let $\Omega$ be a bounded domain, $p \in (n,\infty]$ and $\gamma = 1 - \frac{n}{
 
 \begin{rem}
       In view of Theorem \ref{thm:sumEmbeddingHoelder} b), for any bounded domain $\Omega \subset \R^n$ with $\partial\Omega \in \CC^1$ we may define the trace $\Tr \colon \WW^{1,\infty}(\Omega) \to \CC^0(\partial\Omega), \Tr(u) \coloneqq u^*|_{\partial\Omega}$ which particularly shows that any $u \in \WW_0^{1,\infty}(\Omega)$ satisfies $\Tr(u) = 0$.
-      However, $u(x) \coloneqq 1 - |x| \in \WW^{1,\infty}(\BB_1(0))$ with $u = 0$ on $\partial\BB_1(0)$. (Hence, $\Tr(u) = 0$, but $u \not\in \WW_0^{1,\infty}(\BB_1(0))$, as $\|\nabla u - \nabla \varphi\|_{\Ell^\infty(\BB_1(0))} \geq 0$ for all $\varphi \in \CC_0^\infty(\BB_1(0))$.)
+      However, $u(x) \coloneqq 1 - |x| \in \WW^{1,\infty}(\BB_1(0))$ with $u = 0$ on $\partial\BB_1(0)$. (Hence, $\Tr(u) = 0$, but $u \notin \WW_0^{1,\infty}(\BB_1(0))$, as $\|\nabla u - \nabla \varphi\|_{\Ell^\infty(\BB_1(0))} \geq 0$ for all $\varphi \in \CC_0^\infty(\BB_1(0))$.)
 \end{rem}
 
 \begin{proof}[Proof of Theorem \ref{thm:sumEmbeddingHoelder}]
@@ -659,7 +658,7 @@ for $x \in \R$ denote the \emph{floor function}.
   Since $k = l+1$ implies $p = n$, the above inequality is trivial for $k = l + 1$.
   But then, similar to the first part of i), we deduce from Proposition \ref{prop:embeddingspeqn} that $\WW^{l+1,n}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ for all $q \in [1,\infty)$, which implies b).
     
-  \item \emph{Proof of c)}: For $\frac{n}{p} \not\in\N_0$ we have $k - \frac{n}{p} < l + 1$ and \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ implies
+  \item \emph{Proof of c)}: For $\frac{n}{p} \notin\N_0$ we have $k - \frac{n}{p} < l + 1$ and \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ implies
     $$
   \|u\|_{\WW^{l+1,p_{k - l - 1}}(\Omega)} \leq C_7 \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega).
     $$

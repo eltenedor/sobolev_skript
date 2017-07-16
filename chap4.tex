@@ -110,7 +110,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   and there is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
   Let $\tau$ be a cutoff\hyp{}function w.r.t $K, \Omega_0$ and
   $$
-  \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)} &\quad\text{if } x \in \Omega_0, \\ 0 &\quad \text{if } x \not\in \Omega_0. \end{cases}
+  \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)} &\quad\text{if } x \in \Omega_0, \\ 0 &\quad \text{if } x \notin \Omega_0. \end{cases}
   $$
   Then $\psi_1,\dots,\psi_N$ have the claimed properties.
 \end{proof}
@@ -295,7 +295,7 @@ Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^
 
 \begin{rem}
   Let $\Omega$ be a bounded domain with $\partial \Omega \in \CC^1$.
-  Then for any $x^0\in \partial\Omega$ there is a unique outward unit vector $\nu(x^0)$, i.e. $|\nu| = 1$, $\nu(x^0) \perp y$ for all $y \in \TT(x^0)$, where $\TT(x^0)$ is the tangential space on $\partial\Omega$ in $x^0$ and $x^0 + t\nu(x^0) \not\in\overline\Omega$ for all $t \in (0,\varepsilon_0)$ for $\varepsilon_0 > 0$ small.
+  Then for any $x^0\in \partial\Omega$ there is a unique outward unit vector $\nu(x^0)$, i.e. $|\nu| = 1$, $\nu(x^0) \perp y$ for all $y \in \TT(x^0)$, where $\TT(x^0)$ is the tangential space on $\partial\Omega$ in $x^0$ and $x^0 + t\nu(x^0) \notin\overline\Omega$ for all $t \in (0,\varepsilon_0)$ for $\varepsilon_0 > 0$ small.
 
   Indeed, as 
   $$
@@ -436,7 +436,7 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
       $$
       By the choice of $t$, we have $\Gamma_t \subset U_i$ and $\Gamma_t \cap \overline{\Omega} = \emptyset$.
       The latter follows from the segment condition: For $z = x - sy$ with $x \in \Gamma$ and $s \in (0,1)$ we have $z + sy = x \in \Gamma \subset \partial\Omega$.
-      Hence, $z \not\in\overline{\Omega}$ so that $\Gamma_t \cap \overline\Omega = \emptyset$.
+      Hence, $z \notin\overline{\Omega}$ so that $\Gamma_t \cap \overline\Omega = \emptyset$.
       Define 
       $$
       w_t(x) \coloneqq u_i(x + ty) \quad\text{for all } x \in \R^n.
