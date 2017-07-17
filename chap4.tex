@@ -195,6 +195,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
 
 \begin{prop}
+  \label{prop:sobolevChainrule}
   Let $\Omega$ be open, $p \in [1,\infty)$, and $f \in \CC^1(\R)$ such that $|f'| \leq M$ on $\R$ for some $M > 0$.
   Assume further that $f(0) = 0$ or $|\Omega| < \infty$ is satisfied.
   Then for any $u \in \WW^{1,p}(\Omega)$ we have $f(u)$ in $\WW^{1,p}(\Omega)$ with $$\nabla f(u) = f'(u) \nabla u.$$
@@ -252,8 +253,31 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
     $\nabla u_+(x) = \nabla u(x) \chi_{\{ u > 0\}}(x)$, $\nabla u_-(x) = -\nabla u(x) \chi_{\{ u < 0\}}(x)$, and $\nabla|u|(x) = \nabla u(x) \left( \chi_{\{ u > 0\} } (x) - \chi_{\{u < 0\}} (x) \right)$.
 \end{cor}
 
-\begin{proof}
-  Exercise.
+\begin{proof}[Proof (Exercise)]
+  For $\varepsilon > 0$ we define
+  $$
+  f_\varepsilon(u) \coloneqq
+  \begin{cases}
+    \sqrt{u^2 + \varepsilon^2} - \varepsilon, &\quad\text{if } u > 0,\\
+    0, &\quad\text{if } u \leq 0.
+  \end{cases}
+  $$
+  Then $f_\varepsilon \in \CC^1(\R)$ satisfies $f_\varepsilon(0) = 0$ and $f_\varepsilon'(u) = \frac{u}{\sqrt{u^2 + \varepsilon^2}} \cdot \chi_{(0,\infty)}(u)$ and hence $|f_\varepsilon'(u)| \leq 1$ for all $u \in \R$.
+  Hence, by Proposition \ref{prop:sobolevChainrule} we have $f_\varepsilon(u) \in \WW^{1,p}(\Omega)$ with 
+  \begin{align}
+    (f_\varepsilon(u))_{x_i} &= f_\varepsilon'(u) u_{x_i} = \frac{u u_{x_i}}{\sqrt{u^2 + \varepsilon^2}} \cdot \chi_{\{ u > 0\}}\nonumber\\
+    \intertext{and}
+    \label{eq:weakDerivativeOfPositivePart}
+    \int_\Omega f_\varepsilon(u) \varphi_{x_i} \d x
+    &= - \int_\Omega f_\varepsilon'(u) u_{x_i} \varphi \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+  \end{align}
+  Since $f_\varepsilon(u(x)) \to u_+(x)$ and $(f_\varepsilon'(u) u_{x_i})(x) \to u_{x_i}(x)\chi_{\{u > 0\}}(x)$ for a.e. $x \in \Omega$ and $|f_\varepsilon(u)\varphi_{x_i}| \leq \| \varphi_{x_i}\|_{\Ell^\infty(\Omega)} |u|$ as well as $|f_\varepsilon'(u) u_{x_i} \varphi|\leq \|\varphi\|_{\Ell^\infty(\Omega)} |u_{x_i}|$ are satisfied, we may let $\varepsilon\downarrow 0$ in \ref{eq:weakDerivativeOfPositivePart} and obtain from the dominated convergence theorem
+  $$
+  \int_\Omega u_+(x) \varphi_{x_i}(x) \d x
+  = - \int_\Omega u_{x_i}(x) \chi_{\{u > 0\}}(x) \varphi(x) \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
+  $$
+  This proves the claim for $u_+$.
+  In view of $u_- = (-u)_+$ and $|u| = u_+ + u_-$, the proof is complete due to Proposition \ref{prop:sobolevProperties}.
 \end{proof}
 
 \section{Approximation by \texorpdfstring{$\CC^\infty(\overline{\Omega})$}{C\textasciicircum infty(Omega) }-Functions}
