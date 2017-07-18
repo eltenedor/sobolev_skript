@@ -285,16 +285,52 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
 We now ask the question whether any $u \in \WW^{k,p}(\Omega)$ can also be approximated by functions $u_m \in \CC^\infty(\overline\Omega)$ instead of $u_m \in \CC^\infty(\Omega)$.
 The following example shows that this is not true for all open $\Omega \subset \R^n$.
 
-\begin{ex}
+\begin{ex}[Exercise]
+  \label{ex:noSegmentCondition}
   Let $\Omega = \{(x,y) \in \R^2 \colon 0 < |x| < 1, 0 < y < 1\}$ and $p \in [1,\infty)$.
   Then $u \colon \Omega \to \R$ defined by
   $$
-  u(x,y) \coloneqq \begin{cases} 1 \quad\text{if } x > 0,\\ 0 \quad\text{if } x < 0 \end{cases}
+  u(x,y) \coloneqq \begin{cases} 1 \quad\text{if } x > 0,\\ 0 \quad\text{if } x < 0, \end{cases}
   $$
-  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small there is no $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$. (Exercise)
+  belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small, there is no function $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$. 
+  
+  Indeed, it is obvious that $u \in \WW^{1,p}(\Omega)$ with $u_x = u_y = 0$ in $\Omega$ as $u \in \CC^1(\Omega)$.
+  Assume that for $\varepsilon > 0$ there exists $\varphi \in \CC^1(\overline\Omega)$ with $\| u - \varphi\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
+  Then with
+    $$
+    L \coloneqq \{ (x,y) \in \R^2 \colon x \in [-1,0] \} \quad\text{and}\quad
+    R \coloneqq \{ (x,y) \in \R^2 \colon x, y \in [0,1] \}
+    $$
+    we have $\overline\Omega = L \cup R$ and $|L| = |R| = 1$.
+    Hence, Hölder's inequality implies
+    $$
+    \|\varphi\|_{\Ell^1(L)} 
+    \leq \|\varphi\|_{\Ell^p(L)}
+    \leq \|\varphi\|_{\WW^{1,p}(\Omega)}
+    < \varepsilon
+    $$
+    and similarly $\|1 - \varphi\|_{\Ell^1(R)} < \varepsilon$.
+    The latter yields $\|\varphi\|_{\Ell^1(R)} > 1 - \varepsilon$, as $|R| = 1$.
+    Hence, with
+    $$
+    \psi(x) \coloneqq \int_0^1 \varphi(x,y) \d y,
+    $$
+    we have $\int_{-1}^0 \psi(x) \d x < \varepsilon$ and $\int_0^1 \psi(x) \d x > 1 - \varepsilon$ so that there exist $a \in [-1,0)$ and $b \in (0,1]$ with $\psi(a) < \varepsilon$ and $\psi(b) > 1 - \varepsilon$.
+    Then we get for $\varepsilon \in (0,\frac{1}{2})$ and $\frac{1}{p} + \frac{1}{q} = 1$
+    \begin{align*}
+      1 - 2\varepsilon
+      < \psi(b) - \psi(a)
+      &= \int_a^b \psi'(x) \d x
+      =\int_a^b \int_0^1 \psi_x(x,y) \d y \d x \\
+      &\hspace{-0.7em}\overset{\text{Fubini}}{\leq} \int_{\,\overline\Omega} |\psi_x (x,y)| \d x \d y
+      \overset{\text{Hölder}}{\leq} |\overline\Omega|^{\frac{1}{q}} \|\varphi_x\|_{\Ell^p(\Omega)}
+      < 2^{\frac{1}{q}}\varepsilon,
+    \end{align*}
+    as $\|\varphi_x\|_{\Ell^p(\Omega)} = \| u_x - \varphi_x\|_{\Ell^p(\Omega)} \|_{\Ell^p(\Omega)} \leq \|u - \varphi\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
+    But then $1 < \varepsilon(2 + 2^{\frac{1}{q}})$ which is not possible for $\varepsilon > 0$ small enough.  \qed
 \end{ex}
 
-The problem with $\Omega$ in the example is that it lies on both sides of the segment $\Gamma = \{(0,y) \colon y \in [0,1]\}$ with $\gamma \subset \partial \Omega$.
+The problem with $\Omega$ in Example \ref{ex:noSegmentCondition} is that it lies on both sides of the segment $$\Gamma = \{(0,y) \colon y \in [0,1]\}$$ with $\Gamma \subset \partial \Omega$.
 The following condition excludes this situation.
 Moreover, we assume from now on that $\Omega$ is a domain, i.e. open and connected.
 
