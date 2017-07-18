@@ -121,18 +121,16 @@ Int the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \
   \label{thm:Lax-Milgram}
   Let $H$ be a Hilbert space with inner product $(\,\cdot\, , \,\cdot\,)$.
   Assume that $B \colon H \times H \to \R$ is a bilinear mapping such that there exist $\alpha, \beta > 0$ with 
-  \begin{align}
+  \begin{alignat}{2}
     \label{eq:contBil}
-    |B[u,v]| &\leq \alpha \|u\|_H \|v\|_H \quad\text{for all } u, v \in H \\
+    |B[u,v]| &\leq \alpha \|u\|_H \|v\|_H &&\quad\text{for all } u, v \in H \text{ and}\\
     \label{eq:coercive}
-    \beta \|u\|_H^2 &\leq B[u,u] \;\quad\quad\quad\text{for all } u \in H.
-  \end{align}
-  Moreover, let $F^* \in H^*$.
-  Then there exists a unique $u \in H$ such that
-  \begin{equation}
+    \beta \|u\|_H^2 &\leq B[u,u] &&\quad\text{for all } u \in H.
+    \intertext{Moreover, let $F^* \in H^*$.
+    Then there exists a unique $u \in H$ such that}
     \label{eq:functionalSolution}
-    B[u,v] = \langle F^*, v \rangle_H \quad \text{for all } v \in H.
-  \end{equation}
+    B[u,v] &= \langle F^*, v \rangle_H &&\quad\text{for all } v \in H.
+  \end{alignat}
 \end{thm}
 
 \begin{proof}

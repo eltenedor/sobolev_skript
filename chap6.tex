@@ -71,7 +71,7 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
   Then there exists $C > 0$, depending only on $p$ and $n$, such that
   \begin{equation}
     \label{eq:gagliardoNirenbergSobolevIneq}
-    \| u\|_{\Ell^{p^*}(\R^n)} \leq C \, \|\nabla u\|_{\Ell^p(\R^n)}, \quad\text{for all } u \in \CC_0^1(\R^n).
+    \| u\|_{\Ell^{p^*}(\R^n)} \leq C \, \|\nabla u\|_{\Ell^p(\R^n)} \quad\text{for all } u \in \CC_0^1(\R^n).
   \end{equation}
   Moreover, we have $\WW^{1,p}(\R^n) \subset \Ell^{p^*}(\R^n)$ and \eqref{eq:gagliardoNirenbergSobolevIneq} holds for all $u \in \WW^{1,p}(\R^n)$
 \end{thm}
@@ -147,11 +147,11 @@ Using the previous result, we get a corresponding result on bounded domains.
 \begin{thm}[Embeddings for $\WW^{1,p}(\Omega), p < n$]
   \label{thm:embeddingpltn}
   Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$ and $p \in [1,n)$.
-    Then $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q$ for all $q \in [1,p^*]$.
+    Then $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ for all $q \in [1,p^*]$.
     More precisely, for any $q \in [1,p^*]$ there is $C > 0$ depending on $p$, $q$, $n$, and $\Omega$ such that
     \begin{equation}
       \label{eq:embeddingpltn}
-      \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega).
+      \|u\|_{\Ell^q(\Omega)} \leq C \, \| u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega).
     \end{equation}
 \end{thm}
 
@@ -176,21 +176,28 @@ Using the previous result, we get a corresponding result on bounded domains.
 
 For $\WW_0^{1,p}(\Omega)$, we get these embeddings without assumptions on $\partial\Omega$.
 
-\begin{thm}
+\begin{thm}[Embeddings for $\WW_0^{1,p}(\Omega), p < n$]
+%  Let $\Omega \subset \R^n$ be a bounded domain and $p \in [1,n)$.
+%  Then for any $q \in [1,p^*]$ there exists $C > 0$ depending only on $p$, $q$, $n$, and $\Omega$ such that 
+%  \begin{equation}
+%    \label{eq:gagliardoNirenbergBounded}
+%    \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\Ell^p(\Omega)} \quad\text{for all } u \in \WW_0^{1,p}(\Omega).
+%  \end{equation}
+%  In particular, $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$.
   Let $\Omega \subset \R^n$ be a bounded domain and $p \in [1,n)$.
-  Then for any $q \in [1,p^*]$ there exists $C > 0$ depending only on $p$, $q$, $n$, and $\Omega$ such that 
-  \begin{equation}
-    \label{eq:gagliardoNirenbergBounded}
-    \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\Ell^p(\Omega)} \quad\text{for all } u \in \WW_0^{1,p}(\Omega).
-  \end{equation}
-  In particular, $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$.
+    Then $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ for all $q \in [1,p^*]$.
+    More precisely, for any $q \in [1,p^*]$ there is $C > 0$ depending on $p$, $q$, $n$, and $\Omega$ such that
+    \begin{equation}
+      \label{eq:gagliardoNirenbergBounded}
+      \|u\|_{\Ell^q(\Omega)} \leq C \, \|\nabla u\|_{\Ell^p(\Omega)} \quad\text{for all } u \in \WW_0^{1,p}(\Omega).
+    \end{equation}
 \end{thm}
 
 \begin{proof}
   Since $u \in \WW_0^{1,p}(\Omega)$, there exist $u_m \in \CC_0^\infty(\Omega)$ such that $u_m \to u$ in $\WW^{1,p}(\Omega)$.
   We extend $u_m$ by $0$ on $\R^n\setminus \Omega$ and have $u_m \in \CC_0^\infty(\R^n)$ so that $u_m$ satisfies \eqref{eq:gagliardoNirenbergSobolevIneq} for all $m \in \N$.
   In particular, $\|u_m - u_j\|_{\Ell^{p^*}(\R^n)} \leq C \, \| \nabla u_m - \nabla u_j\|_{\Ell^p(\R^n)}$ for all $m,j$ so that $(u_m)_m$ is a Cauchy sequence in $\Ell^{p^*}(\Omega)$ with limit $v$.
-  As $u_{m_j} \to u$ a.e. in $\Omega$, we conclude that $v = u$, $u_m \to u$ in $\Ell^{p^*}(\Omega)$ and 
+  As $u_{m_j} \to u$ a.e. in $\Omega$, we conclude that $v = u$, $u_m \to u$ in $\Ell^{p^*}(\Omega)$, and 
   $$
   \|u\|_{\Ell^{p^*}(\Omega)}
   = \lim_{m \to \infty} \| u_m \|_{\Ell^{p^*}(\Omega)}
@@ -257,17 +264,17 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
   \label{prop:embeddingspeqn}
   Let $\Omega \subset \R^n$ be a bounded domain and $q \in [1,\infty)$.
     \begin{enumerate}[a)]
-      \item If $\partial\Omega \in \CC^1$, then $\WW^{1,n}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$. 
+      \item If $\partial\Omega \in \CC^1$, then $\WW^{1,n}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ and, with $C > 0$ depending on $q$, $n$, $\Omega$, we have
         %More precisely, there exists $C > 0$ depending on $q$, $n$, and $\Omega$ such that
-        \begin{align*}
-        \|u\|_{\Ell^q(\Omega)} &\leq C \, \|u\|_{\WW^{1,n}(\Omega)} \quad\text{for all } u \in \WW^{1,n}(\Omega)
+        \begin{alignat*}{2}
+          \|u\|_{\Ell^q(\Omega)} &\leq C \, \|u\|_{\WW^{1,n}(\Omega)} &&\quad\text{for all } u \in \WW^{1,n}(\Omega).
       \intertext{\item $\WW_0^{1,n}(\Omega)$ is continuously embedded to $\Ell^q(\Omega)$ and, with $C > 0$ depending on $q$, $n$, $\Omega$, we have}
-        \| u\|_{\Ell^q(\Omega)} &\leq C \, \|\nabla u\|_{\Ell^n(\Omega)} \quad\text{for all } \WW_0^{1,n}(\Omega).
+        \| u\|_{\Ell^q(\Omega)} &\leq C \, \|\nabla u\|_{\Ell^n(\Omega)} &&\quad\text{for all } \WW_0^{1,n}(\Omega).
     \intertext{\item If $n = 1$ and $\Omega = (a,b) \subset \R$ with $-\infty < a < b < + \infty$, then $\WW^{1,1}((a,b)) \subset \Ell^\infty((a,b))$ and there is $C > 0$ depending on $b - a$ such that}
-        \|u\|_{\Ell^\infty((a,b))} &\leq C \, \|u\|_{\WW^{1,1}((a,b))} \quad\text{for all } \WW^{1,1}((a,b))
+      \|u\|_{\Ell^\infty((a,b))} &\leq C \, \|u\|_{\WW^{1,1}((a,b))} &&\quad\text{for all } \WW^{1,1}((a,b))
         \intertext{and}
-        \|u\|_{\Ell^\infty((a,b))} &\leq \|u'\|_{\Ell^1((a,b))} \quad\text{for all } \WW_0^{1,1}((a,b)).
-      \end{align*}
+          \|u\|_{\Ell^\infty((a,b))} &\leq \|u'\|_{\Ell^1((a,b))} &&\quad\text{for all } \WW_0^{1,1}((a,b)).
+      \end{alignat*}
     \end{enumerate}
 \end{prop}
 
@@ -366,13 +373,18 @@ Then there is $C > 0$ depending only on $p$ and $n$ such that
       $$
 
     \item Let $u \in \CC^1(\R^n)$, $x \in \R^n$, $r > 0$,  and $\BB_r(x) \subset \R^n$ a ball.
-      Then there is $C_1 > 0$ depending only on $n$ such that
+      We want to estimate the difference between $u(x)$ and the mean of $u$ on $\BB_r(x)$
+      such that
       \begin{equation}
         \label{eq:meanEstimateByGradient}
-        \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |u(y) - u(x)| \d y
-        \leq C_1 \int_{\BB_r(x)} \frac{|\nabla u(y)|}{|y - x|^{n - 1}} \d y.
+        \begin{alignedat}{2}
+        \Big| u(x) - \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} u(y) \d y \Big|
+          &\leq \frac{1}{|\BB_r(x)|} &&\int_{\BB_r(x)} |u(y) - u(x)| \d y\\
+          &\leq \quad C_1 &&\int_{\BB_r(x)} \frac{|\nabla u(y)|}{|y - x|^{n - 1}} \d y
+      \end{alignedat}
       \end{equation}
-      In order to prove this, we fix $w \in \partial\BB_1(0)$.
+      holds for some $C_1 > 0$ depending only on $n$.
+      In order to prove the second inequality, we fix $w \in \partial\BB_1(0)$.
       Then for $s \in (0,r)$ we have
       $$
       |u(x + sw) - u(x)|
@@ -400,7 +412,7 @@ Then there is $C > 0$ depending only on $p$ and $n$ such that
       Dividing by $|\BB_r(x)| = \omega_n r^n$, we obtain \eqref{eq:meanEstimateByGradient} for $C_1 \coloneqq \frac{1}{\omega_n n}$.
 
     \item Now assume that $u \in \CC^1(\R^n) \cap \WW^{1,p}(\R^n)$ with $p \in (n,\infty)$.
-      Since the choice of $p$ implies $\frac{n - 1}{n} = 1 - \frac{1}{n} < \frac{p -1}{p}$, we have $ \frac{(n - 1)p}{p - 1} < 1$ and
+      Since the choice of $p$ implies $\frac{n - 1}{n} = 1 - \frac{1}{n} < \frac{p -1}{p}$, we have $ \frac{(n - 1)p}{p - 1} < 1 \leq n - 1$ and
       $$
       \int_{\BB_1(x)} |x - y|^{-\frac{(n - 1)p}{p - 1}} \d y
       \overset{\ref{sec:polar}}{=} \omega_n \int_0^1 r^{-\frac{(n - 1)p}{p - 1}} \cdot r^{n - 1}\d r = C_2(n,p) < \infty \quad\text{for all } x \in \R^n.
@@ -409,9 +421,10 @@ Then there is $C > 0$ depending only on $p$ and $n$ such that
       \begin{align*}
         |u(x)|
         &= \frac{1}{|\BB_1(x)|} \int_{\BB_1(x)} |u(x)|\d y  \\
-        &\leq \frac{1}{|\BB_1(x)|} \Big( \int_{\BB_1(x)} |u(x) - u(y)| \d y + \int_{\BB_1(x)} |u(y)| \d y \Big)\\
-        &\hspace{-2em}\overset{\eqref{eq:meanEstimateByGradient},\text{ Hölder}}{\leq} C_1 \int_{\BB_1(x)} \frac{|\nabla u(y)|}{|x - y|^{n - 1}} \d y + \frac{1}{|\BB_1(x)|} \Big( \int_{\BB_1(x)} 1^q \d y \Big)^{\frac{1}{q}} \Big( \int_{\BB_1(x)} |u(y)|^p \d y \Big)^{\frac{1}{p}} \\
-        &\hspace{-0.8em}\overset{\text{Hölder}}{\leq} C_1 \Big( \int_{\BB_1(x)} |\nabla u(y)|^p \d y \Big)^{\frac{1}{p}} \Big( \int_{\BB_1(x)} |x - y|^{-\frac{(n -1)p}{p - 1}} \d y \Big)^{\frac{p - 1}{p}} + |\BB_1(x)|^{-\frac{1}{p}} \|u\|_{\Ell^p(\R^n)} \\
+        &\leq \frac{1}{|\BB_1(x)|} \Big( \int_{\BB_1(x)} |u(x) - u(y)| \d y + \int_{\BB_1(x)} |u(y)| \d y \Big),\\
+        \intertext{which by \eqref{eq:meanEstimateByGradient} and the Hölder inequality can be estimated as}
+        &\leq C_1 \int_{\BB_1(x)} \frac{|\nabla u(y)|}{|x - y|^{n - 1}} \d y \,+\, \frac{1}{|\BB_1(x)|} \Big( \int_{\BB_1(x)} 1^q \d y \Big)^{\frac{1}{q}} \Big( \int_{\BB_1(x)} |u(y)|^p \d y \Big)^{\frac{1}{p}} \\
+        &\hspace{-0.8em}\overset{\text{Hölder}}{\leq} C_1 \, \Big( \int_{\BB_1(x)} |\nabla u(y)|^p \d y \Big)^{\frac{1}{p}} \Big( \int_{\BB_1(x)} |x - y|^{-\frac{(n -1)p}{p - 1}} \d y \Big)^{\frac{p - 1}{p}} \,+\, |\BB_1(x)|^{-\frac{1}{p}} \|u\|_{\Ell^p(\R^n)} \\
         &\leq C_1\, C_2(n,p) \, \|\nabla u\|_{\Ell^p(\R^n)} + |\BB_1(x)|^{-\frac{1}{p}} \|u\|_{\Ell^p(\R^n)} \\
         &\leq C_3 \, \|u\|_{\WW^{1,p}(\R^n)},
       \end{align*}
@@ -464,7 +477,7 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
     \begin{align*}
     \|u^*\|_{\CC^{0,\gamma}(\R^n)} &\leq C \, \|u\|_{\WW^{1,p}(\R^n)},
     \intertext{ where $C > 0$ only depends on $p$ and $u$.
-    \item If $\partial\Omega \in \CC^1$, then $\WW^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW^{1,p}(\Omega)$, there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and }
+    \item If $\partial\Omega \in \CC^1$, then $\WW^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW^{1,p}(\Omega)$ there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and }
     \|u^*\|_{\CC^{0,\gamma}(\overline\Omega)} &\leq C \, \|u\|_{\WW^{1,p}(\Omega)},
     \intertext{where $C > 0$ depends on $p$, $n$, and $\Omega$.
     \item $\WW_0^{1,p}(\Omega)$ is continuously embedded into $\CC^{0,\gamma}(\overline\Omega)$ in the sense that for any $u \in \WW_0^{1,p}(\Omega)$ there is a version $u^* \in \CC^{0,\gamma}(\overline\Omega)$ and}
@@ -515,20 +528,20 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
     \leq \| \nabla u\|_{\Ell^\infty(\Omega)} \underbrace{\int_{\R^n} \eta_\varepsilon(z - \tilde y) \d{\tilde y}}_{=1}
     = \|\nabla u\|_{\Ell^\infty(\Omega)}.
     $$
-    Hence, the mean value theorem implies for $\Omega$ convex, as we may choose $V$ to be convex,
-    $$
+      Hence, the mean value theorem (MVT) implies for $\Omega$ convex, as we may choose $V$ to be convex,
+      \begin{align*}
     |u^*(x) - u^*(y)|
-    = \lim_{\varepsilon \downarrow 0} |u_\varepsilon(x) - u_\varepsilon(y)|
-    \leq \liminf_{\varepsilon \downarrow 0} \|\nabla u_\varepsilon\|_{\Ell^\infty(V)} |x - y|
+        &= \lim_{\varepsilon \downarrow 0} |u_\varepsilon(x) - u_\varepsilon(y)|
+      \overset{\text{MVT}}{\leq} \liminf_{\varepsilon \downarrow 0} \|\nabla u_\varepsilon\|_{\Ell^\infty(V)} |x - y|
     \leq \|\nabla u\|_{\Ell^\infty(\Omega)} |x - y|.
-    $$
+        \intertext{
     Hence, for $\Omega$ convex, we have
-    $$
+  }
     \|u^*\|_{\CC^{0,1}(\overline\Omega)}
-    = \|u^*\|_{\CC^0(\overline\Omega)} + [u^*]_{\CC^{0,1}(\overline\Omega)}
-    \leq \|u\|_{\Ell^\infty(\Omega)} + \|\nabla u\|_{\Ell^\infty(\Omega}
+        &= \|u^*\|_{\CC^0(\overline\Omega)} + [u^*]_{\CC^{0,1}(\overline\Omega)}
+      \leq \|u\|_{\Ell^\infty(\Omega)} + \|\nabla u\|_{\Ell^\infty(\Omega)}
     \leq \|u\|_{\WW^{1,\infty}(\Omega)}.
-    $$
+      \end{align*}
 
   \item \emph{a) for $p = \infty$}:
     Let $u \in \WW^{1,\infty}(\R^n)$ and $\Omega_m \coloneqq \BB_m(0), m \in \N$.
@@ -541,7 +554,7 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
 
   \item \emph{c) for $p \in (n,\infty]$}:
     For $u \in \WW_0^{1,p}(\Omega)$ there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ with $u_m \to u$ in $\WW^{1,p}(\Omega)$.
-    Extending $u_m$ by $0$ on $\R^n \setminus \Omega$, we have $u_m \in \CC_0^\infty(\R^n)$ and by a) there is $v \in \CC^{0,\gamma}(\R^n) \cap \WW^{1,p}(\R^n)$ such that $u_m \to v$ in $\CC^{0,\gamma}(\R^n)$ and in $\WW^{1,p}(\R^n)$.
+    Extending $u_m$ by $0$ on $\R^n \setminus \Omega$, we have $u_m \in \CC_0^\infty(\R^n)$ and by a) there exists a function $v \in \CC^{0,\gamma}(\R^n) \cap \WW^{1,p}(\R^n)$ such that $u_m \to v$ in $\CC^{0,\gamma}(\R^n)$ and in $\WW^{1,p}(\R^n)$.
     As $v = 0$ in $\R^n \setminus \Omega$ we conclude with $u^* \coloneqq v|_{\overline\Omega}$ and Poincar\'e's inequality (Corollary \ref{cor:poincare})
     $$
     \|u^*\|_{\CC^{0,\gamma}(\overline\Omega)}
@@ -574,9 +587,9 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
           \begin{align*}
             |u_\varepsilon(x) - u_\varepsilon(y)|
             &= |u_\varepsilon(\Psi_i(\Phi_i(x))) - u_\varepsilon(\Psi(\Phi_i(y)))| \\
-            &= \Big| \int_0^1 \frac{\d\ }{\d t} (u_\varepsilon \circ \Psi_i)((1 - t)\Phi_i(x) + t\Phi_i(y)) \d t \Big| \\
+            &= \Big| \int_0^1 \frac{\d{} }{\d t} \Big[ (u_\varepsilon \circ \Psi_i)((1 - t)\Phi_i(x) + t\Phi_i(y)) \Big] \d t \Big| \\
             &\leq \| \nabla(u_\varepsilon \circ \Psi_i)\|_{\Ell^\infty(W)} \cdot |\Phi_i(x) - \Phi_i(y)| \\
-            &\leq \| \nabla u_\varepsilon \|_{\Ell^\infty(V)} \cdot \|\DD \Psi_i\|_{\Ell^\infty(W)} \cdot \|\Phi_i\|_{\Ell^\infty(\overline \BB)} \cdot |x - y|, \\
+            &\hspace{-0.5em}\overset{\text{MVT}}{\leq} \| \nabla u_\varepsilon \|_{\Ell^\infty(V)} \cdot \|\DD \Psi_i\|_{\Ell^\infty(W)} \cdot \|\DD \Phi_i\|_{\Ell^\infty(\overline \BB)} \cdot |x - y|, \\
             \intertext{where we used the chain rule and chose a ball $\overline\BB$ such that $\overline \Omega \Subset \BB$ which by iii) yields}
             &\leq \tilde C_3 \, \|\nabla u\|_{\Ell^\infty(\Omega)} | x - y |,
           \end{align*}
@@ -622,7 +635,7 @@ for $x \in \R$ denote the \emph{floor function}.
 
     \item If $l < k - \frac{n}{p} \leq l + 1$ (i.e. $l = k - \Big[\frac{n}{p}\Big] - 1$) and, setting $\frac{n}{p} = 0$ if $p = \infty$,
       $$
-      \gamma = \begin{cases} \Big[ \frac{n}{p} \Big] + 1 - \frac{n}{p}, \quad\text{if } \frac{n}{p} \not \in \N, \\ \text{arbitrary in }(0,1), \text{ if } \frac{n}{p} \in \N, \end{cases}
+      \gamma = \begin{cases} \Big[ \frac{n}{p} \Big] + 1 - \frac{n}{p}, &\text{if } \frac{n}{p} \not \in \N, \\ \text{arbitrary in }(0,1), &\text{if } \frac{n}{p} \in \N, \end{cases}
       $$
       then $\WW^{k,p}(\Omega)$ is continuously embedded into $\CC^{l,\gamma}(\overline\Omega)$ and there is $C > 0$ depending on $p$, $\gamma$, $k$, $l$, $n$, and $\Omega$ such that
       $$
@@ -634,12 +647,17 @@ for $x \in \R$ denote the \emph{floor function}.
 
 \begin{proof}
   \begin{enumerate}[i)]
-    \item If $u \in \WW^{m,r}(\Omega)$ with some $m \in \N$ and $r \in [1,n)$, then $\DD^\alpha u \in \WW^{1,r}(\Omega)$ for all $|\alpha| \leq m - 1$ by Proposition \ref{prop:sobolevProperties} and, by Theorem \ref{thm:embeddingpltn}, $\DD^\alpha u \in \Ell^q(\Omega)$ for all $q \in [1,r^*]$ and hence $u \in \WW^{m - 1,q}(\Omega)$ with
+    \item If $u \in \WW^{m,r}(\Omega)$ with some $m \in \N$ and $r \in [1,n)$, then $\DD^\alpha u \in \WW^{1,r}(\Omega)$ for all $|\alpha| \leq m - 1$ by Proposition \ref{prop:sobolevProperties} and, by Theorem \ref{thm:embeddingpltn}, $\DD^\alpha u \in \Ell^q(\Omega)$ for all $q \in [1,r^*]$ which gives
+    %and hence $u \in \WW^{m - 1,q}(\Omega)$ with
     $$
     \|u\|_{\WW^{m - 1,q}(\Omega)}
     \leq C_1 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\Ell^q(\Omega)}
     \leq C_2 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\WW^{1,r}(\Omega)}
-    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)},
+    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}
+    $$
+    and therefore
+    $$
+      \|u\|_{\WW^{m - 1,q}(\Omega)} \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}  \quad\text{for all } q \in [1,r^*],
     $$
     where $C_3 > 0$ depends only on $n$, $r$, $q$, $m$, and $\Omega$.
     Hence, defining 
@@ -648,16 +666,14 @@ for $x \in \R$ denote the \emph{floor function}.
     p_j = \frac{np}{n- p\cdot j} \quad\text{with}\quad p_j > p_{j - 1}.
     $$
     If $p_j < n$ (i.e. $\frac{n}{p} > j + 1$) we have $p_i < n$ for all $i \in \{ 0, \dots, j\}$ and the previous argument yields the continuous embeddings of $\WW^{k - (i - 1), p_{i - 1}}(\Omega)$ into $\WW^{k-i,p_i}(\Omega)$ for all $i \in \{1,\dots,j+1\}$ and $\tilde C_i > 0$ depending on $k$, $i$, $p$, $n$, $\Omega$ such that
-    $$
+      \begin{align}
     \| u\|_{\WW^{k - i,p_i}(\Omega)}
-    \leq \tilde C_i \, \|u\|_{\WW^{k-(i-1),p_{i - 1}}(\Omega)} \quad\text{for all } u \in \WW^{k - ( i - 1),p_{i - 1}}(\Omega).
-    $$
-    Hence, by combining these estimates for $i = 1,\dots,j+1$ we have
-    \begin{equation}
+        &\leq \tilde C_i \, \|u\|_{\WW^{k-(i-1),p_{i - 1}}(\Omega)} \quad\text{for all } u \in \WW^{k - ( i - 1),p_{i - 1}}(\Omega). \nonumber
+        \intertext{Hence, by combining these estimates for $i = 1,\dots,j+1$ we have}
       \label{eq:sobolevIterationInequality}
       \|u\|_{\WW^{k - (j + 1),p_{j + 1}}(\Omega)}
-      \leq \tilde C_1 \cdot \tilde C_2 \cdot \dots \cdot \tilde C_{j + 1} \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega)
-  \end{equation}
+        &\leq \tilde C_1 \cdot \tilde C_2 \cdot \ldots \cdot \tilde C_{j + 1} \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega)
+      \end{align}
   if $\frac{n}{p} > j + 1$.
 
 \item \emph{Proof of a)}:
@@ -665,14 +681,14 @@ for $x \in \R$ denote the \emph{floor function}.
   $$
   \|u\|_{\WW^{l,p_{k - l}}(\Omega)} \leq C_4 \, \|u\|_{\WW^{k,p}(\Omega)}.
   $$
-  As $\frac{1}{p_{n - l}} = \frac{1}{p} - \frac{k - l}{n}$ implies $k - \frac{n}{p} = l - \frac{n}{p_{k - l}}$ and hence $q \leq p_{k - l}$, Hölders inequality and the boundedness of $\Omega$ imply that $\WW^{l,p_{k - l}}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and a) is proved ($\|u\|_{\WW^{l,q}(\Omega)} \leq C_5\, \|u\|_{\WW^{l,p_{k - l}}(\Omega)})$.
+  As $\frac{1}{p_{k - l}} = \frac{1}{p} - \frac{k - l}{n}$ implies $k - \frac{n}{p} = l - \frac{n}{p_{k - l}}$ and hence $q \leq p_{k - l}$, Hölders inequality and the boundedness of $\Omega$ imply that $\WW^{l,p_{k - l}}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and a) is proved ($\|u\|_{\WW^{l,q}(\Omega)} \leq C_5\, \|u\|_{\WW^{l,p_{k - l}}(\Omega)})$.
 
 \item \emph{Proof of b)}:
   $k - \frac{n}{p} = l$ implies $\frac{n}{p} > k - l - 1$ and $p_{k - l - 1} = n$ so that \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ yields
   $$
   \|u\|_{\WW^{l + 1, n}(\Omega)} \leq C_6 \, \|u\|_{\WW^{k,p}(\Omega)} \quad\text{for all } u \in \WW^{k,p}(\Omega) \text{ and } k \geq l + 2.
   $$
-  Since $k = l+1$ implies $p = n$, the above inequality is trivial for $k = l + 1$.
+  Since $k = l+1$ implies $p = n$, the above inequality is trivial for $k = l + 1$ if we chose $C_6 \geq 1$.
   But then, similar to the first part of i), we deduce from Proposition \ref{prop:embeddingspeqn} that $\WW^{l+1,n}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ for all $q \in [1,\infty)$, which implies b).
     
   \item \emph{Proof of c)}: For $\frac{n}{p} \notin\N_0$ we have $k - \frac{n}{p} < l + 1$ and \eqref{eq:sobolevIterationInequality} with $j = k - l - 2$ implies
