@@ -653,12 +653,12 @@ for $x \in \R$ denote the \emph{floor function}.
     \|u\|_{\WW^{m - 1,q}(\Omega)}
     \leq C_1 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\Ell^q(\Omega)}
     \leq C_2 \sum_{|\alpha| \leq m - 1} \|\DD^\alpha u\|_{\WW^{1,r}(\Omega)}
-    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}
+    \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)},
     $$
-    and therefore
-    $$
-      \|u\|_{\WW^{m - 1,q}(\Omega)} \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}  \quad\text{for all } q \in [1,r^*],
-    $$
+%    and therefore
+%    $$
+%      \|u\|_{\WW^{m - 1,q}(\Omega)} \leq C_3 \, \|u\|_{\WW^{m,r}(\Omega)}  \quad\text{for all } q \in [1,r^*],
+%    $$
     where $C_3 > 0$ depends only on $n$, $r$, $q$, $m$, and $\Omega$.
     Hence, defining 
     $p_0 \coloneqq p$ and $p_j \coloneqq p_{j - 1}^*$ for all $j = 1,\dots,k - l,$ we see that $\frac{1}{p_j} = \frac{1}{p_{j - 1}} - \frac{1}{n}$ and therefore $\frac{1}{p_j} = \frac{1}{p} - \frac{j}{n}$ i.e.
@@ -697,7 +697,7 @@ for $x \in \R$ denote the \emph{floor function}.
     $$
     Since we have 
     $$
-    p_{k - l - 1} = \frac{np}{n - p(k - l - 1)} = \frac{np}{p\Big( \frac{n}{p} - k + l + 1 \Big)} > n,
+    p_{k - l - 1} = \frac{np}{n - p \cdot (k - l - 1)} = \frac{np}{p\cdot \Big( \frac{n}{p} - k + l + 1 \Big)} > n,
     $$ 
     due to $k - \frac{n}{p} > l$, and 
     $$
@@ -934,7 +934,7 @@ Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
           As $\WW^{1,p}(\Omega)$ is continuously embedded into $\Ell^q(\Omega)$ by Proposition \ref{prop:embeddingspeqn} and any bounded sequence $(u_m)_{m \in \N} \subset \WW^{1,p}(\Omega)$ is also bounded in $\WW^{1,\tilde p}(\Omega)$ by Hölder's inequality, a) for $\tilde p$ shows that $(u_m)_{m \in \N}$ has a convergent subsequence in $\Ell^q(\Omega)$.
           This proves b).
 
-      \item The continuous embedding of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overline\Omega)$ with some $\gamma \in (0,1]$ by Theorem \ref{thm:sumEmbeddingHoelder} implies that any bounded sequence in $\WW{1,q}(\Omega)$ is equicontinuous and bounded in $\CC^0(\overline\Omega)$.
+      \item The continuous embedding of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overline\Omega)$ with some $\gamma \in (0,1]$ by Theorem \ref{thm:sumEmbeddingHoelder} implies that any bounded sequence in $\WW^{1,q}(\Omega)$ is equicontinuous and bounded in $\CC^0(\overline\Omega)$.
         Hence, by Arzel\`a-Ascoli it has a convergent subsequence in $\CC^0(\overline\Omega)$.
         This proves part c). \qedhere
   \end{enumerate}
