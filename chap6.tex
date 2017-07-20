@@ -280,7 +280,45 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
 \end{prop}
 
 \begin{proof}
-  Exercise.
+  \begin{enumerate}[a)]
+    \item Let $q \in [1,\infty)$.
+      Then for some $\tilde p \in (1,n)$ we have $\tilde p^* = \frac{n \tilde p}{n - \tilde p} > q$ and $\tilde p < n$.
+      Hence, by \eqref{eq:embeddingForpltn} and Hölder's inequality we get (similarly to \eqref{eq:gradientEstimatePoincare}
+      $$
+      \|u\|_{\Ell^q(\Omega)} 
+      \leq C\, \|u\|_{\WW^{1,\tilde p}(\Omega)} 
+      \leq C\, |\Omega|^{\frac{n - \tilde p}{n \tilde p}} \|u\|_{\WW^{1,n}(\Omega)} \quad\text{for all } u \in \WW^{1,n}(\Omega)
+      $$
+      and the justification is the same as in the proof of \eqref{eq:gradientEstimatePoincare} in Corollary \ref{cor:poincare}.
+
+    \item The proof is analogous to a) by using \eqref{eq:gagliardoNirenbergBounded} instead of \eqref{eq:embeddingForpltn}.
+
+    \item Let $u \in \WW^{1,1}((a,b))$.
+      Then there is $(u_m)_{m \in \N} \subset \CC^1([a,b])$ such that $u_m \to u$ in $\WW^{1,1}((a,b))$.
+      Then there is $x_m \in [a,b]$ such that
+      $$
+      |u_m(x_m)| \leq \frac{\|u_m\|_{\Ell^1((a,b))}}{b - a}
+      $$
+      since otherwise 
+      $$\int_a^b|u_m(x)| \d x > \int_a^b \frac{\|u_m\|_{\Ell^1((a,b))}}{b - a} \d x,$$
+      a contradiction. 
+      Hence,
+      \begin{equation}
+        \label{eq:fundamentalThmOfCalcEstimate}
+        \begin{split}
+        |u_m(x)| 
+          &\leq |u_m(x_m)| + \Big| \int_{x_m}^x u_m'(s) \d s \Big| \\
+          & \leq \frac{1}{b - a} \| u_m\|_{\Ell^1((a,b))} + \|u_m'\|_{\Ell^1((a,b))} \quad\text{for all } x \in [a,b].
+        \end{split}
+      \end{equation}
+      As $u_{m_l}(x) \to u(x)$ for a.e. $x \in \Omega$ and some subsequence $(u_{m_l})_l$, we may let $m \to \infty$ in \eqref{eq:fundamentalThmOfCalcEstimate} and conclude
+      $$
+      |u(x)| \leq \frac{1}{b - a} \|u\|_{\Ell^1((a,b))} + \|u'\|_{\Ell^1((a,b))} \quad\text{for a.e. } x \in \Omega.
+      $$
+      This establishes the first claim concerning $u \in \WW^{1,1}((a,b))$ with $C = \frac{1}{b - a} + 1$.
+
+      For $u \in \WW_0^{1,1}((a,b))$ we have $u_m \in \CC_0^1((a,b))$ with $u_m \to u$ in $\WW_{1,1}((a,b))$ and may choose $x_m = a$ with $u_m(x_m) = 0$ in \eqref{eq:fundamentalThmOfCalcEstimate} to conclude the claim concerning $\WW_0^{1,1}((a,b))$. \qedhere
+  \end{enumerate}
 \end{proof}
 
 \begin{rem}
