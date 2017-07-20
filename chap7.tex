@@ -27,6 +27,7 @@ The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_ik}(
   Therefore, different concepts of generalized solutions are used and we will focus here on weak solutions.
 
 \section{The Concept of Weak Solutions}
+\label{sec:weakSolutions}
 
 Let $u$ be a classical solution to \eqref{eq:poissonDirichlet}.
 Then integrating by parts, we obtain
@@ -196,5 +197,153 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
       $$
       Hence, $F^* \in \HH^*$ with $\|F^*\|_{\HH^*} \leq \| f \|_{\Ell^2(\Omega)}$.
       In view of i) and ii) the claim follows from the Lax-Milgram theorem. \qedhere
+  \end{enumerate}
+\end{proof}
+
+\section{Regularity of Weak Solutions}
+
+Our aim is to show that the weak solution $u$ to \eqref{eq:poissonDirichlet} has better regularity that just being in $\HH_0^1(\Omega)$.
+To motivate the following result, assume that $u \in \CC_0^\infty(\Omega)$ satisfies \eqref{eq:poissonDirichlet}.
+Then integration by parts yields
+\begin{align*}
+  \|f\|_{\Ell^2(\Omega)}^2
+  &= \int_\Omega f^2 \d x
+  = \int_\Omega \nabla u\, \nabla u
+  = \sum_{i,j = 1}^n \int_\Omega u_{x_i x_i} u_{x_j x_j} \d x \\
+  &= - \sum_{i,j = 1}^n \int_\Omega u_{x_i x_i x_j} u_{x_j} \d x 
+  = \sum_{i,j = 1}^n \int_\Omega u_{x_i x_j} u_{x_i x_j} \d x
+  = \sum_{|\alpha| = 2} \| \DD^\alpha u \|_{\Ell^2(\Omega)}^2.
+\end{align*}
+So $\|\DD^\alpha u\|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega)}$ for all $|\alpha| = 2$.
+Similarly, as $-\Delta(u_{x_i}) = f_{x_i}$, the $\Ell^2$-norm of the $(m+2)$-nd derivatives can be estimated by the $\Ell^2$-norm of the $m$-th derivatives of $f$.
+Hence, informally ``$u$ has two more derivatives in $\Ell^2$ than $f$''.
+However, there is no solution $u \in \CC_0^\infty(\Omega)$ to \eqref{eq:poissonDirichlet} apart from $u \equiv 0$.
+But results of this kand can be proved, which are of course more difficult to prove.
+
+\begin{thm}
+  \label{thm:regularity}
+  Let $\Omega \subset \R^n$ be a bounded domain, $f \in \Ell^2(\Omega)$ and $u \in \HH_0^1(\Omega)$ be the unique weak solution to \eqref{eq:poissonDirichlet}, and $V \Subset \Omega$ be open, $m \in \N$.
+  \begin{enumerate}[a)]
+    \item $u \in \HH_{\loc}^2(\Omega)$ and $\|u\|_{\HH^2(V)} \leq C_1 \, \|f\|_{\Ell^2(\Omega)}$. If $\partial\Omega \in \CC^2$, then $u \in \HH^2(\Omega)$ and
+      \begin{align*}
+      \|u\|_{\HH^2(\Omega)} &\leq C_2 \, \|f\|_{\Ell^2(\Omega)}.
+    \intertext{\item If $f \in \HH^m(\Omega)$, then $u \in \HH_{\loc}^{m + 2}(\Omega)$ and }
+        \|u\|_{\HH^{m + 2}(V)} &\leq C_3 \, \|f\|_{\HH^m(\Omega)}.
+        \intertext{If $\partial\Omega \in \CC^{m+2}$, then $u \in \HH^{m + 2}(\Omega)$ and}
+        \|u\|_{\HH^{m + 2}(\Omega)} &\leq C_4 \, \|f\|_{\HH^m(\Omega)}.
+      \end{align*}
+      \item If $f \in \CC^\infty(\Omega)$, then $u \in \CC^\infty(\Omega)$. If in addition $f \in \CC^\infty(\overline\Omega)$, then $u \in \CC^(\overline\Omega)$.
+  \end{enumerate}
+  The constants $C_1, C_3$ depend on $\Omega$, $V$ (and $m$), wheras the constants $C_2, C_4$ depend on $\Omega$ (and $m$).
+\end{thm}
+
+\begin{proof}
+  We refer to \cite[Theorems 1--6 in Section 6.3 and Theorem 6 in Section 6.2]{evans2010partial}.
+\end{proof}
+
+In particular, as $u \in \HH_{\loc}^2$, $u$ is always a strong solution (see Section \ref{sec:weakSolutions}).
+As Theorem \ref{thm:regularity} implies that $\HH^k(\Omega)$ is continuously embedded into $\CC^2(\overline\Omega)$ if $k > \frac{n}{2} + 2$, $u$ is a classical solution if $f \in \HH^m(\Omega)$ and $\partial\Omega \in \CC^{m + 2}$ for some $m \in \N$ with $m > \frac{n}{2}$.
+
+One important ingredient of the proofs of these regularity results is the approximation of weak derivatives by difference quotients.
+The latter is also of interest in the theory of Sobolev spaces.
+
+\begin{defn}
+  Let $\Omega \subset \R^n$ be open, $V \Subset \Omega$, and $u \in \Ell^1_{\loc}(\Omega)$.
+  The \emph{$i$-th difference quotient of size $h$} is
+  $$
+  \DD_i^h u(x) \coloneqq \frac{u(x + he_i) - u(x)}{h} \quad\text{for } i \in \{1, \dots,n\}, x \in V, h \in R \text{ with } 0 < |h| < \dist(V, \partial \Omega).
+  $$
+  We define
+  $$
+  \DD^h u\coloneqq ( \DD_1^h u, \dots,D_n^h u).
+  $$
+\end{defn}
+
+In order to prove the connection between difference quotients and weak derivatives we need further results from functional analysis (see e.g. \cite{dobrowolski2010angewandte} or \cite{alt2012lineare}):
+
+\begin{prop}
+  \label{prop:banachAlaoglu}
+  Let $X$ be a Banach space.
+  \begin{enumerate}[a)]
+    \item $X$ is \emph{reflexive} if $(X^*)^* = X$ in the sense that for all $u^{**} \in (X^*)^*$ there exists a unique $u \in X$ with
+      $$
+      \langle u^{**}, u^* \rangle_{X^*} = \langle u^*, u \rangle_X \quad\text{for all } u^* \in X^*.
+      $$
+    \item $(u_n)_{n \in \N} \subset X$ \emph{converges weakly} to $u \in X$ if 
+      $$
+      \langle u^*, u_k \rangle_X \to \langle u^*, u \rangle_X \quad\text{as } k\to \infty \text{ for all } u^* \in X^*, \text{ written } u_k \rightharpoonup u \text{ in } X.
+      $$
+    \item If $X$ is reflexive, then any bounded sequence $(u_k)_{k \in \N} \subset X$ has a weakly convergent subsequence.
+
+      In particular a Hilbert space $H$ and the Lebesgue spaces $\Ell^p(\Omega), p \in (1,\infty)$, are reflexive and $u_k \rightharpoonup u$ in $\Ell^p$ if and only if $\int_\Omega u_k g \d x \to \int_\Omega u g \d x$ for all $g \in \Ell^q$ with $\frac{1}{p} + \frac{1}{q} = 1$.
+  \end{enumerate}
+\end{prop}
+
+Then we have the following result on difference quotients.
+
+\begin{thm}
+  Let $\Omega \subset \R^n$ be open and $u \in \Ell_{\loc}^1(\Omega)$.
+  \begin{enumerate}[a)]
+    \item If $p \in [1,\infty)$ and $u \in \WW^{1,p}(\Omega)$, then there exists $C_1 > 0$ depending on $p$ and $n$ such that for all $V \Subset \Omega$ and all $0 < |h| < \frac{1}{2} \dist(V, \partial\Omega)$ we have
+      \begin{align}
+        \label{eq:boundedQuotientIfWeaklyDifferentiable}
+        \|\DD^h u\|_{\Ell^p(V)} &\leq C_1 \, \|\nabla u\|_{\Ell^p(\Omega)}
+      \intertext{\item Assume that $p \in (1,\infty)$, $u \in \Ell^p(V)$ and there exists $C_2 > 0$ such that}
+        \label{eq:weaklyDifferentiableIfBoundedQuotient}
+        \|D^h u\|_{\Ell^p(V)} &\leq C_2  \quad\text{for all } 0 < |h| < \frac{1}{2} \dist(V, \partial\Omega).
+      \end{align}
+      Then $u \in \WW^{1,p}(V)$ and $\|\nabla u\|_{\Ell^p(V)} \leq C_2$.
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  \begin{enumerate}[a)]
+    \item First assume that $u \in \CC^1(\Omega) \cap \WW^{1,p}(\Omega)$, $x \in V$, $i \in \{1,\dots,n\}$.
+      Then by the mean value theorem,
+      $$
+      |u(x + he_i) - u(x)| \leq |h| \int_0^1 |\nabla u(x + th e_i)| \d t.
+      $$
+      Hence, by Hölder's inequality we have with $\frac{1}{p} + \frac{1}{q} = 1$
+      \begin{align*}
+        \int_V |\DD^h u|^p \d x
+        &\leq C_3 \sum_{i = 1}^n \int_V \bigg[ |(0,1)|^{\frac{1}{q}} \cdot \Big( \int_0^1 |\nabla u(x + the_i)| \d t \Big)^{\frac{1}{p}} \bigg]^p \d x \\
+        &= C_3 \int_{i = 1}^n \int_0^1 \int_V |\nabla u(x + the_i)|^p \d x \d t \\
+        &\leq C_3 n \|\nabla u\|^p_{\Ell^p(\Omega)}.
+      \end{align*}
+      As this estimate holds for all $u \in \CC^1(\Omega) \cap \WW^{1,p}(\Omega)$ and this space is dense in $\WW^{1,p}(\Omega)$ by Theorem \ref{thm:meyersSerrin}, we conclude by Fatou's lemma that \eqref{eq:boundedQuotientIfWeaklyDifferentiable} with $C_1 = C_3 n$.
+
+    \item Assume that \eqref{eq:weaklyDifferentiableIfBoundedQuotient} holds.
+      Let $i \in \{1,\dots,n\}, \varphi \in \CC_0^\infty(V)$ and 
+      $$
+      0 < |h| < \frac{1}{2} \min\{ \dist(V,\partial\Omega), \dist(\supp \varphi, \partial V)\}.$$
+      Then, as the choice of $h$ gives $\supp \varphi \subset V \cap \tilde V$ with $\tilde V \coloneqq \{ x + he_i \colon x \in V \}$, the transformation rule implies
+      \begin{align*}
+        \int_V u(\DD_i^h \varphi)\d x
+        &= \int_V u(x) \frac{\varphi(x + he_i) - \varphi(x)}{h} \d x \\
+        &= \int_{\tilde V} \frac{u(y - h e_i)\varphi(y)}{h} \d y - \int_V \frac{u(x) \varphi(x)}{h} \d x \\
+        &= \int_V - \frac{u(x - he_i) - u(x)}{-h} \varphi(x) \d x \\
+        &= - \int_V (\DD_i^{-h} u) \varphi \d x.
+      \end{align*}
+      As \eqref{eq:weaklyDifferentiableIfBoundedQuotient} implies
+      $$
+      \sup_{0 < h < \frac{1}{2} \dist(V, \partial\Omega)} \|\DD_i^{-h} u\|_{\Ell^p(V)} < \infty
+      $$
+      and $p \in (1,\infty)$, Proposition \ref{prop:banachAlaoglu} c) implies that there are $h_k \to 0$ and $v_i \in \Ell^p(V)$ such that $\DD_i^{-h_k} u \rightharpoonup v_i$ as $k \to \infty$ weakly in $\Ell^p(V)$, i.e.
+      \begin{equation}
+        \label{eq:weakConvergenceInLp}
+        \int_V (\DD_i^{-h_k} u) g \d x \to \int_V v_i g \d x \quad\text{for all } g \in \Ell^q(V).
+      \end{equation}
+      As $V$ is bounded, we conclude
+      $$
+        \int_V u \varphi_{x_i} \d x
+        = \lim_{h \to \infty} \int_V u( \DD_i^{h_k} \varphi ) \d x
+        = \lim_{k \to \infty} - \int_V ( \DD_i^{-h_k} u) \varphi \d x
+        = - \int_V v_i \varphi \d x.
+      $$
+      Hence, as $\varphi \in \CC_0^\infty(V)$ is arbitrary, we have $u_{x_i} = v_i \in \Ell^p(V)$ in the weak sense.
+      As $u \in \Ell^p(V)$, we conclude that $u \in \WW^{1,p}(V)$ and
+      \[
+      \|u_{x_i}\|_{\Ell^p(V)} \leq \liminf_{h k \to \infty} \|\DD_i^{-h_k} u \|_{\Ell^p(V)}. \qedhere
+    \]
   \end{enumerate}
 \end{proof}
