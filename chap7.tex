@@ -80,7 +80,7 @@ $$
 \section{Existence and Uniqueness of Weak Solutions}
 
 In order to prove the existence of weak solutions to \eqref{eq:poissonDirichlet}, we need to introduce the concept of a bounded linear operator on the dual space.
-For more details we refer to the function al analysis course or e.g. \cite[Sections 2.3, 2.4]{dobrowolski2010angewandte}.
+For more details we refer to the functional analysis course or e.g. \cite[Sections 2.3, 2.4]{dobrowolski2010angewandte}.
 
 \begin{defn}
   Let $X$ and $Y$ be real Banach spaces and $H$ be a real Hilbert space.
@@ -218,7 +218,7 @@ So $\|\DD^\alpha u\|_{\Ell^2(\Omega)} \leq \|f\|_{\Ell^2(\Omega)}$ for all $|\al
 Similarly, as $-\Delta(u_{x_i}) = f_{x_i}$, the $\Ell^2$-norm of the $(m+2)$-nd derivatives can be estimated by the $\Ell^2$-norm of the $m$-th derivatives of $f$.
 Hence, informally ``$u$ has two more derivatives in $\Ell^2$ than $f$''.
 However, there is no solution $u \in \CC_0^\infty(\Omega)$ to \eqref{eq:poissonDirichlet} apart from $u \equiv 0$.
-But results of this kand can be proved, which are of course more difficult to prove.
+But results of this kind can be proved, which are of course more difficult to prove.
 
 \begin{thm}
   \label{thm:regularity}
@@ -234,7 +234,7 @@ But results of this kand can be proved, which are of course more difficult to pr
       \end{align*}
       \item If $f \in \CC^\infty(\Omega)$, then $u \in \CC^\infty(\Omega)$. If in addition $f \in \CC^\infty(\overline\Omega)$, then $u \in \CC^(\overline\Omega)$.
   \end{enumerate}
-  The constants $C_1, C_3$ depend on $\Omega$, $V$ (and $m$), wheras the constants $C_2, C_4$ depend on $\Omega$ (and $m$).
+  The constants $C_1, C_3$ depend on $\Omega$, $V$ (and $m$), whereas the constants $C_2, C_4$ depend on $\Omega$ (and $m$).
 \end{thm}
 
 \begin{proof}
@@ -343,7 +343,55 @@ Then we have the following result on difference quotients.
       Hence, as $\varphi \in \CC_0^\infty(V)$ is arbitrary, we have $u_{x_i} = v_i \in \Ell^p(V)$ in the weak sense.
       As $u \in \Ell^p(V)$, we conclude that $u \in \WW^{1,p}(V)$ and
       \[
-      \|u_{x_i}\|_{\Ell^p(V)} \leq \liminf_{h k \to \infty} \|\DD_i^{-h_k} u \|_{\Ell^p(V)}. \qedhere
+      \|u_{x_i}\|_{\Ell^p(V)} \leq \liminf_{k \to \infty} \|\DD_i^{-h_k} u \|_{\Ell^p(V)} < \infty. \qedhere
     \]
+  \end{enumerate}
+\end{proof}
+
+Finally, we compare weak and classical partial derivatives.
+
+\begin{defn}
+  $u \colon \Omega \to \R$ is \emph{differentable at $x \in \Omega$} if there is $a \in \R^n$ such that 
+  $$
+  u(y) = u(x) + a \cdot (y - x) + o(|y - x|) \quad\text{where } \lim_{x \to y} \frac{o(|y - x|)}{|y - x|} = 0.
+  $$
+  In this case, $\nabla u(x) \coloneqq a$ is called the \emph{gradient of $u$}.
+\end{defn}
+
+Then we have the following result.
+
+\begin{prop}
+Let $\Omega \subset \R^n$ be open, $p \in (u,\infty]$ and $u \in \WW_{\loc}^{1,p}(\Omega)$.
+Then $u$ is differentiable a.e. in $\Omega$ and its gradient equals its weak gradient a.e. in $\Omega$.
+\end{prop}
+
+\begin{proof}
+  \begin{enumerate}[i)]
+    \item Let $p \in (n,\infty)$, $x,y \in \Omega$ with $|y - x| = r > 0$, and $u \in \CC^1(\overline{\BB_{2r}(x)})$.
+      Since we have $\BB_r(x), \BB_r(y) \subset \BB_{1r}(x)$, part iv) of the proof of Theorem \ref{thm:morrey} implies that there is $C_1 > 0$ depending only on $n$ and $p$ such that
+      \begin{equation}
+        \label{eq:differenceEstByGrad}
+        |u(y) - u(x)|
+        \leq C_1 r^{1 - \frac{n}{p}} \Big( \int_{\BB_r(x)} |\nabla u(z) |^p \d z \Big)^{\frac{1}{p}} \quad\text{for all } u \in \CC^1(\overline{\BB_{2r}(x)}).
+      \end{equation}
+      Again by approximation, \ref{eq:differenceEstByGrad} holds for all $u \in \WW^{1,p}(\BB_{2r}(x))$.
+
+    \item Let $u \in \WW_{\loc}^{1,p}(\Omega)$ and $\nabla u$ the weak gradient of $u$.
+      Then by Lebesgue's differentiation theorem (see \cite[Section E.4]{evans2010partial})
+      $$
+      \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |\nabla u(x) - \nabla u(z)|^p \d z \to 0 \quad \text{as } r \downarrow 0 \text{ for a.e. } x \in \Omega.
+      $$
+      We fix any such $x$ and apply \eqref{eq:differenceEstByGrad} to 
+      $v(y) \coloneqq u(y) - u(x) - \nabla u(x) \cdot(y - x)$ with $r = |y - x|$.
+      Then
+      \begin{align*}
+        |u(y) - u(x) - \nabla u(x) \cdot (y - x)|
+        &\leq C_1 \, r^{1 - \frac{n}{p}} \Big(\int_{\BB_{2r}(x)} |\nabla u(z) - \nabla u(x)|^p \d z \Big)^{\frac{1}{p}} \\
+        &\leq C_2 \, r\, \bigg( \frac{1}{|\BB_{2r}(x)|} \int_{\BB_{2r}(x)} |\nabla u(x) - \nabla u(z)|^p \d z \bigg)^{\frac{1}{p}} \\
+        &= o(r) = o(|y - x|).
+      \end{align*}
+      Hence, $u$ is differentiable at $x$ and its gradient equals the weak gradient.
+
+    \item As $\WW_{\loc}^{1,\infty} \subset \WW_{\loc}^{1,p}(\Omega)$ for all $p \in [1,\infty)$, the case $p = \infty$ follows from i), ii). \qedhere
   \end{enumerate}
 \end{proof}
