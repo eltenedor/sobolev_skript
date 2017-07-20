@@ -349,6 +349,7 @@ We next study the case $u \in \WW^{1,p}(\Omega)$ with $p \in (n,\infty)$ and sho
 Again an inequality for $\WW^{1,p}(\R^n)$ functions will be the basis.
 
 \begin{thm}[Morrey's inequality]
+  \label{thm:morrey}
 Assume that $p \in (n,\infty]$ and $\gamma \coloneqq 1 - \frac{n}{p}$ (with $\gamma = 1$ in case of $p = \infty$).
 Then there is $C > 0$ depending only on $p$ and $n$ such that
 \begin{equation}
@@ -623,6 +624,7 @@ $$
 for $x \in \R$ denote the \emph{floor function}.
 
 \begin{thm}[Embeddings for $\WW^{k,p}(\Omega)$]
+  \label{thm:generalEmbedding}
   Let $\Omega \subset \R^n$ be a bounded domain with $\partial\Omega \in \CC^1$, $p,q \in [1,\infty]$, and $k \in \N, l \in \N_0$ with $k \geq l$.
   \begin{enumerate}[a)]
     \item If $k - \frac{n}{p} < l$ and $k - \frac{n}{p} \geq l - \frac{n}{q}$, then $\WW^{k,p}(\Omega)$ is continuously embedded into $\WW^{l,q}(\Omega)$ and there is $C > 0$ depending only on $p$, $q$, $k$, $l$, $n$, and $\Omega$ such that
@@ -841,25 +843,21 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
         Hence, for any sequence $(g_m)_{m \in \N} \subset \FF_\varepsilon$ there exists $g \in \CC^0(\overline\Omega)$ and a subsequence such that $g_{m_k} \to g$ in $\CC^0(\overline\Omega)$.
         As $\Omega$ is bounded, this implies $g_{m_k} \to g$ in $\Ell^p(\Omega)$ as $k \to \infty$.
         Hence, $\FF_\varepsilon$ is precompact in $\Ell^p(\Omega)$ for fixed $\varepsilon > 0$.
-      \item 
-        We show that $\FF$ is precompact in $\Ell^p(\Omega)$.
+
+      \item We show that $\FF$ is precompact in $\Ell^p(\Omega)$.
         Let $(f_m)_{m \in \N} \subset \FF$ be arbitrary.
         Defining $$\Big(f_m^{(0)}\Big)_{m \in \N} \coloneqq (f_m)_{m \in \N},$$ we claim that for any $k \in \N$ there is a subsequence $\Big(f_m^{(k)}\Big)_m$ of $\Big(f_m^{(k - 1)}\Big)_m$ such that
-        \begin{equation}
+          \begin{alignat}{2}
           \label{eq:lpcauchy}
-          \|f_m^{(k)} - f_j^{(k)} \|_{\Ell^p(\Omega)} \leq \frac{1}{k} \quad\text{for all } m,j \geq N_k
-        \end{equation}
-        with some $N_k \geq k$.
-        Given $(g_m)_{m \in \N} \coloneqq \Big( f_m^{(k- 1)}\Big)_{m \in \N}$, by \eqref{eq:lpepsilondelta} there is $\varepsilon_k > 0$ such that
-        \begin{equation}
+            \|f_m^{(k)} - f_j^{(k)} \|_{\Ell^p(\Omega)} &\leq \frac{1}{k} &&\quad\text{for all } m,j \geq N_k
+          \intertext{with some $N_k \geq k$.
+          Given $(g_m)_{m \in \N} \coloneqq \Big( f_m^{(k- 1)}\Big)_{m \in \N}$, by \eqref{eq:lpepsilondelta} there is $\varepsilon_k > 0$ such that}
           \label{eq:cauchyMollifier}
-          \|(g_m)_{\varepsilon_k} - g_m\|_{\Ell^p(\Omega)} \leq \frac{1}{3k}.
-        \end{equation}
-        As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b), there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have
-        \begin{equation}
+            \|(g_m)_{\varepsilon_k} - g_m\|_{\Ell^p(\Omega)} &\leq \frac{1}{3k} &&\quad\text{for all } m \in \N.
+          \intertext{As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b), there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have}
           \label{eq:cauchyEpsilon}
-          \| \big( g_{m_j} \big)_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} \leq \frac{1}{3k} \quad\text{for all } i,j \geq N_k.
-        \end{equation}
+            \| \big( g_{m_j} \big)_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} &\leq \frac{1}{3k} &&\quad\text{for all } i,j \geq N_k.
+        \end{alignat}
         Then
         \begin{align*}
           &\|g_{m_j} - g_{m_i}\|_{\Ell^p(\Omega)} \\
@@ -869,7 +867,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
           + \|(g_{m_i})_{\varepsilon_k} - g_{m_i} \|_{\Ell^p(\Omega)} \\
           &\hspace{-1.7em}\quad\overset{\eqref{eq:cauchyMollifier},\eqref{eq:cauchyEpsilon}}\leq \; \frac{1}{k} \quad\text{for all } i,j \geq N_k.
         \end{align*}
-        Hence, $\Big( f_j^{(k)} \Big) \coloneqq (g_{m_j})_{j \in \N}$ satisfies \eqref{eq:lpcauchy}.
+        Hence, $\Big( f_j^{(k)} \Big)_{j \in \N} \coloneqq (g_{m_j})_{j \in \N}$ satisfies \eqref{eq:lpcauchy}.
         Then a diagonal argument shows that the subsequence $\Big((f_{N_k})^{(k)} \Big)_{k \in \N}$ of $(f_m)_{m \in \N}$ is a Cauchy sequence in $\Ell^p(\Omega)$.
 
         Hence, $\FF$ is precompact in $\Ell^p(\Omega)$. \qedhere
@@ -915,7 +913,7 @@ Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
         \|\tau_h \tilde u - \tilde u\|_{\Ell^p(\Omega)} \leq |h| \, C_1 \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \WW^{1,p}(\Omega), h \in \R^n.
       \end{equation}
       Now let $(u_m)_{m \in \N} \subset \WW^{1,p}(\Omega)$ be bounded in $\WW^{1,p}(\Omega)$ and $\FF \coloneqq \{ u_m \colon m \in \N\}$.
-      Then by \eqref{eq:embeddingForpltn} $\FF$ is bounded in $\Ell^q(\Omega)$, i.e. i) in Thorem \ref{thm:KolmogoroffRieszFrechet} holds (for $q$), where $q \in [1,p^*)$.
+      Then by \eqref{eq:embeddingForpltn}, $\FF$ is bounded in $\Ell^q(\Omega)$, i.e. i) in Theorem \ref{thm:KolmogoroffRieszFrechet} holds (for $q$), where $q \in [1,p^*)$.
         Hence, $M \coloneqq \sup_{m \in \N} \|u_m\|_{\WW^{1,p}(\Omega)}$ is finite and, as $q \in [1,p^*)$, there is $\theta \in (0,1]$ such that $\frac{1}{q} = \frac{\theta}{1} + \frac{1 - \theta}{p^*}$.
         Then, we obtain
         \begin{align*}
