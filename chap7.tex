@@ -10,7 +10,7 @@ As a prototype of so called \emph{elliptic PDEs}, we will study the \emph{Poisso
   \end{cases}
 \end{equation}
 where $\Omega \subset \R^n$ is a bounded domain, $f \colon \Omega \to \R$ is given, and $u \colon \overline \Omega \to \R$ is the unknown.
-The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_ik}(x)$.
+The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_i}(x)$.
 
 \begin{defn}
   A \emph{classical solution} to \eqref{eq:poissonDirichlet} is a function $u \in \CC^2(\Omega) \cap \CC^0(\overline\Omega)$ satisfying \eqref{eq:poissonDirichlet} pointwise (in the usual sense).
@@ -19,7 +19,7 @@ The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_ik}(
 
   The Poisson equation appears in different contexts in natural and engineering sciences.
   For instance, $u$ is the displacement of a membrane localized in $\Omega \subset \R^2$, where $f$ describes a force and $u = 0$ on $\partial\Omega$ that the membrane is fixed on $\partial\Omega$.
-  $u$ can also describe the temperature distribution in a solid $\Omega$ (stationary in time), where $f$ is a source of energy and the temperature on the boundary on $\partial\Omega$ is given.
+  $u$ can also describe the temperature distribution in a solid $\Omega$ (stationary in time), where $f$ is a source of energy and the temperature on the boundary $\partial\Omega$ is given.
   If $u$ is the concentration of a chemical substance, $f$ describes the production of the chemical and there is no chemical on $\partial\Omega$.
   In the latter two cases $\Delta u$ describes the diffusion or heat conduction with the flux $-\nabla u$.
 
@@ -47,12 +47,13 @@ Another concept of generalized solutions for \eqref{eq:poissonDirichlet} is the 
         \label{eq:weakSolution}
         \int_\Omega \nabla u \cdot \nabla v \d x = \int_\Omega f v \d x \quad\text{for all } v \in \HH_0^1(\Omega).
       \end{equation}
-    \item A \emph{strong solution} to \eqref{eq:weakPoissonDirichlet} is a function $u \in \HH_{\loc}^2(\Omega) \cap \HH_0^1(\Omega)$ satisfying $-\Delta u = f$ a.e. in $\Omega$.
+    \item A \emph{strong solution} to \eqref{eq:poissonDirichlet} is a function $u \in \HH_{\loc}^2(\Omega) \cap \HH_0^1(\Omega)$ satisfying $-\Delta u = f$ a.e. in $\Omega$.
   \end{enumerate}
 \end{defn}
 
 Note that \eqref{eq:weakPoissonDirichlet} and \eqref{eq:weakSolution} are equivalent as $\CC_0^\infty(\Omega)$ is dense in $\HH_0^1(\Omega)$.
-If $u$ is a classical solution to \eqref{eq:poissonDirichlet} as it satisfies \eqref{eq:weakPoissonDirichlet},
+If $u$ is a classical solution to \eqref{eq:poissonDirichlet} with $u \in \HH^1(\Omega)$ it satisfies $u \in \HH_0^1(\Omega)$ by Theorem \ref{thm:trace}, as $\Tr(u) = u|_{\partial\Omega} = 0$. 
+Hence, $u$ is a weak solution to \eqref{eq:poissonDirichlet} as it satisfies \eqref{eq:weakSolution}.
 $u$ is also a strong solution.
 
 If $u \in \HH_0^1(\Omega)$ is a weak solution to \eqref{eq:poissonDirichlet} satisfying $u \in \HH_{\loc}^2(\Omega)$, then by \eqref{eq:weakSolution} and the definition of weak derivatives we have
@@ -64,7 +65,7 @@ If $u \in \HH_0^1(\Omega)$ is a weak solution to \eqref{eq:poissonDirichlet} sat
 = \int_\Omega (-\Delta u) \varphi \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
 \end{align*}
 
-Hence, by Lemma \ref{lem:fundamental}, $-\Delta u = f$ a.e. in $\Omega$ and $u$ is a strong solution. If $u$ satisfies in addition $u \in \CC^2(\Omega) \cap \CC^0(\overline\Omega)$ and $f \in \CC^0(\Omega)$, then $-\Delta u = f$ a.e. in $\Omega$ holds in a classical sense. 
+Hence, by Lemma \ref{lem:fundamental}, $-\Delta u = f$ a.e. in $\Omega$ and $u$ is a strong solution. If $u$ satisfies in addition $u \in \CC^2(\Omega) \cap \CC^0(\overline\Omega)$ and $f \in \CC^0(\Omega)$, then $-\Delta u = f$ a.e. in $\Omega$ holds in the classical sense. 
 By continuity and since $u \in \HH_0^1(\Omega) \cap \CC^0(\overline\Omega)$ implies $0 = \Tr(u) = u|_{\partial\Omega}$, we deduce that $u$ is a classical solution to \eqref{eq:poissonDirichlet}.
 
 We will therefore first show the existence of a unique weak solution to \eqref{eq:poissonDirichlet} and then try to show that $u$ has more regularity to deduce that it is a strong or even classical solution.
@@ -79,7 +80,7 @@ $$
 \section{Existence and Uniqueness of Weak Solutions}
 
 In order to prove the existence of weak solutions to \eqref{eq:poissonDirichlet}, we need to introduce the concept of a bounded linear operator on the dual space.
-For more details we refer to the function al analysis course or e.g. \cite[Sections 2.3, 2.4]{dobrowolski2010angewandte}.
+For more details we refer to the functional analysis course or e.g. \cite[Sections 2.3, 2.4]{dobrowolski2010angewandte}.
 
 \begin{defn}
   Let $X$ and $Y$ be real Banach spaces and $H$ be a real Hilbert space.
@@ -94,7 +95,7 @@ For more details we refer to the function al analysis course or e.g. \cite[Secti
       is the \emph{dual space of} $X$.
       $X^*$ is a Banach space with norm $\|\,\cdot\,\|_{X^*}$ and we denote by $\langle u^*, u\rangle_X \coloneqq u^*(u) \in \R$ for all $u \in X, u^* \in X^*$ the \emph{pairing of $X^*$ and $X$}.
     \item If $H$ is a Hilbert space, then $H^*$ is a Hilbert space.
-      For $k \in \N$ and $\Omega \subset \R^n open$, we denote the dual space of $\HH_0^k(\Omega)$ by $\HH^{-k}(\Omega) \coloneq (\HH_0^k(\Omega))^*$.
+      For $k \in \N$ and $\Omega \subset \R^n open$, we denote the dual space of $\HH_0^k(\Omega)$ by $\HH^{-k}(\Omega) \coloneqq (\HH_0^k(\Omega))^*$.
   \end{enumerate}
 \end{defn}
 
@@ -105,7 +106,7 @@ The elements of $H^*$ have a very specific form.
   Let $H$ be a Hilbert space with scalar product $(\,\cdot\, , \,\cdot\,)$.
   Then for each $u^* \in H^*$ there exists a unique $u \in H$ such that
   $$
-  \langle u^*, v \rangle_H = (\,\cdot\, , \,\cdot\,) \quad\text{for all } v \in H.
+  \langle u^*, v \rangle_H = (u, v) \quad\text{for all } v \in H.
   $$
   The mapping $u^* \to u$ is a linear isomorphism of $H^*$ onto $H$.
 \end{thm}
@@ -115,7 +116,7 @@ The elements of $H^*$ have a very specific form.
 \end{proof}
 
 The theorem of Lax-Milgram provides the basis for the existence of weak solutions.
-Int the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \int_\Omega \nabla u \cdot \nabla v \d x$ is bilinear.
+In the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \int_\Omega \nabla u \cdot \nabla v \d x$ is bilinear.
 
 \begin{thm}[Lax-Milgram]
   \label{thm:Lax-Milgram}
@@ -139,11 +140,11 @@ Int the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \
   Assume that $B[u,v] = B[v,u]$ for all $u,v \in H$.
   Then we claim that
   $$
-  (\!(\!( u, v )\!)\!) \coloneqq B[u,v] \quad\text{for all } u,v \in H.
+  (\!(\!( u, v )\!)\!) \coloneqq B[u,v] \quad\text{for all } u,v \in H
   $$
   defines a scalar product on H.
   Indeed $(\!(\!(\,\cdot\, , \,\cdot\, )\!)\!)$ is bilinear and symmetric and by \eqref{eq:coercive} $(\!(\!(u,u )\!)\!) \geq 0$ for all $u \in H$ and $(\!(\!( u,u )\!)\!) = 0$ if and only if $u = 0$.
-  If we define the associated norm via $\vertiii u \coloneqq \Big( B[u,v] \Big)^{\frac{1}{2}}$, \eqref{eq:contBil} and \eqref{eq:coercive} imply
+  If we define the associated norm via $\vertiii u \coloneqq \Big( B[u,u] \Big)^{\frac{1}{2}}$, \eqref{eq:contBil} and \eqref{eq:coercive} imply
   $$
   \sqrt{\beta} \, \|u\|_H \leq \vertiii u \leq \sqrt{\alpha} \, \|u\|_H \quad\text{for all } u \in H.
   $$
@@ -190,11 +191,11 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
 
     \item Obviously, $\langle F^*, v \rangle_{\HH_0^1(\Omega)} = \int_\Omega f v \d x$ is linear in $v$ and by Hölder
       $$
-      |\langle F^*, v \rangle|_{\HH_0^1(\Omega)}
-      \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\Ell^1(\Omega)}
+      |\langle F^*, v \rangle_{\HH_0^1(\Omega)}|
+      \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\Ell^2(\Omega)}
       \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } v \in \HH_0^1(\Omega).
       $$
       Hence, $F^* \in \HH^*$ with $\|F^*\|_{\HH^*} \leq \| f \|_{\Ell^2(\Omega)}$.
-      In view of i) and ii) the claim follows from the Lax-Milgram theorem. \qedhere
-  \end{enumerate}
+    \end{enumerate}
+  In view of i) and ii) the claim follows from the Lax-Milgram theorem.
 \end{proof}

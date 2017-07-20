@@ -146,9 +146,9 @@ The mollification has the following properties:
     For any such $x$ we obtain (by choosing $\varepsilon > 0$ small such that $\overline{\BB_\varepsilon(x)} \subset \Omega$)
     \begin{align}
       |u_\varepsilon(x) - u(x)|
-      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) f(y) \d y \Big| 
-      = \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (f(y) - f(x)) \d y \Big| \nonumber\\
-      &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |f(y) - f(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |f(y) - f(x) | \d y \label{eq:pointwise}\\
+      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) u(y) \d y - u(x) \Big| 
+      = \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (u(y) - u(x)) \d y \Big| \nonumber\\
+      &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |u(y) - u(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |u(y) - u(x) | \d y \label{eq:pointwise}\\
       & \to 0 \quad\text{as } \varepsilon \downarrow 0 \nonumber
     \end{align}
     due to \eqref{eq:lebdiffthm}.
