@@ -175,24 +175,32 @@ We shortly illustrate the latter in an example.
         \item $\nabla \cdot \overline u = \div \overline u = \sum_{i = 1}^n (\overline u_i)_{x_i}$, \emph{divergence} of $\overline u \colon \R \to \R^n$.
       \end{itemize}
 
+      %\newcommand{niceSpace}{\hphantom{$\CC_0^\infty(\Omega)$}{\settowidth{\dimen0}{$\CC_0^k(\Omega)$}\hspace*{-\dimen0}}}
+
     \item Function spaces:
       \begin{itemize}
-        \item $\CC^0(\Omega) = \{u \colon \Omega \to \R \colon u \text{ continuous}\}$.
-        \item $\CC^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ $k$-times continuously differentiable}\}$ .
+        \item $\CC^0(\Omega)
+          \nicestspace 
+          = \{u \colon \Omega \to \R \colon u \text{ continuous}\}$.
+        \item $\CC^k(\Omega)
+          \nicerspace 
+          = \{u \colon \Omega \to \R \colon u \text{ $k$-times continuously differentiable}\}$ .
           
-          $\hphantom{\CC^k(\Omega) ={}  } \{u \colon \Omega \to \R \colon \DD^\alpha u \in \CC^0(\Omega) \text{ for all } \alpha \in \N_0^n \text{ with } |\alpha| \leq k \}, k \in \N$.
+          $\hphantom{\CC^\infty(\Omega) 
+          ={}  } \{u \colon \Omega \to \R \colon \DD^\alpha u \in \CC^0(\Omega) \text{ for all } \alpha \in \N_0^n \text{ with } |\alpha| \leq k \}, k \in \N$.
 
         \item $\CC^\infty(\Omega) = \bigcap_{k \in \N} C^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ infinitely often differentiable}\}$.
 
         \item $\supp(u) = \overline{\{x \in \Omega \colon u(x) \neq 0\}}$.
         \item $A \Subset \Omega$ if $\overline A \subset \Omega$ and $\overline A$ is compact, i.e. bounded.
-        \item $\CC_0^\infty(\Omega) = \{ u \in \C^\infty(\Omega) \colon \supp(u) \Subset \Omega \},$
+        \item $\CC_0^\infty(\Omega) = \{ u \in \CC^\infty(\Omega) \colon \supp(u) \Subset \Omega \},$
 
           $
            \CC_0^{k}(\Omega) 
-          \hphantom{\CC_0^\infty(\Omega)}
-          {\settowidth{\dimen0}{$\CC_0^k(\Omega)$}\hspace*{-\dimen0}}
-          = \{u \in \C^k(\Omega) \colon \supp(u) \Subset \Omega\}.
+          \nicespace
+          = \{u \in \CC^k(\Omega) 
+          \nicespace
+          \colon \supp(u) \Subset \Omega\}.
           $
       \end{itemize}
 

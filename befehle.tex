@@ -77,5 +77,6 @@
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
 \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 
-%Negative Phantom
-\newcommand{\negphantom}[1]{\settowidth{\dimen0}{#1}\hspace*{\dimen0}}
+\newcommand{\nicespace}{ \hphantom{\CC_0^\infty(\Omega)} {\settowidth{\dimen0}{$\CC_0^k(\Omega)$}\hspace*{-\dimen0}}}
+\newcommand{\nicerspace}{ \hphantom{\CC^\infty(\Omega)} {\settowidth{\dimen0}{$\CC^k(\Omega)$}\hspace*{-\dimen0}}}
+\newcommand{\nicestspace}{ \hphantom{\CC^\infty(\Omega)} {\settowidth{\dimen0}{$\CC^0(\Omega)$}\hspace*{-\dimen0}}}
