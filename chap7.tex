@@ -4,10 +4,12 @@
 As a prototype of so called \emph{elliptic PDEs}, we will study the \emph{Poisson equation with Dirichlet boundary conditions}, i.e.
 \begin{equation}
   \label{eq:poissonDirichlet}
-  \begin{cases}
-    -\Delta u(x) &= f(x), \quad x \in \Omega \\
-    u(x) &= 0, \quad x \in \partial\Omega
-  \end{cases}
+  \left\{
+    \begin{alignedat}{2}
+    -\Delta u(x) &= f(x), &&\quad x \in \Omega \\
+    u(x) &= 0, &&\quad x \in \partial\Omega,
+    \end{alignedat}
+    \right.
 \end{equation}
 where $\Omega \subset \R^n$ is a bounded domain, $f \colon \Omega \to \R$ is given, and $u \colon \overline \Omega \to \R$ is the unknown.
 The Laplacian $\Delta u$ is given by $\Delta u(x) = \sum_{i = 1}^n u_{x_i x_i}(x)$.
@@ -137,14 +139,14 @@ In the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \i
 
 \begin{proof}
   We will only prove the case of $B$ being symmetric.
-  For the general case we refer to \cite[Theorem 1 in Section 6.2.1]{evans2010partial}.
+  For the general case, we refer to \cite[Theorem 1 in Section 6.2.1]{evans2010partial}.
   Assume that $B[u,v] = B[v,u]$ for all $u,v \in H$.
   Then we claim that
   $$
   (\!(\!( u, v )\!)\!) \coloneqq B[u,v] \quad\text{for all } u,v \in H
   $$
   defines a scalar product on H.
-  Indeed $(\!(\!(\,\cdot\, , \,\cdot\, )\!)\!)$ is bilinear and symmetric and by \eqref{eq:coercive} $(\!(\!(u,u )\!)\!) \geq 0$ for all $u \in H$ and $(\!(\!( u,u )\!)\!) = 0$ if and only if $u = 0$.
+  Indeed, $(\!(\!(\,\cdot\, , \,\cdot\, )\!)\!)$ is bilinear and symmetric and, by \eqref{eq:coercive}, $(\!(\!(u,u )\!)\!) \geq 0$ holds for all $u \in H$ and $(\!(\!( u,u )\!)\!) = 0$ if and only if $u = 0$.
   If we define the associated norm via $\vertiii u \coloneqq \Big( B[u,u] \Big)^{\frac{1}{2}}$, \eqref{eq:contBil} and \eqref{eq:coercive} imply
   $$
   \sqrt{\beta} \, \|u\|_H \leq \vertiii u \leq \sqrt{\alpha} \, \|u\|_H \quad\text{for all } u \in H.
@@ -180,14 +182,14 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
   \begin{enumerate}[i)]
     \item Obviously, $B$ is bilinear and symmetric with $B \colon H \times H \to \R$.
       Moreover, by Hölder's inequality and the Poincar\'e inequality \eqref{eq:poincare} (with constant $C_p > 0$) we have
-      \begin{align*}
+      \begin{alignat*}{2}
         |B[u,v]| 
         &\leq \|\nabla u\|_{\Ell^2(\Omega)} \|\nabla v\|_{\Ell^2(\Omega)}
-        \leq \|u\|_{\HH^1(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } u, v \in \HH_0^1(\Omega) \text{ and } \\
-        \|u\|_{\HH^1(\Omega)} &= \|u\|_{\Ell^2(\Omega)}^2 + \|\nabla u\|_{\Ell^2(\Omega)}^2 \\
+        \leq \|u\|_{\HH^1(\Omega)} \|v\|_{\HH^1(\Omega)} &&\quad\text{for all } u, v \in \HH_0^1(\Omega) \text{ and } \\
+        \|u\|_{\HH^1(\Omega)}^2 &= \|u\|_{\Ell^2(\Omega)}^2 + \|\nabla u\|_{\Ell^2(\Omega)}^2 &&\\
         &\leq (C_p^2 + 1) \|\nabla u\|_{\Ell^2(\Omega)}^2  
-        = (C_p^2 + 1) B[u,u] \quad\text{for all } u \in \HH_0^1(\Omega)
-      \end{align*}
+        = (C_p^2 + 1) B[u,u] &&\quad\text{for all } u \in \HH_0^1(\Omega)
+      \end{alignat*}
       so that \eqref{eq:contBil} and \eqref{eq:coercive} hold with $\alpha = 1$ and $\beta = \frac{1}{C_p^2 + 1}$.
 
     \item Obviously, $\langle F^*, v \rangle_{\HH_0^1(\Omega)} = \int_\Omega f v \d x$ is linear in $v$ and by Hölder
@@ -196,7 +198,7 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
       \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\Ell^2(\Omega)}
       \leq \|f\|_{\Ell^2(\Omega)} \|v\|_{\HH^1(\Omega)} \quad\text{for all } v \in \HH_0^1(\Omega).
       $$
-      Hence, $F^* \in \HH^*$ with $\|F^*\|_{\HH^*} \leq \| f \|_{\Ell^2(\Omega)}$.
+      Hence, $F^* \in H^*$ with $\|F^*\|_{H^*} \leq \| f \|_{\Ell^2(\Omega)}$.
     \end{enumerate}
   In view of i) and ii) the claim follows from the Lax-Milgram theorem.
 \end{proof}
@@ -209,7 +211,7 @@ Then integration by parts yields
 \begin{align*}
   \|f\|_{\Ell^2(\Omega)}^2
   &= \int_\Omega f^2 \d x
-  = \int_\Omega \Delta u\, \Delta u
+  = \int_\Omega \Delta u\, \Delta u \d x 
   = \sum_{i,j = 1}^n \int_\Omega u_{x_i x_i} u_{x_j x_j} \d x \\
   &= - \sum_{i,j = 1}^n \int_\Omega u_{x_i x_i x_j} u_{x_j} \d x 
   = \sum_{i,j = 1}^n \int_\Omega u_{x_i x_j} u_{x_i x_j} \d x
@@ -239,7 +241,7 @@ But results of this kind can be proved, which are of course more difficult to pr
 \end{thm}
 
 \begin{proof}
-  We refer to \cite[Theorems 1--6 in Section 6.3 and Theorem 6 in Section 6.2]{evans2010partial}.
+  We refer to \cite[Theorems 1-6 in Section 6.3 and Theorem 6 in Section 6.2]{evans2010partial}.
 \end{proof}
 
 In particular, as $u \in \HH_{\loc}^2(\Omega)$, $u$ is always a strong solution (see Section \ref{sec:weakSolutions}).
@@ -396,3 +398,4 @@ Then $u$ is differentiable a.e. in $\Omega$ and its gradient equals its weak gra
     \item As $\WW_{\loc}^{1,\infty} \subset \WW_{\loc}^{1,p}(\Omega)$ for all $p \in [1,\infty)$, the case $p = \infty$ follows from i), ii). \qedhere
   \end{enumerate}
 \end{proof}
+

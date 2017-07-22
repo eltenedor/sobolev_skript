@@ -11,23 +11,28 @@ Let us start by illustrating the idea behind weak solutions with an example.
   \label{ex:1dPoisson}
   Let $\Omega = (0,1) \subseteq \R$ and $f \in \CC^0(\overline \Omega)$ be given. 
   We look for a solution $u \in \CC^2(\overline \Omega)$ to the Poisson equation in one dimension,
-  \begin{align}
-    -u^{\prime\prime} &= f(x), \quad x \in \Omega \label{eq:1dPoisson},\\
-    u(x) &= 0, \quad x \in \{0,1\} = \partial \Omega \nonumber.
-  \end{align}
+\begin{equation}
+  \label{eq:1dPoisson}
+  \left\{
+    \begin{alignedat}{2}
+      -u^{\prime\prime} &= f(x), &&\quad x \in \Omega ,\\
+      u(x) &= 0, &&\quad x \in \{0,1\} = \partial \Omega
+    \end{alignedat}
+    \right.
+\end{equation}
   $u$ e.g. describes the displacement of a rod which is fixed at $x = 0$ and $x = 1$, where $f$ is a force acting on the string.
   Of course the force $f$ is not necessarily continuous in $\overline\Omega$ and could have jumps.
 
   In order to get a weaker solution concept, let $\varphi \in \CC_0^\infty(\Omega)$ (infinitely often differentiable with compact support in $\Omega$).
   Then integration by parts shows
-  $$
-  \int_0^1 -u^{\prime\prime}(x) \varphi(x) \d x = -u^\prime(1) \varphi(1) + u^\prime(0)\varphi(0) + \int_0^1 u^\prime(x)\varphi^\prime(x) \d x.
-  $$
-  Hence, in view of \eqref{eq:1dPoisson}
-  \begin{equation}
+  \begin{align}
+    \int_0^1 -u^{\prime\prime}(x) \varphi(x) \d x 
+    &= -u^\prime(1) \varphi(1) + u^\prime(0)\varphi(0) + \int_0^1 u^\prime(x)\varphi^\prime(x) \d x. \nonumber
+  \intertext{ Hence, in view of \eqref{eq:1dPoisson}}
     \label{eq:weak1dPoisson}
-    \int_\Omega u^\prime(x)\varphi^\prime(x) \d x = \int_\Omega f(x)\varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
-  \end{equation}
+    \int_\Omega u^\prime(x)\varphi^\prime(x) \d x 
+    &= \int_\Omega f(x)\varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).
+  \end{align}
   For \eqref{eq:weak1dPoisson} to be meaningful we do not need a second derivative of $u$.
   Moreover, $f$ only has to be integrable instead of continuous. 
   \eqref{eq:weak1dPoisson} will even make sense if $u^\prime$ is only a weak derivative of $u$ as we will see soon. \qed
@@ -56,7 +61,7 @@ In order to motivate the definition of weak derivatives, we note the following i
   Then by Gauß' (or Green's formula) we have
   $$
   \int_\Omega w_{x_i} \d x 
-  = \int_{\partial B} w_{x_i} \cdot \nu_i \d \sigma = 0,
+  = \int_{\partial B} w \cdot \nu_i \d \sigma = 0,
   $$
   where $\nu$ is the outward unit normal on $\partial B$.
   Hence, the product rule implies (1.3).
@@ -135,9 +140,65 @@ We shortly illustrate the latter in an example.
   \int_\Omega u^\prime(x) \varphi^\prime(x) \d x = \int_\Omega f(x) \varphi(x) \quad \text{for all } \varphi \in \CC_0^\infty(\Omega),
   $$
   where $u^\prime$ is the weak derivative of $u$, and if $u$ satisfies $u = 0$ on $\partial \Omega$ in a certain weak sense.
-  The latter will be specified in a detailed way in Chapter \ref{chap:appsToPDEs} as $u \in \WW^{1,2}(\Omega)$ is not necessarily continuous.
+  The latter will be specified in a detailed way in Chapter \ref{chap:extAndTrace} as $u \in \WW^{1,2}(\Omega)$ is not necessarily continuous.
   In Chapter \ref{chap:appsToPDEs}, we will study the generalisation of \eqref{eq:1dPoisson} for $\Omega \subset \R^n$ being a bounded domain namely the Poisson equation
-  $$
-  -\Delta u = f \text{ in } \Omega, \quad u = 0 \text{ on } \partial \Omega.
-  $$
+\begin{equation*}
+  \left\{
+    \begin{alignedat}{2}
+    -\Delta u(x) &= f(x), &&\quad x \in \Omega \\
+    u(x) &= 0, &&\quad x \in \partial\Omega.
+    \end{alignedat}
+    \right.
+\end{equation*}
 \end{ex}
+
+\newpage
+\begin{ntion}
+  Let $n \in \N \coloneqq \{1,2,\dots\}$, $x  = (x_1,\dots, x_n) \in \R^n$, and, unless stated differently, $u \colon \Omega \to \R$ with some $\Omega \subset \R^n$.
+  \begin{enumerate}[I)]
+    \item Partial derivatives:
+      \begin{itemize}
+        \item $\frac{\partial u}{\partial x_i}(x) = \lim_{h \to 0} \frac{u(x + he_i) - u(x)}{h}$, abbreviations $u_{x_i} \coloneq \frac{\partial u}{\partial x_i}$, $u_{x_i x_j} \coloneqq \frac{\partial^2 u}{\partial x_i \partial x_j}$, etc.
+        \item $\alpha = (\alpha_1,\dots,\alpha_n) \in \N_0^n$ is a multiindex of order $|\alpha| = \sum_{i = 1}^n \alpha_i$ with $\alpha! = \alpha_1! \cdot\ldots\cdot\alpha_n!$
+          Then
+          $$
+          \DD^\alpha u(x) = \frac{\partial^|\alpha| u(x)}{\partial^{\alpha_1} x_1 \cdot \ldots \partial^{\alpha_n}_{x_n}}.
+          $$
+          For $k \in \N$: $\DD^k u(x) = \{\DD^\alpha u(x) \colon \alpha \in \N_0^n \text{ with } |\alpha| = k \}$ is identified with an element of $\R^{n^k}$ and $\DD^0 u(x) \coloneqq u(x)$.
+      \end{itemize}
+
+    \item Differential Operators:
+      \begin{itemize}
+        \item $\nabla u = (u_{x_1}, \dots, u_{x_n})$, \emph{gradient} of $u$.
+        \item $\Delta u = \sum_{i = 1}^n u_{x_i x_i}$, \emph{Laplacian} of $u$.
+        \item $\frac{\partial u}{\partial \nu} = \nabla u \cdot \nu$ directional derivative for $\nu \in \R^n \setminus\{0\}$.
+        \item $\nabla \cdot \overline u = \div \overline u = \sum_{i = 1}^n (\overline u_i)_{x_i}$, \emph{divergence} of $\overline u \colon \R \to \R^n$.
+      \end{itemize}
+
+    \item Function spaces:
+      \begin{itemize}
+        \item $\CC^0(\Omega) = \{u \colon \Omega \to \R \colon u \text{ continuous}\}$.
+        \item $\CC^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ $k$-times continuously differentiable}\}$ .
+          
+          $\hphantom{\CC^k(\Omega) ={}  } \{u \colon \Omega \to \R \colon \DD^\alpha u \in \CC^0(\Omega) \text{ for all } \alpha \in \N_0^n \text{ with } |\alpha| \leq k \}, k \in \N$.
+
+        \item $\CC^\infty(\Omega) = \bigcap_{k \in \N} C^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ infinitely often differentiable}\}$.
+
+        \item $\supp(u) = \overline{\{x \in \Omega \colon u(x) \neq 0\}}$.
+        \item $A \Subset \Omega$ if $\overline A \subset \Omega$ and $\overline A$ is compact, i.e. bounded.
+        \item $\CC_0^\infty(\Omega) = \{ u \in \C^\infty(\Omega) \colon \supp(u) \Subset \Omega \},$
+
+          $
+           \CC_0^{k}(\Omega) 
+          \hphantom{\CC_0^\infty(\Omega)}
+          {\settowidth{\dimen0}{$\CC_0^k(\Omega)$}\hspace*{-\dimen0}}
+          = \{u \in \C^k(\Omega) \colon \supp(u) \Subset \Omega\}.
+          $
+      \end{itemize}
+
+    \item \begin{itemize}
+        \item $\BB_r(x) = \{ y \in \R^n \colon |y - x| < r\}$, \emph{open ball for} $x \in \R^n$, $r > 0$.
+        \item $|\Omega| = $ \emph{$n$-dimensional Lebesgue measure of} $\Omega \subset \R^n$ measurable.
+    \end{itemize}
+  \end{enumerate}
+\end{ntion}
