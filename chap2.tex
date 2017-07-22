@@ -99,19 +99,19 @@ In this section let $\Omega \subset \R^n$ be open.
     $ \eta_\varepsilon(x) \coloneqq \frac{1}{\varepsilon^n} \eta \left(\frac{x}{\varepsilon} \right)$, $x \in \R^n$,
     satisfies $\eta_\varepsilon \in \CC_0^\infty(\R^n)$, $\int_{\R^n} \eta_\varepsilon(x) \d x = 1$, and $\supp(\eta_\varepsilon) = \overline{\BB_\varepsilon(0)}$.
   \item For $u \in \Ell^1(\Omega)$, we extend $u$ by $u(x) \coloneqq 0$ for all $x \in \R^n \setminus \Omega$ to $u \in \Ell^1(\R^n)$ and define its \emph{mollification} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u$ for $\varepsilon > 0$, i.e.
-  \begin{align*}
+    $$
     u_\varepsilon(x) 
-    &= \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y
-    = \int_{\Omega} \eta_\varepsilon(x - y) u(y) \d y \\
-    &= \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
-  \end{align*}
+    = \int_{\R^n} \eta_\varepsilon(x - y) u(y) \d y
+      = \int_{\Omega} \eta_\varepsilon(x - y) u(y) \d y 
+      = \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y, \quad x \in \R^n.
+    $$
 \end{enumerate}
 The mollification has the following properties:
 \begin{thm}
   \label{thm:mollifier}
   Let $u \in \Ell^1(\Omega)$ and $\varepsilon > 0$. Then the following statements hold true:
   \begin{enumerate}[a)]
-    \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ as $\varepsilon \downarrow 0$ for a.e. $x \in \Omega$.
+    \item $u_\varepsilon \in \CC^\infty(\R^n)$, $u_\varepsilon(x) \to u(x)$ for a.e. $x \in \Omega$ as $\varepsilon \downarrow 0$.
     \item If $\supp(u) \Subset \Omega$, then $u_\varepsilon \in \CC_0^\infty(\Omega)$ for small enough $\varepsilon$. 
     \item If $u \in \CC^0(\Omega)$, $V \Subset \Omega$, then $u_\varepsilon \to u$ uniformly in $V$ as $\varepsilon \downarrow 0$.
     \item If $u \in \Ell^p(\Omega)$ for some $p \in [1,\infty)$, then $u_\varepsilon \in \Ell^p(\Omega)$, $\|u_\varepsilon\|_{\Ell^p(\Omega)} \leq \|u\|_{\Ell^p(\Omega)}$ and $u_\varepsilon \to u$ in $\Ell^p(\Omega)$ as $\varepsilon \downarrow 0$.
@@ -134,22 +134,25 @@ The mollification has the following properties:
       \DD_i^h (u_\varepsilon)(x)
     &= \int_\Omega \frac{1}{h} (\eta_\varepsilon(x + h e_i - y) - \eta_\varepsilon (x - y)) u(y) \d y 
     = \int_\Omega (\DD_i^h \eta_\varepsilon (x - y)) u(y) \d y  \\
-    &\to \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i}(x - y) u(y) \d y \quad\text{as } \varepsilon \downarrow 0.
+    &\to \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i}(x - y) u(y) \d y \quad\text{as } h \downarrow 0.
     \end{align*}
     Hence, $\frac{\partial}{\partial x_i} u_\varepsilon(x) = \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i} (x - y) u(y) \d y$.
     By induction, $u_\varepsilon \in \CC^\infty(\R^n)$.
-    By Lebesgue's differentiation theorem (see \cite{evans2010partial}[\S E.4]), for a.e. $x \in \Omega$ we have
+    By Lebesgue's differentiation theorem (see \cite[Appendix E.4]{evans2010partial}), we have
     \begin{equation}
-      \lim_{r \downarrow 0} \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |u(y) - u(x)| \d y = 0.
+      \lim_{r \downarrow 0} \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |u(y) - u(x)| \d y = 0 \quad\text{for a.e. } x \in \Omega.
       \label{eq:lebdiffthm}
     \end{equation}
     For any such $x$ we obtain (by choosing $\varepsilon > 0$ small such that $\overline{\BB_\varepsilon(x)} \subset \Omega$)
     \begin{align}
+      \begin{split}
       |u_\varepsilon(x) - u(x)|
-      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) u(y) \d y - u(x) \Big| 
-      = \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (u(y) - u(x)) \d y \Big| \nonumber\\
-      &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |u(y) - u(x)| \d y \leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |u(y) - u(x) | \d y \label{eq:pointwise}\\
-      & \to 0 \quad\text{as } \varepsilon \downarrow 0 \nonumber
+      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) u(y) \d y - u(x) \Big|  \\
+      &= \Big| \int_{\BB_\varepsilon(x)} \eta_\varepsilon (x - y) (u(y) - u(x)) \d y \Big| \\
+      &\leq \frac{1}{\varepsilon^n} \int_{\BB_\varepsilon(x)} \|\eta\|_{\Ell^\infty(\R^n)} |u(y) - u(x)| \d y \\
+      &\leq \frac{C}{|\BB_\varepsilon(x)|} \int_{\BB_\varepsilon(x)} |u(y) - u(x) | \d y \label{eq:pointwise}
+      \quad\to 0 \text{ as } \varepsilon \downarrow 0 
+      \end{split}
     \end{align}
     due to \eqref{eq:lebdiffthm}.
     
@@ -158,12 +161,12 @@ The mollification has the following properties:
     $$
     u_\varepsilon(x) = \int_{\BB_\varepsilon(x) \cap \Omega} \eta_\varepsilon(x - y) u(y) \d y = 0.
     $$
-    Hence, $\supp(u_\varepsilon) \subset \overline{\Omega_{\frac{\delta}{3}}} \Subset \Omega$.
+    Hence, $\supp(u_\varepsilon) \subset \overline{\Omega_{\frac{\delta}{2}}} \Subset \Omega$.
     By a), $u_\varepsilon \in \CC_0^\infty(\Omega)$.
 
     \item For $u \in \CC^0(\Omega)$ and $V \Subset \Omega$, choose $W$ such that $V \Subset W \Subset \Omega$.
     Then $u$ is uniformly continuous in $W$ and \eqref{eq:lebdiffthm} holds uniformly for $x \in V$.
-    Hence, also \eqref{eq:pointwise} is satisfied uniformly for $x \in V$ and $u_\varepsilon \to u$ uniformly in $V$.
+    Hence, also \eqref{eq:pointwise} is satisfied uniformly for $x \in V$ and thus $u_\varepsilon \to u$ uniformly in $V$.
 
     \item For $x \in \Omega$, by using Hölder's inequality and $\eta_\varepsilon \geq 0$ along with $\int_{\R^n} \eta_\varepsilon(z) \d y = 1$, we get
     \begin{align*}
@@ -174,16 +177,18 @@ The mollification has the following properties:
     \end{align*}
     Raising this to the power of $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have
     \begin{align}
+      \label{eq:lpinequality}
+      \begin{split}
       \|u_\varepsilon\|_{\Ell^p(\Omega)}^p \|
       &\leq \int_\Omega\int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d x \d y
-      = \int_\Omega |u(y)|^p \underbrace{\left( \int_\Omega \eta_\varepsilon(x -y) \d x \right)}_{\in [0,1]} \d y \nonumber\\
+      = \int_\Omega |u(y)|^p \underbrace{\left( \int_\Omega \eta_\varepsilon(x -y) \d x \right)}_{\in [0,1]} \d y \\
       &\leq \int_\Omega |u(y)|^p \d y = \|u\|_{\Ell^p(\Omega)}^p.
-      \label{eq:lpinequality}
+      \end{split}
     \end{align}
     In particular, this implies $u_\varepsilon \in \Ell^p(\Omega)$.
 
     Given $\mu > 0$, we may choose $\varphi \in \CC_0^\infty(\Omega)$ such that $\|u - \varphi\|_{\Ell^p(\Omega)} <  \frac{\mu}{3}$. 
-    As $\varphi$ and $\varphi_\varepsilon$ have compact support in $\Omega$ by $b)$, we deduce from c) that $\varphi_\varepsilon \to \varphi$ uniformly in $\Omega$ as $\varepsilon \downarrow 0$.
+    As $\varphi$ and $\varphi_\varepsilon$ have compact support in $\Omega$ by b), we deduce from c) that $\varphi_\varepsilon \to \varphi$ uniformly in $\Omega$ as $\varepsilon \downarrow 0$.
     Hence, we may choose $\varepsilon_0 > 0$ small enough such that $\|\varphi_\varepsilon - \varphi\|_{\Ell^p(\Omega)} < \frac{\mu}{3}$ for all $\varepsilon \in (0, \varepsilon_0)$.
     But then,
     \begin{align*}
