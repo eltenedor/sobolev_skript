@@ -6,7 +6,7 @@ As a prototype of so called \emph{elliptic PDEs}, we will study the \emph{Poisso
   \label{eq:poissonDirichlet}
   \left\{
     \begin{alignedat}{2}
-    -\Delta u(x) &= f(x), &&\quad x \in \Omega \\
+    -\Delta u(x) &= f(x), &&\quad x \in \Omega, \\
     u(x) &= 0, &&\quad x \in \partial\Omega,
     \end{alignedat}
     \right.
@@ -39,7 +39,7 @@ Then integrating by parts, we obtain
 \end{equation}
 For this identity we only need $u \in \CC^1(\Omega)$ or even $u \in \HH^1(\Omega)$ is sufficient.
 Recall that $\HH^k(\Omega) = \WW^{k,2}(\Omega)$ and $\HH_0^k(\Omega) = \WW_0^{k,2}(\Omega)$.
-In particular, if $u \in \HH_0^1(\Omega)$ and $\partial\Omega \in \CC^1$, $u$ satisfies $\Tr(u) = 0$ by Theorem \ref{thm:trace} so that the boundary condition $u = 0$ holds in a weak sense.
+In particular, if $u \in \HH_0^1(\Omega)$ and $\partial\Omega \in \CC^1$, $u$ satisfies $\Tr(u) = 0$ by Theorem \ref{thm:traceZeroFunctions} so that the boundary condition $u = 0$ holds in a weak sense.
 
 Another concept of generalized solutions for \eqref{eq:poissonDirichlet} is the so called strong solution which has the weak derivatives of second order so that $-\Delta u(x) = f(x)$ a.e. in $\Omega$.
 
@@ -55,7 +55,7 @@ Another concept of generalized solutions for \eqref{eq:poissonDirichlet} is the 
 \end{defn}
 
 Note that \eqref{eq:weakPoissonDirichlet} and \eqref{eq:weakSolution} are equivalent as $\CC_0^\infty(\Omega)$ is dense in $\HH_0^1(\Omega)$.
-If $u$ is a classical solution to \eqref{eq:poissonDirichlet} with $u \in \HH^1(\Omega)$ it satisfies $u \in \HH_0^1(\Omega)$ by Theorem \ref{thm:trace}, as $\Tr(u) = u|_{\partial\Omega} = 0$. 
+If $u$ is a classical solution to \eqref{eq:poissonDirichlet} with $u \in \HH^1(\Omega)$ it satisfies $u \in \HH_0^1(\Omega)$ by Theorem \ref{thm:traceZeroFunctions}, as $\Tr(u) = u|_{\partial\Omega} = 0$. 
 Hence, $u$ is a weak solution to \eqref{eq:poissonDirichlet} as it satisfies \eqref{eq:weakSolution}.
 $u$ is also a strong solution.
 

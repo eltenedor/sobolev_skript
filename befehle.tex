@@ -80,3 +80,20 @@
 \newcommand{\nicespace}{ \hphantom{\CC_0^\infty(\Omega)} {\settowidth{\dimen0}{$\CC_0^k(\Omega)$}\hspace*{-\dimen0}}}
 \newcommand{\nicerspace}{ \hphantom{\CC^\infty(\Omega)} {\settowidth{\dimen0}{$\CC^k(\Omega)$}\hspace*{-\dimen0}}}
 \newcommand{\nicestspace}{ \hphantom{\CC^\infty(\Omega)} {\settowidth{\dimen0}{$\CC^0(\Omega)$}\hspace*{-\dimen0}}}
+
+%Alignment point in \substack
+
+\makeatletter
+\newcommand{\subalign}[1]{%
+  \vcenter{%
+    \Let@ \restore@math@cr \default@tag
+    \baselineskip\fontdimen10 \scriptfont\tw@
+    \advance\baselineskip\fontdimen12 \scriptfont\tw@
+    \lineskip\thr@@\fontdimen8 \scriptfont\thr@@
+    \lineskiplimit\lineskip
+    \ialign{\hfil$\m@th\scriptstyle##$&$\m@th\scriptstyle{}##$\crcr
+      #1\crcr
+    }%
+  }
+}
+\makeatother

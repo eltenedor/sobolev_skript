@@ -19,7 +19,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
   \begin{enumerate}[a)]
     \item By Theorem \ref{thm:mollification}, we have $u_\varepsilon \in \CC^\infty(\Omega)$ and for $|\alpha| \leq k$
   $$
-  \DD^\alpha (u_\varepsilon)(x) = \int_\Omega \DD^\alpha (\eta_\varepsilon)(x - y) u(y) \d y, \quad x \in \Omega,
+      \DD^\alpha (u_\varepsilon)(x) = \int_\Omega \DD^\alpha (\eta_\varepsilon)(x - y) u(y) \d y \quad\text{for all } x \in \Omega,
   $$
     see proof of Theorem \ref{thm:mollification} a), d).
     For fixed $x \in \Omega_\varepsilon$, $\phi(y) \coloneqq \eta_\varepsilon(x - y)$ satisfies $\phi \in \CC_0^\infty(\Omega)$ since $\supp \phi = \overline{\BB_\varepsilon(x)}$ and therefore
@@ -33,7 +33,7 @@ We prove that mollification from \ref{sec:mollifier} provides approximating func
     \end{align*}
     Since $x \in \Omega_\varepsilon$ was arbitrary, this proves a).
 
-  \item In view of a) and Theorem \ref{thm:mollifier} d), for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_\varepsilon \subseteq \Omega_{\varepsilon_0}$ for $\varepsilon_0$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
+  \item In view of a) and Theorem \ref{thm:mollifier} d), for fixed $V \Subset \Omega$ we have $\DD^\alpha u_\varepsilon = \eta_\varepsilon \ast \DD^\alpha u$ in $V$ for $\varepsilon \in (0,\varepsilon_0)$, as $V \subset \Omega_{\varepsilon_0} \subseteq \Omega_{\varepsilon}$ for $\varepsilon_0$ small enough so that $\DD^\alpha u_\varepsilon \to \DD^\alpha u$ in $\Ell^p(V)$ as $\varepsilon \downarrow 0$ for any $\alpha \in \N_0^n, |\alpha| \leq k$.
      Then
      \begin{align*}
      \|u_\varepsilon - u\|^p_{\WW^{k,p}(V)} = \sum_{|\alpha| \leq k} \|\DD^\alpha u_\varepsilon - \DD^\alpha u\|_{\Ell^p(V)}^p \to 0 \quad\text{as } \varepsilon \downarrow 0. &\qedhere
@@ -48,7 +48,7 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 \begin{lem}
   \label{lem:cutoff}
   Let $\Omega \subset \R^n$ be open and $K \subset \Omega$ compact.
-  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff\hyp{}function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$, and 
+  If $\dist(K, \partial \Omega) \geq \delta > 0$, then there exists a cutoff function $\tau \in \CC_0^\infty(\Omega)$ w.r.t. $K, \Omega$ with $0 \leq \tau \leq 1$, $\tau = 1$ in $K$, and 
   $$
 |\DD^\alpha \tau(x) | \leq c \delta^{-k} \quad\text{for all } x \in \Omega \setminus K, k \in \N , |\alpha| = k,
   $$ 
@@ -93,12 +93,20 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
 
 \begin{proof}
   For any $x \in K$ there is $r = r(x) > 0$ and $1\leq k \leq N$ such that $\BB_{x, k} \coloneqq \BB_r(x) \Subset \Omega_k$.
-  Hence, $$\{B_{x,k}\}_{\substack{x \in K \cap \Omega_k, \\ k = 1,\dots,N}}$$ is an open covering of $K$ and has a finite subset still covering $K$, called $$\{B_i^k\}_{\substack{i = 1,\dots,N_k \\ k = 1,\dots,N}}.$$ Then
+  Hence, 
+  $$
+  \{B_{x,k}\}_{\subalign{x &\in K \cap \Omega_k, \\ k &= 1,\dots,N}}
+  $$ 
+  is an open covering of $K$ and has a finite subset still covering $K$, called 
+  \[
+  \{ B_i^k \}_{\subalign{i &= 1,\dots,N_k, \\ k &= 1,\dots,N}}.
+  \]
+  Then
   $$
   K_k \coloneqq \overline{\bigcup_{i = 1}^{N_k} B_i^k}
   $$
   satisfies $K_k \Subset \Omega_k$ and $\bigcup_{k = 1}^N K_k \supset K$.
-  Let $\tilde \psi_k$ denote the cutoff\hyp{}function w.r.t $K_k, \Omega_k$.
+  Let $\tilde \psi_k$ denote the cutoff function w.r.t $K_k, \Omega_k$.
   Hence, $\tilde \psi_k \in \CC_0^\infty(\Omega_k)$ satisfies $0 \leq \tilde \psi_k \leq 1$ and
   $$
   \psi(x) \coloneqq \sum_{k = 1}^N \tilde \psi_k(x) \geq 1 \quad\text{for all } x \in K.
@@ -108,9 +116,9 @@ In order to show that for any $u \in \WW^{k,p}(\Omega)$ there is $(u_m)_{m \in \
   K \Subset \Omega \coloneqq \bigcup_{k = 1}^N \supp(\tilde \psi_k)
   $$
   and there is an open set $\Omega_0$ such that $K \subset \Omega_0 \Subset \Omega$.
-  Let $\tau$ be a cutoff\hyp{}function w.r.t $K, \Omega_0$ and
+  Let $\tau$ be a cutoff function w.r.t $K, \Omega_0$ and
   $$
-  \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)} &\quad\text{if } x \in \Omega_0, \\ 0 &\quad \text{if } x \notin \Omega_0. \end{cases}
+  \psi_k(x) \coloneqq \begin{cases} \frac{\tilde \psi_k(x) \tau(x)}{\psi(x)}, &\quad\text{if } x \in \Omega_0, \\ 0, &\quad \text{if } x \notin \Omega_0. \end{cases}
   $$
   Then $\psi_1,\dots,\psi_N$ have the claimed properties.
 \end{proof}
@@ -138,7 +146,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     W_i \coloneqq \overline{U_{i + 3}} \setminus U_{i + 2}, i \in \N, \quad\text{and}\quad W_0 \coloneqq \overline U_3,
     $$
     all $W_i \subset V_i$ are compact and we have $\Omega = \bigcup_{i = 0}^\infty W_i$.
-      Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff\hyp{}function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
+      Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
     Since for all $j \geq i + 2$
     $$W_i \cap V_j 
     = \left(\overline{U_{i + 3}} \cap \overline{U_{j + 1}}^{\mathrm c}  \right)\cap \left( U_{i + 2}^{\mathrm c} \cap  U_{j + 4}   \right) 
@@ -290,7 +298,7 @@ The following example shows that this is not true for all open $\Omega \subset \
   Let $\Omega = \{(x,y) \in \R^2 \colon 0 < |x| < 1, 0 < y < 1\}$ and $p \in [1,\infty)$.
   Then $u \colon \Omega \to \R$ defined by
   $$
-  u(x,y) \coloneqq \begin{cases} 1 \quad\text{if } x > 0,\\ 0 \quad\text{if } x < 0, \end{cases}
+  u(x,y) \coloneqq \begin{cases} 1, \quad\text{if } x > 0,\\ 0, \quad\text{if } x < 0, \end{cases}
   $$
   belongs to $\WW^{1,p}(\Omega)$, but for $\varepsilon > 0$ sufficiently small, there is no function $\varphi \in \CC^1(\overline\Omega)$ such that $\|\varphi - u\|_{\WW^{1,p}(\Omega)} < \varepsilon$. 
   
@@ -405,10 +413,10 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
   $$
   Hence, for $h \in \R^n$ with $|h| < M$ we have
   \begin{align*}
-    \|u(\,\cdot + h) - u(\,\cdot\,)\|_{\Ell^p(\R^n)}
-    &\leq \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
-    &\leq \frac{2}{3}\delta +  \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} \\
-    &< \delta
+    &\|u(\,\cdot + h) - u(\,\cdot\,)\|_{\Ell^p(\R^n)} \\
+    &\quad \leq \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
+    &\quad\leq \frac{2}{3}\delta +  \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} 
+    < \delta
   \end{align*}
   and the claim follows.
 \end{proof}

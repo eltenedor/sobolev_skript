@@ -146,7 +146,7 @@ We shortly illustrate the latter in an example.
 \begin{equation*}
   \left\{
     \begin{alignedat}{2}
-    -\Delta u(x) &= f(x), &&\quad x \in \Omega \\
+    -\Delta u(x) &= f(x), &&\quad x \in \Omega, \\
     u(x) &= 0, &&\quad x \in \partial\Omega.
     \end{alignedat}
     \right.
@@ -172,7 +172,7 @@ We shortly illustrate the latter in an example.
       \begin{itemize}
         \item $\nabla u = (u_{x_1}, \dots, u_{x_n})$, \emph{gradient} of $u$.
         \item $\Delta u = \sum_{i = 1}^n u_{x_i x_i}$, \emph{Laplacian} of $u$.
-        \item $\frac{\partial u}{\partial \nu} = \nabla u \cdot \nu$ directional derivative for $\nu \in \R^n \setminus\{0\}$.
+        \item $\frac{\partial u}{\partial \nu} = \nabla u \cdot \nu$, directional derivative for $\nu \in \R^n \setminus\{0\}$.
         \item $\nabla \cdot \overline u = \div \overline u = \sum_{i = 1}^n (\overline u_i)_{x_i}$, \emph{divergence} of $\overline u \colon \R \to \R^n$.
       \end{itemize}
 
@@ -190,7 +190,7 @@ We shortly illustrate the latter in an example.
           $\hphantom{\CC^\infty(\Omega) 
           ={}  } \{u \colon \Omega \to \R \colon \DD^\alpha u \in \CC^0(\Omega) \text{ for all } \alpha \in \N_0^n \text{ with } |\alpha| \leq k \}, k \in \N$.
 
-        \item $\CC^\infty(\Omega) = \bigcap_{k \in \N} C^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ infinitely often differentiable}\}$.
+        \item $\CC^\infty(\Omega) = \bigcap_{k \in \N} \CC^k(\Omega) = \{u \colon \Omega \to \R \colon u \text{ \emph{smooth}, i.e. infinitely often differentiable}\}$.
 
         \item $\supp(u) = \overline{\{x \in \Omega \colon u(x) \neq 0\}}$.
         \item $A \Subset \Omega$ if $\overline A \subset \Omega$ and $\overline A$ is compact, i.e. bounded.

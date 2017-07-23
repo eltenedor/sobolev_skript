@@ -47,10 +47,10 @@ Then $u \colon \Omega \to [-\infty,\infty]$ is measurable \emph{on} $\Omega$ if 
       \|x + y\|_p &\leq \|x\|_p + \|y\|_p, \\
       |x \cdot y| &\leq \|x\|_p \|y\|_q \quad\text{for } p \in [1, \infty], \frac{1}{p} + \frac{1}{q} =1.
     \end{align*}
-  \item General Hölder inequality: Let $p_k \in [1,\infty], \frac{1}{p_1} + \cdots+ \frac{1}{p_m} = 1, m \geq 3, u_k \in \Ell^{p_k}(\Omega), k = 1,\dots,m$.
+  \item General Hölder inequality: Let $p_k \in [1,\infty], \frac{1}{p_1} + \cdots+ \frac{1}{p_m} = 1$, $m \geq 3$, $u_k \in \Ell^{p_k}(\Omega)$, and $k = 1,\dots,m$.
     Then
     $$
-    \int_\Omega |u_1 \cdot \cdots \cdot u_m| \d x \leq \prod_{k = 1}^m \|u_k\|_{\Ell^{p_k}(\Omega)}.
+    \int_\Omega |u_1 \cdot \ldots \cdot u_m| \d x \leq \prod_{k = 1}^m \|u_k\|_{\Ell^{p_k}(\Omega)}.
     $$
 \end{enumerate}
 
@@ -172,7 +172,7 @@ The mollification has the following properties:
     \begin{align*}
       |u_\varepsilon(x)| 
       &= \Big| \int_\Omega \left( \eta_\varepsilon(x - y) \right)^{1 - \frac{1}{p}} \left( \eta_\varepsilon(x - y)\right)^{\frac{1}{p}} u(y) \d y \Big| \\
-      &\leq \underbrace{\left( \int \eta_\varepsilon(x -y) \d y\right)^{\frac{p - 1}{p}}}_{\leq 1} \left( \int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d y \right)^\frac{1}{p}
+      &\leq \underbrace{\left( \int_\Omega \eta_\varepsilon(x -y) \d y\right)^{\frac{p - 1}{p}}}_{\leq 1} \left( \int_\Omega \eta_\varepsilon(x - y) |u(y)|^p \d y \right)^\frac{1}{p}
       \leq \left( \int_\Omega \eta_\varepsilon (x - y) |u(y)|^p \d y \right)^{\frac{1}{p}}.
     \end{align*}
     Raising this to the power of $p$ and integrating w.r.t $x \in \Omega$, by using Fubini we have
