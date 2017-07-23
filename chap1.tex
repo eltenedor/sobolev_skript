@@ -97,7 +97,7 @@ Let us see in an example which functions have weak derivatives and how to calcul
         &= -\int_{-1}^0 -1 \varphi(x) \d x - \int_0^1 1 \varphi(x) \d x
         = -\int_{-1}^1 v(x) \varphi(x)
       \end{align*}
-      if we define $v(x) = \begin{cases} 1, &\quad x \in (0,1), \\ -1, &\quad x \in (-1,0). \end{cases}$
+  if we define $v(x) = 1$ for $x \in (0,1)$ and $v(x) = -1$ for  $x \in (-1,0)$.
 
       Then $v \in \Ell^1(\Omega)$ and since $\{0\}$ is a set of measure zero in $\R$, we could define $v(0)$ arbitrarily.
       Hence, $u$ is weakly differentiable with derivative $u^\prime = v$.
@@ -168,7 +168,7 @@ We shortly illustrate the latter in an example.
           For $k \in \N$: $\DD^k u(x) = \{\DD^\alpha u(x) \colon \alpha \in \N_0^n \text{ with } |\alpha| = k \}$ is identified with an element of $\R^{n^k}$ and $\DD^0 u(x) \coloneqq u(x)$.
       \end{itemize}
 
-    \item Differential Operators:
+    \item Differential operators:
       \begin{itemize}
         \item $\nabla u = (u_{x_1}, \dots, u_{x_n})$, \emph{gradient} of $u$.
         \item $\Delta u = \sum_{i = 1}^n u_{x_i x_i}$, \emph{Laplacian} of $u$.

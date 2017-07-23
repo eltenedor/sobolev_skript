@@ -196,8 +196,8 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
 
 \begin{rem}
   Historically, there were two definitions of Sobolev spaces.
-  $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:sobolevSpace} while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{\WW^{k,p}(\Omega)}$.
-  Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$ but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \supseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
+  $\WW^{k,p}(\Omega)$ was defined as in Definition \ref{defn:sobolevSpace}, while $\HH^{k,p}(\Omega)$ was defined as the closure of $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega)$ w.r.t $\|\cdot\|_{\WW^{k,p}(\Omega)}$.
+  Obviously $\HH^{k,p}(\Omega) \subseteq \WW^{k,p}(\Omega)$, but only after Meyers and Serrin in 1964 \cite{meyers1964} it was clear that $\HH^{k,p}(\Omega) \supseteq \WW^{k,p}(\Omega)$ without assuming any smoothness condition of $\partial \Omega$.
 \end{rem}
 
 We can now prove the chain rule for $\WW^{1,p}(\Omega)$ functions.
@@ -279,7 +279,7 @@ Unlike for classical derivatives, now $u \in \WW^{1,p}(\Omega)$ implies $|u| \in
     \int_\Omega f_\varepsilon(u) \varphi_{x_i} \d x
     &= - \int_\Omega f_\varepsilon'(u) u_{x_i} \varphi \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
   \end{align}
-  Since $f_\varepsilon(u(x)) \to u_+(x)$ and $(f_\varepsilon'(u) u_{x_i})(x) \to u_{x_i}(x)\chi_{\{u > 0\}}(x)$ for a.e. $x \in \Omega$ and $|f_\varepsilon(u)\varphi_{x_i}| \leq \| \varphi_{x_i}\|_{\Ell^\infty(\Omega)} |u|$ as well as $|f_\varepsilon'(u) u_{x_i} \varphi|\leq \|\varphi\|_{\Ell^\infty(\Omega)} |u_{x_i}|$ are satisfied, we may let $\varepsilon\downarrow 0$ in \ref{eq:weakDerivativeOfPositivePart} and obtain from the dominated convergence theorem
+  Since $f_\varepsilon(u(x)) \to u_+(x)$ and $(f_\varepsilon'(u) u_{x_i})(x) \to u_{x_i}(x)\chi_{\{u > 0\}}(x)$ for a.e. $x \in \Omega$ and $|f_\varepsilon(u)\varphi_{x_i}| \leq \| \varphi_{x_i}\|_{\Ell^\infty(\Omega)} |u|$ as well as $|f_\varepsilon'(u) u_{x_i} \varphi|\leq \|\varphi\|_{\Ell^\infty(\Omega)} |u_{x_i}|$ are satisfied, we may let $\varepsilon\downarrow 0$ in \eqref{eq:weakDerivativeOfPositivePart} and obtain from the dominated convergence theorem
   $$
   \int_\Omega u_+(x) \varphi_{x_i}(x) \d x
   = - \int_\Omega u_{x_i}(x) \chi_{\{u > 0\}}(x) \varphi(x) \d x \quad\text{for all } \varphi \in \CC_0^\infty(\Omega).
@@ -329,13 +329,13 @@ The following example shows that this is not true for all open $\Omega \subset \
       1 - 2\varepsilon
       < \psi(b) - \psi(a)
       &= \int_a^b \psi'(x) \d x
-      =\int_a^b \int_0^1 \psi_x(x,y) \d y \d x \\
-      &\hspace{-0.7em}\overset{\text{Fubini}}{\leq} \int_{\,\overline\Omega} |\psi_x (x,y)| \d x \d y
+      =\int_a^b \int_0^1 \varphi_x(x,y) \d y \d x \\
+      &\hspace{-0.7em}\overset{\text{Fubini}}{\leq} \int_{\,\overline\Omega} |\varphi_x (x,y)| \d x \d y
       \overset{\text{Hölder}}{\leq} |\overline\Omega|^{\frac{1}{q}} \|\varphi_x\|_{\Ell^p(\Omega)}
-      < 2^{\frac{1}{q}}\varepsilon,
+      < 2^{\frac{1}{q}}\varepsilon
     \end{align*}
-    as $\|\varphi_x\|_{\Ell^p(\Omega)} = \| u_x - \varphi_x\|_{\Ell^p(\Omega)} \|_{\Ell^p(\Omega)} \leq \|u - \varphi\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
-    But then $1 < \varepsilon(2 + 2^{\frac{1}{q}})$ which is not possible for $\varepsilon > 0$ small enough.  \qed
+    as $\|\varphi_x\|_{\Ell^p(\Omega)} = \| u_x - \varphi_x\|_{\Ell^p(\Omega)} \leq \|u - \varphi\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
+    But then $1 < (2 + 2^{\frac{1}{q}})\, \varepsilon$ which is not possible for $\varepsilon > 0$ small enough.  \qed
 \end{ex}
 
 The problem with $\Omega$ in Example \ref{ex:noSegmentCondition} is that it lies on both sides of the segment $$\Gamma = \{(0,y) \colon y \in [0,1]\}$$ with $\Gamma \subset \partial \Omega$.
@@ -348,7 +348,7 @@ Moreover, we assume from now on that $\Omega$ is a domain, i.e. open and connect
   We say that $\Omega$ satisfies the \emph{segment condition} if for any $x \in \partial\Omega$ there exists a neighborhood $U_x \subset \R^n$ of $x$ and $0 \neq y_x \in \R^n$ such that $z + t y_x \in \Omega$ for any $z \in \overline\Omega \cap U_x$ and any $t \in (0,1)$.
 \end{defn}
 
-Another condition on $\partial\Omega$ is that it is locally the graph of a $\CC^m$ function.
+Another condition on $\Omega$ is that $\partial\Omega$ is locally the graph of a $\CC^m$-function.
 
 \begin{defn}
   \label{defn:CmBoundary}
@@ -409,7 +409,7 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
   Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
   Hence, there is $M > 0$ such that
   $$
-  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3|\supp(\varphi)|^{\frac{1}{p}}} \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
+  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3 \, |\supp(\varphi)|^{\frac{1}{p}}} \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
   $$
   Hence, for $h \in \R^n$ with $|h| < M$ we have
   \begin{align*}
