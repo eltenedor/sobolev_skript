@@ -306,7 +306,7 @@ The following example shows that this is not true for all open $\Omega \subset \
   Assume that for $\varepsilon > 0$ there exists $\varphi \in \CC^1(\overline\Omega)$ with $\| u - \varphi\|_{\WW^{1,p}(\Omega)} < \varepsilon$.
   Then with
     $$
-    L \coloneqq \{ (x,y) \in \R^2 \colon x \in [-1,0] \} \quad\text{and}\quad
+    L \coloneqq \{ (x,y) \in \R^2 \colon x \in [-1,0], y \in [0,1] \} \quad\text{and}\quad
     R \coloneqq \{ (x,y) \in \R^2 \colon x, y \in [0,1] \}
     $$
     we have $\overline\Omega = L \cup R$ and $|L| = |R| = 1$.
@@ -409,13 +409,13 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
   Since $\varphi$ has compact support, it is uniformly continuous on $\R^n$.
   Hence, there is $M > 0$ such that
   $$
-  |\varphi(x + h) - \varphi(x) < \frac{\delta}{3 \, |\supp(\varphi)|^{\frac{1}{p}}} \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
+  |\varphi(x + h) - \varphi(x)| < \frac{\delta}{3 \, |\supp(\varphi)|^{\frac{1}{p}}} \quad\text{for all } x \in \R^n\text{, } h \in \BB_M(0).
   $$
   Hence, for $h \in \R^n$ with $|h| < M$ we have
   \begin{align*}
     &\|u(\,\cdot + h) - u(\,\cdot\,)\|_{\Ell^p(\R^n)} \\
     &\quad \leq \|u(\,\cdot + h) - \varphi(\,\cdot + h) \|_{\Ell^p(\R^n)} + \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,) \|_{\Ell^p(\R^n)} +  \|\varphi - u \|_{\Ell^p(\R^n)} \\
-    &\quad\leq \frac{2}{3}\delta +  \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} 
+    &\quad\leq \frac{2}{3}\,\delta +  \|\varphi(\,\cdot + h) - \varphi(\,\cdot\,)\|_{\Ell^\infty(\R^n)} |\supp(\varphi)|^{\frac{1}{p}} 
     < \delta
   \end{align*}
   and the claim follows.
@@ -448,7 +448,7 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
       It further satisfies for $|\alpha| \leq k$
       $$
       |\DD^\alpha v_\varepsilon(x)| 
-      = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
+      = \Big| \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x) \Big|
       \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)| \quad\text{for all } x \in\Omega
       $$
       so that for all $\tilde\Omega \subset \Omega$ open we have
@@ -456,19 +456,19 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
         \|v_\varepsilon\|_{\WW^{k,p}(\tilde\Omega)}
         \leq \sum_{|\alpha|\leq k} \|\DD^\alpha v_\varepsilon\|_{\Ell^p(\tilde\Omega)}
         \leq M \left( \sum_{|\alpha| \leq k} \sum_{\beta\leq\alpha} \binom{\alpha}{\beta} \right) \|u\|_{\WW^{k,p}(\tilde\Omega)}
-        \leq c(k) M \|u\|_{\WW^{k,p}(\tilde\Omega)}
+        \leq c(k)\, M\, \|u\|_{\WW^{k,p}(\tilde\Omega)}
       $$
       with some constant $c(k) > 0$.
       Hence,
       \begin{align*}
         \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)}
         &= \|u - v_\varepsilon\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})}
-        \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{B_{\frac{1}{\varepsilon}}(0)})} + \|v_\varepsilon\|_{\WW^{k,p}(\overline{\Omega \setminus \BB_{\frac{1}{\varepsilon}}(0)})} \\
-        &\leq (1 + c(k)M) \|u\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})} \\
+        \leq \|u\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})} + \|v_\varepsilon\|_{\WW^{k,p}(\Omega \overline{\setminus \BB_{\frac{1}{\varepsilon}}(0)})} \\
+        &\leq (1 + c(k)\, M) \|u\|_{\WW^{k,p}(\Omega \setminus \overline{\BB_{\frac{1}{\varepsilon}}(0)})} \\
         &\to 0 \quad\text{as } \varepsilon \to 0
       \end{align*}
       in view of $p < \infty$.
-      Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v = v_\varepsilon$ has bounded support.
+      Hence, $\|u - v_\varepsilon\|_{\WW^{k,p}(\Omega)} < \delta$ for $\varepsilon > 0$ small enough and $v \coloneqq v_\varepsilon$ has bounded support.
 
     \item In view of i) we may assume w.l.o.g. that $K \coloneqq \supp(u)$ is bounded and hence compact (if necessary, we replace $u$ by $v$).
 
