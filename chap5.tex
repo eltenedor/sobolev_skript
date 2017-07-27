@@ -101,7 +101,7 @@ A $\CC^m$\hyp{}diffeomorphism also provides a transformation between the corresp
   $$
   \|T(u)\|_{\WW^{1,p}(U)} \leq C_1 \|u\|_{\WW^{1,p}(\Omega)} \quad \text{for all } u \in \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega).
   $$
-  For $u \in \WW^{1,p}(\Omega)$ there exists $(u_k)_{k \in \N} \subset \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$ such that $u_k \to u$ in $\WW^{1,p}(\Omega)$ and a.e. in $\Omega$.
+      For $u \in \WW^{1,p}(\Omega)$, by Theorem \ref{thm:meyersSerrin}, there exists $(u_k)_{k \in \N} \subset \CC^\infty(\Omega) \cap \WW^{1,p}(\Omega)$ such that $u_k \to u$ in $\WW^{1,p}(\Omega)$ and a.e. in $\Omega$.
   As $T$ is linear, we have
   $$
   \| T(u_k) - T(u_j)\|_{\WW^{1,p}(U)} \leq C_1 \, \|u_k - u_j\|_{\WW^{1,p}(\Omega)}, \quad\text{for all } k,j \in \N.
@@ -126,7 +126,7 @@ We need now again boundary regularity of $\partial\Omega$.
 
 \begin{thm}  
   \label{thm:extension}
-  Let $m \in \N$, $p \in [1,\infty)$, $\Omega \subset \R^n$ be a bounded domain with $\partial \Omega \in \C^m$, and $V \subset \R^n$ be a domain with $\Omega \Subset V$.
+  Let $m \in \N$, $p \in [1,\infty)$, $\Omega \subset \R^n$ be a bounded domain with $\partial \Omega \in \CC^m$, and $V \subset \R^n$ be a domain with $\Omega \Subset V$.
   Then for any $k \in \{1,\dots,m\}$ there exists a linear operator
   $$
   E \colon \WW^{k,p}(\Omega) \to \WW^{k,p}(\R^n)
@@ -158,19 +158,19 @@ We need now again boundary regularity of $\partial\Omega$.
       $$
       \tilde E(u) (x) \coloneqq 
       \begin{cases}
-        u(x) &\quad\text{if } x = (x',x_n) \text{ with } x_n \geq 0,\\
-        \sum_{j = 1}^{m + 1} \lambda_j u(x',-jx_n) &\quad\text{if } x = (x', x_n) \text{ with } x_n < 0,
+        u(x), &\quad\text{if } x = (x',x_n) \text{ with } x_n \geq 0,\\
+        \sum_{j = 1}^{m + 1} \lambda_j u(x',-jx_n), &\quad\text{if } x = (x', x_n) \text{ with } x_n < 0,
       \end{cases}
       $$
       and for any $\alpha \in \N_0^n$ with $1 \leq |\alpha| \leq m$
       $$
       \tilde E_\alpha (u) (x) \coloneqq
       \begin{cases}
-        u(x) &\quad\text{if } x_n \geq 0,\\
-        \sum_{j = 1}^{m + 1} (-j)^{\alpha_n}\lambda_j u(x',-jx_n) &\quad\text{if } x_n < 0.
+        u(x), &\quad\text{if } x_n \geq 0,\\
+        \sum_{j = 1}^{m + 1} (-j)^{\alpha_n}\lambda_j u(x',-jx_n), &\quad\text{if } x_n < 0.
       \end{cases}
       $$
-      Then for all $|\alpha| \leq m$ we have $\DD^\alpha(\tilde E(u)) = \tilde E_\alpha(\DD^\alpha u)$ and hence $\tilde E (u) \in \CC^n(\R^n)$:
+      Then for all $|\alpha| \leq m$ we have $\DD^\alpha(\tilde E(u)) = \tilde E_\alpha(\DD^\alpha u)$ and hence $\tilde E (u) \in \CC^m(\R^n)$:
       This is immediate in $\R^n_+$ and $\R^n_-$, while for $x \in \partial \R^n_+$, namely $x_n = 0$, we have
       \begin{align*}
         \lim_{t \uparrow 0 } \DD^\alpha(\tilde E(u))(x',t)
@@ -183,11 +183,11 @@ We need now again boundary regularity of $\partial\Omega$.
       \end{align*}
       since $u \in \CC^m(\overline{\R^n_+})$ by assumption.
       Moreover,
-      \begin{align*}
+      \begin{alignat*}{2}
         \|\DD^\alpha(\tilde E(u)) \|_{\Ell^p(\R^n)}
-       &\leq \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n} |\lambda_j|\, j^{\frac{1}{p}} \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)}  \\
-       &\overset{p \geq 1}{\leq} \Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n + 1} |\lambda_j| \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)},
-      \end{align*}
+        &\leq &&\Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n} |\lambda_j|\, j^{\frac{1}{p}} \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)}  \\
+        &\hspace{-0.3em}\overset{p \geq 1}{\leq} &&\Big( 1 + \sum_{j = 1}^{m + 1} j^{\alpha_n + 1} |\lambda_j| \Big) \|\DD^\alpha u\|_{\Ell^p(\R^n_+)},
+      \end{alignat*}
       where we have used the transformation rule with $z = (x', -jx_n)$ and $\supp(u) \subset \widetilde \BB_+ \subset \overline{\BB^+}$.
       Hence, $\tilde E(u) \in\CC^m(\R^n)$ with
       \begin{equation}
@@ -203,17 +203,17 @@ We need now again boundary regularity of $\partial\Omega$.
       \end{align*}
       with $\gamma_i \in \CC^m(\R^{n - 1})$.
       Choose $U_0 \Subset \Omega$ such that $\overline\Omega \subset \bigcup_{i = 0}^N U_i$.
-      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(\Tau_i^{-1}(U_i))$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 1}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
-      Define further $\Phi_i,\Psi_i$ by Lemma \ref{lem:flattening} according to $\gamma = \gamma_i, i = 1,\dots,N,$ and set $W_i \coloneqq \Phi_i(U_i)$.
+      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(U_i)$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 1}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
+      Define further $\Phi_i,\Psi_i$ by Lemma \ref{lem:flattening} according to $\gamma = \gamma_i, i = 1,\dots,N,$ and set $W_i \coloneqq \Phi_i(\Tau_i(U_i)), i = 1,\dots,N$.
 
       We fix $i \in \{1,\dots,N\}$ and $u \in \CC^m(\overline\Omega)$.
-      Then $\varphi_i u$ and hence also $T_{\Tau_i^{-1}}(\varphi_i u)$ belong to $\CC^m(\overline U_i \cap \overline\Omega)$ with compact support $K_i \Subset U_i, K_i \subset \Tau_i(\overline\Omega)$.
+      Then $\varphi_i u$ and hence also $T_{\Tau_i^{-1}}(\varphi_i u)$ belong to $\CC^m(\overline U_i \cap \overline\Omega)$ with compact support $K_i \Subset U_i, K_i \subset \overline\Omega$.
       Then
       $$
       v_i \coloneqq T_{\vphantom{\Tau_i^{-1}}{\Psi_i^{\vphantom{-1}}}}(T_{\Tau_i^{-1}}(\varphi_i u)) \in \CC^m(\overline{W_i^+})
       $$
-      with support in $\Phi(K_i) \Subset W_i$ and $\Phi_i(K_i) \subset W_i^+ \cup W_i^0$.
-      Hence, we may apply $\tilde E$ to $v_i$ (by choosing $\widetilde \BB^+$ and $\BB$ appropriately such that $\Phi_i(K_i) \subset \widetilde \BB^+ \Subset W_i \Subset B)$ and obtain
+      with support in $\Phi_i(\Tau_i(K_i)) \Subset W_i$ and $\Phi_i(\Tau_i(K_i)) \subset W_i^+ \cup W_i^0$.
+      Hence, we may apply $\tilde E$ to $v_i$ (by choosing $\widetilde \BB^+$ and $\BB$ appropriately such that $\Phi_i(\Tau_i(K_i)) \subset \widetilde \BB^+ \Subset W_i \Subset \BB)$ and obtain
       $$
       \tilde E(v_i)  \in \CC^m(\R^n) \cap \WW^{k,p}(\R^n).
       $$
@@ -223,20 +223,20 @@ We need now again boundary regularity of $\partial\Omega$.
       $$
       As $\tilde E(v_i)$ has compact support in some ball $\BB_i \subset \R^n$, we may apply Proposition \ref{prop:sobolevTransform} with 
       $$
-      \Phi_i \coloneqq \Phi_i^{-1}(\BB_i) \to \BB_i \quad\text{and}\quad
+      \Phi_i \colon \Phi_i^{-1}(\BB_i) \to \BB_i \quad\text{and}\quad
       \Tau_i \colon \Tau_i^{-1}(\Phi_i^{-1}(\BB_i)) \to \Phi_i^{-1}(B_i)
       $$
       and obtain $u_i = \varphi_i u$ in $\Omega$ and 
       \begin{align*}
         \|u_i\|_{\WW^{k,p}(\R^n)}
-        &\leq C_2 \| \tilde E(v_i) \|_{\WW^{k,p}(\BB_i)}
-        \overset{\mathrm i)}{\leq} C_3 \| v_i \|_{\WW^{k,p}(W_i^+)} \\
-        &\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_4 \|\varphi_i u\|_{\WW^{k,p}(\Omega \cap U_i)}  
-        \overset{\subalign{\text{Prop. }&{ \ref{prop:sobolevProperties}} \\ \text{Lem. }&{ \ref{lem:cutoff}}}}{\leq} C_5 \|u\|_{\WW^{k,p}(\Omega \cap U_i)}.
+        &\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_2 \, \| \tilde E(v_i) \|_{\WW^{k,p}(\BB_i)}
+        \overset{\mathrm i)}{\leq} C_3 \, \| v_i \|_{\WW^{k,p}(W_i^+)} \\
+        &\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_4 \, \|\varphi_i u\|_{\WW^{k,p}(\Omega \cap U_i)}  
+        \overset{\subalign{\text{Prop. }&{ \ref{prop:sobolevProperties}} \\ \text{Lem. }&{ \ref{lem:cutoff}}}}{\leq} C_5 \, \|u\|_{\WW^{k,p}(\Omega \cap U_i)}.
       \end{align*}
       Defining further $u_0 \coloneqq \varphi_0 u \in \CC^m(U_0)$ with compact support in $U_0$, we have 
       $$
-        \sum_{i = 0}^n u_i \in \WW^{k,p}(\R^n) \quad\text{with}\quad \| \sum_{i = 0}^N u_i \|_{\WW^{k,p}(\R^n)} \leq C_6 \|u\|_{\WW^{k,p}(\Omega)} 
+        \sum_{i = 0}^n u_i \in \WW^{k,p}(\R^n) \quad\text{with}\quad \| \sum_{i = 0}^N u_i \|_{\WW^{k,p}(\R^n)} \leq C_6 \, \|u\|_{\WW^{k,p}(\Omega)} 
         $$
         and
         $$
@@ -254,7 +254,7 @@ We need now again boundary regularity of $\partial\Omega$.
         where $C_7 > 0$ does not depend on $k$ or $u$ but on $m,p,\Omega$ and $V$.
         Moreover, $E(u) = u$ in $\Omega$.
 
-      \item As $\tilde E$ is linear in $u$ and $T_g$ is linear in $u$ (see Proposition \ref{prop:sobolevTransform}), the map
+      \item As $\tilde E$ is linear in $u$ and $T_\Phi$ is linear in $u$ (see Proposition \ref{prop:sobolevTransform}), the map
         $$
         E \colon \CC^m(\overline\Omega) \to \WW^{k,p}(\R^n), \quad u \mapsto E(u)
         $$
@@ -263,13 +263,13 @@ We need now again boundary regularity of $\partial\Omega$.
         Then by Theorem \ref{thm:CinftyUpToBoundary} there exists $(u_j)_{j\in \N} \subset \CC^m(\overline\Omega)$ such that $u_j \to u$ in $\WW^{k,p}(\Omega)$.
         Then by \eqref{eq:continuousExtension}
         $$
-        \|E(u_j) - E(u_i) \|_{\WW^{k,p}(\R^n)} \leq C_7 \|u_j - u_i \|_{\WW^{k,p}(\Omega)} \quad\text{for all } i,j \in \N
+        \|E(u_j) - E(u_i) \|_{\WW^{k,p}(\R^n)} \leq C_7 \, \|u_j - u_i \|_{\WW^{k,p}(\Omega)} \quad\text{for all } i,j \in \N
         $$
         so that $(E(u_j))_{j \in \N}$ is a Cauchy sequence in $\WW^{k,p}(\R^n)$ and has a limit $v \in \WW^{k,p}(\R^n)$.
         As $E(u_j) \to v$ a.e. in $\R^n$ for a subsequence, we still have $\supp(v) \Subset V$ and $u = v$ a.e. in $\Omega$.
         Defining $E(u) \coloneqq v$, we have
         $$
-        \|E(u)\|_{\WW^{k,p}(\R^n)} \leq C_7 \|u\|_{\WW^{k,p}(\Omega)}
+        \|E(u)\|_{\WW^{k,p}(\R^n)} \leq C_7 \, \|u\|_{\WW^{k,p}(\Omega)}
         $$
         by \eqref{eq:continuousExtension} like in the end of the proof of Proposition \ref{prop:sobolevTransform}. 
         Since \eqref{eq:continuousExtension} implies that $E(u) = v$ does not depend on the choice of the approximating sequence $(u_j)_{j \in \N}$ (as $E$ is linear), we thereby have defined $E \colon \WW^{k,p}(\Omega) \to \WW^{k,p}(\R^n)$ having all claimed properties. \qedhere
@@ -365,14 +365,15 @@ Then we have the following theorem:
     \end{equation}
     A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
-  \item In the general case of Definition \ref{defn:boundarySpace}, let $B^i = B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_{\Psi_i}(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
     \begin{align*}
       \int_{\partial\Omega} | u_i |^p \d \sigma
-      &= \int_{U_i'} |\varphi_i u|^p (x', \gamma_i(x')) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x' 
-      \leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i u) |^p (x', 0) \d x' \\
-      &\hspace{-0.4em}\overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} 
-      \overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)}. \\
+      &= \int_{U_i'} |\varphi_i u|^p (x', \gamma_i(x')) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x'  \\
+      &= \int_{U_i'} |T_{\Psi_i}( \varphi_i u)|^p (\Phi_i(x', \gamma_i(x'))) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x' \\
+      &\leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i u) |^p (x', 0) \d x' 
+      \overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} \\
+      &\hspace{-1.2em}\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)}. 
     \intertext{Hence,}
       \|u\|_{\Ell^p(\partial\Omega)} &\leq \sum_{i = 1}^N \|u_i\|_{\Ell^p(\partial\Omega)} \leq N \cdot C_5^{\frac{1}{p}} \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
     \end{align*}
@@ -423,7 +424,7 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
     By Definition \ref{defn:boundarySpace} this means $\Tr(\varphi_i u_m) \to \Tr(\varphi_i u) = 0$ in $\Ell^p(\partial\Omega \cap U_i)$ for $i = 1,\dots,N$.
     Hence, fixing $i \in \{1, \dots, N\}$ and $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} (with $\gamma = \gamma_i$) we have $v_m \coloneqq T_{\Psi_i}(\varphi_i u_m) \in \CC^1(\BB^+ \cup \BB^0)$ and $v \coloneqq T_{\Psi_i}(\varphi_i u) \in \WW^{1,p}(\BB^+)$ with $\Tr(v_m) \to \Tr(v) = 0$ in $\Ell^p(\BB^0)$ for some ball $\BB = \BB_s(x^i) \subset \R^n$ (see part ii) of the proof of Theorem \ref{thm:trace}), where $v_m$, $v$ have compact supports $K_m$, $K$ in $\BB \cap \overline{\BB^+}$.
 
-    If we find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$, by Proposition \ref{prop:sobolevTransform} there is $f_i \coloneqq T_{\Phi_i}(w_m) \in \CC^1(\Omega)$ with $\supp(f_i) \subset \Omega \cap U_i$ such that 
+    If we find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$, by Proposition \ref{prop:sobolevTransform} there is $f_i \coloneqq T_{\Phi_i}(w_m) \in \CC^1(\Omega)$ for some $m \in \N$ with $\supp(f_i) \subset \Omega \cap U_i$ such that 
     $\|f_i - \varphi_i u\|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
     Then $\tilde u \coloneqq u - \sum_{i = 1}^N \varphi_i u$ has compact support in $\Omega$ so that by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $f_0 \in \CC_0^\infty(\Omega)$ such that 
     $\| \tilde u - f_0 \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
@@ -441,7 +442,7 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       v_m \to v \text{ in } \WW^{1,p}(\BB^+)
     \end{equation}
     by ii) and Proposition \ref{prop:sobolevTransform} and \ref{prop:sobolevProperties}.
-    As $v_m \in \CC^1(\BB^+ \cup \BB^0)$ we have for $x \in \BB^+ \cup \BB^0$ with $\BB' = \{x' \colon (x', x_n) \in \BB\}$ and $\frac{1}{q} + \frac{1}{p} = 1$.
+    As $v_m \in \CC^1(\BB^+ \cup \BB^0)$, we have for $x \in \BB^+ \cup \BB^0$ with $\BB' = \{x' \colon (x', x_n) \in \BB\}$ and $\frac{1}{q} + \frac{1}{p} = 1$.
     $$
     |v_m(x', x_n)|
     \leq |v_m(x',0)| + \int_0^{x_n} |(v_m)_{x_n} (x', t)| \d t
@@ -449,10 +450,10 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
     and
     \begin{align*}
       &\int_{\BB'} |v_m(x', x_n)|^p \d x' \\
-      &\quad\overset{\text{Hölder}}{\leq} 2^p \left( \int_{\BB'} |v_m(x',0)|^p \d x' + \int_{\BB'} \left[ \Big(\int_0^{x_n} 1^q \d t\Big)^{\frac{1}{q}} \Big( \int_0^{x_n} |\nabla v_m(x',t)|^p \d t \Big)^{\frac{1}{p}} \right]^p \d x' \right) \\
-      &\quad\overset{\text{Fubini}}{\leq} 2^p \Big( \|v_m\|_{\Ell^p(\BB^0)}^p + x_n^{p - 1} \int_0^{x_n} \int_{\BB'} | \nabla v_m(x',t)|^p \d x' \d t \Big)
+      &\quad\overset{\text{Hölder}}{\leq} 2^p \left( \int_{\BB'} |v_m(x',0)|^p \d x' +  \int_{\BB'}\left[  \Big(\int_0^{x_n} 1^q \d t\Big)^{\frac{1}{q}} \Big( \int_0^{x_n} |\nabla v_m(x',t)|^p \d t \Big)^{\frac{1}{p}}\right]^p  \d x'  \right) \\
+      &\quad\overset{\text{Fubini}}{\leq} 2^p \left( \|v_m\|_{\Ell^p(\BB^0)}^p + x_n^{p - 1} \int_0^{x_n} \int_{\BB'} | \nabla v_m(x',t)|^p \d x' \d t \right)
     \end{align*}
-    since $\frac{p}{q} = p - 1$ and $(a + b)^p \leq 2^{p - 1}(a^p + b^p)$ for $a,b \geq 0$.
+      since $\frac{p}{q} = p - 1$ and $(|a| + |b|)^p \leq (2\max\{|a|,|b|\})^p \leq 2^p(|a|^p + |b|^p)$ for $p \geq 0$.
 
     Hence, by \eqref{eq:traceAndSobolevConv} and the dominated convergence theorem, we obtain as $m \to \infty$ (for a subsequence)
     \begin{equation}
@@ -503,6 +504,6 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
         $$
         with some $C$ depending on $p$ and $U_i$ by Hölder's inequality.
         Since $g_m \to u_{x_n}$ and $(f_m)_{x_n} \to u_{x_n}$ in $\Ell^p(\Omega)$, we see that $\DD^\alpha G_m \to \DD^\alpha u$ in $\Ell^p(\Omega \cap U_i)$ for all $|\alpha|\leq 2$ with $\alpha_n \geq 1$ and $G_m \to u$ in $\Ell^p(\Omega \cap U_i)$ as $m \to \infty$.
-        Iterating this argument with $u_{x_i}, i = 1,\dots, n - 1$ and using an induction on $k$ and the arguments of ii), we see that $G_m \to u$ in $\WW^{k,p}(\Omega \cap U_i)$ and hence $u \in \WW_0^{k,p}(\Omega)$ (like in ii)). \qedhere
+        Iterating this argument with $u_{x_i}, i = 1,\dots, n - 1$, and using an induction on $k$ and the arguments of ii), we see that $G_m \to u$ in $\WW^{k,p}(\Omega \cap U_i)$ and hence $u \in \WW_0^{k,p}(\Omega)$ (like in ii)). \qedhere
   \end{enumerate}
 \end{proof}
