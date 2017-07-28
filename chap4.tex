@@ -180,7 +180,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     \|v - u\|_{\WW^{k,p}(V)}
     \leq \sum_{i = 0}^\infty \|u_i - \xi_i u\|_{\WW^{k,p}(V)}
-    \overset{(4.1)}{\leq} \delta \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
+    \overset{(4.1)}{\leq} \delta \, \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
     = \delta \quad\text{for all } V \Subset \Omega.
     $$
     Since $U_i \subset U_{i + 1}$ for all $i \in \N$, $U_i \Subset \Omega$, and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem
@@ -448,7 +448,7 @@ As a final prepariation we need the continuity of the translation in $\Ell^p(\R^
       It further satisfies for $|\alpha| \leq k$
       $$
       |\DD^\alpha v_\varepsilon(x)| 
-      = | \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x)|
+      = \Big| \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} \DD^\beta \tau_\varepsilon(x) \DD^{\alpha - \beta} u(x) \Big|
       \leq M \sum_{\beta \leq \alpha} \binom{\alpha}{\beta} | \DD^{\alpha - \beta} u(x)| \quad\text{for all } x \in\Omega
       $$
       so that for all $\tilde\Omega \subset \Omega$ open we have
