@@ -76,7 +76,7 @@ Hence, we define weak derivatives by:
   $u$ has the \emph{weak partial derivative} $\frac{\partial u}{\partial x_i}$ if there is $v \in \Ell_{\loc}^1(\Omega)$ such that
   \begin{equation}
     \label{eq:weakDerivativeDef}
-    \int_\Omega u(x) \frac{\partial u}{\partial x_i}(x) \d x = -\int_\Omega v(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).    
+    \int_\Omega u(x) \frac{\partial \varphi}{\partial x_i}(x) \d x = -\int_\Omega v(x) \varphi(x) \d x \quad \text{for all } \varphi \in \CC_0^\infty(\Omega).    
   \end{equation}
   Then $\frac{\partial u}{\partial x_i} \coloneqq v$.
 \end{defn}
@@ -159,7 +159,7 @@ We shortly illustrate the latter in an example.
   \begin{enumerate}[I)]
     \item Partial derivatives:
       \begin{itemize}
-        \item $\frac{\partial u}{\partial x_i}(x) = \lim_{h \to 0} \frac{u(x + he_i) - u(x)}{h}$, abbreviations $u_{x_i} \coloneq \frac{\partial u}{\partial x_i}$, $u_{x_i x_j} \coloneqq \frac{\partial^2 u}{\partial x_i \partial x_j}$, etc.
+        \item $\frac{\partial u}{\partial x_i}(x) = \lim_{h \to 0} \frac{u(x + he_i) - u(x)}{h}$, abbreviations $u_{x_i} \coloneqq \frac{\partial u}{\partial x_i}$, $u_{x_i x_j} \coloneqq \frac{\partial^2 u}{\partial x_i \partial x_j}$, etc.
         \item $\alpha = (\alpha_1,\dots,\alpha_n) \in \N_0^n$ is a multiindex of order $|\alpha| = \sum_{i = 1}^n \alpha_i$ with $\alpha! = \alpha_1! \cdot\ldots\cdot\alpha_n!$
           Then
           $$
