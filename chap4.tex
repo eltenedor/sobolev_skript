@@ -139,12 +139,12 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     we have $\bigcup_{i = 1}^\infty U_i = \Omega$ and $U_i \subset U_{i + 1}$.
     Moreover, 
-    $$V_i \coloneqq U_{i + 4} \setminus \overline{U_{i + 1}}, i \in \N,\quad\text{and}\quad V_0\coloneqq U_4$$
-    are all open with $V_i \Subset \Omega$ for all $i \in \N_0$ and  $\Omega = \bigcup_{i = 0}^\infty V_i$.
-    Defining further 
-    $$
-    W_i \coloneqq \overline{U_{i + 3}} \setminus U_{i + 2}, i \in \N, \quad\text{and}\quad W_0 \coloneqq \overline U_3,
-    $$
+      \begin{alignat*}{2}
+        V_i &\coloneqq U_{i + 4} \setminus \overline{U_{i + 1}}, i \in \N,&&\quad\text{and}\quad V_0\coloneqq U_4
+      \intertext{are all open with $V_i \Subset \Omega$ for all $i \in \N_0$ and  $\Omega = \bigcup_{i = 0}^\infty V_i$.
+    Defining further}
+        W_i &\coloneqq \overline{U_{i + 3}} \setminus U_{i + 2}, i \in \N, &&\quad\text{and}\quad W_0 \coloneqq \overline U_3,
+      \end{alignat*}
     all $W_i \subset V_i$ are compact and we have $\Omega = \bigcup_{i = 0}^\infty W_i$.
       Let $\psi_i \in \CC_0^\infty(V_i)$ denote a cutoff function w.r.t. $W_i, V_i$ with $0 \leq \psi_i \leq 1$ and $\psi_i = 1$ in $W_i$ for $i \in \N_0$.
     Since for all $j \geq i + 2$
@@ -168,7 +168,7 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     In view of Theorem \ref{thm:interiorApproximation}, there is $\varepsilon_i > 0$ small enough such that $u_i \coloneqq \eta_{\varepsilon_i} \ast (\xi_i u)$ satisfies $u_i \in \CC_0^\infty(Z_i)$ and
     \begin{equation}
-      \|u_i - \xi_i u \|_{W^{k,p}(\Omega)} = \|u_i - \xi_i u\|_{W^{k,p}(Z_i)} \leq \frac{\delta}{2^{i + 1}}
+      \|u_i - \xi_i u \|_{\WW^{k,p}(\Omega)} = \|u_i - \xi_i u\|_{\WW^{k,p}(Z_i)} \leq \frac{\delta}{2^{i + 1}}
     \end{equation}
     for $i \in \N_0$ as $u_i - \xi_i u \equiv 0$ in $\Omega \setminus Z_i$.
     Define
@@ -177,19 +177,17 @@ Now we prove the announced result that $\CC^\infty(\Omega) \cap \WW^{k,p}(\Omega
     $$
     Then for any open set $V \Subset \Omega$ only finitely many $u_i$ satisfy $u_i|_V \not\equiv 0$.
     Since $u = \sum_{i = 0}^\infty \xi_i u$, we obtain $v \in \CC^\infty(\Omega)$ and
-    $$
+      \begin{align*}
     \|v - u\|_{\WW^{k,p}(V)}
-    \leq \sum_{i = 0}^\infty \|u_i - \xi_i u\|_{\WW^{k,p}(V)}
-    \overset{(4.1)}{\leq} \delta \, \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
+        &\leq \sum_{i = 0}^\infty \|u_i - \xi_i u\|_{\WW^{k,p}(V)}
+    \overset{(4.1)}{\leq} \delta \sum_{i = 0}^\infty \frac{1}{2^{i + 1}} 
     = \delta \quad\text{for all } V \Subset \Omega.
-    $$
-    Since $U_i \subset U_{i + 1}$ for all $i \in \N$, $U_i \Subset \Omega$, and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem
-    $$
+    \intertext{Since $U_i \subset U_{i + 1}$ for all $i \in \N$, $U_i \Subset \Omega$, and $\Omega = \bigcup_{i = 1}^\infty U_i$, we conclude by the monotone convergence theorem }
     \|v - u\|_{\WW^{k,p}(\Omega)}^p
-    = \sum_{|\alpha| \leq k} \|\DD^\alpha (v - u) \|_{\Ell^p(\Omega)}^p
+        &= \sum_{|\alpha| \leq k} \|\DD^\alpha (v - u) \|_{\Ell^p(\Omega)}^p
     = \lim_{i \to \infty} \sum_{|\alpha| \leq k} \|\DD^\alpha(v - u) \|_{\Ell^p(U_i)}^p
     \leq \delta^p.
-    $$
+      \end{align*}
     As $\delta > 0$ was arbitrary, the claim is proved. \qedhere
 \end{enumerate}
 \end{proof}
