@@ -365,7 +365,7 @@ Then we have the following theorem:
     \end{equation}
     A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
-  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_{\Psi_i}(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
     \begin{align*}
       \int_{\partial\Omega} | u_i |^p \d \sigma
@@ -483,7 +483,7 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       by the dominated convergence theorem.
       Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.
       As $\tilde w_m = 0$ for $x_m \in [0,\frac{1}{m})$ and $\supp \tilde w_m \subset \supp v$, we have $\supp \tilde w_m \Subset \BB^+$.
-        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $w_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \downarrow 0$ chosen appropriately (by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier}).
+        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $w_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \downarrow 0$ chosen appropriately (by Theorem \ref{thm:interiorApproximation} and Theorem \ref{thm:mollifier} d)).
         Hence, ii) shows $u \in \WW_0^{1,p}(\Omega)$.
 
       \item We now prove the claim for all $k \in \N$ with $k \geq 2$.

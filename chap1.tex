@@ -163,7 +163,7 @@ We shortly illustrate the latter in an example.
         \item $\alpha = (\alpha_1,\dots,\alpha_n) \in \N_0^n$ is a multiindex of order $|\alpha| = \sum_{i = 1}^n \alpha_i$ with $\alpha! = \alpha_1! \cdot\ldots\cdot\alpha_n!$
           Then
           $$
-          \DD^\alpha u(x) = \frac{\partial^|\alpha| u(x)}{\partial^{\alpha_1} x_1 \cdot \ldots \partial^{\alpha_n}_{x_n}}.
+          \DD^\alpha u(x) = \frac{\partial^{|\alpha|} u(x)}{\partial^{\alpha_1}_{x_1} \cdots \partial^{\alpha_n}_{x_n}} \;.
           $$
           For $k \in \N$: $\DD^k u(x) = \{\DD^\alpha u(x) \colon \alpha \in \N_0^n \text{ with } |\alpha| = k \}$ is identified with an element of $\R^{n^k}$ and $\DD^0 u(x) \coloneqq u(x)$.
       \end{itemize}
@@ -172,7 +172,7 @@ We shortly illustrate the latter in an example.
       \begin{itemize}
         \item $\nabla u = (u_{x_1}, \dots, u_{x_n})$, \emph{gradient} of $u$.
         \item $\Delta u = \sum_{i = 1}^n u_{x_i x_i}$, \emph{Laplacian} of $u$.
-        \item $\frac{\partial u}{\partial \nu} = \nabla u \cdot \nu$, directional derivative for $\nu \in \R^n \setminus\{0\}$.
+        \item $\frac{\partial u}{\partial \nu} \;= \nabla u \cdot \nu$, directional derivative for $\nu \in \R^n \setminus\{0\}$.
         \item $\nabla \cdot \overline u = \div \overline u = \sum_{i = 1}^n (\overline u_i)_{x_i}$, \emph{divergence} of $\overline u \colon \R \to \R^n$.
       \end{itemize}
 
