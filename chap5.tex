@@ -365,14 +365,14 @@ Then we have the following theorem:
     \end{equation}
     A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
-  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq B_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_{\Psi_i}(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
     \begin{align*}
       \int_{\partial\Omega} | u_i |^p \d \sigma
       &= \int_{U_i'} |\varphi_i u|^p (x', \gamma_i(x')) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x'  \\
       &= \int_{U_i'} |T_{\Psi_i}( \varphi_i u)|^p (\Phi_i(x', \gamma_i(x'))) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x' \\
-      &\leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i u) |^p (x', 0) \d x' 
-      \overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i} u\|^p_{\WW^{1,p}((\BB^i)^+)} \\
+      &\leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i) \, T_{\Psi_i}( u) |^p (x', 0) \d x' 
+      \overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i}(u) \|^p_{\WW^{1,p}((\BB^i)^+)} \\
       &\hspace{-1.2em}\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)}. 
     \intertext{Hence,}
       \|u\|_{\Ell^p(\partial\Omega)} &\leq \sum_{i = 1}^N \|u_i\|_{\Ell^p(\partial\Omega)} \leq N \cdot C_5^{\frac{1}{p}} \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
