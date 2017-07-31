@@ -77,7 +77,7 @@ For a general boundary condition $u = g$ on $\partial\Omega$ for the Poisson equ
 Then $u \in \HH^1(\Omega)$ is called a weak solution of this problem, if $\tilde u \coloneqq u - w \in \HH_0^1(\Omega)$ and 
 $$
 \int_\Omega \nabla \tilde u \cdot \nabla v \d x
-= \int_\Omega (f v - \nabla w \cdot \nabla w) \d x \quad\text{for all } v \in \HH_0^1(\Omega).
+= \int_\Omega (f v - \nabla w \cdot \nabla v) \d x \quad\text{for all } v \in \HH_0^1(\Omega).
 $$
 
 \section{Existence and Uniqueness of Weak Solutions}
@@ -98,7 +98,7 @@ For more details we refer to the functional analysis course or e.g. \cite[Sectio
       is the \emph{dual space of} $X$.
       $X^*$ is a Banach space with norm $\|\,\cdot\,\|_{X^*}$ and we denote by $\langle u^*, u\rangle_X \coloneqq u^*(u) \in \R$ for all $u \in X, u^* \in X^*$ the \emph{pairing of $X^*$ and $X$}.
     \item If $H$ is a Hilbert space, then $H^*$ is a Hilbert space.
-      For $k \in \N$ and $\Omega \subset \R^n open$, we denote the dual space of $\HH_0^k(\Omega)$ by $\HH^{-k}(\Omega) \coloneqq (\HH_0^k(\Omega))^*$.
+      For $k \in \N$ and $\Omega \subset \R^n$ open, we denote the dual space of $\HH_0^k(\Omega)$ by $\HH^{-k}(\Omega) \coloneqq (\HH_0^k(\Omega))^*$.
   \end{enumerate}
 \end{defn}
 
@@ -127,9 +127,9 @@ In the context of \eqref{eq:weakSolution}, please note that $B[u,v] \coloneqq \i
   Assume that $B \colon H \times H \to \R$ is a bilinear mapping such that there exist $\alpha, \beta > 0$ with 
   \begin{alignat}{2}
     \label{eq:contBil}
-    |B[u,v]| &\leq \alpha \|u\|_H \|v\|_H &&\quad\text{for all } u, v \in H \text{ and}\\
+    |B[u,v]| &\leq \alpha \, \|u\|_H \|v\|_H &&\quad\text{for all } u, v \in H \text{ and}\\
     \label{eq:coercive}
-    \beta \|u\|_H^2 &\leq B[u,u] &&\quad\text{for all } u \in H.
+    \beta \, \|u\|_H^2 &\leq B[u,u] &&\quad\text{for all } u \in H.
     \intertext{Moreover, let $F^* \in H^*$.
     Then there exists a unique $u \in H$ such that}
     \label{eq:functionalSolution}
@@ -205,7 +205,7 @@ Now we can prove the existence of a unique weak solution to \eqref{eq:poissonDir
 
 \section{Regularity of Weak Solutions}
 
-Our aim is to show that the weak solution $u$ to \eqref{eq:poissonDirichlet} has better regularity that just being in $\HH_0^1(\Omega)$.
+Our aim is to show that the weak solution $u$ to \eqref{eq:poissonDirichlet} has better regularity than just being in $\HH_0^1(\Omega)$.
 To motivate the following result, assume that $u \in \CC_0^\infty(\Omega)$ satisfies \eqref{eq:poissonDirichlet}.
 Then integration by parts yields
 \begin{align*}
@@ -258,11 +258,11 @@ The latter is also of interest in the theory of Sobolev spaces.
   $$
   We define
   $$
-  \DD^h u\coloneqq ( \DD_1^h u, \dots,D_n^h u).
+  \DD^h u\coloneqq ( \DD_1^h u, \dots,\DD_n^h u).
   $$
 \end{defn}
 
-In order to prove the connection between difference quotients and weak derivatives we need further results from functional analysis (see e.g. \cite{dobrowolski2010angewandte} or \cite{alt2012lineare}):
+In order to prove the connection between difference quotients and weak derivatives, we need further results from functional analysis (see e.g. \cite{dobrowolski2010angewandte} or \cite{alt2012lineare}):
 
 \begin{prop}
   \label{prop:banachAlaoglu}
@@ -278,7 +278,7 @@ In order to prove the connection between difference quotients and weak derivativ
       $$
     \item If $X$ is reflexive, then any bounded sequence $(u_k)_{k \in \N} \subset X$ has a weakly convergent subsequence.
 
-      In particular, a Hilbert space $H$ and the Lebesgue spaces $\Ell^p(\Omega), p \in (1,\infty)$, are reflexive and $u_k \rightharpoonup u$ in $\Ell^p(\Omega)$ if and only if $\int_\Omega u_k g \d x \to \int_\Omega u g \d x$ for all $g \in \Ell^q(\Omega)$ with $\frac{1}{p} + \frac{1}{q} = 1$.
+      In particular, Hilbert spaces $H$ and the Lebesgue spaces $\Ell^p(\Omega), p \in (1,\infty)$, are reflexive and $u_k \rightharpoonup u$ in $\Ell^p(\Omega)$ if and only if $\int_\Omega u_k g \d x \to \int_\Omega u g \d x$ for all $g \in \Ell^q(\Omega)$ with $\frac{1}{p} + \frac{1}{q} = 1$.
   \end{enumerate}
 \end{prop}
 
@@ -313,7 +313,7 @@ Then we have the following result on difference quotients.
         &= C_3 \sum_{i = 1}^n \int_0^1 \int_V |\nabla u(x + the_i)|^p \d x \d t \\
         &\leq C_3\, n\, \|\nabla u\|^p_{\Ell^p(\Omega)}.
       \end{align*}
-      As this estimate holds for all $u \in \CC^1(\Omega) \cap \WW^{1,p}(\Omega)$ and this space is dense in $\WW^{1,p}(\Omega)$ by Theorem \ref{thm:meyersSerrin}, we conclude by Fatou's lemma that \eqref{eq:boundedQuotientIfWeaklyDifferentiable} with $C_1 = C_3 n$.
+      As this estimate holds for all $u \in \CC^1(\Omega) \cap \WW^{1,p}(\Omega)$ and this space is dense in $\WW^{1,p}(\Omega)$ by Theorem \ref{thm:meyersSerrin}, we conclude by Fatou's lemma that \eqref{eq:boundedQuotientIfWeaklyDifferentiable} holds with $C_1 = C_3 n$.
 
     \item Assume that \eqref{eq:weaklyDifferentiableIfBoundedQuotient} holds.
       Let $i \in \{1,\dots,n\}, \varphi \in \CC_0^\infty(V)$ and 
@@ -354,7 +354,7 @@ Then we have the following result on difference quotients.
 Finally, we compare weak and classical partial derivatives.
 
 \begin{defn}
-  $u \colon \Omega \to \R$ is \emph{differentable at $x \in \Omega$} if there is $a \in \R^n$ such that 
+  $u \colon \Omega \to \R$ is \emph{differentiable at $x \in \Omega$} if there is $a \in \R^n$ such that 
   $$
   u(y) = u(x) + a \cdot (y - x) + o(|y - x|) \quad\text{where } \lim_{y \to x} \frac{o(|y - x|)}{|y - x|} = 0.
   $$
