@@ -19,7 +19,7 @@ More precisely, we ask whether $X = \WW^{k,p}(\Omega)$ is embedded into a space 
 
 The main tool for studying such embeddings will be Sobolev-type inequalities.
 
-\section{Embeddings into \texorpdfstring{$\Ell^q(\Omega)$}{L\textasciicircum q(Omega)} Spaces}
+\section{Embeddings into \texorpdfstring{$\Ell^q(\Omega)$}{L\textasciicircum q(Omega)}-Spaces}
 \label{sec:lpEmbedding}
 
 Let us assume $p \in [1,n)$ and ask the question for which $q \in [1,\infty)$ there exists a constant $C > 0$ such that
@@ -135,7 +135,7 @@ We next prove that \eqref{eq:sobolevTypeIneq} is in fact true for $q = p^*$.
       Thus, in view of $\frac{n - 1}{n} - \frac{p - 1}{p} = \frac{1}{p} - \frac{1}{n} = \frac{1}{p^*}$, \eqref{eq:gagliardoNierenberg2} becomes \eqref{eq:gagliardoNirenbergSobolevIneq} for $C = \gamma$.
 
     %\item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide} for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$.
-    \item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide} for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$ and, up to the choice of a subsequence, $u_m \to u$ a.e.
+    \item As $\WW^{1,p}(\R^n) = \WW_0^{1,p}(\R^n)$ by Corollary \ref{cor:W0andWcoincide}, for $u \in \WW^{1,p}(\R^n)$ there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\R^n)$ such that $u_m \to u$ in $\WW^{1,p}(\R^n)$ and, up to the choice of a subsequence, $u_m \to u$ a.e.
       %Hence, $\nabla u_m \to \nabla u$ in $\Ell^p(\R^n)$ and, as \eqref{eq:gagliardoNirenbergSobolevIneq} holds for any $u_m$, in the limit $l \to \infty$ we conclude by Fatou's lemma that $u$ satisfies \eqref{eq:gagliardoNirenbergSobolevIneq} since $u_{m_l} \to u$ a.e. in $\R^n$.
       Hence, $\nabla u_m \to \nabla u$ in $\Ell^p(\R^n)$ and, as \eqref{eq:gagliardoNirenbergSobolevIneq} holds for any $u_m$, we conclude by Fatou's lemma that $u$ satisfies \eqref{eq:gagliardoNirenbergSobolevIneq}.
       As \eqref{eq:gagliardoNirenbergSobolevIneq} therefore holds for all $u \in \WW^{1,p}(\R^n)$, $\WW^{1,p}(\R^n)$ is continuously embedded into $\Ell^{p^*}(\R^n)$. \qedhere
@@ -559,8 +559,8 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
       Let $u \in \WW^{1,\infty}(\Omega)$.
       Then $u \in \WW^{1,\tilde p}(\Omega)$ for some $\tilde p \in (n, \infty)$ as $\Omega$ is bounded and by ii) there is a version $u^*$ of $u$ with $u^* \in \CC^{0,\tilde\gamma}(\overline\Omega)$, where $\tilde\gamma \coloneqq 1 - \frac{n}{\tilde p} \in (0,1)$.
       We fix $x,y \in \Omega$ with $x \neq y$.
-      As $\partial\Omega \in \CC^1$ there is a domain $V \Subset \Omega$ with $\partial V \in \CC^1$ and $x,y \in V$.
-    By Theorem \ref{thm:interiorApproximation} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u \in \CC^\infty(\Omega)$ converges to $u^*$ in $\WW^{1,\tilde p}(V)$, hence by ii) $u_\varepsilon \to u^*$ in $\CC^{0,\tilde\gamma}(\overline V)$ so that $u_\varepsilon \to u^*$ uniformly on $\overline V$ as $\varepsilon \downarrow 0$.
+      As $\partial\Omega \in \CC^1$, there is a domain $V \Subset \Omega$ with $\partial V \in \CC^1$ and $x,y \in V$.
+    By Theorem \ref{thm:interiorApproximation}, $u_\varepsilon \coloneqq \eta_\varepsilon \ast u \in \CC^\infty(\Omega)$ converges to $u^*$ in $\WW^{1,\tilde p}(V)$, hence by ii) $u_\varepsilon \to u^*$ in $\CC^{0,\tilde\gamma}(\overline V)$ so that $u_\varepsilon \to u^*$ uniformly on $\overline V$ as $\varepsilon \downarrow 0$.
     Furthermore, for $\varepsilon > 0$ small enough such that $V \subset \Omega_\varepsilon$, we have by Theorem \ref{thm:interiorApproximation}
       \begin{align*}
     |\nabla u_\varepsilon(z)|
