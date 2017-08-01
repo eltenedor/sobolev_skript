@@ -203,11 +203,11 @@ We need now again boundary regularity of $\partial\Omega$.
       \end{align*}
       with $\gamma_i \in \CC^m(\R^{n - 1})$.
       Choose $U_0 \Subset \Omega$ such that $\overline\Omega \subset \bigcup_{i = 0}^N U_i$.
-      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(U_i)$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 1}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
+      By Lemma \ref{lem:partitionOfUnity} there exists a partition of unity $\varphi_i \in \CC_0^\infty(U_i)$ with $0 \leq \varphi_i \leq 1$ and $\sum_{i = 0}^N \varphi_i(x) = 1$ for all $x \in \overline\Omega$.
       Define further $\Phi_i,\Psi_i$ by Lemma \ref{lem:flattening} according to $\gamma = \gamma_i, i = 1,\dots,N,$ and set $W_i \coloneqq \Phi_i(\Tau_i(U_i)), i = 1,\dots,N$.
 
       We fix $i \in \{1,\dots,N\}$ and $u \in \CC^m(\overline\Omega)$.
-      Then $\varphi_i u$ and hence also $T_{\Tau_i^{-1}}(\varphi_i u)$ belong to $\CC^m(\overline U_i \cap \overline\Omega)$ and $\CC^m(\Tau_i(\overline U_i \cap \overline\Omega))$ respectively with compact support $K_i \Subset U_i, K_i \subset \overline\Omega$ and respectively a similar relation in $\Tau_i(\overline\Omega)$.
+      Then $\varphi_i u$  belongs to $\CC^m(\overline U_i \cap \overline\Omega)$ with compact support $K_i \Subset U_i, K_i \subset \overline\Omega$. Respectively, $T_{\Tau_i^{-1}}(\varphi_i u)$ belongs to $\CC^m(\Tau_i(\overline U_i \cap \overline\Omega))$ with support $\Tau_i(K_i) \Subset \Tau_i(U_i), \Tau_i(K_i) \subset \Tau_i(\overline\Omega)$.
       Then
       $$
       v_i \coloneqq T_{\vphantom{\Tau_i^{-1}}{\Psi_i^{\vphantom{-1}}}}(T_{\Tau_i^{-1}}(\varphi_i u)) \in \CC^m(\overline{W_i^+})
