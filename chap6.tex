@@ -283,7 +283,7 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
   \begin{enumerate}[a)]
     \item Let $q \in [1,\infty)$.
       Then for some $\tilde p \in (1,n)$ we have $\tilde p^* = \frac{n \tilde p}{n - \tilde p} > q$ and $\tilde p < n$.
-      Hence, by \eqref{eq:embeddingForpltn} and Hölder's inequality we get (similarly to \eqref{eq:gradientEstimatePoincare}
+      Hence, by \eqref{eq:embeddingForpltn} and Hölder's inequality we get (similarly to \eqref{eq:gradientEstimatePoincare})
       $$
       \|u\|_{\Ell^q(\Omega)} 
       \leq C\, \|u\|_{\WW^{1,\tilde p}(\Omega)} 
@@ -841,7 +841,6 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
       Hence, i) and ii) have to hold.
 
     \item 
-
       Assume that i) and ii) hold.
       For $f \in \FF$ and $\varepsilon > 0$ we define $f_\varepsilon \coloneqq \eta_\varepsilon \ast f \in \CC^\infty(\R^n)$ and let $q \in (1,\infty]$ such that $\frac{1}{p} + \frac{1}{q} = 1$.
       \begin{enumerate}[a)]
@@ -894,7 +893,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
             \|(g_m)_{\varepsilon_k} - g_m\|_{\Ell^p(\Omega)} &\leq \frac{1}{3k} &&\quad\text{for all } m \in \N.
           \intertext{As $\FF_{\varepsilon_k}$ is precompact in $\Ell^p(\Omega)$ by b), there is a subsequence $\big((g_{m_j})_{\varepsilon_k}\big)_{j \in \N}$ which is a Cauchy sequence in $\Ell^p(\Omega)$, hence for some $N_k \geq k$ we have}
           \label{eq:cauchyEpsilon}
-            \| \big( g_{m_j} \big)_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \big) \|_{\Ell^p(\Omega)} &\leq \frac{1}{3k} &&\quad\text{for all } i,j \geq N_k.
+            \| \big( g_{m_j} \big)_{\varepsilon_k} - \big( g_{m_i} \big)_{\varepsilon_k} \|_{\Ell^p(\Omega)} &\leq \frac{1}{3k} &&\quad\text{for all } i,j \geq N_k.
         \end{alignat}
         Then
         \begin{align*}
@@ -906,7 +905,7 @@ Next we prove a compactness criterion in $\Ell^p(\Omega)$.
           &\hspace{-1.7em}\quad\overset{\eqref{eq:cauchyMollifier},\eqref{eq:cauchyEpsilon}}\leq \; \frac{1}{k} \quad\text{for all } i,j \geq N_k.
         \end{align*}
         Hence, $\Big( f_j^{(k)} \Big)_{j \in \N} \coloneqq (g_{m_j})_{j \in \N}$ satisfies \eqref{eq:lpcauchy}.
-        Then a diagonal argument shows that the subsequence $\Big((f_{N_k})^{(k)} \Big)_{k \in \N}$ of $(f_m)_{m \in \N}$ is a Cauchy sequence in $\Ell^p(\Omega)$.
+        Then a diagonal argument shows that the subsequence $\Big(f_{N_k}^{(k)} \Big)_{k \in \N}$ of $(f_m)_{m \in \N}$ is a Cauchy sequence in $\Ell^p(\Omega)$.
 
         Hence, $\FF$ is precompact in $\Ell^p(\Omega)$. \qedhere
     \end{enumerate}
@@ -932,7 +931,7 @@ Now we prove the announced compact embeddings of $\WW^{1,p}(\Omega)$.
       Then
       $$
       |\tau_h \varphi(x) - \varphi(x)|
-      = \Big|\int_0^1 \frac{\d\ }{\d t} \varphi(x + th) \d t \Big|
+      = \Big|\int_0^1 \frac{\d{}}{\d t} \varphi(x + th) \d t \Big|
       \leq \int_0^1 |\nabla\varphi(x + th)| \, |h| \d t \quad\text{for all } x \in \R^n.
       $$
       Hence, with $\frac{1}{p'} + \frac{1}{p} = 1$ we have

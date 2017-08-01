@@ -198,8 +198,8 @@ We need now again boundary regularity of $\partial\Omega$.
 
     \item As $\partial \Omega \in \CC^m$ and $\partial \Omega$ is compact, there exists $x^i \in \partial\Omega$ and balls $U_i \coloneqq \BB_r(x^i), i = 1,\dots,N$, such that after relabelling and reorienting the coordinate axes (described by a $\CC^\infty$\hyp{}diffeomorphism $\Tau_i \colon \R^n \to \R^n$), we have
       \begin{align*}
-        \Omega \cap U_i &= \{ x \in U_i \colon x_n > \gamma_i(x') \} \\
-        \partial\Omega \cap U_i &= \{x \in U_i \colon x_n = \gamma_i(x')\}
+        \Omega \cap U_i &= \{ x \in U_i \colon \Tau_i(x)_n > \gamma_i(\Tau_i(x)') \} \\
+        \partial\Omega \cap U_i &= \{x \in U_i \colon \Tau_i(x)_n = \gamma_i(\Tau_i(x)')\}
       \end{align*}
       with $\gamma_i \in \CC^m(\R^{n - 1})$.
       Choose $U_0 \Subset \Omega$ such that $\overline\Omega \subset \bigcup_{i = 0}^N U_i$.
@@ -207,13 +207,13 @@ We need now again boundary regularity of $\partial\Omega$.
       Define further $\Phi_i,\Psi_i$ by Lemma \ref{lem:flattening} according to $\gamma = \gamma_i, i = 1,\dots,N,$ and set $W_i \coloneqq \Phi_i(\Tau_i(U_i)), i = 1,\dots,N$.
 
       We fix $i \in \{1,\dots,N\}$ and $u \in \CC^m(\overline\Omega)$.
-      Then $\varphi_i u$ and hence also $T_{\Tau_i^{-1}}(\varphi_i u)$ belong to $\CC^m(\overline U_i \cap \overline\Omega)$ with compact support $K_i \Subset U_i, K_i \subset \overline\Omega$.
+      Then $\varphi_i u$ and hence also $T_{\Tau_i^{-1}}(\varphi_i u)$ belong to $\CC^m(\overline U_i \cap \overline\Omega)$ and $\CC^m(\Tau_i(\overline U_i \cap \overline\Omega))$ respectively with compact support $K_i \Subset U_i, K_i \subset \overline\Omega$ and respectively a similar relation in $\Tau_i(\overline\Omega)$.
       Then
       $$
       v_i \coloneqq T_{\vphantom{\Tau_i^{-1}}{\Psi_i^{\vphantom{-1}}}}(T_{\Tau_i^{-1}}(\varphi_i u)) \in \CC^m(\overline{W_i^+})
       $$
       with support in $\Phi_i(\Tau_i(K_i)) \Subset W_i$ and $\Phi_i(\Tau_i(K_i)) \subset W_i^+ \cup W_i^0$.
-      Hence, we may apply $\tilde E$ to $v_i$ (by choosing $\widetilde \BB^+$ and $\BB$ appropriately such that $\Phi_i(\Tau_i(K_i)) \subset \widetilde \BB^+ \Subset W_i \Subset \BB)$ and obtain
+      Hence, we may apply $\tilde E$ to $v_i$ (by choosing $\widetilde \BB^+$ and $\BB$ appropriately such that $\Phi_i(\Tau_i(K_i)) \subset \widetilde \BB^+ \Subset \BB$ and $W_i \Subset \BB)$ and obtain
       $$
       \tilde E(v_i)  \in \CC^m(\R^n) \cap \WW^{k,p}(\R^n).
       $$
@@ -224,7 +224,7 @@ We need now again boundary regularity of $\partial\Omega$.
       As $\tilde E(v_i)$ has compact support in some ball $\BB_i \subset \R^n$, we may apply Proposition \ref{prop:sobolevTransform} with 
       $$
       \Phi_i \colon \Phi_i^{-1}(\BB_i) \to \BB_i \quad\text{and}\quad
-      \Tau_i \colon \Tau_i^{-1}(\Phi_i^{-1}(\BB_i)) \to \Phi_i^{-1}(B_i)
+      \Tau_i \colon \Tau_i^{-1}(\Phi_i^{-1}(\BB_i)) \to \Phi_i^{-1}(\BB_i)
       $$
       and obtain $u_i = \varphi_i u$ in $\Omega$ and 
       \begin{align*}
@@ -365,16 +365,18 @@ Then we have the following theorem:
     \end{equation}
     A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
-  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(x^i)$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(\Phi(x^i))$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+    In particular, we have $U_i' \subset (\BB^i)'$.
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_{\Psi_i}(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
     \begin{align*}
       \int_{\partial\Omega} | u_i |^p \d \sigma
       &= \int_{U_i'} |\varphi_i u|^p (x', \gamma_i(x')) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x'  \\
       &= \int_{U_i'} |T_{\Psi_i}( \varphi_i u)|^p (\Phi_i(x', \gamma_i(x'))) \sqrt{1 + |\nabla\gamma_i(x')|^2} \d x' \\
-      &\leq C_3 \int_{(B^i)'} | T_{\Psi_i}(\varphi_i) \, T_{\Psi_i}( u) |^p (x', 0) \d x' 
-      \overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i}(u) \|^p_{\WW^{1,p}((\BB^i)^+)} \\
-      &\hspace{-1.2em}\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)}. 
-    \intertext{Hence,}
+      &\leq C_3 \int_{(\BB^i)'} | T_{\Psi_i}(\varphi_i)\, T_{\Psi_i}(u) |^p (x', 0) \d x' 
+      \overset{\eqref{eq:C1Bounded}}{\leq} C_4 \, \|T_{\Psi_i}(u)\|^p_{\WW^{1,p}((\BB^i)^+)} \\
+      &\hspace{-1.2em}\overset{\text{Prop. \ref{prop:sobolevTransform}}}{\leq} C_5 \, \|u\|^p_{\WW^{1,p}(\Omega)},
+      \intertext{where the constant $C_3 > 0$ comes from the fact that $\nabla \gamma_i$ is bounded on  $\overline{U_i'}$. 
+      Hence,}
       \|u\|_{\Ell^p(\partial\Omega)} &\leq \sum_{i = 1}^N \|u_i\|_{\Ell^p(\partial\Omega)} \leq N \cdot C_5^{\frac{1}{p}} \, \|u\|_{\WW^{1,p}(\Omega)} \quad\text{for all } u \in \CC^1(\overline\Omega),
     \end{align*}
     with $C_5$ depending on $p$ and $\Omega$.
@@ -424,7 +426,7 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
     By Definition \ref{defn:boundarySpace} this means $\Tr(\varphi_i u_m) \to \Tr(\varphi_i u) = 0$ in $\Ell^p(\partial\Omega \cap U_i)$ for $i = 1,\dots,N$.
     Hence, fixing $i \in \{1, \dots, N\}$ and $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} (with $\gamma = \gamma_i$) we have $v_m \coloneqq T_{\Psi_i}(\varphi_i u_m) \in \CC^1(\BB^+ \cup \BB^0)$ and $v \coloneqq T_{\Psi_i}(\varphi_i u) \in \WW^{1,p}(\BB^+)$ with $\Tr(v_m) \to \Tr(v) = 0$ in $\Ell^p(\BB^0)$ for some ball $\BB = \BB_s(x^i) \subset \R^n$ (see part ii) of the proof of Theorem \ref{thm:trace}), where $v_m$, $v$ have compact supports $K_m$, $K$ in $\BB \cap \overline{\BB^+}$.
 
-    If we find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$, by Proposition \ref{prop:sobolevTransform} there is $f_i \coloneqq T_{\Phi_i}(w_m) \in \CC^1(\Omega)$ for some $m \in \N$ with $\supp(f_i) \subset \Omega \cap U_i$ such that 
+    If we find $w_m \in \WW^{1,p}(\BB^+)$ with support compactly contained within $\BB^+$ and $w_m \to v$ in $\WW^{1,p}(\BB^+)$, by Proposition \ref{prop:sobolevTransform} there is $f_i \coloneqq T_{\Phi_i}(w_m) \in \WW^{1,p}(\Omega)$ for some $m \in \N$ with $\supp(f_i) \subset \Omega \cap U_i$ such that 
     $\|f_i - \varphi_i u\|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
     Then $\tilde u \coloneqq u - \sum_{i = 1}^N \varphi_i u$ has compact support in $\Omega$ so that by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $f_0 \in \CC_0^\infty(\Omega)$ such that 
     $\| \tilde u - f_0 \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
@@ -465,10 +467,10 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
 
     Let $\xi \in \CC^\infty([0,\infty))$ such that $\xi \equiv 1$ on $[0,1]$ and $\xi \equiv 0$ on $[2,\infty)$ and define 
       $$\xi_m (x) \coloneqq \xi(mx_n), \quad x \in \overline{\BB^+}, m \in \N,$$ and 
-      $$\tilde w_m(x) \coloneqq v(x)(1 - \xi_m(x)).$$
-      As $(\tilde w_m)_{x_n} = v_{x_n}(1 - \xi_m) - m\, v\, \xi'(m x_n)$ and $(\tilde w_m)_{x_i} = v_{x_i}(1 - \xi_m)$ for $i = 1,\dots,n-1$, we have as $\xi_m =0$ for $x_n \geq \frac{2}{m}$
+      $$w_m(x) \coloneqq v(x)(1 - \xi_m(x)).$$
+      As $(w_m)_{x_n} = v_{x_n}(1 - \xi_m) - m\, v\, \xi'(m x_n)$ and $(w_m)_{x_i} = v_{x_i}(1 - \xi_m)$ for $i = 1,\dots,n-1$, we have as $\xi_m =0$ for $x_n \geq \frac{2}{m}$
       \begin{align*}
-      \int_{\BB^+} |\nabla \tilde w_m - \nabla v|^p \d x
+      \int_{\BB^+} |\nabla w_m - \nabla v|^p \d x
       &\leq C_p \int_{\BB^+} (\xi_m)^p |\nabla v|^p \d x + C_p m^p\, \|\xi'\|_{\Ell^\infty([0,\infty))}^p \int_0^{\frac{2}{m}} \int_{\BB'} |v|^p \d x' \d t \\
         &\eqqcolon A_m + B_m.
       \end{align*}
@@ -481,9 +483,8 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       &\leq \tilde C \int_0^{\frac{2}{m}} \int_{\BB'} |\nabla v|^p \d x' \d s \to 0 \quad\text{as } m \to \infty 
       \end{align*}
       by the dominated convergence theorem.
-      Hence, $\nabla \tilde w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $\tilde w_m \to v$ in $\Ell^p(\BB^+)$, we have $\tilde w_m \to v$ in $\WW^{1,p}(\BB^+)$.
-      As $\tilde w_m = 0$ for $x_m \in [0,\frac{1}{m})$ and $\supp \tilde w_m \subset \supp v$, we have $\supp \tilde w_m \Subset \BB^+$.
-        Hence, $w_m \coloneqq \eta_{\varepsilon_m} \ast \tilde w_m \in \CC_0^\infty(\BB^+)$ satisfies $w_m \to v$ in $\WW^{1,p}(\BB^+)$ for $\varepsilon_m \downarrow 0$ chosen appropriately (by Theorem \ref{thm:interiorApproximation} and Theorem \ref{thm:mollifier} d)).
+      Hence, $\nabla w_m \to \nabla v$ in $\Ell^p(\BB^+)$ and, as obviously $w_m \to v$ in $\Ell^p(\BB^+)$, we have $w_m \to v$ in $\WW^{1,p}(\BB^+)$.
+      As $w_m = 0$ for $x_m \in [0,\frac{1}{m})$ and $\supp w_m \subset \supp v$, we have $\supp w_m \Subset \BB^+$.
         Hence, ii) shows $u \in \WW_0^{1,p}(\Omega)$.
 
       \item We now prove the claim for all $k \in \N$ with $k \geq 2$.
