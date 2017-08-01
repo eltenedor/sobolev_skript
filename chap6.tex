@@ -283,7 +283,7 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
   \begin{enumerate}[a)]
     \item Let $q \in [1,\infty)$.
       Then for some $\tilde p \in (1,n)$ we have $\tilde p^* = \frac{n \tilde p}{n - \tilde p} > q$ and $\tilde p < n$.
-      Hence, by \eqref{eq:embeddingForpltn} and Hölder's inequality we get (similarly to \eqref{eq:gradientEstimatePoincare}
+      Hence, by \eqref{eq:embeddingForpltn} and Hölder's inequality we get (similarly to \eqref{eq:gradientEstimatePoincare})
       $$
       \|u\|_{\Ell^q(\Omega)} 
       \leq C\, \|u\|_{\WW^{1,\tilde p}(\Omega)} 
@@ -559,8 +559,8 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
       Let $u \in \WW^{1,\infty}(\Omega)$.
       Then $u \in \WW^{1,\tilde p}(\Omega)$ for some $\tilde p \in (n, \infty)$ as $\Omega$ is bounded and by ii) there is a version $u^*$ of $u$ with $u^* \in \CC^{0,\tilde\gamma}(\overline\Omega)$, where $\tilde\gamma \coloneqq 1 - \frac{n}{\tilde p} \in (0,1)$.
       We fix $x,y \in \Omega$ with $x \neq y$.
-      As $\partial\Omega \in \CC^1$ there is a domain $V \Subset \Omega$ with $\partial V \in \CC^1$ and $x,y \in V$.
-    By Theorem \ref{thm:interiorApproximation} $u_\varepsilon \coloneqq \eta_\varepsilon \ast u \in \CC^\infty(\Omega)$ converges to $u^*$ in $\WW^{1,\tilde p}(V)$, hence by ii) $u_\varepsilon \to u^*$ in $\CC^{0,\tilde\gamma}(\overline V)$ so that $u_\varepsilon \to u^*$ uniformly on $\overline V$ as $\varepsilon \downarrow 0$.
+      As $\partial\Omega \in \CC^1$, there is a domain $V \Subset \Omega$ with $\partial V \in \CC^1$ and $x,y \in V$.
+    By Theorem \ref{thm:interiorApproximation}, $u_\varepsilon \coloneqq \eta_\varepsilon \ast u \in \CC^\infty(\Omega)$ converges to $u^*$ in $\WW^{1,\tilde p}(V)$, hence by ii) $u_\varepsilon \to u^*$ in $\CC^{0,\tilde\gamma}(\overline V)$ so that $u_\varepsilon \to u^*$ uniformly on $\overline V$ as $\varepsilon \downarrow 0$.
     Furthermore, for $\varepsilon > 0$ small enough such that $V \subset \Omega_\varepsilon$, we have by Theorem \ref{thm:interiorApproximation}
       \begin{align*}
     |\nabla u_\varepsilon(z)|

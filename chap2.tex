@@ -138,7 +138,7 @@ The mollification has the following properties:
     \end{align*}
     Hence, $\frac{\partial}{\partial x_i} u_\varepsilon(x) = \int_\Omega \frac{\partial \eta_\varepsilon}{\partial x_i} (x - y) u(y) \d y$.
     By induction, $u_\varepsilon \in \CC^\infty(\R^n)$.
-    By Lebesgue's differentiation theorem (see \cite[Appendix E.4]{evans2010partial}), we have
+    By \emph{Lebesgue's differentiation theorem} (see \cite[Section E.4]{evans2010partial}), we have
     \begin{equation}
       \lim_{r \downarrow 0} \frac{1}{|\BB_r(x)|} \int_{\BB_r(x)} |u(y) - u(x)| \d y = 0 \quad\text{for a.e. } x \in \Omega.
       \label{eq:lebdiffthm}
@@ -326,5 +326,5 @@ $$
 where $s = |x|$.
 
 \begin{proof}
-  See \cite[Appendix C.3]{evans2010partial}.
+  See \cite[Section C.3]{evans2010partial}.
 \end{proof}

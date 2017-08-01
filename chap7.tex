@@ -293,7 +293,7 @@ Then we have the following result on difference quotients.
         \|\DD^h u\|_{\Ell^p(V)} &\leq C_1 \, \|\nabla u\|_{\Ell^p(\Omega)}
       \intertext{\item Assume that $p \in (1,\infty)$, $u \in \Ell^p(V)$ and there exists $C_2 > 0$ such that}
         \label{eq:weaklyDifferentiableIfBoundedQuotient}
-        \|D^h u\|_{\Ell^p(V)} &\leq C_2  \quad\text{for all } 0 < |h| < \frac{1}{2} \dist(V, \partial\Omega).
+        \|\DD^h u\|_{\Ell^p(V)} &\leq C_2  \quad\text{for all } 0 < |h| < \frac{1}{2} \dist(V, \partial\Omega).
       \end{align}
       Then $u \in \WW^{1,p}(V)$ and $\|\nabla u\|_{\Ell^p(V)} \leq C_2$.
   \end{enumerate}
@@ -339,7 +339,7 @@ Then we have the following result on difference quotients.
       As $V$ is bounded, we conclude
       $$
         \int_V u \varphi_{x_i} \d x
-        = \lim_{h \to \infty} \int_V u( \DD_i^{h_k} \varphi ) \d x
+        = \lim_{k \to \infty} \int_V u( \DD_i^{h_k} \varphi ) \d x
         = \lim_{k \to \infty} - \int_V ( \DD_i^{-h_k} u) \varphi \d x
         = - \int_V v_i \varphi \d x.
       $$
@@ -358,7 +358,7 @@ Finally, we compare weak and classical partial derivatives.
   $$
   u(y) = u(x) + a \cdot (y - x) + o(|y - x|) \quad\text{where } \lim_{y \to x} \frac{o(|y - x|)}{|y - x|} = 0.
   $$
-  In this case, $\nabla u(x) \coloneqq a$ is called the \emph{gradient of $u$}.
+  In this case, $\nabla u(x) \coloneqq a$ is called the \emph{gradient of $u$ at $x$}.
 \end{defn}
 
 Then we have the following result.
