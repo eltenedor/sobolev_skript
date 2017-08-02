@@ -365,7 +365,7 @@ Then we have the following theorem:
     \end{equation}
     A similar calculation shows that \eqref{eq:C1Bounded} also holds for $p = 1$.
 
-  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(\Phi(x^i))$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
+  \item In the general case of Definition \ref{defn:boundarySpace}, let $\BB^i \coloneqq \BB_{s_i}(\Phi_i(x^i))$ such that $\Phi_i(U_i) \subset \BB^i$ (with $\Phi_i, \Psi_i$ from Lemma \ref{lem:flattening} with $\gamma = \gamma_i$ to flatten the boundary).
     In particular, we have $U_i' \subset (\BB^i)'$.
     Then applying \eqref{eq:C1Bounded} with $\BB = \BB^i$, $\xi = T_{\Psi_i}(\varphi_i)$, we obtain with $u_i = \varphi_i u$ for $u \in \CC^1(\overline\Omega)$
     \begin{align*}
@@ -431,11 +431,11 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
     Then $\tilde u \coloneqq u - \sum_{i = 1}^N \varphi_i u$ has compact support in $\Omega$ so that by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $f_0 \in \CC_0^\infty(\Omega)$ such that 
     $\| \tilde u - f_0 \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2(N + 1)}.$
 
-    Then $\| u - \sum_{i = 0}^N f_i \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2}$ and $f \coloneqq \sum_{i = 0}^N f_i \in \CC^1(\Omega)$ with compact support in $\Omega$.
+    Then $\| u - \sum_{i = 0}^N f_i \|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2}$ and $f \coloneqq \sum_{i = 0}^N f_i \in \WW^{1,p}(\Omega)$ with compact support in $\Omega$.
     Hence, by Theorems \ref{thm:interiorApproximation} and \ref{thm:mollifier} there is $g \in \CC_0^\infty(\Omega)$ such that $\|g - f\|_{\WW^{1,p}(\Omega)} \leq \frac{\delta}{2}$ and $\|u - g\|_{\WW^{1,p}(\Omega)} \leq \delta$.
     Hence, $u \in \WW_0^{1,p}(\Omega)$ as $\delta > 0$ is arbitrary.
 
-  \item It remains to find $w_m \in \CC_0^\infty(\BB^+)$ with $w_m \to v$ in $\WW^{1,p}(\BB^+)$.
+  \item It remains to find $w_m \in \WW^{1,p}(\BB^+)$ with $\supp w_m \Subset \BB^+$ and $w_m \to v$ in $\WW^{1,p}(\BB^+)$.
     We have
     \begin{equation}
       \label{eq:traceAndSobolevConv}
@@ -443,8 +443,8 @@ Next, we characterize $\WW_0^{k,p}(\Omega)$ functions in terms of trace zero fun
       \quad\text{and}\quad
       v_m \to v \text{ in } \WW^{1,p}(\BB^+)
     \end{equation}
-    by ii) and Proposition \ref{prop:sobolevTransform} and \ref{prop:sobolevProperties}.
-    As $v_m \in \CC^1(\BB^+ \cup \BB^0)$, we have for $x \in \BB^+ \cup \BB^0$ with $\BB' = \{x' \colon (x', x_n) \in \BB\}$ and $\frac{1}{q} + \frac{1}{p} = 1$.
+    by ii) and Propositions \ref{prop:sobolevTransform} and \ref{prop:sobolevProperties}.
+    As $v_m \in \CC^1(\BB^+ \cup \BB^0)$, we have for $x \in \BB^+ \cup \BB^0$ with $\BB' = \{x' \colon (x', x_n) \in \BB\}$ and $\frac{1}{q} + \frac{1}{p} = 1$
     $$
     |v_m(x', x_n)|
     \leq |v_m(x',0)| + \int_0^{x_n} |(v_m)_{x_n} (x', t)| \d t

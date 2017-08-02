@@ -199,7 +199,10 @@ The mollification has the following properties:
       = \|(u - \varphi)_\varepsilon \|_{\Ell^p(\Omega)} + \frac{2}{3}\mu \\
       &\overset{\eqref{eq:lpinequality}}{\leq} \|u-\varphi\|_{\Ell^p(\Omega)} + \frac{2}{3}\mu < \mu \quad\text{for all } \varepsilon \in (0, \varepsilon_0).
     \end{align*}
-    We still have $u_\varepsilon \in \CC^\infty(\Omega)$ since for $x \in \BB_\delta(x_0)$ with $\overline{\BB_{2\delta}(x_0)} \subset \Omega$ we have for $x \in K \coloneqq \overline{\BB_{2\delta}(x_0)}$ and $\varepsilon \in (0, \delta)$, $u_\varepsilon(x) = \int_K \eta_\varepsilon(x - y)u(y) \d y$.
+    We still have $u_\varepsilon \in \CC^\infty(\Omega)$ since for $x \in \BB_\delta(x_0)$ with $\overline{\BB_{2\delta}(x_0)} \subset \Omega$ we have for 
+    $x \in K \coloneqq \overline{\BB_{2\delta}(x_0)}$ and $\varepsilon \in (0, \delta)$, $u_\varepsilon(x) = \int_K \eta_\varepsilon(x - y)u(y) \d y$
+    with $u \in L^1(K)$. Hence, the same argument as in a) shows $u_\varepsilon \in C^\infty (K)$ and therefore $u_\varepsilon \in C^\infty (\Omega)$ 
+    as $\Omega$ is open and $x_0 \in \Omega$ was arbitrary.
     A similar argument shows e).\qedhere
   \end{enumerate}
 \end{proof}

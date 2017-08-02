@@ -244,7 +244,8 @@ As $p^* = \frac{np}{n - p} > \frac{np}{n} = p$, we may choose $q = p$ in \eqref{
       \leq C \, \|\nabla u\|_{\Ell^{\tilde p}(\Omega)}
       \leq C \, |\Omega|^{\frac{p - \tilde p}{p \tilde p}} \|\nabla u\|_{\Ell^p(\Omega)} \quad\text{for all } u \in \WW_0^{1,p}(\Omega).
     \end{equation}
-    Here we used that Hölder's inequality implies (see \eqref{eq:embeddingpltn}) $\|v\|_{\Ell^{\tilde p}(\Omega)} \leq |\Omega|^{\frac{p - \tilde p}{p \tilde p}} \|v\|_{\Ell^p(\Omega)}$ for all $v \in \Ell^p(\Omega)$ so that $u \in \WW^{1,\tilde p}(\Omega)$ and, since some $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ satisfies $u_m \to u$ in $\WW^{1,p}(\Omega)$ it therefore also satisfies $u_m \to u$ in $\WW^{1,\tilde p}(\Omega)$ so that $u \in \WW_0^{1,\tilde p}$.
+    Here we used that Hölder's inequality implies (see \eqref{eq:embeddingpltn}) $\|v\|_{\Ell^{\tilde p}(\Omega)} \leq |\Omega|^{\frac{p - \tilde p}{p \tilde p}} \|v\|_{\Ell^p(\Omega)}$ for all $v \in \Ell^p(\Omega)$ so that $u \in \WW^{1,\tilde p}(\Omega)$ and, since some $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ 
+    satisfies $u_m \to u$ in $\WW^{1,p}(\Omega)$ it therefore also satisfies $u_m \to u$ in $\WW^{1,\tilde p}(\Omega)$ so that $u \in \WW_0^{1,\tilde p} (\Omega)$.
 %    Hence, $u \in \WW_0^{1,\tilde p}(\Omega)$ and the application of \eqref{eq:gagliardoNirenbergBounded} in \eqref{eq:gradientEstimatePoincare} is justified.
 
     For $p = \infty$ and $u \in \WW_0^{1,\infty}(\Omega)$, there is $(u_m)_{m \in \N} \subset \CC_0^\infty(\Omega)$ such that $u_m \to u$ in $\WW^{1,\infty}(\Omega)$.
@@ -294,7 +295,7 @@ As $p^* \to \infty$ for $p \uparrow n$, we might expect $\WW^{1,n}(\Omega) \subs
     \item The proof is analogous to a) by using \eqref{eq:gagliardoNirenbergBounded} instead of \eqref{eq:embeddingForpltn}.
 
     \item Let $u \in \WW^{1,1}((a,b))$.
-      Then there is $(u_m)_{m \in \N} \subset \CC^1([a,b])$ such that $u_m \to u$ in $\WW^{1,1}((a,b))$.
+      Then there is $(u_m)_{m \in \N} \subset \CC^1([a,b])$ such that $u_m \to u$ in $\WW^{1,1}((a,b))$ by Theorem \ref{thm:CinftyUpToBoundary}.
       Then there is $x_m \in [a,b]$ such that
       $$
       |u_m(x_m)| \leq \frac{\|u_m\|_{\Ell^1((a,b))}}{b - a}
@@ -611,7 +612,7 @@ We next summarize embeddings of $\WW^{1,p}(\Omega)$ into $\CC^{0,\gamma}(\overli
       As $\overline\Omega$ is compact, there is $\delta > 0$ such that for $x,y \in \Omega$ with $|x - y| < \delta$, either $x,y \in \overline{\BB_\delta(x)} \subset \Omega$ or $x, y \in \Omega \cap U_i$ for some $i \in \{1,\dots,N\}$.
       Then for $x,y \in \Omega$ we distinguish three cases:
       \begin{enumerate}[I)]
-        \item \emph{$|x -y| < \delta$ and $x,y \in \overline{\BB_\delta(x)}$}:
+        \item \emph{$|x -y| < \delta$ and $x,y \in \overline{\BB_\delta(x)} \subset \Omega$}:
           Then we may choose (in iii)) $V = \BB_\delta(x)$.
           As $V$ is convex, the mean value theorem implies 
           $$
